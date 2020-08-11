@@ -14,7 +14,7 @@ FRST_RGST_DTTM   NOT NULL DATE
 LAST_PROCR_USRNO NOT NULL VARCHAR2(8)  
 LAST_PROC_DTTM   NOT NULL DATE   
  */
-public class prodCtgrInfoDTO {
+public class ProdCtgrInfoDTO {
 	private String ctgrCd;
 	private String ctgrNm;
 	private char uzYn;
@@ -24,7 +24,7 @@ public class prodCtgrInfoDTO {
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
-	public prodCtgrInfoDTO() {
+	public ProdCtgrInfoDTO() {
 		// TODO Auto-generated constructor stub
 	}
 

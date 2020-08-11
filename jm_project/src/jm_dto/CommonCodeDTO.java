@@ -12,7 +12,7 @@ FRST_RGST_DTTM   NOT NULL DATE
 LAST_PROCR_USRNO NOT NULL VARCHAR2(8)  
 LAST_PROC_DTTM   NOT NULL DATE  
  */
-public class commonCodeDTO {
+public class CommonCodeDTO {
 	private String codeId;
 	private String grpCdid;
 	private String codeNm;
@@ -23,7 +23,7 @@ public class commonCodeDTO {
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
-	public commonCodeDTO() {
+	public CommonCodeDTO() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,27 +1,29 @@
 package jm_dto;
-/*    
-이름               널?       유형            
+/*
+ 이름               널?       유형            
 ---------------- -------- ------------- 
 POST_NO          NOT NULL VARCHAR2(8)   
-PROD_CD          NOT NULL VARCHAR2(8)   
+TITLE            NOT NULL VARCHAR2(120) 
 CONTENT          NOT NULL VARCHAR2(300) 
-PROD_GRD         NOT NULL NUMBER(1)     
+VIEW_CNT         NOT NULL NUMBER        
+NOTICE_YN        NOT NULL CHAR(1)       
 FRST_RGSR_USRNO  NOT NULL VARCHAR2(8)   
 FRST_RGST_DTTM   NOT NULL DATE          
 LAST_PROCR_USRNO NOT NULL VARCHAR2(8)   
-LAST_PROC_DTTM   NOT NULL DATE  
+LAST_PROC_DTTM   NOT NULL DATE 
  */
-public class proReviewDTO {
+public class NoticeInfoDTO {
 	private String postNo;
-	private String prodNo;
+	private String title;
 	private String content;
-	private int prodGrd;
+	private int viewCnt;
+	private char noticeYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
-	public proReviewDTO() {
+	public NoticeInfoDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -33,12 +35,12 @@ public class proReviewDTO {
 		this.postNo = postNo;
 	}
 
-	public String getProdNo() {
-		return prodNo;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setProdNo(String prodNo) {
-		this.prodNo = prodNo;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getContent() {
@@ -49,12 +51,20 @@ public class proReviewDTO {
 		this.content = content;
 	}
 
-	public int getProdGrd() {
-		return prodGrd;
+	public int getViewCnt() {
+		return viewCnt;
 	}
 
-	public void setProdGrd(int prodGrd) {
-		this.prodGrd = prodGrd;
+	public void setViewCnt(int viewCnt) {
+		this.viewCnt = viewCnt;
+	}
+
+	public char getNoticeYn() {
+		return noticeYn;
+	}
+
+	public void setNoticeYn(char noticeYn) {
+		this.noticeYn = noticeYn;
 	}
 
 	public String getFrstRgsrUsrno() {
@@ -89,5 +99,4 @@ public class proReviewDTO {
 		this.lastProcDttm = lastProcDttm;
 	}
 
-	
 }
