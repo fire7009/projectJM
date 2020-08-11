@@ -12,7 +12,7 @@
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">로그인</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">회원가입</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">장바구니</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.jsp?jmgroup=khd&work=jm_Cart">장바구니</a></li>
                     </ul>
                 </div>
             </div>
