@@ -1,4 +1,4 @@
-package jm_project;
+package jm_dto;
 
 public class example {
 
