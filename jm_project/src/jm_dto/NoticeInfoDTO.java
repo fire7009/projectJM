@@ -17,7 +17,7 @@ public class NoticeInfoDTO {
 	private String title;
 	private String content;
 	private int viewCnt;
-	private char noticeYn;
+	private String noticeYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
@@ -59,11 +59,11 @@ public class NoticeInfoDTO {
 		this.viewCnt = viewCnt;
 	}
 
-	public char getNoticeYn() {
+	public String getNoticeYn() {
 		return noticeYn;
 	}
 
-	public void setNoticeYn(char noticeYn) {
+	public void setNoticeYn(String noticeYn) {
 		this.noticeYn = noticeYn;
 	}
 

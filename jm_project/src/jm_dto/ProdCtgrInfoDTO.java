@@ -17,8 +17,8 @@ LAST_PROC_DTTM   NOT NULL DATE
 public class ProdCtgrInfoDTO {
 	private String ctgrCd;
 	private String ctgrNm;
-	private char uzYn;
-	private char delYn;
+	private String uzYn;
+	private String delYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
@@ -44,19 +44,19 @@ public class ProdCtgrInfoDTO {
 		this.ctgrNm = ctgrNm;
 	}
 
-	public char getUzYn() {
+	public String getUzYn() {
 		return uzYn;
 	}
 
-	public void setUzYn(char uzYn) {
+	public void setUzYn(String uzYn) {
 		this.uzYn = uzYn;
 	}
 
-	public char getDelYn() {
+	public String getDelYn() {
 		return delYn;
 	}
 
-	public void setDelYn(char delYn) {
+	public void setDelYn(String delYn) {
 		this.delYn = delYn;
 	}
 
@@ -91,5 +91,6 @@ public class ProdCtgrInfoDTO {
 	public void setLastProcDttm(String lastProcDttm) {
 		this.lastProcDttm = lastProcDttm;
 	}
+
 
 }
