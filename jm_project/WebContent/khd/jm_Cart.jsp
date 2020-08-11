@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	int product = Integer.parseInt(request.getParameter("product"));
-	int select = Integer.parseInt(request.getParameter("select"));
+	int select=2;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,13 +40,7 @@ td {
 </head>
 <body id="page-top">
 	
-	<!-- Masthead-->
-	<header class="masthead">
-	<div class="container">
-		<div class="masthead-subheading">JM 조명</div>
-		<div class="masthead-heading text-uppercase">인삿말</div>
-	</div>
-	</header>
+
 
 	<section class="page-section bg-light" id="portfolio">
 	<div class="container">

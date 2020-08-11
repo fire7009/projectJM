@@ -62,9 +62,10 @@
        				
         </section>
         	
- 						<form action="index.jsp?jmgroup=khd&work=jm_Cart"" method="post">
+ 						<form action="<%=request.getContextPath()%>/index.jsp?jmgroup=khd&work=jm_Cart&product=<%=product%>"" method="post">
    							 <input type="image" src="assets/img/shopping/cart.gif" name="Submit" value="submit" align="right">
    						</form>
+   						
        					     <input type="image" src="assets/img/shopping/pay.gif" align="right">
        				
        	
