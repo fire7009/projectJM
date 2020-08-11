@@ -12,8 +12,8 @@ public class UserInfoDTO {
 	private String userDv;
 	private String duplJoinYn;
 	private String withdYn;
-	private String firstRgsrUsrno;
-	private String firstRgstDttm;
+	private String frstRgsrUsrno;
+	private String frstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
@@ -109,20 +109,20 @@ public class UserInfoDTO {
 		this.withdYn = withdYn;
 	}
 
-	public String getFirstRgsrUsrno() {
-		return firstRgsrUsrno;
+	public String getFrstRgsrUsrno() {
+		return frstRgsrUsrno;
 	}
 
-	public void setFirstRgsrUsrno(String firstRgsrUsrno) {
-		this.firstRgsrUsrno = firstRgsrUsrno;
+	public void setFrstRgsrUsrno(String firstRgsrUsrno) {
+		this.frstRgsrUsrno = firstRgsrUsrno;
 	}
 
-	public String getFirstRgstDttm() {
-		return firstRgstDttm;
+	public String getFrstRgstDttm() {
+		return frstRgstDttm;
 	}
 
-	public void setFirstRgstDttm(String firstRgstDttm) {
-		this.firstRgstDttm = firstRgstDttm;
+	public void setFrstRgstDttm(String firstRgstDttm) {
+		this.frstRgstDttm = firstRgstDttm;
 	}
 
 	public String getLastProcrUsrno() {

@@ -10,8 +10,8 @@ public class ProductInfoDTO {
 	private String mainExpYn;
 	private String salesYn;
 	private String delYn;
-	private String firstRgsrUsrno;
-	private String firstRgstDttm;
+	private String frstRgsrUsrno;
+	private String frstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
@@ -92,19 +92,19 @@ public class ProductInfoDTO {
 	}
 
 	public String getFirstRgstUsrno() {
-		return firstRgsrUsrno;
+		return frstRgsrUsrno;
 	}
 
 	public void setFirstRgstUsrno(String firstRgstUsrno) {
-		this.firstRgsrUsrno = firstRgstUsrno;
+		this.frstRgsrUsrno = firstRgstUsrno;
 	}
 
 	public String getFirstRgstDttm() {
-		return firstRgstDttm;
+		return frstRgstDttm;
 	}
 
 	public void setFirstRgstDttm(String firstRgstDttm) {
-		this.firstRgstDttm = firstRgstDttm;
+		this.frstRgstDttm = firstRgstDttm;
 	}
 
 	public String getLastProcrUsrno() {

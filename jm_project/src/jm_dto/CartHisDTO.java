@@ -6,8 +6,8 @@ public class CartHisDTO {
 	private int prodQty;
 	private String ordYn;
 	private String delYn;
-	private String firstRgsrUsrno;
-	private String firstRgstDttm;
+	private String frstRgsrUsrno;
+	private String frstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
@@ -56,20 +56,20 @@ public class CartHisDTO {
 		this.delYn = delYn;
 	}
 
-	public String getFirstRgsrUsrno() {
-		return firstRgsrUsrno;
+	public String getFrstRgsrUsrno() {
+		return frstRgsrUsrno;
 	}
 
-	public void setFirstRgsrUsrno(String firstRgsrUsrno) {
-		this.firstRgsrUsrno = firstRgsrUsrno;
+	public void setFrstRgsrUsrno(String firstRgsrUsrno) {
+		this.frstRgsrUsrno = frstRgsrUsrno;
 	}
 
-	public String getFirstRgstDttm() {
-		return firstRgstDttm;
+	public String getFrstRgstDttm() {
+		return frstRgstDttm;
 	}
 
-	public void setFirstRgstDttm(String firstRgstDttm) {
-		this.firstRgstDttm = firstRgstDttm;
+	public void setFrstRgstDttm(String firstRgstDttm) {
+		this.frstRgstDttm = frstRgstDttm;
 	}
 
 	public String getLastProcrUsrno() {
