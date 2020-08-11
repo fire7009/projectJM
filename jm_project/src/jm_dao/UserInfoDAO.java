@@ -51,7 +51,7 @@ public class UserInfoDAO extends JdbcDAO {
 	   }
 
 	/*
-	rivate String userNo;o
+	String userNo;o
 	private String userId;o
 	private String password;o
 	private String userNm;o
