@@ -12,33 +12,33 @@ LAST_PROCR_USRNO NOT NULL VARCHAR2(8)
 LAST_PROC_DTTM   NOT NULL DATE  
  */
 public class proReviewDTO {
-	private String post_no;
-	private String prod_no;
+	private String postNo;
+	private String prodNo;
 	private String content;
-	private int prod_grd;
-	private String frst_rgsr_usrno;
-	private String frst_rgst_dttm;
-	private String last_procr_usrno;
-	private String last_proc_dttm;
+	private int prodGrd;
+	private String frstRgsrUsrno;
+	private String frstRgstDttm;
+	private String lastProcrUsrno;
+	private String lastProcDttm;
 	
 	public proReviewDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getPost_no() {
-		return post_no;
+	public String getPostNo() {
+		return postNo;
 	}
 
-	public void setPost_no(String post_no) {
-		this.post_no = post_no;
+	public void setPostNo(String postNo) {
+		this.postNo = postNo;
 	}
 
-	public String getProd_no() {
-		return prod_no;
+	public String getProdNo() {
+		return prodNo;
 	}
 
-	public void setProd_no(String prod_no) {
-		this.prod_no = prod_no;
+	public void setProdNo(String prodNo) {
+		this.prodNo = prodNo;
 	}
 
 	public String getContent() {
@@ -49,44 +49,45 @@ public class proReviewDTO {
 		this.content = content;
 	}
 
-	public int getProd_grd() {
-		return prod_grd;
+	public int getProdGrd() {
+		return prodGrd;
 	}
 
-	public void setProd_grd(int prod_grd) {
-		this.prod_grd = prod_grd;
+	public void setProdGrd(int prodGrd) {
+		this.prodGrd = prodGrd;
 	}
 
-	public String getFrst_rgsr_usrno() {
-		return frst_rgsr_usrno;
+	public String getFrstRgsrUsrno() {
+		return frstRgsrUsrno;
 	}
 
-	public void setFrst_rgsr_usrno(String frst_rgsr_usrno) {
-		this.frst_rgsr_usrno = frst_rgsr_usrno;
+	public void setFrstRgsrUsrno(String frstRgsrUsrno) {
+		this.frstRgsrUsrno = frstRgsrUsrno;
 	}
 
-	public String getFrst_rgst_dttm() {
-		return frst_rgst_dttm;
+	public String getFrstRgstDttm() {
+		return frstRgstDttm;
 	}
 
-	public void setFrst_rgst_dttm(String frst_rgst_dttm) {
-		this.frst_rgst_dttm = frst_rgst_dttm;
+	public void setFrstRgstDttm(String frstRgstDttm) {
+		this.frstRgstDttm = frstRgstDttm;
 	}
 
-	public String getLast_procr_usrno() {
-		return last_procr_usrno;
+	public String getLastProcrUsrno() {
+		return lastProcrUsrno;
 	}
 
-	public void setLast_procr_usrno(String last_procr_usrno) {
-		this.last_procr_usrno = last_procr_usrno;
+	public void setLastProcrUsrno(String lastProcrUsrno) {
+		this.lastProcrUsrno = lastProcrUsrno;
 	}
 
-	public String getLast_proc_dttm() {
-		return last_proc_dttm;
+	public String getLastProcDttm() {
+		return lastProcDttm;
 	}
 
-	public void setLast_proc_dttm(String last_proc_dttm) {
-		this.last_proc_dttm = last_proc_dttm;
+	public void setLastProcDttm(String lastProcDttm) {
+		this.lastProcDttm = lastProcDttm;
 	}
+
 	
 }

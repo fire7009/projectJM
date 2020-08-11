@@ -13,90 +13,92 @@ LAST_PROCR_USRNO NOT NULL VARCHAR2(8)
 LAST_PROC_DTTM   NOT NULL DATE  
  */
 public class commonCodeDTO {
-	private String code_id;
-	private String grp_cdid;
-	private String code_nm;
-	private String grp_cdnm;
-	private char uz_yn;
-	private String frst_rgsr_usrno;
-	private String frst_rgst_dttm;
-	private String last_procr_usrno;
-	private String last_proc_dttm;
+	private String codeId;
+	private String grpCdid;
+	private String codeNm;
+	private String grpCdnm;
+	private char uzYn;
+	private String frstRgsrUsrno;
+	private String frstRgstDttm;
+	private String lastProcrUsrno;
+	private String lastProcDttm;
 	
 	public commonCodeDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCode_id() {
-		return code_id;
+	public String getCodeId() {
+		return codeId;
 	}
 
-	public void setCode_id(String code_id) {
-		this.code_id = code_id;
+	public void setCodeId(String codeId) {
+		this.codeId = codeId;
 	}
 
-	public String getGrp_cdid() {
-		return grp_cdid;
+	public String getGrpCdid() {
+		return grpCdid;
 	}
 
-	public void setGrp_cdid(String grp_cdid) {
-		this.grp_cdid = grp_cdid;
+	public void setGrpCdid(String grpCdid) {
+		this.grpCdid = grpCdid;
 	}
 
-	public String getCode_nm() {
-		return code_nm;
+	public String getCodeNm() {
+		return codeNm;
 	}
 
-	public void setCode_nm(String code_nm) {
-		this.code_nm = code_nm;
+	public void setCodeNm(String codeNm) {
+		this.codeNm = codeNm;
 	}
 
-	public String getGrp_cdnm() {
-		return grp_cdnm;
+	public String getGrpCdnm() {
+		return grpCdnm;
 	}
 
-	public void setGrp_cdnm(String grp_cdnm) {
-		this.grp_cdnm = grp_cdnm;
+	public void setGrpCdnm(String grpCdnm) {
+		this.grpCdnm = grpCdnm;
 	}
 
-	public char getUz_yn() {
-		return uz_yn;
+	public char getUzYn() {
+		return uzYn;
 	}
 
-	public void setUz_yn(char uz_yn) {
-		this.uz_yn = uz_yn;
+	public void setUzYn(char uzYn) {
+		this.uzYn = uzYn;
 	}
 
-	public String getFrst_rgsr_usrno() {
-		return frst_rgsr_usrno;
+	public String getFrstRgsrUsrno() {
+		return frstRgsrUsrno;
 	}
 
-	public void setFrst_rgsr_usrno(String frst_rgsr_usrno) {
-		this.frst_rgsr_usrno = frst_rgsr_usrno;
+	public void setFrstRgsrUsrno(String frstRgsrUsrno) {
+		this.frstRgsrUsrno = frstRgsrUsrno;
 	}
 
-	public String getFrst_rgst_dttm() {
-		return frst_rgst_dttm;
+	public String getFrstRgstDttm() {
+		return frstRgstDttm;
 	}
 
-	public void setFrst_rgst_dttm(String frst_rgst_dttm) {
-		this.frst_rgst_dttm = frst_rgst_dttm;
+	public void setFrstRgstDttm(String frstRgstDttm) {
+		this.frstRgstDttm = frstRgstDttm;
 	}
 
-	public String getLast_procr_usrno() {
-		return last_procr_usrno;
+	public String getLastProcrUsrno() {
+		return lastProcrUsrno;
 	}
 
-	public void setLast_procr_usrno(String last_procr_usrno) {
-		this.last_procr_usrno = last_procr_usrno;
+	public void setLastProcrUsrno(String lastProcrUsrno) {
+		this.lastProcrUsrno = lastProcrUsrno;
 	}
 
-	public String getLast_proc_dttm() {
-		return last_proc_dttm;
+	public String getLastProcDttm() {
+		return lastProcDttm;
 	}
 
-	public void setLast_proc_dttm(String last_proc_dttm) {
-		this.last_proc_dttm = last_proc_dttm;
+	public void setLastProcDttm(String lastProcDttm) {
+		this.lastProcDttm = lastProcDttm;
 	}
+
+
 	
 }
