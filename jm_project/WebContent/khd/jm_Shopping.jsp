@@ -11,29 +11,8 @@
        
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="" /></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ml-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li> 
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-subheading">JM 조명</div>
-                <div class="masthead-heading text-uppercase">인삿말</div>
-            </div>
-        </header>
+       
+
        
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
@@ -66,7 +45,7 @@
                     </div>
                     			<div class="portfolio-item">
                     			<p>상품 가격 : <%=product%> 원</p>
-                    			<form action="jm_Cart.jsp?product=<%=product%>" method="post">
+                    			<form action="index.jsp?jmgroup=khd&work=jm_Cart"" method="post">
                     			상품 수량 :  <select name="select" >
         						<option value="1" selected="selected">1</option>
          						<option value="2" >2</option>
