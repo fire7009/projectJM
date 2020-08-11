@@ -12,7 +12,7 @@ public class UserInfoDTO {
 	private String userDv;
 	private String duplJoinYn;
 	private String firstRgsrUsrno;
-	private String firstRgsrDttm;
+	private String firstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
