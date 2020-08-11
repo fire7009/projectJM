@@ -10,7 +10,7 @@ public class ProductInfoDTO {
 	private String mainExpYn;
 	private String salesYn;
 	private String delYn;
-	private String firstRgstUsrno;
+	private String firstRgsrUsrno;
 	private String firstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
