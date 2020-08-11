@@ -11,6 +11,7 @@ public class UserInfoDTO {
 	private String detlAddr;
 	private String userDv;
 	private String duplJoinYn;
+	private String withdYn;
 	private String firstRgsrUsrno;
 	private String firstRgstDttm;
 	private String lastProcrUsrno;
@@ -100,6 +101,14 @@ public class UserInfoDTO {
 		this.duplJoinYn = duplJoinYn;
 	}
 
+	public String getWithdYn() {
+		return withdYn;
+	}
+
+	public void setWithdYn(String withdYn) {
+		this.withdYn = withdYn;
+	}
+
 	public String getFirstRgsrUsrno() {
 		return firstRgsrUsrno;
 	}
@@ -108,12 +117,12 @@ public class UserInfoDTO {
 		this.firstRgsrUsrno = firstRgsrUsrno;
 	}
 
-	public String getFirstRgsrDttm() {
-		return firstRgsrDttm;
+	public String getFirstRgstDttm() {
+		return firstRgstDttm;
 	}
 
-	public void setFirstRgsrDttm(String firstRgsrDttm) {
-		this.firstRgsrDttm = firstRgsrDttm;
+	public void setFirstRgstDttm(String firstRgstDttm) {
+		this.firstRgstDttm = firstRgstDttm;
 	}
 
 	public String getLastProcrUsrno() {

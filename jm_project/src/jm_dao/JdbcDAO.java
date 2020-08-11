@@ -1,6 +1,7 @@
 package jm_dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,61 +15,55 @@ import javax.sql.DataSource;
 //    반환하거나 Connection 인스턴스를 제거하는 메소드 선언
 // => 상속이 목적인 클래스이므로 추상클래스로 선언하는 것을 권장
 public abstract class JdbcDAO {
-	//DataSource 인스턴스(DBCP)를 저장하기 위한 필드
+	// DataSource 인스턴스(DBCP)를 저장하기 위한 필드
 	private static DataSource ds;
-	
+
 	static {
 		try {
-			//WAS에 의해 생성된 DataSource 인스턴스를 반환받아 필드에 저장
-			ds=(DataSource)new InitialContext().lookup("java:comp/env/jdbc/oracle");
+			// WAS에 의해 생성된 DataSource 인스턴스를 반환받아 필드에 저장
+			ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/oracle");
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	//Connection 인스턴스를 반환하는 메소드
+
+	// Connection 인스턴스를 반환하는 메소드
 	public Connection getConnection() throws SQLException {
 		return ds.getConnection();
 	}
-	
-	//JDBC 관련 자원을 제거하는 메소드 - Connection 인스턴스 제거
+
+	// JDBC 관련 자원을 제거하는 메소드 - Connection 인스턴스 제거
 	public void close(Connection con) {
 		try {
-			if(con!=null) con.close();
+			if (con != null)
+				con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void close(Connection con, PreparedStatement pstmt) {
 		try {
-			if(pstmt!=null) pstmt.close();
-			if(con!=null) con.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		try {
-			if(rs!=null) rs.close();
-			if(pstmt!=null) pstmt.close();
-			if(con!=null) con.close();
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
