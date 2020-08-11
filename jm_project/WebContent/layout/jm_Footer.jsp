@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	 <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="text-center">
-                    <h3>회사정보</h3>
+<style type="text/css">
+.footer_wrap {text-align: center; background-color: #2E2E2E; color: white;}
+
+.footer_address{}
+
+.footer_address .content{}
+
+.footer_address .content.mbNone {  }
+</style>
+<div class="footer_wrap">
+
+			<div class="footer_address">
+				<h3>회사정보</h3>
 				<div class="content">
 					<span>상호 : (주)비츠</span><span>대표이사 : 정현해</span><span>개인정보관리자 : 박경석</span><br>
 					<span>대표전화 : <a href="tel:1877-9920">1877-9920</a></span><span>이메일 : <a href="mailto:pks00417@naver.com">pks00417@naver.com</a></span><br>
@@ -18,6 +26,5 @@
 				</div>
 				<cite>Hosting by Makeshop</cite>
                 <cite>copyright(c) VITTZ CO,.LTD. all rights reserved. </cite>
-                </div>
-            </div>
-        </section>
+			</div>
+		</div><!-- // .inner -->
