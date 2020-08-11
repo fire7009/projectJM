@@ -1,39 +1,39 @@
 package jm_dto;
 
 public class UserInfoDTO {
-	private String user_no;
-	private String user_id;
+	private String userNo;
+	private String userId;
 	private String password;
-	private String user_nm;
-	private String cont_addr;
-	private String post_cd;
-	private String bas_addr;
-	private String detl_addr;
-	private String user_dv;
-	private String dupl_join_yn;
-	private String first_rgsr_usrno;
-	private String first_rgsr_dttm;
-	private String last_procr_usrno;
-	private String last_proc_dttm;
+	private String userNm;
+	private String contAddr;
+	private String postCd;
+	private String basAddr;
+	private String detlAddr;
+	private String userDv;
+	private String duplJoinYn;
+	private String firstRgsrUsrno;
+	private String firstRgsrDttm;
+	private String lastProcrUsrno;
+	private String lastProcDttm;
 	
 	public UserInfoDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getUser_no() {
-		return user_no;
+	public String getUserNo() {
+		return userNo;
 	}
 
-	public void setUser_no(String user_no) {
-		this.user_no = user_no;
+	public void setUserNo(String userNo) {
+		this.userNo = userNo;
 	}
 
-	public String getUser_id() {
-		return user_id;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getPassword() {
@@ -44,93 +44,95 @@ public class UserInfoDTO {
 		this.password = password;
 	}
 
-	public String getUser_nm() {
-		return user_nm;
+	public String getUserNm() {
+		return userNm;
 	}
 
-	public void setUser_nm(String user_nm) {
-		this.user_nm = user_nm;
+	public void setUserNm(String userNm) {
+		this.userNm = userNm;
 	}
 
-	public String getCont_addr() {
-		return cont_addr;
+	public String getContAddr() {
+		return contAddr;
 	}
 
-	public void setCont_addr(String cont_addr) {
-		this.cont_addr = cont_addr;
+	public void setContAddr(String contAddr) {
+		this.contAddr = contAddr;
 	}
 
-	public String getPost_cd() {
-		return post_cd;
+	public String getPostCd() {
+		return postCd;
 	}
 
-	public void setPost_cd(String post_cd) {
-		this.post_cd = post_cd;
+	public void setPostCd(String postCd) {
+		this.postCd = postCd;
 	}
 
-	public String getBas_addr() {
-		return bas_addr;
+	public String getBasAddr() {
+		return basAddr;
 	}
 
-	public void setBas_addr(String bas_addr) {
-		this.bas_addr = bas_addr;
+	public void setBasAddr(String basAddr) {
+		this.basAddr = basAddr;
 	}
 
-	public String getDetl_addr() {
-		return detl_addr;
+	public String getDetlAddr() {
+		return detlAddr;
 	}
 
-	public void setDetl_addr(String detl_addr) {
-		this.detl_addr = detl_addr;
+	public void setDetlAddr(String detlAddr) {
+		this.detlAddr = detlAddr;
 	}
 
-	public String getUser_dv() {
-		return user_dv;
+	public String getUserDv() {
+		return userDv;
 	}
 
-	public void setUser_dv(String user_dv) {
-		this.user_dv = user_dv;
+	public void setUserDv(String userDv) {
+		this.userDv = userDv;
 	}
 
-	public String getDupl_join_yn() {
-		return dupl_join_yn;
+	public String getDuplJoinYn() {
+		return duplJoinYn;
 	}
 
-	public void setDupl_join_yn(String dupl_join_yn) {
-		this.dupl_join_yn = dupl_join_yn;
+	public void setDuplJoinYn(String duplJoinYn) {
+		this.duplJoinYn = duplJoinYn;
 	}
 
-	public String getFirst_rgsr_usrno() {
-		return first_rgsr_usrno;
+	public String getFirstRgsrUsrno() {
+		return firstRgsrUsrno;
 	}
 
-	public void setFirst_rgsr_usrno(String first_rgsr_usrno) {
-		this.first_rgsr_usrno = first_rgsr_usrno;
+	public void setFirstRgsrUsrno(String firstRgsrUsrno) {
+		this.firstRgsrUsrno = firstRgsrUsrno;
 	}
 
-	public String getFirst_rgsr_dttm() {
-		return first_rgsr_dttm;
+	public String getFirstRgsrDttm() {
+		return firstRgsrDttm;
 	}
 
-	public void setFirst_rgsr_dttm(String first_rgsr_dttm) {
-		this.first_rgsr_dttm = first_rgsr_dttm;
+	public void setFirstRgsrDttm(String firstRgsrDttm) {
+		this.firstRgsrDttm = firstRgsrDttm;
 	}
 
-	public String getLast_procr_usrno() {
-		return last_procr_usrno;
+	public String getLastProcrUsrno() {
+		return lastProcrUsrno;
 	}
 
-	public void setLast_procr_usrno(String last_procr_usrno) {
-		this.last_procr_usrno = last_procr_usrno;
+	public void setLastProcrUsrno(String lastProcrUsrno) {
+		this.lastProcrUsrno = lastProcrUsrno;
 	}
 
-	public String getLast_proc_dttm() {
-		return last_proc_dttm;
+	public String getLastProcDttm() {
+		return lastProcDttm;
 	}
 
-	public void setLast_proc_dttm(String last_proc_dttm) {
-		this.last_proc_dttm = last_proc_dttm;
+	public void setLastProcDttm(String lastProcDttm) {
+		this.lastProcDttm = lastProcDttm;
 	}
+	
+	
 	
 	
 }
