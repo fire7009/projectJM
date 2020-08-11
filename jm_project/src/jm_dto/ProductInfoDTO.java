@@ -92,11 +92,11 @@ public class ProductInfoDTO {
 	}
 
 	public String getFirstRgstUsrno() {
-		return firstRgstUsrno;
+		return firstRgsrUsrno;
 	}
 
 	public void setFirstRgstUsrno(String firstRgstUsrno) {
-		this.firstRgstUsrno = firstRgstUsrno;
+		this.firstRgsrUsrno = firstRgstUsrno;
 	}
 
 	public String getFirstRgstDttm() {
