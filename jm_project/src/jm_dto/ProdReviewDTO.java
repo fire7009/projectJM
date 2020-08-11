@@ -11,7 +11,7 @@ FRST_RGST_DTTM   NOT NULL DATE
 LAST_PROCR_USRNO NOT NULL VARCHAR2(8)   
 LAST_PROC_DTTM   NOT NULL DATE  
  */
-public class ProReviewDTO {
+public class ProdReviewDTO {
 	private String postNo;
 	private String prodNo;
 	private String content;
@@ -21,7 +21,7 @@ public class ProReviewDTO {
 	private String lastProcrUsrno;
 	private String lastProcDttm;
 	
-	public ProReviewDTO() {
+	public ProdReviewDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -88,8 +88,6 @@ public class ProReviewDTO {
 	public void setLastProcDttm(String lastProcDttm) {
 		this.lastProcDttm = lastProcDttm;
 	}
-
-
-
+	
 	
 }
