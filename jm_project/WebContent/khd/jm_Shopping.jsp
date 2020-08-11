@@ -45,7 +45,7 @@
                     </div>
                     			<div class="portfolio-item">
                     			<p>상품 가격 : <%=product%> 원</p>
-                    			<form action="index.jsp?jmgroup=khd&work=jm_Cart"" method="post">
+                    		
                     			상품 수량 :  <select name="select" >
         						<option value="1" selected="selected">1</option>
          						<option value="2" >2</option>
@@ -53,19 +53,20 @@
          						<option value="4">4</option>
         						<option value="5">5</option>
      							</select>
+     							
                   				</div>
-                  			
+                  				
 
             </div>
    
        				
         </section>
         	
- 						<section class="page-section bg-light" id="contact">
- 						
+ 						<form action="index.jsp?jmgroup=khd&work=jm_Cart"" method="post">
    							 <input type="image" src="assets/img/shopping/cart.gif" name="Submit" value="submit" align="right">
+   						</form>
        					     <input type="image" src="assets/img/shopping/pay.gif" align="right">
-       					</section>
+       				
        	
       
         <!-- Portfolio Modals-->
