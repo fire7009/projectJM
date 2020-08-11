@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+
+
+.login{
+	position:relative;
+	margin:20px 0 50px;
+}
+
+.titleArea{
+	min-height:30px;
+	margin:0;
+	border-bottom:0;
+}
+
+.titleArea h3{
+	display:block;
+	clear:both;
+	margin:0 0 10px;
+	border-bottom:0;
+	text-align:center;
+	font-size:35px;
+	font-weight:400;
+	color:#333;
+	letter-spacing:-0.03em;
+}
+
+.titleArea span{
+	display:block;
+	clear:both;
+	margin:0 0 30px;
+	text-align:center;
+	font-size:12px;
+	font-weight:400;
+	color:#999;
+	letter-spacing:-0.03em;
+}
+
+fieldset{
+	border : 0;
+	position:relative;
+	width:400px;
+	margin:0 auto;
+}
+
+
+fieldset .id,fieldset .password{
+	overflow:hidden;
+	display:block;
+	width:400px;
+	margin:0 0 10px;
+}
+
+#member_id{
+	background:url('../img/login_ico_id.png') 12px 12px no-repeat;
+}
+
+
+#member_passwd{
+	background:url('../img/login_ico_pw.png') 12px 12px no-repeat;
+}
+
+.login input{
+	width:400px;
+	height:45px;
+	padding:2px 2px 2px 75px;
+	border:1px solid #ddd;
+	none;
+	color:#333;
+	font-size:14px;
+	line-height:45px;
+	letter-spacing:0.08em;
+	font-weight:normal;
+	transition:all .5s ease;
+	-webkit-transition:all .5s ease;
+}
+
+input:focus{
+	border:1px solid #333;
+}
+
+.loginBtn:hover{
+	filter:alpha(opacity=80);
+	opacity:.8;
+	-webkit-opacity:.8;
+}
+
+fieldset .security{
+	padding:0 0 0 5px;
+	margin:20px 0 20px;
+	color:#666;
+	font-family:'Nanum Gothic';
+	font-size: 12px;
+}
+
+fieldset .security input{
+	width:13px;
+	height:13px;
+	margin:0 3px 0 0;
+	vertical-align:-3px;
+	*vertical-align:2px;
+}
+	
+fieldset .security label{
+	margin:0 6px 0 0;
+}
+
+fieldset .security img{
+	vertical-align:-1px;
+}
+
+fieldset > a{
+	position:relative;
+	display:block;
+	margin:20px 0 10px;
+}
+
+fieldset ul{
+	display:block;
+	margin:0 0 20px 0;
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	text-align:center;
+}
+
+fieldset li{
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	height:50px;
+	line-height:50px;
+	padding:0 9px 0 13px;
+	background:url("/_wg/img/bar_ddd.gif") no-repeat 0 22px;
+}
+
+fieldset li:first-child{
+	background:none;
+}
+
+fieldset li a{
+	font-family:'Nanum Gothic';
+	font-size : 12px;
+	color:#999;
+	text-decoration:none;
+}
+
+fieldset li a:hover{
+	color:#333;
+	text-decoration:none;
+}
+
+fieldset .link{
+	position:relative;
+	margin:0;
+	padding:0;
+	font-size:11px;
+	color:#555;
+}
+
+fieldset .link a{
+	
+	position:relative;
+	display:block;
+	margin:30px 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
