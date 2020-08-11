@@ -9,22 +9,7 @@ import jm_dto.ProductInfoDTO;
 import jm_dto.UserInfoDTO;
 
 public class ProductInfoDAO extends JdbcDAO {
-	/*
-	private String prodCd;
-	private String ctgrCd;
-	private String prodNm;
-	private int prodPrice;
-	private String prodDetl;
-	private int viewCnt;
-	private String mainExpYn;
-	private String salesYn;
-	private String delYn;
-	private String frstRgsrUsrno;
-	private String frstRgstDttm;
-	private String lastProcrUsrno;
-	private String lastProcDttm;
-	
-	 */
+
 
 	private static ProductInfoDAO _dao;
 
@@ -69,6 +54,15 @@ public class ProductInfoDAO extends JdbcDAO {
 	}
 
 	
+	
+	
+	
+	
+	
+	// 밑에 있는거 수정 필요!!!!!!!!!!!! 조인된 쿼리 잘 모르겠음..
+	
+	
+	
 	//상품정보 상세 조회 
 	//상품코드를 전달받아 ProductInfo 테이블에 저장된 해당 상품코드를 검색하여 반환하는 메소드
 	public ProductInfoDTO selectProductInfo(String prodCd) {
@@ -91,13 +85,20 @@ public class ProductInfoDAO extends JdbcDAO {
 				productInfo = new ProductInfoDTO();
 				productInfo.setProdCd(rs.getString("prodCd"));
 				productInfo.setCtgrCd(rs.getString("ctgrCd"));
-				productInfo.setProdPrice(rs.getString("prodPrice"));
+				productInfo.setProdNm(rs.getString("prodNm"));
+				productInfo.setProdPrice(rs.getInt("prodPrice"));
 				productInfo.setProdDetl(rs.getString("prodDetl"));
-				productInfo.setPostCd(rs.getString("postCd"));
-				productInfo.setBasAddr(rs.getString("basAddr"));
-				productInfo.setDetlAddr(rs.getString("detlAddr"));
-				productInfo.setUserDv(rs.getString("firstRgstDttm"));
-
+				productInfo.setViewCnt(rs.getInt("viewCnt"));
+				productInfo.setMainExpYn(rs.getString("mainExpYn"));
+				productInfo.setSalesYn(rs.getString("salesYn"));
+				 
+				/*
+				private String frstRgsrUsrno;
+				private String frstRgstDttm;
+				private String lastProcrUsrno;
+				private String lastProcDttm;
+				
+				 */
 			}
 		} catch (SQLException e) {
 			System.out.println("[에러]selectProductInfo() 메소드의 SQL 오류 = " + e.getMessage());
