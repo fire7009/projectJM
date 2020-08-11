@@ -12,9 +12,10 @@ public class CartHisDTO {
 	private String lastProcDttm;
 	
 	public CartHisDTO() {
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stu
 	}
 
+	
 	public String getHisSeqno() {
 		return hisSeqno;
 	}
