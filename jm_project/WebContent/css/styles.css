@@ -544,6 +544,7 @@ pre code {
   padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
+  col
 }
 @media (min-width: 576px) {
   .container {
@@ -10007,6 +10008,7 @@ p {
 
 .page-section {
   padding: 6rem 0;
+  color: white;
 }
 .page-section h2.section-heading {
   font-size: 2.5rem;
@@ -10520,43 +10522,5 @@ vertical-align : middle !important;
 }
 
 
-#footer2{overflow:hidden; padding-bottom:34px; position:relative;}
-#footer2 .vittz_merit{}
-#footer2 .vittz_merit dt{font-size: 34px; padding:30px  0;  font-weight: 600; color: #000; text-align: center; font-family: 'Noto Sans KR', sans-serif; line-height:1;}
-#footer2 .vittz_merit dd{float:left; width:406px; overflow:hidden; margin-right:31px; margin-bottom:35px;}
-#footer2 .vittz_merit dd:nth-of-type(3n){margin-right:0;}
-#footer2 .footer_wrap{margin-top:65px; padding-top:25px; border-top:1px solid #d8d8d8;}
-#footer2 .footer_wrap h3{padding:10px 0; color:#424242; font-size:15px; line-height:23px; font-family:'NanumSquareRound',sans-serif; font-weight:700;}
-#footer2 .footer_wrap h3 a:link,
-#footer2 .footer_wrap h3 a:visited,
-#footer2 .footer_wrap h3 a{color:inherit; font-size:inherit;}
-#footer2 .footer_wrap .footer_logo{float:right; margin-top:14px;}
-#footer2 .footer_wrap .footer_menu{float:left; width:210px;}
-#footer2 .footer_wrap .footer_contents{float:left; width:515px;}
-#footer2 .footer_wrap .footer_contents .cs_center{height:86px; font-family:'NanumSquareRound',sans-serif;}
-#footer2 .footer_wrap .footer_contents .cs_center dt{float:left; width:220px;}
-#footer2 .footer_wrap .footer_contents .cs_center dt a{display:inline-block; color:#110252; }
-#footer2 .footer_wrap .footer_contents .cs_center dt a.tel{font-size:39px; font-weight:800; line-height:45px; letter-spacing:-2px;}
-#footer2 .footer_wrap .footer_contents .cs_center dt a.mail{height:24px; line-height:24px; font-size:13px; font-weight:700; }
-#footer2 .footer_wrap .footer_contents .cs_center dt a.mail:before{content:"e-mail : "}
-#footer2 .footer_wrap .footer_contents .cs_center dd{float:left; margin-top:4px;}
-#footer2 .footer_wrap .footer_contents .cs_center dd span.time{display:block; line-height:20px; font-size:13px; font-weight:700; color:#7e7e7e; }
-#footer2 .footer_wrap .footer_contents .cs_center dd span.time span.title{word-spacing:3px; margin-right:6px;}
-#footer2 .footer_wrap .footer_contents .sns_list{padding:3px;}
-#footer2 .footer_wrap .footer_contents .sns_list li{float:left; width:205px; height:41px; margin:0 8px 8px 0; box-sizing:border-box; border:1px solid #e6e6e6; font-family:'NanumSquareRound',sans-serif;}
-#footer2 .footer_wrap .footer_contents .sns_list li a{display:block; width:100%; height:100%; line-height:39px; box-sizing:border-box; padding-left:12px; font-size:13px; font-weight:700; color:#7e7e7e;}
-#footer2 .footer_wrap .footer_contents .sns_list li a:before{display:inline-block; width:25px; height:25px; margin-right:10px; vertical-align:middle; background:url(/design/vittz/191018/img/ic_sns_h25.png) 0 0 no-repeat; content:"";}
-#footer2 .footer_wrap .footer_contents .sns_list li a.fb:before{background-position:0 0;}
-#footer2 .footer_wrap .footer_contents .sns_list li a.insta:before{background-position:0 -25px;}
-#footer2 .footer_wrap .footer_contents .sns_list li a.n_blog:before{background-position:0 -50px;}
-#footer2 .footer_wrap .footer_contents .sns_list li a.youtube:before{background-position:0 -75px;}
-#footer2 .footer_wrap .footer_address{float:left; width:450px; }
-#footer2 .footer_wrap .footer_address .content{margin-bottom:15px;font-family:'NanumSquareRound',sans-serif; font-size:13px; color:#7e7e7e; line-height:25px;}
-#footer2 .footer_wrap .footer_address .content.mbNone { margin-bottom:5px !important; }
-#footer2 .footer_wrap .footer_address .content span{display:inline-block; margin-right:5px;}
-#footer2 .footer_wrap .footer_address .content address{display:block;}
-#footer2 .footer_wrap cite{font-style:normal; font-family: 'Lato', sans-serif; font-size:11px; color:#b1b1b1; text-transform: uppercase;display:block; margin-bottom:5px;}
-
-/* BASIC css end */
 
 
