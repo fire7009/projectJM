@@ -30,7 +30,7 @@ public class UserInfoDAO extends JdbcDAO {
 		try {
 	         con=getConnection();
 	         
-	         String sql="insert into member values(?,?,?,?,?,?,?,?,sysdate,null,1)";
+	         String sql="insert into userInfo values(?,?,?,?,?,?,?,?,sysdate,null,1)";
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setString(1, userInfo.getUserNo());
 	         pstmt.setString(2, userInfo.getUserId());
