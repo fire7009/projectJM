@@ -17,7 +17,7 @@ public class CommonCodeDTO {
 	private String grpCdid;
 	private String codeNm;
 	private String grpCdnm;
-	private char uzYn;
+	private String uzYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
@@ -59,11 +59,11 @@ public class CommonCodeDTO {
 		this.grpCdnm = grpCdnm;
 	}
 
-	public char getUzYn() {
+	public String getUzYn() {
 		return uzYn;
 	}
 
-	public void setUzYn(char uzYn) {
+	public void setUzYn(String uzYn) {
 		this.uzYn = uzYn;
 	}
 
@@ -100,5 +100,4 @@ public class CommonCodeDTO {
 	}
 
 
-	
 }

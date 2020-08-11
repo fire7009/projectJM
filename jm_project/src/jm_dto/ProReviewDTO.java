@@ -89,5 +89,7 @@ public class ProReviewDTO {
 		this.lastProcDttm = lastProcDttm;
 	}
 
+
+
 	
 }
