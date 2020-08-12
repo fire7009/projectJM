@@ -6,7 +6,7 @@
 	request.setCharacterEncoding("utf-8");
 
 	String jmgroup=request.getParameter("jmgroup");
-	if(jmgroup==null) jmgroup="layout";
+	if(jmgroup==null) jmgroup="syd";
 	
 	String work=request.getParameter("work");
 	if(work==null) work="jm_Mainlayout";
