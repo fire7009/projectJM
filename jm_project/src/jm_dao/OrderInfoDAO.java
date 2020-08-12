@@ -2,11 +2,9 @@ package jm_dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import jm_dto.OrderInfoDTO;
-import jm_dto.ProdReviewDTO;
 
 public class OrderInfoDAO extends JdbcDAO {
 	private static OrderInfoDAO _dao;
@@ -63,7 +61,7 @@ public class OrderInfoDAO extends JdbcDAO {
 	}
 	
 	//주문정보 선택 쿼리
-
+	
 	
 	//주문정보 수정 쿼리
 	
