@@ -78,7 +78,7 @@ fieldset {
 								<div class="btn-foot">
 									<a href="javascript:secede();"><img
 										src="btn_h32_secede.gif" alt="회원탈퇴" /></a> <a
-										href="/semiProject3/semi/jm_myPage3.jsp"><img src="btn_h32_cancel.gif"
+										href="/ProjectJM/jm_project/syd/jm_Mainlayout.jsp"><img src="btn_h32_cancel.gif"
 										alt="탈퇴취소" /></a>
 								</div>
 							</fieldset>
