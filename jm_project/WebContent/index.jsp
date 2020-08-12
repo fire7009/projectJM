@@ -25,7 +25,8 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:
+        400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -34,7 +35,7 @@
     <body>
 	<%-- Header 영역 : 회사로고,메뉴,슬라이더등 --%>
 	<div id="header">
-		<jsp:include page="/layout/jm_Header.jsp"/>
+		<jsp:include page="/syd/jm_Header.jsp"/>
 	</div>
 	
 	<%-- Content 영역 : 요청에 대한 결과 출력 --%>
@@ -44,7 +45,7 @@
 	
 	<%-- Footer 영역 : 저작권,약관,개인정보 보호정책,회사주소등 --%>
 	<div id="footer">
-		<jsp:include page="/layout/jm_Footer.jsp"/>
+		<jsp:include page="/syd/jm_Footer.jsp"/>
 	</div>
     </body>
 </html>
