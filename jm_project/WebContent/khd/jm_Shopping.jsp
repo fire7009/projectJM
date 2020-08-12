@@ -1,10 +1,16 @@
+<%@page import="jm_dao.ProductInfoDAO"%>
+<%@page import="jm_dto.ProductInfoDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%!
-	//int prodPrice=Integer.parseInt(request.getParameter("prod_price"));
-	//String img=request.getParameter(request.getParameter("prod_nm"));
-	int product=1000;
-	String img="assets/img/portfolio/01-thumbnail.jpg";
+<%
+
+	//int price=ProductInfoDAO.getDAO().selectIdPrice("1");
+	//String imgNm=ProductInfoDAO.getDAO().selectIdProdNm("1");
+	//String imgPath="assets/img/"+imgNm+".PNG";
+	
+	int price=1000;
+	String imgPath="assets/img/disney.PNG";
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,7 +38,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
+                                <img class="img-fluid" src="<%=imgPath%>" alt="" />
                             </a>
                             
                        
@@ -47,7 +53,7 @@
                         </div>
                     </div>
                     			<div class="portfolio-item">
-                    			<p>상품 가격 : <%=product%> 원</p>
+                    			<p>상품 가격 : <%=price%> 원</p>
                     		
                     			상품 수량 :  <select name="select" >
         						<option value="1" selected="selected">1</option>
@@ -58,18 +64,13 @@
      							</select>
      							
                   				</div>
-                  				
+                  				<button type="button" id="cartBtn"><img src="asset/img/shopping/cart.gif"></button>
 
             </div>
    
        				
         </section>
-        	
- 						<form action="<%=request.getContextPath()%>/index.jsp?jmgroup=khd&work=jm_Cart&product=<%=product%>"" method="post">
-   							 <input type="image" src="assets/img/shopping/cart.gif" name="Submit" value="submit" align="right">
-   						</form>
-   						
-       					     <input type="image" src="assets/img/shopping/pay.gif" align="right">
+
        				
        	
       
@@ -95,7 +96,7 @@
                                     </ul>
                                     <button class="btn btn-primary" data-dismiss="modal" type="button">
                                         <i class="fas fa-times mr-1"></i>
-                                        Close Project
+                                        창닫기
                                     </button>
                                 </div>
                             </div>

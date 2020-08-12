@@ -9,11 +9,12 @@
 	<!-- type 속성 : 자원이름으로 생성되어 반환되는 인스턴스의 자료형을 속성값으로 설정 -->
 	<!-- factory 속성 : 인스턴스 생성을 위한 Factory 클래스를 속성값으로 설정 -->
 	<!-- 기타 속성 : 인스턴스에 필요한 정보를 속성(필드명)과 속성값(필드값)으로 설정 -->
-	<Resource name="jdbc/oracle" auth="Container"
-		type="javax.sql.DataSource"
-		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		driverClassName="oracle.jdbc.driver.OracleDriver"
-		url="www.itwill.site" username="jmdb" password="1234" initialSize="10"
-		maxIdle="10" maxTotal="20" />
+   <Resource name="jdbc/oracle" auth="Container"
+      type="javax.sql.DataSource"
+      factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+      driverClassName="oracle.jdbc.driver.OracleDriver"
+      url="jdbc:oracle:thin:www.itwill.site:1521:xe" username="jmdb" password="1234" initialSize="10"
+      maxIdle="10" maxTotal="20" />
 </Context>
+
 

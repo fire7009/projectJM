@@ -108,4 +108,55 @@ public class ProductInfoDAO extends JdbcDAO {
 		return productInfo;
 	}
 	
+	public String selectIdProdNm(String id) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String prodNm="";
+		try {
+			con=getConnection();
+			
+			String sql="select prod_nm from product_info where prod_cd=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				prodNm=rs.getString(1);
+			}
+		
+		} catch (SQLException e) {
+			System.out.println("[에러]selectIdProduct() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
+			close(con, pstmt);
+		}
+		return prodNm;
+	}
+	
+	public int selectIdPrice(String id) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int price=0;
+		try {
+			con=getConnection();
+			
+			String sql="select prod_price from product_info where prod_cd=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				price=rs.getInt(1);
+			}
+		
+		} catch (SQLException e) {
+			System.out.println("[에러]selectIdProduct() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
+			close(con, pstmt);
+		}
+		return price;
+	}
 }
