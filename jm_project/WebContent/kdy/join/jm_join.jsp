@@ -11,6 +11,21 @@
 
 <link rel="stylesheet" type="text/css" href="../css/joinC.css">
 
+<script type="text/JavaScript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+   <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+   <script type="text/javascript">
+      function openDaumZipAddress() {
+         new daum.Postcode({
+            oncomplete:function(data) {
+               jQuery("#hpost").val(data.zonecode);
+               jQuery("#haddress1").val(data.address);
+               jQuery("#haddress2").focus();
+               console.log(data);
+            }
+         }).open();
+      }
+   </script>
+   
 </head>
 <body>
 
@@ -134,43 +149,43 @@
 							</div></td>
 					</tr>
 					
-					<tr>
-						<th>
-							<div class="tb-l pl-30">
-								<span class="red">*</span> 우편번호
-							</div>
-						</th>
-						<td><div class="tb-l pl-6">
-								<input type="text" name="hpost" form="join_form" id="hpost"
-									class="MS_input_txt" value="" size="7" maxlength="15" readonly />
-								<span><a style="font-size: 0;" href="javascript:post(1);"><img
-										alt="우편번호검색" src="../img/btn_zip.gif" /></a></span>
-							</div></td>
-					</tr>
-					<tr>
-						<th>
-							<div class="tb-l pl-30">
-								<span class="red">*</span> 집주소
-							</div>
-						</th>
-						<td><div class="tb-l pl-6">
-								<input type="text" name="haddress1" form="join_form"
-									id="haddress1" class="MS_input_txt w415" value="" size='40'
-									maxlength="100" readonly="readonly" />
-							</div></td>
-					</tr>
-					<tr>
-						<th>
-							<div class="tb-l pl-30">
-								<span class="red">*</span> 상세주소
-							</div>
-						</th>
-						<td><div class="tb-l pl-6">
-								<input type="text" name="haddress2" form="join_form"
-									id="haddress2" class="MS_input_txt w415" value="" size='40'
-									maxlength="100" />
-							</div></td>
-					</tr>
+				      <tr>
+                           <th>
+                              <div class="tb-l pl-30">
+                                 <span class="red">*</span> 우편번호
+                              </div>
+                           </th>
+                           <td><div class="tb-l pl-6">
+                                 <input type="text" name="hpost" value="" form="join_form" id="hpost"
+                                    class="MS_input_txt" size="7" maxlength="15"
+                                    readonly="readonly"> 
+                                    <input type="button" onClick="openDaumZipAddress();" value = "우편번호검색" />
+                              </div></td>
+                        </tr>
+				                     <tr>
+                           <th>
+                              <div class="tb-l pl-30">
+                                 <span class="red">*</span> 집주소
+                              </div>
+                           </th>
+                           <td><div class="tb-l pl-6">
+                                 <input type="text" name="haddress1" value="" form="join_form"
+                                    id="haddress1" class="MS_input_txt w415" size="40"
+                                    maxlength="100" readonly="readonly">
+                              </div></td>
+                        </tr>
+                        <tr>
+                           <th>
+                              <div class="tb-l pl-30">
+                                 <span class="red">*</span> 상세주소
+                              </div>
+                           </th>
+                           <td><div class="tb-l pl-6">
+                                 <input type="text" name="haddress2" value="" form="join_form"
+                                    id="haddress2" class="MS_input_txt w415" size="40"
+                                    maxlength="100">
+                              </div></td>
+                        </tr>
 					<tr>
 						<th>
 							<div class="tb-l pl-30">

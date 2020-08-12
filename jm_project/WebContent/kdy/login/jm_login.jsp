@@ -3,6 +3,8 @@
 
 <%-- 로그인 페이지 --%>
 
+<%@include file="/syd/jm_Header.jsp" %>
+
 <link rel="stylesheet" type="text/css" href="../css/jm_login.css">
 
 
@@ -57,5 +59,7 @@
 	});
 	
 </script>
+
+<%@include file="/syd/jm_Footer.jsp" %>
 
 
