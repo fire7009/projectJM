@@ -14,12 +14,12 @@
 	<fieldset>
 
 		<label class="id">
-		<input id="member_id" name="member_id"  filter="isFill" label="아이디" msg="" class="inputTypeText"
-			placeholder="" value="" type="text" /></label> 
+		<input id="member_id" name="member_id"  label="아이디" msg="" class="inputTypeText"
+			autocomplete="off"  value="" type="text" /></label> 
 		
 		<label class="password">
-		<input id="member_passwd" name="member_passwd"  filter="isFill&isMin[4]&isMax[16]" label="패스워드" msg=""
-			autocomplete="off" value="" type="password" /></label>
+		<input id="member_passwd" name="member_passwd"  label="패스워드" msg=""
+			autocomplete="off"  type="password" /></label>
 	
 		<a href="#none" 	onclick="MemberAction.login('member_form_1561469369'); return false;"
 			class="loginBtn -mov"> <img src="../img/btn_login.gif" alt="로그인" /></a>
@@ -55,6 +55,7 @@
 
 		$("#login").submit();
 	});
+	
 </script>
 
 

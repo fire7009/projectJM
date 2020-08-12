@@ -24,9 +24,8 @@ public class UserInfoDAO extends JdbcDAO {
 		return _dao;
 	}
 	
-	
-	//회원정보 전달받아  UserInfo 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드 
-	//=> 아이디, 패스워드, 이름, 연락처, 우편번호, 기본주소, 상세주소, 회원구분 
+	// 회원정보 전달받아  UserInfo 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드 
+	// => 아이디, 패스워드, 이름, 연락처, 우편번호, 기본주소, 상세주소, 회원구분 
 	public int insertUserInfo(UserInfoDTO userInfo) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -56,8 +55,46 @@ public class UserInfoDAO extends JdbcDAO {
 	   }
 	
 	
+	// 로그인 할 때 필요함!
+	//회원 아이디를 전달받아 MEMBER 테이블에 저장된 해당 아이디의 회원정보를 
+	//검색하여 반환하는 메소드 - 단일행 검색
+	public UserInfoDTO selectIdIdUserinfo(String userId) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		UserInfoDTO userInfo=null;
+		try {
+			con=getConnection();
+			
+			String sql="select * from User_Info where id=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			rs=pstmt.executeQuery();
+	         
+	         if(rs.next()) {
+	        	userInfo=new UserInfoDTO();
+	        	userInfo.setUserNo(rs.getString("userNo"));
+	        	userInfo.setUserNm(rs.getString("userNm"));
+	        	userInfo.setContAddr(rs.getString("contAddr"));
+	        	userInfo.setPostCd(rs.getString("postCd"));
+	        	userInfo.setBasAddr(rs.getString("basAddr"));
+	        	userInfo.setDetlAddr(rs.getString("detlAddr"));
+	        	userInfo.setUserDv(rs.getString("firstRgstDttm"));
+	        	
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]selectIdUserInfo() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return userInfo;
+	}
 	
-	//회원정보 상세 조회 
+	
+	
+	
+	
 	//회원번호를 전달받아 user_info 테이블에 저장된 해당 아이디의 회원 정보를 검색하여 반환하는 메소드
 	 public UserInfoDTO selectUserInfo(String userNo) {
 	      Connection con=null;
@@ -78,7 +115,6 @@ public class UserInfoDAO extends JdbcDAO {
 	        	userInfo=new UserInfoDTO();
 	        	userInfo.setUserNo(rs.getString("userNo"));
 	        	userInfo.setUserId(rs.getString("userId"));
-	            //userInfo.setPassword(rs.getString("password"));     비밀번호는 필요없으려나????
 	        	userInfo.setUserNm(rs.getString("userNm"));
 	        	userInfo.setContAddr(rs.getString("contAddr"));
 	        	userInfo.setPostCd(rs.getString("postCd"));
