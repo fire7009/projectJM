@@ -2,9 +2,11 @@ package jm_dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import jm_dto.OrderInfoDTO;
+import jm_dto.ProdReviewDTO;
 
 public class OrderInfoDAO extends JdbcDAO {
 	private static OrderInfoDAO _dao;
@@ -21,6 +23,7 @@ public class OrderInfoDAO extends JdbcDAO {
 		return _dao;
 	}
 	
+	//주문정보 추가 쿼리
 	public int insertOrderInfo(OrderInfoDTO orderInfo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -52,11 +55,16 @@ public class OrderInfoDAO extends JdbcDAO {
 			rows = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.out.println("[에러]insertOrdrInfo() 메소드의 SQL 오류" + e.getMessage());
+			System.out.println("[에러]insertOrderInfo() 메소드의 SQL 오류" + e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
 		return rows;
 	}
+	
+	//주문정보 선택 쿼리
+
+	
+	//주문정보 수정 쿼리
 	
 }
