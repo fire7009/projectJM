@@ -47,7 +47,7 @@
 	}
 	
 	//세션에 권한 관련 정보(회원정보) 저장
-	session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdIdUserinfo(id));
+	session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(id));
 	
 	//세션에 저장된 기존 요청페이지의 URL 주소를 반환받아 저장
 	String url=(String)session.getAttribute("url");
