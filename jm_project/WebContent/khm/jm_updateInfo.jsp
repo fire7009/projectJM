@@ -1,11 +1,13 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="/kdy/security/login_check.jspf" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New trial for Bootstrap</title>
+<title>JM 회원정보수정</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -18,13 +20,8 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<link href="css/common.css" rel="stylesheet" type="text/css" />
-<link href="css/css.css" rel="stylesheet" type="text/css" />
-<link href="css/css_02.css" rel="stylesheet" type="text/css" />
-<link href="css/header.css" rel="stylesheet" type="text/css" />
-<link href="css/footer.css" rel="stylesheet" type="text/css" />
-<link href="css/new_join.css" rel="stylesheet" type="text/css" />
-<link href="css/nanumsquareround.css" rel="stylesheet" type="text/css" />
+<link href="/jm_project/kdy/css/joinC.css" rel="stylesheet" type="text/css"/>
+
 
 <script type="text/JavaScript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 	<script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -139,8 +136,8 @@
 										</div>
 									</th>
 									<td><div class="tb-l pl-6">
-											<input type="text" name="hname" id="hname" value="김해미"
-												class="MS_input_txt w137" size="15" maxlength="30"
+											<input type="text" name="user_nm" id="user_nm" value="<%=loginMember.getUserNm()%>">
+												class="MS_input_txt w137"
 												disabled="">
 										</div></td>
 								</tr>
@@ -151,8 +148,8 @@
 										</div>
 									</th>
 									<td><div class="tb-l pl-6">
-											nh@f16b28b6 <input type="hidden" name="id" id="id"
-												value="nh@f16b28b6">
+											<%=loginMember.getUserId()%> <input type="hidden" name="id" id="id"
+												value="<%=loginMember.getUserId()%>">
 
 										</div></td>
 								</tr>
@@ -271,10 +268,7 @@
 												<option value="hanmail.net">hanmail.net</option>
 												<option value="yahoo.com">yahoo.com</option>
 												<option value="nate.com">nate.com</option>
-												<option value="korea.com">korea.com</option>
-												<option value="chol.com">chol.com</option>
 												<option value="gmail.com">gmail.com</option>
-												<option value="netian.com">netian.com</option>
 											</select> <span><a style="font-size: 0;"
 												href="javascript:emailcheck('Y', 'N');"><img alt="중복확인"
 													src="btn_overlap_h19.gif"></a></span>
@@ -285,16 +279,16 @@
 							</tbody>
 						</table>
 					</div>
-d
+
 					<div class="agreeWrap"></div>
 
 					<div class="btnArea">
 						<a href="javascript:history.back()"><img
 							src="btn_modifyCancel.gif" alt="회원가입 취소"></a> <a
 							href="javascript:send();"><img src="btn_modifyOk.gif"
-							alt="회원가입" class="smp-btn-reg"></a> <a
+							alt="회원정보수정" class="smp-btn-reg"></a> <a
 							href="https://www.vittz.co.kr/shop/mypage.html?mypage_type=myexituser"><img
-							src="btn_modifyBye.gif" alt="회원가입" class="smp-btn-reg"></a>
+							src="btn_modifyBye.gif" alt="회원탈퇴" class="smp-btn-reg"></a>
 					</div>
 					</ul>
 				</div>

@@ -7,7 +7,7 @@
 
 	if(loginMember==null) {
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
+		out.println("location.href='"+request.getContextPath()+"#';");
 		out.println("</script>");
 		return;
 	}
