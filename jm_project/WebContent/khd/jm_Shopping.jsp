@@ -50,8 +50,8 @@ table.shop .even {
 	text-align:center;
 }
 </style>
-<form name="productRegister" method="post" action="insertProduct.jsp" >
-<form name="shoppingForm" method="post" action="jm_Cart" >
+
+<form id="shoppingForm">
   <div class="shopping">
        <h2><%=prodNm%> 제품 정보</h2>
 	<table class="shop">
@@ -62,7 +62,7 @@ table.shop .even {
 	</tr>
 	<tr>
 		<th class="title">제품이미지</td>
-		<td class="value"><img src="asset/img/shopping/TEST.jpg" width="200"></td>
+		<td class="value"><img src="<%=request.getContextPath() %>/assets/img/shopping/TEST.jpg" width="200"></td>
 	</tr>
 	<tr>
 		<th class="title">상세설명</td>
@@ -97,23 +97,25 @@ table.shop .even {
 				
 <script type="text/javascript">
 $("#cartBtn").click(function() {
+	$("#shoppingForm").attr("method","post");
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart");
+	
 	$("#shoppingForm").submit();
 });
 
 $(".select").change(function() {
 	//엘리먼트 속성값을 반환받아 저장
 	var select=$(this).val();//변경값
-	alert(select);
-	location.href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&"&select="+select; 
+	//alert(select);
+	//location.href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&"&select="+select; 
 });
 
 </script>
 
 
-       	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
-        <script src="js/scripts.js"></script>
+        <%-- <script src="js/scripts.js"></script> --%>
 
