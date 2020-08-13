@@ -6,10 +6,11 @@
 <%
 
 	//int price=ProductInfoDAO.getDAO().selectIdPrice("1");
-	//String imgNm=ProductInfoDAO.getDAO().selectIdProdNm("1");
-	//String imgPath="assets/img/"+imgNm+".PNG";
+	//String prodNm=ProductInfoDAO.getDAO().selectIdProdNm("1");
+	//String imgPath="assets/img/"+prodNm+".PNG";
 	
 	int price=1000;
+	String prodNm="disney";
 	String imgPath="assets/img/disney.PNG";
 %>
 
@@ -55,7 +56,7 @@
                     			<div class="portfolio-item">
                     			<p>상품 가격 : <%=price%> 원</p>
                     		
-                    			상품 수량 :  <select name="select" >
+                    			상품 수량 :  <select class="select" name="prodCnt" >
         						<option value="1" selected="selected">1</option>
          						<option value="2" >2</option>
          						<option value="3">3</option>
@@ -64,14 +65,27 @@
      							</select>
      							
                   				</div>
-                  				<button type="button" id="cartBtn"><img src="asset/img/shopping/cart.gif"></button>
+                  				
+                  				
 
             </div>
    
-       				
+       			<button type="button"  id="cartBtn" style="float:right" >장바구니</button>	
+        		
+        
         </section>
+        
+				
+<script type="text/javascript">
+$("#cartBtn").click(function() {
+	
+});
 
-       				
+$(".select").change(function(){
+	var select=$(this).val();
+//action jsp 선언해서 db에서 cart 수량 업데이트
+});
+</script>
        	
       
         <!-- Portfolio Modals-->
@@ -119,6 +133,4 @@
     </body>
 </html>
 
-<script type="text/javascript">
-	
-</script>
+
