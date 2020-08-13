@@ -85,7 +85,7 @@ table.shop .even {
 		<td class="value"><%=product.getProdPrice()%></td>
 	</tr>
 </table>
-<%--<a href="index.jsp?workgroup=khd&work=jm_Cart"> --%>
+<%--<a href="index.jsp?workgroup=khd&work=jm_Cart"> ss--%>
 	<div id="btnDiv">
 		<button type="button"  id="cartBtn" style="float:right" >장바구니</button>		
 	</div>
