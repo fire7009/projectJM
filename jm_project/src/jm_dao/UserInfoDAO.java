@@ -25,7 +25,7 @@ public class UserInfoDAO extends JdbcDAO {
 	}
 	
 	// 회원정보 전달받아  UserInfo 테이블에 삽입하고 삽입행의 갯수를 반환하는 메소드 
-	// => 아이디, 패스워드, 이름, 연락처, 우편번호, 기본주소, 상세주소, 회원구분 
+	// => 아이디, 패스워드, 이름, 연락처, 우편번호, 기본주소, 상세주소, 회원구분, 이메일
 	public int insertUserInfo(UserInfoDTO userInfo) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -34,7 +34,7 @@ public class UserInfoDAO extends JdbcDAO {
 	         con=getConnection();
 	         
 	         String sql="insert into userInfo(user_id, password, user_nm, cont_addr, post_cd, bas_addr, "
-	         		+ "detl_addr, user_dv) values(?,?,?,?,?,?,?,?)";
+	         		+ "detl_addr, user_dv, email_addr) values(?,?,?,?,?,?,?,?,?)";
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setString(1, userInfo.getUserId());
 	         pstmt.setString(2, userInfo.getPassword());
@@ -44,6 +44,7 @@ public class UserInfoDAO extends JdbcDAO {
 	         pstmt.setString(6, userInfo.getBasAddr());
 	         pstmt.setString(7, userInfo.getDetlAddr());
 	         pstmt.setString(8, userInfo.getUserDv());
+	         pstmt.setString(9, userInfo.getEmailAddr());
 	         
 	         rows=pstmt.executeUpdate();
 	      } catch (SQLException e) {
@@ -105,7 +106,7 @@ public class UserInfoDAO extends JdbcDAO {
 	         con=getConnection();
 	         
 	         String sql="select user_no, user_id, user_nm, cont_addr, post_cd, bas_addr, detl_addr, to_char(first_rgst_dttm,"
-	         		+ "'yyyy-mm-dd') from user_info where user_no=? ";
+	         		+ "'yyyy-mm-dd'), email_addr from user_info where user_no=? ";
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setString(1, userNo);
 	         
@@ -121,6 +122,7 @@ public class UserInfoDAO extends JdbcDAO {
 	        	userInfo.setBasAddr(rs.getString("basAddr"));
 	        	userInfo.setDetlAddr(rs.getString("detlAddr"));
 	        	userInfo.setUserDv(rs.getString("firstRgstDttm"));
+	        	userInfo.setEmailAddr(rs.getString("emailAddr"));
 	            
 	         }
 	      } catch (SQLException e) {
@@ -142,7 +144,7 @@ public class UserInfoDAO extends JdbcDAO {
 	         con=getConnection();
 	         
 	         String sql="update user_info set user_nm=?, cont_addr=?, post_cd=?"
-	         		+ "bas_addr=?, detl_addr=?, last_procr_usrno=?, last_proc_dttm=sysdate where user_no=?";
+	         		+ "bas_addr=?, detl_addr=?, last_procr_usrno=?, last_proc_dttm=sysdate where user_no=? , email_addr=?";
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setString(1, userInfo.getUserNm());
 	         pstmt.setString(2, userInfo.getContAddr());
@@ -151,6 +153,7 @@ public class UserInfoDAO extends JdbcDAO {
 	         pstmt.setString(5, userInfo.getDetlAddr());
 	         pstmt.setString(6, userInfo.getLastProcrUsrno());
 	         pstmt.setString(7, userInfo.getLastProcDttm());
+	         pstmt.setString(8, userInfo.getEmailAddr());
 	         
 	         rows=pstmt.executeUpdate();
 	      } catch (SQLException e) {

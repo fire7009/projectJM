@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 
-
 <link rel="stylesheet" type="text/css" href="../css/joinC.css">
 <style type="text/css">
 .pagetitle1 {
@@ -17,9 +16,9 @@
 	font-weight: 500;
 	color: #555;
 	text-align: center;
-
 }
 </style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <%-- JQUERY --%>
 <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>   <%-- DAUM API --%>
 
@@ -72,22 +71,23 @@
 	</form>
 	
 	
-	<form name="form1" method="post" id="join_form"
-		action="/shop/idinfo.html" enctype='multipart/form-data' autocomplete="off">
+	
+	<%-- 회원가입 폼 설정 --%>
+	<form name="form1" method="post" id="join_form" 	action="#" enctype='multipart/form-data' autocomplete="off">
 		<input type="hidden" name="resno" value="" /> 
 		<input type="hidden"  name="cur_page" value="" /> 
-			<input type="hidden" name="brandcode" value="" /> 
-			<input type="hidden" name="sslid" value="vittz" /> 
-			<input type="hidden" name="sslip" value="www.vittz.co.kr" />
-			<input type="hidden" name="haddress" id="haddress" value="" /> 
-			<input type="hidden" name="msecure_key" value="" />
-			<input type="hidden" name="loginkeyid" value="" /> 
-			<input type="hidden" name="idcheck" value="" /> 
-			<input type="hidden" name="emailcheck"> 
+		<input type="hidden" name="brandcode" value="" /> 
+		<input type="hidden" name="sslid" value="vittz" /> 
+		<input type="hidden" name="sslip" value="" />
+		<input type="hidden" name="haddress" id="haddress" value="" /> 
+		<input type="hidden" name="msecure_key" value="" />
+		<input type="hidden" name="loginkeyid" value="" /> 
+		<input type="hidden" name="idcheck" value="" /> 
+		<input type="hidden" name="emailcheck"> 
 			
 			
 			<%-- 테이블 테두리 --%>
-			<div class="xans-element- xans-member xans-member-join" align="center">
+			<div class="xans-member-join" align="center">
 
 			<div class="boardView"></div>
 
@@ -96,7 +96,7 @@
 				<table summary="회원정보 중 기본정보 입력란입니다." class="boardView joinForm">
 					<tr>
 						<th>
-							<div class="tb-l pl-30">
+							<div class="tb-l pl-30" id="">
 								<span class="red">*</span> 이름
 							</div>
 						</th>
@@ -255,7 +255,8 @@
 	</form>
 
 <script type="text/javascript">
-$("#id").focus();
+
+$("#hname").focus();
 
 $("#join").submit(function() {
 	var submitResult=true;
@@ -361,3 +362,4 @@ $("#id").keyup(function() {
 
 </body>
 </html>
+<%@include file="/syd/jm_Footer.jsp" %>

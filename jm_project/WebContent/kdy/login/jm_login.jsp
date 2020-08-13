@@ -211,6 +211,4 @@ fieldset .link a{
 	
 </script>
 
-<%@include file="/syd/jm_Footer.jsp" %>
-
 
