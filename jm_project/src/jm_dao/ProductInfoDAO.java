@@ -56,15 +56,8 @@ public class ProductInfoDAO extends JdbcDAO {
 	
 	
 	
-	
-	
-	
-	// 밑에 있는거 수정 필요!!!!!!!!!!!! 조인된 쿼리 잘 모르겠음..
-	
-	
-	
 	//상품정보 상세 조회 
-	//상품코드를 전달받아 ProductInfo 테이블에 저장된 해당 상품코드를 검색하여 반환하는 메소드
+	//상품코드를 전달받아 ProductInfo 테이블에 저장된 해당 상품코드에 해당하는 상품을 검색하여 반환하는 메소드
 	public ProductInfoDTO selectProductInfo(String prodCd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -73,9 +66,7 @@ public class ProductInfoDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "SELECT B.PROD_CD , A.CTGR_NM , B.PROD_NM , B.PROD_PRICE , B.PROD_DETL , B.VIEW_CNT , B.MAIN_EXP_YN\r\n" + 
-					", B.SALES_YN , C.FILE_PATH || '/' || C.SRVR_FILE_NM   FILE_NM , TO_CHAR(B.FRST_RGST_DTTM, 'YYYY.MM.DD')   RGST_DT  FROM PROD_CTGR_INFO A  LEFT OUTER JOIN  PRODUCT_INFO B ON A.CTGR_CD = B.CTGR_CD\r\n" + 
-					" INNER JOIN  PROD_FILE_HIS C ON B.PROD_CD = C.PROD_CD  WHERE B.PROD_CD = ?";
+			String sql = "SELECT PROD_CD,CTGR_CD,PROD_NM,PROD_PRICE,PROD_DETL,VIEW_CNT,MAIN_EXP_YN,SALES_YN FROM PRODUCT_INFO WHERE PROD_CD=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, prodCd);
 
@@ -83,23 +74,16 @@ public class ProductInfoDAO extends JdbcDAO {
 
 			if (rs.next()) {
 				productInfo = new ProductInfoDTO();
-				productInfo.setProdCd(rs.getString("prodCd"));
-				productInfo.setCtgrCd(rs.getString("ctgrCd"));
-				productInfo.setProdNm(rs.getString("prodNm"));
-				productInfo.setProdPrice(rs.getInt("prodPrice"));
-				productInfo.setProdDetl(rs.getString("prodDetl"));
-				productInfo.setViewCnt(rs.getInt("viewCnt"));
-				productInfo.setMainExpYn(rs.getString("mainExpYn"));
-				productInfo.setSalesYn(rs.getString("salesYn"));
-				 
-				/*
-				private String frstRgsrUsrno;
-				private String frstRgstDttm;
-				private String lastProcrUsrno;
-				private String lastProcDttm;
-				
-				 */
+				productInfo.setProdCd(rs.getString("prod_cd"));
+				productInfo.setCtgrCd(rs.getString("ctgr_cd"));
+				productInfo.setProdNm(rs.getString("prod_nm"));
+				productInfo.setProdPrice(rs.getInt("prod_price"));
+				productInfo.setProdDetl(rs.getString("prod_detl"));
+				productInfo.setViewCnt(rs.getInt("view_cnt"));
+				productInfo.setMainExpYn(rs.getString("main_exp_yn"));
+				productInfo.setSalesYn(rs.getString("sales_yn"));
 			}
+			
 		} catch (SQLException e) {
 			System.out.println("[에러]selectProductInfo() 메소드의 SQL 오류 = " + e.getMessage());
 		} finally {
@@ -108,55 +92,4 @@ public class ProductInfoDAO extends JdbcDAO {
 		return productInfo;
 	}
 	
-	public String selectIdProdNm(String id) {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		String prodNm="";
-		try {
-			con=getConnection();
-			
-			String sql="select prod_nm from product_info where prod_cd=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, id);
-			
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
-				prodNm=rs.getString(1);
-			}
-		
-		} catch (SQLException e) {
-			System.out.println("[에러]selectIdProduct() 메소드의 SQL 오류 = "+e.getMessage());
-		} finally {
-			close(con, pstmt);
-		}
-		return prodNm;
-	}
-	
-	public int selectIdPrice(String id) {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		int price=0;
-		try {
-			con=getConnection();
-			
-			String sql="select prod_price from product_info where prod_cd=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, id);
-			
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
-				price=rs.getInt(1);
-			}
-		
-		} catch (SQLException e) {
-			System.out.println("[에러]selectIdProduct() 메소드의 SQL 오류 = "+e.getMessage());
-		} finally {
-			close(con, pstmt);
-		}
-		return price;
-	}
 }

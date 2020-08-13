@@ -68,7 +68,7 @@ td {
 					<tr>
 						<th><%=select%><br>
 						<button>수정</button></th>
-						<th><%=product *= select%></th>
+						<th><%=price *= select%></th>
 						<th><button>삭제</button></th>
 					</tr>
 				</table>

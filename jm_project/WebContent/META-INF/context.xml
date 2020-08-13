@@ -13,7 +13,7 @@
       type="javax.sql.DataSource"
       factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
       driverClassName="oracle.jdbc.driver.OracleDriver"
-      url="jdbc:oracle:thin:www.itwill.site:1521:xe" username="jmdb" password="1234" initialSize="10"
+       url="jdbc:oracle:thin:@www.itwill.site:1521:xe" username="jmdb" password="1234" initialSize="10"
       maxIdle="10" maxTotal="20" />
 </Context>
 
