@@ -6,6 +6,7 @@ public class UserInfoDTO {
 	private String password;
 	private String userNm;
 	private String contAddr;
+	private String emailAddr;
 	private String postCd;
 	private String basAddr;
 	private String detlAddr;
@@ -59,6 +60,15 @@ public class UserInfoDTO {
 
 	public void setContAddr(String contAddr) {
 		this.contAddr = contAddr;
+	}
+	
+
+	public String getEmailAddr() {
+		return emailAddr;
+	}
+
+	public void setEmailAddr(String emailAddr) {
+		this.emailAddr = emailAddr;
 	}
 
 	public String getPostCd() {
