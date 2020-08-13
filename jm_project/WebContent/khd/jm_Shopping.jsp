@@ -106,7 +106,6 @@ $("#cartBtn").click(function() {
 $(".select").change(function() {
 	//엘리먼트 속성값을 반환받아 저장
 	var select=$(this).val();//변경값
-	//alert(select);
 	//location.href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&"&select="+select; 
 });
 
