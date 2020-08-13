@@ -99,7 +99,6 @@ table.shop .even {
 $("#cartBtn").click(function() {
 	$("#shoppingForm").attr("method","post");
 	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart");
-	
 	$("#shoppingForm").submit();
 });
 
