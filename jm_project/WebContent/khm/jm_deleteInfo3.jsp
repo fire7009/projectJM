@@ -31,14 +31,12 @@
 
 <!-- Core theme CSS (includes Bootstrap)-->
 
-
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 <link href="css/css_02.css" rel="stylesheet" type="text/css" />
-<link href="css/header.css" rel="stylesheet" type="text/css" />
-<link href="css/footer.css" rel="stylesheet" type="text/css" />
 <link href="css/new_join.css" rel="stylesheet" type="text/css" />
 <link href="css/nanumsquareround.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <style type="text/css">
@@ -63,8 +61,8 @@ fieldset {
 
 							<div class="d-box">
 								<ul>
-									<li>가시는데 무슨 이유가 필요하겠어요ㅠㅠ
-									<br />ㅂㅂ...
+									<li>앞으로 더 나은 모습으로 고객님을 다시 만날 수 있도록 노력하겠습니다.
+									<br />그동안 이용해주신 것을 진심으로 감사드립니다.
 									</li>
 								</ul>
 							</div>
@@ -77,8 +75,8 @@ fieldset {
 							<fieldset>
 								<div class="btn-foot">
 									<a href="/jm_project/syd/jm_Mainlayout.jsp"><img
-										src="btn_h32_secede.gif" alt="회원탈퇴" /></a> <a
-										href="/jm_project/khm/jm_updateInfo5.jsp"><img src="btn_h32_cancel.gif"
+										src="img/btn_h32_secede.gif" alt="회원탈퇴" /></a> <a
+										href="khm/jm_project/khm/jm_updateInfo5.jsp"><img src="img/btn_h32_cancel.gif"
 										alt="탈퇴취소" /></a>
 								</div>
 							</fieldset>
