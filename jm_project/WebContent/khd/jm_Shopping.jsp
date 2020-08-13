@@ -103,7 +103,7 @@ $("#cartBtn").click(function() {
 });
 
 $(".select").change(function() {
-	//엘리먼트 속성값을 반환받아 저장
+	//엘리먼트 속성값을 반환받아 저장d
 	var select=$(this).val();//변경값
 	//location.href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&"&select="+select; 
 });
