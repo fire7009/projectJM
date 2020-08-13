@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	int price = 1000;
-	int select=2;
-	String prodNm=request.getParameter("prodNm");
+	int select=Integer.parseInt(request.getParameter("select"));
+	int price=Integer.parseInt(request.getParameter("price"));
 %>
 
 <style type="text/css">
@@ -64,7 +63,7 @@ td {
 					<tr>
 						<th><%=select%><br>
 						<button>수정</button></th>
-						<th><%=price *= select%></th>
+						<th><%=price %></th>
 						<th><button>삭제</button></th>
 					</tr>
 				</table>

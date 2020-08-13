@@ -8,7 +8,6 @@
 	int price=product.getProdPrice();
 	String prodNm=product.getProdNm();
 	
-	
 	String imgPath="assets/img/shopping"+prodNm+".jpg";
 %>
 
@@ -62,7 +61,7 @@ table.shop .even {
 	</tr>
 	<tr>
 		<th class="title">제품이미지</td>
-		<td class="value"><img src="<%=request.getContextPath() %>/assets/img/shopping/TEST.jpg" width="200"></td>
+		<td class="value">		<img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg"alt="" /></td>
 	</tr>
 	<tr>
 		<th class="title">상세설명</td>
@@ -71,7 +70,7 @@ table.shop .even {
 	<tr>
 		<th class="title">상품수량선택</td>
 		<td class="prod_select">
-			<select class="select" name="prodCnt" >
+			<select class="select" name="select" >
         		<option value="1" >1</option>
          		<option value="2" >2</option>
          		<option value="3">3</option>
@@ -85,7 +84,7 @@ table.shop .even {
 		<td class="value"><%=product.getProdPrice()%></td>
 	</tr>
 </table>
-<%--<a href="index.jsp?workgroup=khd&work=jm_Cart"> ss--%>
+
 	<div id="btnDiv">
 		<button type="button"  id="cartBtn" style="float:right" >장바구니</button>		
 	</div>
@@ -97,16 +96,15 @@ table.shop .even {
 				
 <script type="text/javascript">
 $("#cartBtn").click(function() {
+	var select=$("select[name=select]").val();
+	var price=<%=product.getProdPrice()%>;
+	
 	$("#shoppingForm").attr("method","post");
-	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart");
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&select="+select+"&price="+price);
 	$("#shoppingForm").submit();
 });
 
-$(".select").change(function() {
-	//엘리먼트 속성값을 반환받아 저장d
-	var select=$(this).val();//변경값
-	//location.href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&"&select="+select; 
-});
+
 
 </script>
 
