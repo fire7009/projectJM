@@ -10,7 +10,16 @@
 
 
 <link rel="stylesheet" type="text/css" href="../css/joinC.css">
+<style type="text/css">
+.pagetitle1 {
+	font-family: 'Noto Sans KR';
+	font-size: 26px;
+	font-weight: 500;
+	color: #555;
+	text-align: center;
 
+}
+</style>
 <script type="text/JavaScript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
    <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
    <script type="text/javascript">
@@ -30,9 +39,11 @@
 <body>
 
 
-	<div class="mem_title" align="center">회원가입</div>
-
-
+	<h2 class="pagetitle1">
+			<span>회원가입</span> MEMBER JOIN
+	</h2>
+	
+	<%-- 주소/ 우편번호 API --%>
 	<form name="iddupop" method="post" action="/shop/iddup.html">
 		<input name="id" type="hidden" value="" /> <input name="mode"
 			type="hidden" value="" />
@@ -58,41 +69,26 @@
 			name="realname" /> <input type="hidden" name="encdata" /> <input
 			type="hidden" name="member_type" value="PERSON" />
 	</form>
+	
+	
 	<form name="form1" method="post" id="join_form"
-		action="/shop/idinfo.html" enctype='multipart/form-data'
-		autocomplete="off">
-		<input type="hidden" name="resno" value="" /> <input type="hidden"
-			name="cur_page" value="" /> <input type="hidden" name="brandcode"
-			value="" /> <input type="hidden" name="sslid" value="vittz" /> <input
-			type="hidden" name="sslip" value="www.vittz.co.kr" /> <input
-			type="hidden" name="haddress" id="haddress" value="" /> <input
-			type="hidden" name="msecure_key" value="" /> <input type="hidden"
-			name="loginkeyid" value="" /> <input type="hidden" name="idcheck"
-			value="" /> <input type="hidden" name="emailcheck"> <input
-			type="hidden" name="junk_member_ok" value="" /> <input type="hidden"
-			name="hiddenres" value="" /> <input type="hidden" name="mem_type"
-			value="PERSON"> <input type="hidden" name="member_join_type"
-			value="NEW" /> <input type="hidden" name="member_join_minor"
-			value="N" /> <input type="hidden" name="use_company_num" value="Y" />
-		<input type="hidden" name="company_num_modify" value="N" /> <input
-			type="hidden" name="admin_type" value="N" /> <input type="hidden"
-			name="old_company_num1" value=""> <input type="hidden"
-			name="old_company_num2" value=""> <input type="hidden"
-			name="old_company_num3" value=""> <input type="hidden"
-			name="old_email" id="old_email" value=""> <input
-			type="hidden" name="etc_phone" id="etc_phone" value="" /> <input
-			type="hidden" name="simple_login" value="" /> <input type="hidden"
-			name="app_os" value="" /> <input type="hidden" name="type"
-			value="ins" /> <input type="hidden" name="first" value="" /> <input
-			type="hidden" name="join_type" value="" /> <input type="hidden"
-			name="data_third_party_agree" value="" /> <input type="hidden"
-			name="data_trust_agree" value="" /> <input type="hidden"
-			name="data_privacy_agree" value="" />
-
-		<div class="xans-element- xans-member xans-member-join" align="center">
+		action="/shop/idinfo.html" enctype='multipart/form-data' autocomplete="off">
+		<input type="hidden" name="resno" value="" /> 
+		<input type="hidden"  name="cur_page" value="" /> 
+			<input type="hidden" name="brandcode" value="" /> 
+			<input type="hidden" name="sslid" value="vittz" /> 
+			<input type="hidden" name="sslip" value="www.vittz.co.kr" />
+			<input type="hidden" name="haddress" id="haddress" value="" /> 
+			<input type="hidden" name="msecure_key" value="" />
+			<input type="hidden" name="loginkeyid" value="" /> 
+			<input type="hidden" name="idcheck" value="" /> 
+			<input type="hidden" name="emailcheck"> 
+			
+			
+			<%-- 테이블 테두리 --%>
+			<div class="xans-element- xans-member xans-member-join" align="center">
 
 			<div class="boardView"></div>
-
 
 			<br> <br>
 			<div class="boardView">
@@ -236,10 +232,7 @@
 									<option value="hanmail.net">hanmail.net</option>
 									<option value="yahoo.com">yahoo.com</option>
 									<option value="nate.com">nate.com</option>
-									<option value="korea.com">korea.com</option>
-									<option value="chol.com">chol.com</option>
 									<option value="gmail.com">gmail.com</option>
-									<option value="netian.com">netian.com</option>
 								</select> <span><a style="font-size: 0;"
 									href="javascript:emailcheck('Y', 'N');"><img alt="중복확인"
 										src="../img/btn_overlap_h19.gif" height="30px" /></a></span>
@@ -249,17 +242,17 @@
 				</table>
 			</div>
 			<br> <br>
+			<%-- 버튼 3개/ 회원가입, 다시입력, 취소 --%>
 			<div id="fs">
-				<a href="#none" onclick="M;" class="loginBtn -mov"> <img
-					src="../img/joinBtn.png" alt="회원가입" width="150px" /></a> <a
-					href="#none" onclick="M;" class="loginBtn -mov"> <img
-					src="../img/resetBtn.png" alt="다시입력" width="150px" /></a> <a
-					href="#none" onclick="M;" class="loginBtn -mov"> <img
-					src="../img/CCBtn.png" alt="취소" width="150px" /></a>
+				<a href="#none" onclick="M;" class="loginBtn"> 
+				<img	src="../img/joinBtn.png" alt="회원가입" width="150px" /></a> 
+				<a	href="#none" onclick="M;" class="resrtBtn ">
+				<img	src="../img/resetBtn.png" alt="다시입력" width="150px" /></a> 
+				<a	href="#none" onclick="M;" class="cancelBtn"> 
+				<img	src="../img/CCBtn.png" alt="취소" width="150px" /></a>
 			</div>
 	</form>
 
-	<%--  참고용 소스
 <script type="text/javascript">
 $("#id").focus();
 
@@ -362,13 +355,8 @@ $("#id").keyup(function() {
 	}
 });
 
-$("#postSearch").click(function() {
-	window.open("<%=request.getContextPath()%>/site/member/post_search.jsp"
-		,"postSearch","width=550,height=580,left=350,top=30");
-});
 </script>
 
---%>
 
 </body>
 </html>

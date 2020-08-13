@@ -17,8 +17,8 @@
 	}
 
 	//입력값을 반환받아 저장
-	String id=request.getParameter("id");
-	String password=Utility.encrypt(request.getParameter("password"));
+	String id=request.getParameter("member_id");
+	String password=Utility.encrypt(request.getParameter("member_passwd"));
 	
 	//인증처리 - 아이디와 비밀번호 비교
 	
@@ -29,7 +29,7 @@
 	UserInfoDTO userInfo=UserInfoDAO.getDAO().selectIdIdUserinfo(id);
 	if(userInfo==null) {
 		session.setAttribute("message", "입력한 아이디가 존재하지 않습니다.");
-		session.setAttribute("id", id);
+		session.setAttribute("member_id", id);
 		out.println("<script type='text/javascript'>");
 		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=member&work=member_login';");
 		out.println("</script>");
@@ -39,7 +39,7 @@
 	//비밀번호에 대한 인증 처리
 	if(!userInfo.getPassword().equals(password)) {//비밀번호에 대한 인증 실패
 		session.setAttribute("message", "입력한 아이디가 없거나 비밀번호가 맞지 않습니다.");
-		session.setAttribute("id", id);
+		session.setAttribute("member_id", id);
 		out.println("<script type='text/javascript'>");
 		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=member&work=member_login';");
 		out.println("</script>");

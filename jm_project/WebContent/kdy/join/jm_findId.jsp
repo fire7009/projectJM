@@ -271,8 +271,6 @@ margin:0 5px;
     margin: 0 5px;
 }
 
-
-
 </style>
 </head>
 <body>
@@ -284,21 +282,21 @@ margin:0 5px;
 					<span>아이디/비밀번호 찾기</span> ID/PASSWORD SEARCH
 				</h2>
 
-				<form name="form1" method="post" action="/shop/lostpass.html"
-					target="loginiframe">
-					<input type="hidden" name="focus_ok"> <input type="hidden"
-						name="msecure_key"> <input type="hidden" name="sslid"
-						value="vittz"> <input type="hidden" name="sslip"
-						value="www.vittz.co.kr"> <input type="hidden" name="mail">
-					<input type="hidden" name="authtext" value=""> <input
-						type="hidden" name="authid"> <input type="hidden"
-						name="find_type" value="find_pw" />
+				<form name="form1" method="post" action="/shop/lostpass.html"	target="loginiframe">
+					<input type="hidden" name="focus_ok"> 
+					<input type="hidden"	name="msecure_key"> 
+					<input type="hidden" name="sslid"	value="vittz"> 
+					<input type="hidden" name="sslip"	value="www.vittz.co.kr"> 
+					<input type="hidden" name="mail">
+					<input type="hidden" name="authtext" value=""> 
+					<input type="hidden" name="authid"> 
+					<input type="hidden"	name="find_type" value="find_pw" />
+						
 					<div class="member-findid ">
 						<div class="inner">
 							<h3 class="login_tit">아이디 찾기</h3>
 							<div id="find_id" class="find_idpw">
-								<p class="sub-tit">회원가입 시, 입력하신 이름 + 이메일로 아이디를
-									확인하실 수 있습니다.</p>
+								<p class="sub-tit">회원가입 시, 입력하신 이름 + 이메일로 아이디를 확인하실 수 있습니다.</p>
 								
 								<div class="find-info">
 									<table>
@@ -308,14 +306,15 @@ margin:0 5px;
 														class="MS_input_txt" value="" maxlength="30" title="이름"
 														placeholder="">
 												</div></td>
-										</tr>
+										<tr/>
 										<tr height="38" id="find_id_email_wrap">
 											<th><div>이메일</div></th>
 											<td><div>
 													<input type="text" id="find_id_email" name="find_id_email"
 														class="MS_input_txt" value="" maxlength="80"
 														title="이메일 주소" placeholder="">
-												</div></td>
+												  </div>
+											</td>
 										</tr>
 									</table>
 									<br>
@@ -371,7 +370,6 @@ margin:0 5px;
 										</div>
 									</div>
 								</div>
-
 							</div>
 							<!--/#find_pw/-->
 						</div>
@@ -380,7 +378,6 @@ margin:0 5px;
 			</div>
 		</div>
 	</div>
-
 
 </body>
 </html>

@@ -272,42 +272,6 @@
 #join .join-info { margin-top: 40px; margin-bottom: 5px; padding-left: 15px; background: url("/images/d3/modern_simple/bull_terms_h14.gif") no-repeat 0 0; }
 #join .tb-tit { padding: 15px 0 10px 25px; border-width: 1px 1px 2px 1px; border-color: #dedfde #dedfde #3a4452 #dedfde; border-style: solid; color: #575757; font-weight: bold; background: url("/images/d3/modern_simple/bull_tit_h11.gif") no-repeat 10px 14px #f7f7f7; }
 
-/*평생회원*/
-#join .lifetime { margin: 10px 0; }
-#join .lifetime label { display: inline-block; margin-right:40px; }
-#join .lifetime dt { margin: 10px 0 0; color: #000; font-weight: bold; letter-spacing: -1px; text-decoration: underline; }
-#join .lifetime dd { margin: 5px 0 0; color: #626262; font-size: 11px; }
-#join .lifetime dd u,
-#join .lifetime dd span { font-weight: bold; letter-spacing: -1px; }
-
-/* 담당자 정보 입력 */
-#personInfo { margin-bottom: 35px; }
-#personInfo .person-tb { border: 1px solid #dedede; }
-#personInfo .person-tb th, #personInfo .person-tb td { border: 1px solid #dedede; }
-#personInfo .person-tb th { height: 30px; letter-spacing: -1px; vertical-align: middle; border-right: 1px solid #dedede; }
-#personInfo .idpw-info { font-size: 11px; letter-spacing: -1px; }
-
-/* 담당자 정보 입력 */
-#addInfo .addinfo-tb { border: 1px solid #dedede; }
-#addInfo .addinfo-tb th, #personInfo .person-tb td { border: 1px solid #dedede; }
-#addInfo .addinfo-tb th { height: 30px; letter-spacing: -1px; vertical-align: middle; border-right: 1px solid #dedede; }
-#addInfo .addinfo-tb td { padding: 7px 0 6px; }
-
-
-/* 약관 동의 */
-#chkwrap { border:1px solid #dedede; }
-#chkwrap .all-chk { height:43px; line-height:45px; padding-left:20px; font-size:14px; font-weight:bold; color:#000; border-bottom:1px solid #dedede; }
-#chkwrap .all-chk .input-cbox { width:14px; height:14px; *margin-top:0; } 
-#chkwrap .cont ul:after { clear: both; content: ""; display: block; }
-#chkwrap .cont ul { padding-bottom:15px;  width: 600px !important; }
-#chkwrap .cont ul li { float:left; width:300px; line-height:18px; }
-#chkwrap .cont ul li a { display:inline-block; width:71px; height:16px; line-height:20px; *line-height:18px; margin-top:-2px; font-weight:normal; font-size:11px; border:1px solid #bdbec7; background:#fafafa; text-align:center; }
-#chkwrap .cont strong { color:#000; }
-#chkwrap .cont label { font-weight:bold; }
-#chkwrap .cont .marketing { padding-left:30px; border-top:1px dashed #dadada; line-height:18px; }
-#chkwrap .cont .marketing .mk-wrap { height:44px; line-height:46px; }
-#chkwrap .cont .marketing .mk-wrap input { margin-top:-1px; *margin-top:0; }
-
 h4.tit {
     margin-top: 50px;
     margin-bottom: 5px;
@@ -317,17 +281,3 @@ h4.tit {
     color: #333;
 }
 
-/* 이용 약관 */
-#join .privercy-contract textarea { width:97%; height:165px; }
-/* 개인정보 수집이용, 제3제공, 취급위탁 테이블 */
-#join .contract-tbl { width:100%; border-spacing:0; border-collapse:collapse; }
-#join .contract-tbl th,
-#join .contract-tbl td { border:1px solid #e0e0e0; text-align:center; }
-#join .contract-tbl th { background: #fcfcfc; }
-#join .contract-tbl th div { height:41px; line-height:43px; }
-#join .contract-tbl tbody th { font-weight:normal; }
-
-.btm-msg { padding-top:30px; line-height:18px; }
-
-
-/* BASIC css end */

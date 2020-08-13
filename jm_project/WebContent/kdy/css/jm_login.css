@@ -42,7 +42,7 @@ fieldset{
 }
 
 
-fieldset .id,fieldset .password{
+fieldset .id, fieldset  .passwd{
 	overflow:hidden;
 	display:block;
 	width:400px;
@@ -53,7 +53,7 @@ fieldset .id,fieldset .password{
 	background:url('../img/login_ico_id.png') 12px 12px no-repeat;
 }
 
-#member_passwd{
+#member_password{
 	background:url('../img/login_ico_pw.png') 12px 12px no-repeat;
 }
 
