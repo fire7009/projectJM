@@ -40,7 +40,7 @@
 	
 </head>
 <body>
-	<%@include file="/syd/jm_Header.jsp" %>
+	<%@include file="/jm_Header.jsp" %>
 	<div id="contentWrap">
 
 		<div id="contents" class="container">
@@ -295,6 +295,6 @@
 			</form>
 		</div>
 	</div>
-	<%@include file="/syd/jm_Footer.jsp" %>
+	<%@include file="/jm_Footer.jsp" %>
 </body>
 </html>
