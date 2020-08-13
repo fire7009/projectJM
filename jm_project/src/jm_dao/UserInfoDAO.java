@@ -58,7 +58,7 @@ public class UserInfoDAO extends JdbcDAO {
 	// 로그인 할 때 필요함!
 	//회원 아이디를 전달받아 MEMBER 테이블에 저장된 해당 아이디의 회원정보를 
 	//검색하여 반환하는 메소드 - 단일행 검색
-	public UserInfoDTO selectIdIdUserinfo(String userId) {
+	public UserInfoDTO selectIdUserinfo(String userId) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;

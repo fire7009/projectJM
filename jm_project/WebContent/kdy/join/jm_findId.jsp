@@ -9,6 +9,9 @@
 <meta charset="EUC-KR">
 <title>아이디 찾기</title>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<%-- 아이디, 비번 찾기 CSS --%>
 <style type="text/css">
 .pagetitle1 {
 	font-family: 'Noto Sans KR';
@@ -272,8 +275,6 @@ margin:0 5px;
 }
 
 </style>
-</head>
-<body>
 
 	<div id="contentWrapper">
 		<div id="contentWrap">
@@ -281,19 +282,20 @@ margin:0 5px;
 				<h2 class="pagetitle1">
 					<span>아이디/비밀번호 찾기</span> ID/PASSWORD SEARCH
 				</h2>
-
+<%-- 
 				<form name="form1" method="post" action="/shop/lostpass.html"	target="loginiframe">
 					<input type="hidden" name="focus_ok"> 
 					<input type="hidden"	name="msecure_key"> 
 					<input type="hidden" name="sslid"	value="vittz"> 
-					<input type="hidden" name="sslip"	value="www.vittz.co.kr"> 
 					<input type="hidden" name="mail">
 					<input type="hidden" name="authtext" value=""> 
 					<input type="hidden" name="authid"> 
 					<input type="hidden"	name="find_type" value="find_pw" />
-						
+					
+--%>				
 					<div class="member-findid ">
 						<div class="inner">
+							
 							<h3 class="login_tit">아이디 찾기</h3>
 							<div id="find_id" class="find_idpw">
 								<p class="sub-tit">회원가입 시, 입력하신 이름 + 이메일로 아이디를 확인하실 수 있습니다.</p>
@@ -347,7 +349,7 @@ margin:0 5px;
 												<tr class="user-name">
 													<th scope="row"><div>아이디</div></th>
 													<td><div>
-															<input type="text" name="user_id" id="user_id" value=""
+															<input type="text" name="user_id" id="user_id" value="<% %>"
 																class="MS_input_txt" size="10" maxlength="20" />
 														</div></td>
 												</tr>
@@ -378,6 +380,5 @@ margin:0 5px;
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
