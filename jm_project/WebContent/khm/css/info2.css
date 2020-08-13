@@ -1,0 +1,242 @@
+/* BASIC css start */
+/***추가CSS***/
+.new-privercy-contract textarea {height:150px !Important;}
+
+.new-btn-area a {
+    display: block;
+    width: 234px;
+    height: 64px;
+    line-height: 66px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    background: none !Important;
+    border: none !Important;
+}
+
+.MS_radio {margin-left:10px; margin-right:2px;}
+
+.MS_select.MS_birthday {margin-left:10px; margin-right:3px;}
+
+.MS_select.MS_birthday:first-child {margin-left:0px;}
+
+.MS_input_txt.w137 {min-width:180px;}
+
+.member_join h3 {
+	float:left;
+}
+.member_join .chkAdd {
+	float:right;
+	margin:34px 0 0;
+	color:#34a7b3;
+	font-size:12px;
+}
+.member_join div.boardView {
+	clear:both;
+	margin-top:18px;
+}
+.member_join table.boardView {
+	border-collapse:collapse;
+	border:1px solid #ddd;
+}
+.member_join table.boardView input, .member_join table.boardView textarea {
+	border:1px solid #bcbcbc;
+	background:#fff;
+	color:#202020;
+	padding:1px 0 2px 4px;
+}
+.member_join table.boardView input {
+	border:1px solid #ddd;
+	height:29px;
+	line-height:29px;
+	padding:0 5px;
+}
+.member_join table.boardView select {
+	border:1px solid #ddd;
+	height:31px;
+	line-height:31px;
+	padding:0 5px;
+}
+.member_join table.boardView th {
+	width:148px;
+	padding:15px;
+	text-align:left;
+	border-bottom:1px solid #e6e6e6;
+	color:#555;
+	font-weight:normal;
+	background:#f7f7f7;
+	font-size:14px;
+	font-weight:600;
+}
+.member_join table.boardView td {
+	padding:15px;
+	border-bottom:1px solid #e6e6e6;
+	font-size:14px;
+	color:#8b8b8c;
+}
+.member_join table.boardView td fieldset {
+	width:580px;
+}
+.member_join table.boardView td.write {
+	width:100%;
+}
+.member_join table.boardView td img {
+	vertical-align:middle;
+}
+.member_join table.boardView thead th {
+	border-bottom:1px solid #bfc5c5;
+}
+.member_join table.boardView thead td {
+	border-bottom:1px solid #bfc5c5;
+}
+.member_join table.boardView tfoot th {
+	border-top:1px solid #bfc5c5;
+}
+.member_join table.boardView tfoot td {
+	border-top:1px solid #bfc5c5;
+}
+.member_join table.boardView .first {
+	border-top:0;
+	padding-top:20px;
+}
+.member_join .agree01 {
+	width:100%;
+}
+.member_join .agree02 {
+	width:100%;
+}
+.member_join .agreeWrap {
+	content:"";
+	display:block;
+	clear:both;
+	margin:70px 0 0;
+}
+.member_join .agreeArea {
+	clear:both;
+	padding:20px;
+	background:#f7f7f7;
+	border:1px solid #bfc5c5;
+	border-top:1px solid #333;
+	font-size:12px;
+	line-height:2em;
+	color:#8f8f8f;
+}
+.member_join .agreeArea .agreeInner {
+	overflow:auto;
+	height:140px;
+	padding:20px 20px 37px;
+	border:1px solid #bcbcbc;
+	background:#fff;
+}
+.member_join .agreeArea .agreement {
+	height:500px;
+}
+.member_join .agreeArea>p {
+	font-size:14px;
+	font-weight:600;
+	color:#444;
+	padding:10px 0 0;
+}
+.member_join .agreeArea p span {
+	padding:0 20px 0 0;
+}
+.member_join #hint_answer {
+	width:500px;
+}
+.member_join #postcode1, .member_join #postcode2 {
+	width:40px;
+	text-align:center;
+	padding:1px 0 2px 0;
+}
+.member_join #addr1, .member_join #addr2 {
+	width:500px;
+	margin:3px 0;
+}
+.member_join #phone1, .member_join #mobile1 {
+	width:60px;
+	margin:0 4px 0 0;
+}
+.member_join #phone2, .member_join #phone3, .member_join #mobile2, .member_join #mobile3 {
+	width:80px;
+	margin:0 4px;
+}
+.member_join #email1, .member_join #email2 {
+	width:150px;
+	margin:0 4px 0 0;
+}
+.member_join #email2 {
+	margin:0 4px;
+}
+.member_join #birth_year, .member_join #marry_year, .member_join #partner_year {
+	width:60px;
+	margin:0 4px 0 0;
+}
+.member_join #birth_month, .member_join #marry_month, .member_join #partner_month, .member_join #birth_day, .member_join #marry_day, .member_join #partner_day {
+	width:30px;
+	margin:0 4px 0 0;
+}
+.member_join #job, .member_join #job_class, .member_join #school, .member_join #region, .member_join #internet, .member_join #child, .member_join #car, .member_join #earning {
+	width:200px;
+}
+.member_join #add1, .member_join #add2, .member_join #add3, .member_join #add4, .member_join #add5, .member_join #add6, .member_join #add7, .member_join #add8, .member_join #add9 {
+	width:500px;
+}
+.member_join .btnArea {
+	clear:both;
+	text-align:center;
+	overflow:hidden;
+	width:100%;
+	padding-top:30px;
+	margin:20px 0 50px;
+}
+.member_join .btnArea.miniType {
+	margin:10px 0 20px;
+	padding:0 15px;
+}
+.member_join .btnArea img {
+	padding:0 1px 0 0;
+	cursor:pointer;
+}
+.member_join .btnArea p.btnRight {
+	float:right;
+}
+.member_join .btnArea p.btnRight img {
+	float:left;
+	padding:0 0 0 1px;
+}
+#realNameAuth p span {
+	display:inline-block;
+	width:80px;
+}
+#ipinWrap img {
+	display:block;
+}
+.mem_title {
+	padding:70px 0 0;
+	font-size:19px;
+	font-weight:600;
+	color:#333;
+	padding-bottom:10px;
+	background:url(/design/vittz/img/mem_title_bg.gif) no-repeat left bottom
+}
+
+
+
+
+/***기본CSS***/
+.info { text-align: left; padding-left: 15px; }
+.infoContent { text-align: left; padding-left: 6px; }
+
+h4{
+    margin-top: 50px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    font-size: 19px !Important;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* BASIC css end */
+

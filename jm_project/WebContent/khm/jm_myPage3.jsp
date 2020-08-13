@@ -93,7 +93,7 @@
 		<div class="shopMain" >
 			<a href="/semiProject2/semi/jm_orderlist2.jsp">
 				<img class="img-fluid" src="assets/img/mP/order.png"/>
-				<div class="order" >
+				<div class="order">
 					<h3>주문내역 조회</h3>
 					<p>
 						고객님께서 주문하신 상품의 주문내역을<br> 확인하실 수 있습니다.

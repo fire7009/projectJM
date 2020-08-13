@@ -20,8 +20,6 @@
 		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		
-		
-		
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/common.css" rel="stylesheet" type="text/css"/>
 		<link href="css/css.css" rel="stylesheet" type="text/css"/>
