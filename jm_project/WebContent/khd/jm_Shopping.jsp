@@ -7,75 +7,113 @@
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo("1");
 	int price=product.getProdPrice();
 	String prodNm=product.getProdNm();
-	String imgPath="assets/img/"+prodNm+".jpg";
+	
+	
+	String imgPath="assets/img/shopping"+prodNm+".jpg";
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <head>
-        <meta charset="utf-8" />
-       
-    </head>
-    <body id="page-top">
-    
 
+<style type="text/css">
+table.shop {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 10px;
+}
+table.shop thead th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+    background: #e7708d;
+    margin: 20px 10px;
+}
+table.shop tbody th {
+    width: 150px;
+    padding: 10px;
+}
+table.shop td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+}
+table.shop .even {
+    background: #fdf3f5;
+}
+.shopping{
+	width: 500px;
+	margin: auto;
+	padding: 50px 20px;
+	text-align:center;
+}
+</style>
+<form name="productRegister" method="post" action="insertProduct.jsp" >
+<form name="shoppingForm" method="post" action="jm_Cart" >
+  <div class="shopping">
        <h2><%=prodNm%> 제품 정보</h2>
-	<table>
+	<table class="shop">
+
 	<tr>
-		<td class="title">제품코드</td>
-		<td class="value"><%=product.getProdCd()%></td>
-	</tr>
-	<tr>
-		<td class="title">제품명</td>
+		<th class="title">제품명</td>
 		<td class="value"><%=product.getProdNm()%></td>
 	</tr>
 	<tr>
-		<td class="title">제품이미지</td>
-		<td class="value"><img src="<%=request.getContextPath() %>/<%=imgPath%>" width="200"></td>
+		<th class="title">제품이미지</td>
+		<td class="value"><img src="asset/img/shopping/TEST.jpg" width="200"></td>
 	</tr>
 	<tr>
-		<td class="title">상세설명</td>
+		<th class="title">상세설명</td>
 		<td class="value"><%=product.getProdDetl().replace("\n", "<br>") %></td>
 	</tr>
 	<tr>
-		<td class="title">제품수량</td>
-		<td class="value"></td>
+		<th class="title">상품수량선택</td>
+		<td class="prod_select">
+			<select class="select" name="prodCnt" >
+        		<option value="1" >1</option>
+         		<option value="2" >2</option>
+         		<option value="3">3</option>
+         		<option value="4">4</option>
+        		<option value="5">5</option>
+        	 </select>
+        	 </td>
 	</tr>
 	<tr>
-		<td class="title">제품가격</td>
+		<th class="title">제품가격</td>
 		<td class="value"><%=product.getProdPrice()%></td>
 	</tr>
 </table>
-
-       
+<%--<a href="index.jsp?workgroup=khd&work=jm_Cart"> --%>
+	<div id="btnDiv">
+		<button type="button"  id="cartBtn" style="float:right" >장바구니</button>		
+	</div>
+	
+</div>
+</form>
      
         
 				
 <script type="text/javascript">
 $("#cartBtn").click(function() {
-	
+	$("#shoppingForm").submit();
 });
 
-$(".select").change(function(){
-	var select=$(this).val();
-//action jsp 선언해서 db에서 cart 수량 업데이트
+$(".select").change(function() {
+	//엘리먼트 속성값을 반환받아 저장
+	var select=$(this).val();//변경값
+	alert(select);
+	location.href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&"&select="+select; 
 });
+
 </script>
-       	
-      
-      
-        
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+       	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-    </body>
-</html>
-
 

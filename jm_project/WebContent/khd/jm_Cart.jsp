@@ -5,11 +5,7 @@
 	int select=2;
 	String prodNm=request.getParameter("prodNm");
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 table {
 	border-collapse: collapse;
@@ -97,5 +93,4 @@ td {
 	<script src="assets/mail/contact_me.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
-</body>
-</html>
+

@@ -5,14 +5,15 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
-	String jmgroup=request.getParameter("jmgroup");
-	if(jmgroup==null) jmgroup="syd";
+	String workgroup=request.getParameter("workgroup");
+	if(workgroup==null) workgroup="syd";
 	
 	String work=request.getParameter("work");
 	if(work==null) work="jm_Mainlayout";
-	
-	String contentPath=jmgroup+"/"+work+".jsp";
+
+	String contentPath=workgroup+"/"+work+".jsp";
 %>    
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,17 +36,17 @@
     <body>
 	<%-- Header 영역 : 회사로고,메뉴,슬라이더등 --%>
 	<div id="header">
-		<jsp:include page="/syd/jm_Header.jsp"/>
+		<jsp:include page="/jm_Header.jsp"/>
 	</div>
 	
 	<%-- Content 영역 : 요청에 대한 결과 출력 --%>
 	<div id="content">
-		<jsp:include page="<%=contentPath %>"/>		
+		<jsp:include page="<%=contentPath%>"/>		
 	</div>
 	
 	<%-- Footer 영역 : 저작권,약관,개인정보 보호정책,회사주소등 --%>
 	<div id="footer">
-		<jsp:include page="/syd/jm_Footer.jsp"/>
+		<jsp:include page="/jm_Footer.jsp"/>
 	</div>
     </body>
 </html>
