@@ -19,6 +19,7 @@
 		session.removeAttribute("id");
 	}
 %> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <%-- 로그인 화면 CSS  --%>
 <style>
@@ -166,7 +167,7 @@ fieldset .link a{
 	</div>
 	<fieldset>
 		<label class="id">
-		<input id="member_id" name="member_id"  label="아이디" msg="" class="inputTypeText"
+		<input id="member_id" name="member_id"  label="아이디" msg=""  class="inputTypeText"
 			autocomplete="off"  value="<%=id %>" type="text" /></label> 
 		
 		<label class="passwd">
