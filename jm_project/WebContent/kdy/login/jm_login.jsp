@@ -158,8 +158,8 @@ fieldset .link a{
 	margin:30px 0 10px;
 }
 </style>
-
-<form id="login" name="loginForm" action="<%=request.getContextPath() %>/jm_project/index.jsp?workgroup=login&work=jm_login_action" method="post">
+<%-- 경로 입력 --%>
+<form id="login" name="loginForm" action="<%=request.getContextPath() %>#" method="post">
 <div class="login">
 	<div class="titleArea">
 		<h3>LOGIN</h3>
