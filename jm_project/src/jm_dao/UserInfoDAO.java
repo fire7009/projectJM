@@ -67,7 +67,7 @@ public class UserInfoDAO extends JdbcDAO {
 		try {
 			con=getConnection();
 			
-			String sql="select * from User_Info where id=?";
+			String sql="select * from User_Info where USER_ID=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, userId);
 			

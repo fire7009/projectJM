@@ -48,8 +48,6 @@ dt {
     line-height: 30px;
 }
 
- 
-
 </style>
 </head>
 <body>
@@ -72,12 +70,11 @@ dt {
 						 
 							<dd class="font-b">감사합니다.</dd>
 							<br>
-							<a href="메인페이지 주소">쇼핑하러 가기</a>
+							<a href="<%=request.getContextPath() %>/index.jsp " >쇼핑하러 가기</a>
 
 						</dl>
 					</div>
 				</div>
-
 			</div>
 			<!-- #content -->
 		</div>

@@ -4,7 +4,6 @@
 /***추가CSS***/
 .new-privercy-contract textarea {height:150px !Important;}
 
-
 .new-btn-area a {
     display: block;
     width: 234px;
@@ -17,12 +16,6 @@
     background: none !Important;
     border: none !Important;
 }
-
-.MS_radio {margin-left:10px; margin-right:2px;}
-
-.MS_select.MS_birthday {margin-left:10px; margin-right:3px;}
-
-.MS_select.MS_birthday:first-child {margin-left:0px;}
 
 .MS_input_txt.w137 {min-width:180px;}
 
@@ -230,6 +223,14 @@
 	color:#333;
 	padding-bottom:10px;
 }
+
+.error {
+	color: red;
+	position: relative;
+	left: 10px;
+	display: none;
+}
+
 .xans-member-join table.memcate {
 }
 .xans-member-join table.memcate th {
