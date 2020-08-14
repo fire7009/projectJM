@@ -7,6 +7,7 @@
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo("1");
 	int price=product.getProdPrice();
 	String prodNm=product.getProdNm();
+	String pcode=product.getProdCd();
 	
 	String imgPath="assets/img/shopping"+prodNm+".jpg";
 %>
@@ -100,7 +101,7 @@ $("#cartBtn").click(function() {
 	var price=<%=product.getProdPrice()%>;
 	
 	$("#shoppingForm").attr("method","post");
-	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&select="+select+"&price="+price);
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&pcode=<%=product.getProdCd()%>");
 	$("#shoppingForm").submit();
 });
 

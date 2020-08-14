@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jm_dto.CartHisDTO;
 
@@ -29,14 +31,16 @@ public class CartHisDAO extends JdbcDAO{
 		PreparedStatement pstmt=null;
 		int rows=0;
 		try {
-			String sql="insert into cart_his valuse(?,?,?,?,?,1,sysdate,1,sysdate)";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, cart.getHisSeqno());
-			pstmt.setString(2, cart.getProdCd());
-			pstmt.setInt(3, cart.getProdQty());
-			pstmt.setString(4, cart.getOrdYn());
-			pstmt.setString(5, cart.getDelYn());
+			con=getConnection();
 			
+			String sql="insert into cart_his(his_seqno,prod_cd,prod_qty,ord_yn,del_yn,"
+					+ "frst_rgsr_usrno,frst_rgst_dttm,last_procr_usrno,last_proc_dttm)"
+					+ "values((select(nvl(max(his_seqno),0)+1)from cart_his),?,?,?,?,'1',sysdate,'1',sysdate)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, cart.getProdCd());
+			pstmt.setInt(2, cart.getProdQty());
+			pstmt.setString(3, cart.getOrdYn());
+			pstmt.setString(4, cart.getDelYn());
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -47,26 +51,30 @@ public class CartHisDAO extends JdbcDAO{
 		return rows;
 	}
 	
+	
 	//선택된 his코드에 해당하는 장바구니 목록 출력
-	public CartHisDTO selectCart(String his) {
+	public List<CartHisDTO> selectCartList(String pcode) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		CartHisDTO cart=null;
+		List<CartHisDTO> cartList=new ArrayList<CartHisDTO>();
 		try {
 			con=getConnection();
 			
-			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where his_seqno=?";
+			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where prod_cd=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1,his);
+			pstmt.setString(1,pcode);
 			
 			rs=pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
+				CartHisDTO cart=new CartHisDTO();
 				cart.setHisSeqno(rs.getString("his_seqno"));
 				cart.setProdCd(rs.getString("prod_cd"));
 				cart.setProdQty(rs.getInt("prod_qty"));
+				cart.setOrdYn(rs.getString("ord_yn"));
 				cart.setDelYn(rs.getString("del_yn"));
+				cartList.add(cart);
 			}
 			
 		} catch (SQLException e) {
@@ -74,7 +82,7 @@ public class CartHisDAO extends JdbcDAO{
 		}finally {
 			close(con,pstmt,rs);
 		}
-		return cart;
+		return cartList;
 	}
 	
 	public int updateQtyCart(int num,String his) {
