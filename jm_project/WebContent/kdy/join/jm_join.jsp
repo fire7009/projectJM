@@ -71,7 +71,7 @@
 	</form>
 	
 <%-- 회원가입 폼 설정 --%>
-<form id="join" name="joinForm" action="<%=request.getContextPath() %>/index.jsp?workgroup=join&work=jm_join_action" method="post">
+<form id="join" name="joinForm" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join_action" method="post">
 	<input type="hidden" name="idCheckResult"  id="idCheckResult" value="0" > 
 		                                            <%-- jm_login_action 으로 넘어가는 경로 설정 다시해야함!!!--%>
 		
@@ -91,7 +91,7 @@
 			</th>
 			<td>
 				<div class="tb-l pl-6">
-					<input type="text" name="hname" id="hname" value="" class="MS_input_txt w137" size="15" maxlength="30" />
+					<input type="text" name="userNm" id="hname" value="" class="MS_input_txt w137" size="15" maxlength="30" />
 					<div id="nameMsg" class="error">이름을 입력해 주세요.</div>
 				</div>
 				
@@ -105,7 +105,7 @@
 			</th>
 			<td>
 				<div class="tb-l pl-6"  >
-					<input type="text" name="id"  id="id"  value=""  class="MS_input_txt w137" size="10" maxlength="20" />
+					<input type="text" name="userId"  id="id"  value=""  class="MS_input_txt w137" size="10" maxlength="20" />
 					<span><a style="font-size: 0;">
 					<img 	alt="중복확인" src="../img/btn_memJoin3.gif" height="30px" id="idCheck" /></a>
 					</span>	(영문소문자/숫자,4~10자) 
@@ -124,7 +124,7 @@
 				</div>
 			</th>
 			<td><div class="tb-l pl-6">
-					<input type="password" name="password1" id="password1"
+					<input type="password" name="password" id="password1"
 						class="MS_input_txt w137" value="" size="15" maxlength="20" /> 
 					<span class="idpw-info"> (영문자/숫자,4~12자) </span>
 	<div id="passwdMsg" class="error">비밀번호를 입력해 주세요.</div>
@@ -153,7 +153,7 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="hpost" value="" form="join_form" id="hpost"
+                               <input type="text" name="postCd" value="" form="join_form" id="hpost"
                                   class="MS_input_txt" size="20" maxlength="20" readonly="readonly"> 
                                 <input type="button" onClick="openDaumZipAddress();" value = "우편번호검색" />
                             	<div id="zipcodeMsg" class="error">우편번호를 입력해 주세요.</div>
@@ -166,7 +166,7 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="haddress1" value="" form="join_form"
+                               <input type="text" name="basAddr" value="" form="join_form"
                                   id="haddress1" class="MS_input_txt w415" size="40"
                                   maxlength="100" readonly="readonly">
                             </div></td>
@@ -178,7 +178,7 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="haddress2" value="" form="join_form"
+                               <input type="text" name="detlAddr" value="" form="join_form"
                                   id="haddress2" class="MS_input_txt w415" size="40"
                                   maxlength="100">
                             </div></td>
@@ -191,7 +191,7 @@
 					</div>
 				</th>
 				<td><div class="tb-l pl-6">
-						<input type="hidden" name="etcphone" form="join_form" value="" />
+						<input type="hidden" name="contAddr" form="join_form" value="" />
 						<select name="etcphone1" id="etcphone1" form="join_form"
 							class="MS_select MS_tel">
 							<option value=''>선택</option>
@@ -219,7 +219,7 @@
 					</div>
 				</th>
 				<td><div class="tb-l pl-6">
-						<input type="hidden" name="oldemail" id="oldemail" value="" />
+						<input type="hidden" name="emailAddr" id="oldemail" value="" />
 						<input type="hidden" name="email" id="email" value="" /> 
 						<input type="text" name="email1" id="email1"
 							onchange="this.form.emailcheck.value=''" class="MS_input_txt"
@@ -247,7 +247,7 @@
 	</div>
 	<br> <br>
 	
-	<%-- 버튼 3개/ 회원가입, 다시입력, 취소 --%>
+	<%-- 버튼 / 회원가입, 다시입력, 취소 --%>
 	<div id="fs">
 		<button type="submit" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
 		<img src="../img/joinBtn.png" alt="회원가입" width="150px" ></button>
@@ -265,7 +265,6 @@
 $("#hname").focus();
 
 $("#join").submit(function() { 
-	
 	var submitResult=true;
 	
 	$(".error").css("display","none");

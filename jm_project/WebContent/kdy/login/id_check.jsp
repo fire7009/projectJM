@@ -3,7 +3,7 @@
 <%@page import="jm_dto.UserInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 아이디를 전달받아 MEMBER 테이블에 저장된 기존 회원정보의 아이디와
+<%-- 아이디를 전달받아 userInfo 테이블에 저장된 기존 회원정보의 아이디와 
 비교하여 사용 가능 여부를 클라이언트에게 전달하는 JSP 문서 --%>
 <%-- => 아이디 사용 가능(미중복) : 사용 가능 메세지 전달 - 부모창의 아이디 관련 입력태그의 입력값 변경 --%>
 <%-- => 아이디 사용 불가능(중복) : 사용 불가능 메세지 전달 - 아이디 입력 후 재요청 --%>    

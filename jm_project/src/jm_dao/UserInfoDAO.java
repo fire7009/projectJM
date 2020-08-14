@@ -33,8 +33,7 @@ public class UserInfoDAO extends JdbcDAO {
 		try {
 	         con=getConnection();
 	         
-	         String sql="insert into userInfo(user_id, password, user_nm, cont_addr, post_cd, bas_addr, "
-	         		+ "detl_addr, user_dv, email_addr) values(?,?,?,?,?,?,?,?,?)";
+	         String sql="insert into userInfo values(?,?,?,?,?,?,?,?,?)";
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setString(1, userInfo.getUserId());
 	         pstmt.setString(2, userInfo.getPassword());
@@ -45,6 +44,7 @@ public class UserInfoDAO extends JdbcDAO {
 	         pstmt.setString(7, userInfo.getDetlAddr());
 	         pstmt.setString(8, userInfo.getUserDv());
 	         pstmt.setString(9, userInfo.getEmailAddr());
+	         
 	         
 	         rows=pstmt.executeUpdate();
 	      } catch (SQLException e) {

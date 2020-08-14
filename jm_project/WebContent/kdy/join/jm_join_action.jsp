@@ -48,6 +48,6 @@
 	
 	//로그인 입력페이지 이동
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/kdy/join/jm_joinComplete';");
+	out.println("location.href='"+request.getContextPath()+"#';");
 	out.println("</script>");
 %>
