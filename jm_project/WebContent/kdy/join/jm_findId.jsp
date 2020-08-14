@@ -1,12 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	
+<%
+	String message=(String)session.getAttribute("message");
+	if(message==null) {
+		message="";
+	} else {
+		session.removeAttribute("message");
+	}
+	String memId=(String)session.getAttribute("memId");
+	String memName=(String)session.getAttribute("memName");
+	if(memName==null) {
+		memName="";
+	} else {
+		session.removeAttribute("memName");
+	}
+%>  
 
 <%-- 아이디 찾기 페이지 --%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
 <title>아이디 찾기</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -380,5 +392,28 @@ margin:0 5px;
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+	
+<script type="text/javascript">
+	$("#memName").focus();
+	
+	$("#findId").submit(function() {
+	
+	    var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
+	    
+		if ($("#memName").val()=="") {
+			alert("이름을 입력해 주세요.");
+			$("#memName").focus();
+			return false ;
+		}else if($("#memEmail").val()=="") {
+			alert("이메일을 입력해 주세요.");
+			$("#memEmail").focus();
+			return false ;
+		}else if(checkEmail.test($("#memEmail").val())!=true) {
+			alert("올바른 형식의 이메일로 입력해 주세요.");
+			$("#memEmail").focus();
+			return false ;
+		}
+		});	
+	
+</script>
+

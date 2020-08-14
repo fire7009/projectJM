@@ -1,27 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/kdy/security/login_check.jspf" %>    
+<%--<%@include file="/kdy/security/login_check.jspf" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>JM 회원정보수정</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../kdy/css/joinC.css">
+<style type="text/css">
+.pagetitle1 {
+	font-family: 'Noto Sans KR';
+	font-size: 26px;
+	font-weight: 500;
+	color: #555;
+	text-align: center;
+}
+</style>
 
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<link href="/jm_project/kdy/css/joinC.css" rel="stylesheet" type="text/css"/>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <%-- JQUERY --%>
 
 <script type="text/JavaScript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 	<script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -40,7 +37,6 @@
 	
 </head>
 <body>
-	<%@include file="/syd/jm_Header.jsp" %>
 	<div id="contentWrap">
 
 		<div id="contents" class="container">
@@ -57,8 +53,9 @@
 			</div>
 
 
-
-			<div class="mem_title">회원 정보 수정</div>
+			<h2 class="pagetitle1">
+			<span>회원가입</span> MEMBER JOIN
+			</h2>
 
 
 			<form name="iddupop" method="post" action="/shop/iddup.html">
@@ -136,7 +133,7 @@
 										</div>
 									</th>
 									<td><div class="tb-l pl-6">
-											<input type="text" name="user_nm" id="user_nm" value="<%=loginMember.getUserNm()%>">
+											<input type="text" name="user_nm" id="user_nm" value="이름"
 												class="MS_input_txt w137"
 												disabled="">
 										</div></td>
@@ -148,8 +145,8 @@
 										</div>
 									</th>
 									<td><div class="tb-l pl-6">
-											<%=loginMember.getUserId()%> <input type="hidden" name="id" id="id"
-												value="<%=loginMember.getUserId()%>">
+											아이디<input type="hidden" name="id" id="id"
+												value="아이디">
 
 										</div></td>
 								</tr>
@@ -295,6 +292,6 @@
 			</form>
 		</div>
 	</div>
-	<%@include file="/syd/jm_Footer.jsp" %>
+	<%@include file="/jm_Footer.jsp" %>
 </body>
 </html>

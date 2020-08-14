@@ -11,7 +11,7 @@
 		// => 자바스트립트를 이용하여 페이지 이동
 		//response.sendRedirect(request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400");
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
+		out.println("location.href='"+request.getContextPath()+"#';");
 		out.println("</script>");
 		return;
 	}
@@ -48,6 +48,6 @@
 	
 	//로그인 입력페이지 이동
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=member&work=member_login';");
+	out.println("location.href='"+request.getContextPath()+"#';");
 	out.println("</script>");
 %>
