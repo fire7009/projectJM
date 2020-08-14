@@ -55,7 +55,7 @@ td {
 					<tr>
 				<td colspan="3">등록된 제품이 하나도 없습니다.</td>
 		<% } else { %>
-			<% for(CartHisDTO cart:cartList){ %>
+			<% for(CartHisDTO cart:cartList){  %>
 					<tr>
 						<th><%=cart.getProdQty()%><br>
 						<button>수정</button></th>
