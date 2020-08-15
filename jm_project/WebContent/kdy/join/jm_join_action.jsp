@@ -53,6 +53,6 @@
 	
 	//로그인 입력페이지 이동
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_login';");
+	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/join&work=jm_joinComplete';");
 	out.println("</script>");
 %>

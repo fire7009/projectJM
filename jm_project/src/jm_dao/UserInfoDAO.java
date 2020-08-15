@@ -73,22 +73,23 @@ public class UserInfoDAO extends JdbcDAO {
 	         
 	         if(rs.next()) {
 	        	userInfo=new UserInfoDTO();
-	        	userInfo.setUserNo(rs.getString("userNo"));
-	        	userInfo.setUserId(rs.getString("userId"));
+				userInfo.setUserNo(rs.getString("user_no"));
+	        	userInfo.setUserId(rs.getString("user_id"));
 	        	userInfo.setPassword(rs.getString("password"));
-	        	userInfo.setUserNm(rs.getString("userNm"));
-	        	userInfo.setContAddr(rs.getString("contAddr"));
-	        	userInfo.setEmailAddr(rs.getString("emailAddr"));
-	        	userInfo.setPostCd(rs.getString("postCd"));
-	        	userInfo.setBasAddr(rs.getString("basAddr"));
-	        	userInfo.setDetlAddr(rs.getString("detlAddr"));
-	        	userInfo.setUserDv(rs.getString("userDv"));
-	        	userInfo.setDuplJoinYn(rs.getString("duplJoinYn"));
-	        	userInfo.setWithdYn(rs.getString("withdYn"));
-	        	userInfo.setFrstRgsrUsrno(rs.getString("frstRgsrUsrno"));
-	        	userInfo.setUserDv(rs.getString("firstRgstDttm"));
-	        	userInfo.setLastProcrUsrno(rs.getString("lastProcrUsrno"));
-	        	userInfo.setLastProcDttm(rs.getString("lastProcDttm"));
+	        	userInfo.setUserNm(rs.getString("user_nm"));
+	        	userInfo.setContAddr(rs.getString("cont_addr"));
+	        	userInfo.setEmailAddr(rs.getString("email_addr"));
+	        	userInfo.setPostCd(rs.getString("post_cd"));
+	        	userInfo.setBasAddr(rs.getString("bas_addr"));
+	        	userInfo.setDetlAddr(rs.getString("detl_addr"));
+	        	userInfo.setUserDv(rs.getString("user_dv"));
+	        	userInfo.setDuplJoinYn(rs.getString("dupl_join_yn"));
+	        	userInfo.setWithdYn(rs.getString("withd_yn"));
+	        	userInfo.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
+	        	userInfo.setUserDv(rs.getString("frst_rgst_dttm"));
+	        	userInfo.setLastProcrUsrno(rs.getString("last_procr_usrno"));
+	        	userInfo.setLastProcDttm(rs.getString("last_proc_dttm"));
+
 			}
 		} catch (SQLException e) {
 			System.out.println("[에러]selectIdUserInfo() 메소드의 SQL 오류 = "+e.getMessage());

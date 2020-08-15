@@ -12,8 +12,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">회원가입</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.jsp?workgroup=kdy/login&work=jm_login">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.jsp?workgroup=kdy/join&work=jm_join">회원가입</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.jsp?workgroup=khd&work=jm_Shopping">장바구니</a></li>
                     </ul>
                 </div>
