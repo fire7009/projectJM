@@ -72,8 +72,8 @@ fieldset .id, fieldset  .passwd{
 	margin:0 0 10px;
 }
 
-#userId{ background:url('../img/login_ico_id.png') 12px 12px no-repeat; }
-#password{ 	background:url('../img/login_ico_pw.png') 12px 12px no-repeat; }
+#userId{ background:url('./img/login_ico_id.png') 12px 12px no-repeat; }
+#password{ 	background:url('./img/login_ico_pw.png') 12px 12px no-repeat; }
 
 .login input{
 	width:400px;
