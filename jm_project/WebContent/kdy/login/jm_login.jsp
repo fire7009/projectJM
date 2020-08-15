@@ -177,11 +177,11 @@ fieldset .link a{
 		<input id="password" name="password"  label="패스워드" msg=""
 			autocomplete="off"  type="password" /></label>
 	
-		<a id="login_btn"  class="loginBtn"> <img src="../img/btn_login.gif" alt="로그인" /></a>
+		<a id="login_btn"  class="loginBtn"> <img src="./img/btn_login.gif" alt="로그인" /></a>
 		<div id="message"><%=message %></div>
 		
 		<p class="security">
-			<img src="../img/ico_access.gif" alt="보안접속" /> 보안접속	</p>
+			<img src="./img/ico_access.gif" alt="보안접속" /> 보안접속	</p>
 
 		<ul>
 			<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findId" >아이디찾기</a></li>
