@@ -12,11 +12,11 @@
 		session.removeAttribute("message");
 	}
 	
-	String id=(String)session.getAttribute("id");
-	if(id==null) {
-		id="";
+	String userId=(String)session.getAttribute("userId");
+	if(userId==null) {
+		userId="";
 	} else {
-		session.removeAttribute("id");
+		session.removeAttribute("userId");
 	}
 %> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -72,8 +72,8 @@ fieldset .id, fieldset  .passwd{
 	margin:0 0 10px;
 }
 
-#member_id{ background:url('../img/login_ico_id.png') 12px 12px no-repeat; }
-#member_passwd{ 	background:url('../img/login_ico_pw.png') 12px 12px no-repeat; }
+#userId{ background:url('../img/login_ico_id.png') 12px 12px no-repeat; }
+#password{ 	background:url('../img/login_ico_pw.png') 12px 12px no-repeat; }
 
 .login input{
 	width:400px;
@@ -158,8 +158,11 @@ fieldset .link a{
 	margin:30px 0 10px;
 }
 </style>
-<%-- 경로 입력 --%>
-<form id="login" name="loginForm" action="<%=request.getContextPath() %>#" method="post">
+
+
+
+<%-- 로그인 폼 / 경로 입력 --%>
+<form id="login" name="loginForm"  action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login_action"  method="post">
 <div class="login">
 	<div class="titleArea">
 		<h3>LOGIN</h3>
@@ -167,11 +170,11 @@ fieldset .link a{
 	</div>
 	<fieldset>
 		<label class="id">
-		<input id="member_id" name="member_id"  label="아이디" msg=""  class="inputTypeText"
-			autocomplete="off"  value="<%=id %>" type="text" /></label> 
+		<input id="userId" name="userId"  label="아이디" msg=""  class="inputTypeText"
+			autocomplete="off"  value="<%=userId %>" type="text" /></label> 
 		
-		<label class="passwd">
-		<input id="member_passwd" name="member_passwd"  label="패스워드" msg=""
+		<label class="password">
+		<input id="password" name="password"  label="패스워드" msg=""
 			autocomplete="off"  type="password" /></label>
 	
 		<a id="login_btn"  class="loginBtn"> <img src="../img/btn_login.gif" alt="로그인" /></a>
@@ -181,7 +184,7 @@ fieldset .link a{
 			<img src="../img/ico_access.gif" alt="보안접속" /> 보안접속	</p>
 
 		<ul>
-			<li><a href="../join/jm_findId.jsp">아이디찾기</a></li>
+			<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findId" >아이디찾기</a></li>
 			<li><a href="../join/jm_findId.jsp">비밀번호찾기</a></li>
 			<li><a href="../join/jm_join.jsp">회원가입</a></li>
 		</ul>
@@ -191,18 +194,18 @@ fieldset .link a{
 </form>
 
 <script type="text/javascript">
-	$("#member_id").focus();
+	$("#userId").focus();
 
 	$("#login_btn").click(function() {
-		if ($("#member_id").val() == "") {
+		if ($("#userId").val() == "") {
 			$("#message").text("아이디를 입력해 주세요.");
-			$("#member_id").focus();
+			$("#userId").focus();
 			return;
 		}
 
-		if ($("#member_passwd").val() == "") {
+		if ($("#password").val() == "") {
 			$("#message").text("비밀번호를 입력해 주세요.");
-			$("#member_passwd").focus();
+			$("#password").focus();
 			return;
 		}
 

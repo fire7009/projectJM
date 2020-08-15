@@ -32,19 +32,17 @@ public class UserInfoDAO extends JdbcDAO {
 		int rows=0;
 		try {
 	         con=getConnection();
-	         
-	         String sql="insert into userInfo values(?,?,?,?,?,?,?,?,?)";
+	         //SQL문 한번 확인 해야함!!
+	         String sql="insert into user_Info values( (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),?,?,?,?,?,?,?,?,'2','N','N','1',sysdate,'1',sysdate)";
 	         pstmt=con.prepareStatement(sql);
 	         pstmt.setString(1, userInfo.getUserId());
 	         pstmt.setString(2, userInfo.getPassword());
 	         pstmt.setString(3, userInfo.getUserNm());
 	         pstmt.setString(4, userInfo.getContAddr());
-	         pstmt.setString(5, userInfo.getPostCd());
-	         pstmt.setString(6, userInfo.getBasAddr());
-	         pstmt.setString(7, userInfo.getDetlAddr());
-	         pstmt.setString(8, userInfo.getUserDv());
-	         pstmt.setString(9, userInfo.getEmailAddr());
-	         
+	         pstmt.setString(5, userInfo.getEmailAddr());
+	         pstmt.setString(6, userInfo.getPostCd());
+	         pstmt.setString(7, userInfo.getBasAddr());
+	         pstmt.setString(8, userInfo.getDetlAddr());
 	         
 	         rows=pstmt.executeUpdate();
 	      } catch (SQLException e) {
@@ -76,13 +74,21 @@ public class UserInfoDAO extends JdbcDAO {
 	         if(rs.next()) {
 	        	userInfo=new UserInfoDTO();
 	        	userInfo.setUserNo(rs.getString("userNo"));
+	        	userInfo.setUserId(rs.getString("userId"));
+	        	userInfo.setPassword(rs.getString("password"));
 	        	userInfo.setUserNm(rs.getString("userNm"));
 	        	userInfo.setContAddr(rs.getString("contAddr"));
+	        	userInfo.setEmailAddr(rs.getString("emailAddr"));
 	        	userInfo.setPostCd(rs.getString("postCd"));
 	        	userInfo.setBasAddr(rs.getString("basAddr"));
 	        	userInfo.setDetlAddr(rs.getString("detlAddr"));
+	        	userInfo.setUserDv(rs.getString("userDv"));
+	        	userInfo.setDuplJoinYn(rs.getString("duplJoinYn"));
+	        	userInfo.setWithdYn(rs.getString("withdYn"));
+	        	userInfo.setFrstRgsrUsrno(rs.getString("frstRgsrUsrno"));
 	        	userInfo.setUserDv(rs.getString("firstRgstDttm"));
-	        	
+	        	userInfo.setLastProcrUsrno(rs.getString("lastProcrUsrno"));
+	        	userInfo.setLastProcDttm(rs.getString("lastProcDttm"));
 			}
 		} catch (SQLException e) {
 			System.out.println("[에러]selectIdUserInfo() 메소드의 SQL 오류 = "+e.getMessage());

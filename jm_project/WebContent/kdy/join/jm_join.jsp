@@ -17,6 +17,7 @@
 	color: #555;
 	text-align: center;
 }
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <%-- JQUERY --%>
@@ -26,10 +27,10 @@
       function openDaumZipAddress() {
          new daum.Postcode({
             oncomplete:function(data) {
-               jQuery("#hpost").val(data.zonecode);
-               jQuery("#haddress1").val(data.address);
-               jQuery("#haddress2").focus();
-               console.log(data);
+               jQuery("#postCd").val(data.zonecode);
+               jQuery("#basAddr").val(data.address);
+               jQuery("#detlAddr").focus();
+               console.log($("#postCd").val());
             }
          }).open();
       }
@@ -153,10 +154,10 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="postCd" value="" form="join_form" id="hpost"
-                                  class="MS_input_txt" size="20" maxlength="20" readonly="readonly"> 
+                               <input type="text" name="postCd" value=""  id="postCd"
+                                  class="MS_input_txt"  maxlength="5" readonly="readonly"> 
                                 <input type="button" onClick="openDaumZipAddress();" value = "우편번호검색" />
-                            	<div id="zipcodeMsg" class="error">우편번호를 입력해 주세요.</div>
+                            	<div id="postCdMsg" class="error">우편번호를 입력해 주세요.</div>
                             </div></td>
                       </tr>
 		                     <tr>
@@ -166,9 +167,10 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="basAddr" value="" form="join_form"
-                                  id="haddress1" class="MS_input_txt w415" size="40"
+                               <input type="text" name="basAddr" value="" 
+                                  id="basAddr" class="MS_input_txt w415" size="40"
                                   maxlength="100" readonly="readonly">
+                                  <div id="basAddrMsg" class="error">기본주소를 입력해 주세요.</div>
                             </div></td>
                       </tr>
                       <tr>
@@ -178,11 +180,10 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="detlAddr" value="" form="join_form"
-                                  id="haddress2" class="MS_input_txt w415" size="40"
-                                  maxlength="100">
+                               <input type="text" name="detlAddr" value=""  id="detlAddr" class="MS_input_txt w415" 
+                               size="40"  maxlength="100">
+                            <div id="detlAddrMsg" class="error">상세주소를 입력해 주세요.</div>
                             </div></td>
-                            <div id="address2Msg" class="error">상세주소를 입력해 주세요.</div>
                       </tr>
 			<tr>
 				<th>
@@ -191,8 +192,8 @@
 					</div>
 				</th>
 				<td><div class="tb-l pl-6">
-						<input type="hidden" name="contAddr" form="join_form" value="" />
-						<select name="etcphone1" id="etcphone1" form="join_form"
+						<input type="hidden" name="contAddr"  value="" />
+						<select name="etcphone1" id="etcphone1" 
 							class="MS_select MS_tel">
 							<option value=''>선택</option>
 							<option value="010">010</option>
@@ -202,9 +203,9 @@
 							<option value="018">018</option>
 							<option value="019">019</option>
 						</select> - 
-						<input type="text" name='etcphone2' form="join_form" 	id="etcphone2" class="MS_input_tel" value="" size="4"
+						<input type="text" name='etcphone2'  	id="etcphone2" class="MS_input_tel" value="" size="4"
 							maxlength="4" /> - 
-						<input type="text" name="etcphone3"  form="join_form" id="etcphone3" class="MS_input_tel" value=""
+						<input type="text" name="etcphone3"   id="etcphone3" class="MS_input_tel" value=""
 							size="4" maxlength="4" minlength=4 />
 					<div id="mobileMsg" class="error">전화번호를 입력해 입력해 주세요.</div>
 			<div id="mobileRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
@@ -219,26 +220,8 @@
 					</div>
 				</th>
 				<td><div class="tb-l pl-6">
-						<input type="hidden" name="emailAddr" id="oldemail" value="" />
-						<input type="hidden" name="email" id="email" value="" /> 
-						<input type="text" name="email1" id="email1"
-							onchange="this.form.emailcheck.value=''" class="MS_input_txt"
-							size="10" maxlength="20" value="" /> <span>@</span> 
-							<span id="direct_email"	style="margin-top: 3px; display: inline-block"> 
-							<input type="text" name="email3" id="email3" class="MS_input_txt"
-							value="" size="15" maxlength="25" onchange="this.form.emailcheck.value=''" />
-						</span> <select name="email2" id="email2" class="MS_select MS_email"
-							style="margin-right: 5px;" onchange="viewdirect()">
-							<option value='direct'>직접입력</option>
-							<option value="naver.com">naver.com</option>
-							<option value="hotmail.com">hotmail.com</option>
-							<option value="hanmail.net">hanmail.net</option>
-							<option value="yahoo.com">yahoo.com</option>
-							<option value="nate.com">nate.com</option>
-							<option value="gmail.com">gmail.com</option>
-						</select> <span><a style="font-size: 0;"
-							href="javascript:emailcheck('Y', 'N');"><img alt="중복확인"
-								src="../img/btn_overlap_h19.gif" height="30px" /></a></span>
+							<input type="text" name="email" id="email" class="MS_input_txt"
+							value="" size="40" maxlength="25" />
 								<div id="emailMsg" class="error">이메일을 입력해 주세요.</div>
 								<div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지 않습니다.</div>
 					</div></td>
@@ -251,10 +234,7 @@
 	<div id="fs">
 		<button type="submit" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
 		<img src="../img/joinBtn.png" alt="회원가입" width="150px" ></button>
-		
-		<button type="reset" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
-		<img src="../img/resetBtn.png" alt="다시입력" width="150px" ></button>
-	
+
 		<a	 href="<%=request.getContextPath() %>/index.jsp " class="cancelBtn"> 
 			<img	src="../img/CCBtn.png" alt="취소" width="150px" /></a>
 	</div>
@@ -282,18 +262,18 @@ $("#join").submit(function() {
 	}
 		
 	var passwdReg=/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_-]).{4,12}$/g;
-	if($("#password1").val()=="") {
+	if($("#password").val()=="") {
 		$("#passwdMsg").css("display","block");
 		submitResult=false;
-	} else if(!passwdReg.test($("#password1").val())) {
+	} else if(!passwdReg.test($("#password").val())) {
 		$("#passwdRegMsg").css("display","block");
 		submitResult=false;
 	} 
 	
-	if($("#password2").val()=="") {
+	if($("#password1").val()=="") {
 		$("#repasswdMsg").css("display","block");
 		submitResult=false;
-	} else if($("#password1").val()!=$("#password2").val()) {
+	} else if($("#password").val()!=$("#password1").val()) {
 		$("#repasswdMatchMsg").css("display","block");
 		submitResult=false;
 	}
@@ -304,10 +284,10 @@ $("#join").submit(function() {
 	}
 	
 	var emailReg=/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+(\.[-a-zA-Z0-9]+)+)*$/g;
-	if($("#oldemail").val()=="") {
+	if($("#email").val()=="") {
 		$("#emailMsg").css("display","block");
 		submitResult=false;
-	} else if(!emailReg.test($("#oldemail").val())) {
+	} else if(!emailReg.test($("#email").val())) {
 		$("#emailRegMsg").css("display","block");
 		submitResult=false;
 	}
@@ -322,18 +302,18 @@ $("#join").submit(function() {
 		submitResult=false;
 	}
 	
-	if($("#hpost").val()=="") {
-		$("#hpost").css("display","block");
+	if($("#postCd").val()=="") {
+		$("#postCdMsg").css("display","block");
 		submitResult=false;
 	}
 	
-	if($("#haddress1").val()=="") {
-		$("#haddress1Msg").css("display","block");
+	if($("#basAddr").val()=="") {
+		$("#basAddrMsg").css("display","block");
 		submitResult=false;
 	}
 	
-	if($("#haddress2").val()=="") {
-		$("#haddress2Msg").css("display","block");
+	if($("#detlAddr").val()=="") {
+		$("#detlAddrMsg").css("display","block");
 		submitResult=false;
 	}
 	

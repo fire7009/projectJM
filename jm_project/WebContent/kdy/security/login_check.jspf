@@ -11,5 +11,16 @@
 		out.println("</script>");
 		return;
 	}
+	
+	
+/*   강사님 파일
+		MemberDTO loginMember=(MemberDTO)session.getAttribute("loginMember");
 
+		if(loginMember==null) {
+			out.println("<script type='text/javascript'>");
+			out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
+			out.println("</script>");
+			return;
+		}
+*/		
 %>
