@@ -8,14 +8,14 @@
 	} else {
 		session.removeAttribute("message");
 	}
-	String memId=(String)session.getAttribute("memId");
-	String memName=(String)session.getAttribute("memName");
-	if(memName==null) {
-		memName="";
+	
+	String userId=(String)session.getAttribute("userId");
+	if(userId==null) {
+		userId="";
 	} else {
-		session.removeAttribute("memName");
+		session.removeAttribute("userId");
 	}
-%>  
+%> 
 
 <%-- 아이디 찾기 페이지 --%>
 
@@ -334,7 +334,7 @@ margin:0 5px;
 									<br>
 								    <div class="btn-area"> 
 								    <a class="info-confirm" href="javascript:find_type('find_id');"> 아이디 찾기 </a>
-								    <a class="info-confirm" href="/shop/member.html?type=login&returnurl=%2Fhtml%2Fmainm.html"> 로그인 </a> 
+								    <a class="info-confirm" href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> 
 								    </div>
 								</div>
 							</div>
@@ -380,7 +380,7 @@ margin:0 5px;
 										<br>
 										<div class="btn-area"> 
 										<a href="javascript:find_type('find_pw');"> 임시 비밀번호 발급 </a> 
-										<a href="/shop/member.html?type=login&returnurl=%2Fhtml%2Fmainm.html"> 로그인 </a> 
+										<a href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> 
 										</div>
 									</div>
 								</div>
@@ -394,23 +394,23 @@ margin:0 5px;
 	</div>
 	
 <script type="text/javascript">
-	$("#memName").focus();
+	$("#name").focus();
 	
 	$("#findId").submit(function() {
 	
 	    var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
 	    
-		if ($("#memName").val()=="") {
+		if ($("#findId").val()=="") {
 			alert("이름을 입력해 주세요.");
-			$("#memName").focus();
+			$("#findId").focus();
 			return false ;
-		}else if($("#memEmail").val()=="") {
+		}else if($("#email").val()=="") {
 			alert("이메일을 입력해 주세요.");
-			$("#memEmail").focus();
+			$("#email").focus();
 			return false ;
-		}else if(checkEmail.test($("#memEmail").val())!=true) {
+		}else if(checkEmail.test($("#email").val())!=true) {
 			alert("올바른 형식의 이메일로 입력해 주세요.");
-			$("#memEmail").focus();
+			$("#email").focus();
 			return false ;
 		}
 		});	

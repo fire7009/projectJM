@@ -15,6 +15,7 @@
 	font-weight: 500;
 	color: #555;
 	text-align: center;
+    margin-top: 100px;
 }
 
 .new-privercy-contract textarea {height:150px !Important;}
@@ -509,7 +510,7 @@ h4.tit {
 	<br> <br>
 	
 	<%-- 버튼 / 회원가입, 다시입력, 취소 --%>
-	<div id="fs">
+	<div id="fs"  style="margin-bottom: 100px;">
 		<button type="submit" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
 		<img src="./img/joinBtn.png" alt="회원가입" width="150px" ></button>
 
