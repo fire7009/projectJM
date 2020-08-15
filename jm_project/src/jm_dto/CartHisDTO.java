@@ -12,7 +12,7 @@ public class CartHisDTO {
 	private String lastProcDttm;
 	
 	public CartHisDTO() {
-		// TODO Auto-generated constructor stu
+		
 	}
 
 	

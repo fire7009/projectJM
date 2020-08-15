@@ -1,9 +1,11 @@
+<%@page import="jm_dao.CartHisDAO"%>
+<%@page import="jm_dto.CartHisDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	int price = 1000;
-	int select=2;
-	String prodNm=request.getParameter("prodNm");
+	String pcode=request.getParameter("pcode");
+	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(pcode);
 %>
 
 <style type="text/css">
@@ -37,22 +39,10 @@ td {
 </head>
 <body id="page-top">
 	
-
-
-	<section class="page-section bg-light" id="portfolio">
 	<div class="container">
 		<div class="text-center">
-			<h2 class="section-heading text-uppercase">장바구니 페이지</h2>
-			<h3 class="section-subheading text-muted">장바구니에 담긴 상품 목록</h3>
+			<h3 class="section-subheading text-muted">장바구니 목록</h3>
 		</div>
-		<div class="row">
-
-			<div class="col-lg-4 col-sm-6 mb-4">
-				<div class="portfolio-item">
-					<img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg"
-						alt="" />
-				</div>
-			</div>
 			<div>
 
 				<table>
@@ -61,36 +51,20 @@ td {
 						<th>총상품 금액</th>
 						<th>상품취소</th>
 					</tr>
+					<%if(cartList.isEmpty()){ %>
 					<tr>
-						<th><%=select%><br>
+				<td colspan="3">등록된 제품이 하나도 없습니다.</td>
+		<% } else { %>
+			<% for(CartHisDTO cart:cartList){  %>
+					<tr>
+						<th><%=cart.getProdQty()%><br>
 						<button>수정</button></th>
-						<th><%=price *= select%></th>
+						<th><%=cart.getHisSeqno() %></th>
 						<th><button>삭제</button></th>
 					</tr>
-				</table>
-				<br>
-				<br>
- 				<input type="image" src="assets/img/shopping/cartClear.gif" align="right">
-				&nbsp;
-			 <input type="image" src="assets/img/shopping/allOrder.gif" align="right">
-				&nbsp;
-				 <input type="image" src="assets/img/shopping/selectOrder.gif" align="right">
-				&nbsp;
-		 <input type="image" src="assets/img/shopping/go .gif" align="right">
-			</div>
-	</section>
-
-	<!-- Bootstrap core JS-->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-	<!-- Third party plugin JS-->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-	<!-- Contact form JS-->
-	<script src="assets/mail/jqBootstrapValidation.js"></script>
-	<script src="assets/mail/contact_me.js"></script>
-	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+			<%} %>
+		<%} %>
+		</table>
+ 	
+	</div>
 
