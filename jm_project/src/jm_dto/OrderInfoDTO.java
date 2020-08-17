@@ -8,13 +8,7 @@ public class OrderInfoDTO {
 	private String dlvrPostCd;
 	private String dlvrBasAddr;
 	private String dlvrDetlAddr;
-	private String ordPathDv;
-	private String paymtDvcd;
-	private String paystDvcd;
-	private String ordPrcstDvcd;
-	private String ordCnclReqYn;
 	private String ordCnclYn;
-	private String ordCnclRsDvcd;
 	private String frstRgsrUsno;
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
@@ -80,60 +74,12 @@ public class OrderInfoDTO {
 		this.dlvrDetlAddr = dlvrDetlAddr;
 	}
 
-	public String getOrdPathDv() {
-		return ordPathDv;
-	}
-
-	public void setOrdPathDv(String ordPathDv) {
-		this.ordPathDv = ordPathDv;
-	}
-
-	public String getPaymtDvcd() {
-		return paymtDvcd;
-	}
-
-	public void setPaymtDvcd(String paymtDvcd) {
-		this.paymtDvcd = paymtDvcd;
-	}
-
-	public String getPaystDvcd() {
-		return paystDvcd;
-	}
-
-	public void setPaystDvcd(String paystDvcd) {
-		this.paystDvcd = paystDvcd;
-	}
-
-	public String getOrdPrcstDvcd() {
-		return ordPrcstDvcd;
-	}
-
-	public void setOrdPrcstDvcd(String ordPrcstDvcd) {
-		this.ordPrcstDvcd = ordPrcstDvcd;
-	}
-
-	public String getOrdCnclReqYn() {
-		return ordCnclReqYn;
-	}
-
-	public void setOrdCnclReqYn(String ordCnclReqYn) {
-		this.ordCnclReqYn = ordCnclReqYn;
-	}
-
 	public String getOrdCnclYn() {
 		return ordCnclYn;
 	}
 
 	public void setOrdCnclYn(String ordCnclYn) {
 		this.ordCnclYn = ordCnclYn;
-	}
-
-	public String getOrdCnclRsDvcd() {
-		return ordCnclRsDvcd;
-	}
-
-	public void setOrdCnclRsDvcd(String ordCnclRsDvcd) {
-		this.ordCnclRsDvcd = ordCnclRsDvcd;
 	}
 
 	public String getFrstRgsrUsno() {

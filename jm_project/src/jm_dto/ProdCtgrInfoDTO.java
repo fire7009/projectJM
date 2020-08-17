@@ -3,7 +3,7 @@ package jm_dto;
 import oracle.sql.DATE;
 
 /*
- ÀÌ¸§               ³Î?       À¯Çü           
+ ï¿½Ì¸ï¿½               ï¿½ï¿½?       ï¿½ï¿½ï¿½ï¿½           
 ---------------- -------- ------------ 
 CTGR_CD          NOT NULL VARCHAR2(8)  
 CTGR_NM          NOT NULL VARCHAR2(30) 
@@ -17,7 +17,6 @@ LAST_PROC_DTTM   NOT NULL DATE
 public class ProdCtgrInfoDTO {
 	private String ctgrCd;
 	private String ctgrNm;
-	private String uzYn;
 	private String delYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
@@ -42,14 +41,6 @@ public class ProdCtgrInfoDTO {
 
 	public void setCtgrNm(String ctgrNm) {
 		this.ctgrNm = ctgrNm;
-	}
-
-	public String getUzYn() {
-		return uzYn;
-	}
-
-	public void setUzYn(String uzYn) {
-		this.uzYn = uzYn;
 	}
 
 	public String getDelYn() {

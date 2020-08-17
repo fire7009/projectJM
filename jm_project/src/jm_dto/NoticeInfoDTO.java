@@ -1,6 +1,6 @@
 package jm_dto;
 /*
- ÀÌ¸§               ³Î?       À¯Çü            
+ ï¿½Ì¸ï¿½               ï¿½ï¿½?       ï¿½ï¿½ï¿½ï¿½            
 ---------------- -------- ------------- 
 POST_NO          NOT NULL VARCHAR2(8)   
 TITLE            NOT NULL VARCHAR2(120) 
@@ -17,7 +17,6 @@ public class NoticeInfoDTO {
 	private String title;
 	private String content;
 	private int viewCnt;
-	private String noticeYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
@@ -57,14 +56,6 @@ public class NoticeInfoDTO {
 
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
-	}
-
-	public String getNoticeYn() {
-		return noticeYn;
-	}
-
-	public void setNoticeYn(String noticeYn) {
-		this.noticeYn = noticeYn;
 	}
 
 	public String getFrstRgsrUsrno() {
