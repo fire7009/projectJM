@@ -1,7 +1,12 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
 <%--회원가입 완료 페이지 --%>
+<%
+	//세션에 저장된 권한 관련 정보를 반환받아 저장
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+%> 
 
 <!DOCTYPE html>
 <html>
@@ -60,17 +65,17 @@ dt {
 					<div class="complete-box">
 						<dl>
 							<dd>
-								<img src="../img/terms_page_tit.png" alt="join us"
+								<img src="./img/terms_page_tit.png" alt="join us"
 									title="join us" />
 							</dd>
 							<br>
 
-							<dt> 님의 회원가입이 성공적으로 이루어졌습니다.</dt>
+							<dt> 회원가입이 성공적으로 이루어졌습니다.</dt>
 							<dd>JM조명 안에서 즐거운 쇼핑 되세요.</dd>
 						 
 							<dd class="font-b">감사합니다.</dd>
 							<br>
-							<a href="<%=request.getContextPath() %>/index.jsp " >쇼핑하러 가기</a>
+							<a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login " >로그인</a>
 
 						</dl>
 					</div>

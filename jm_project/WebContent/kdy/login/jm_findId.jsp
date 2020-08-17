@@ -8,14 +8,14 @@
 	} else {
 		session.removeAttribute("message");
 	}
-	String memId=(String)session.getAttribute("memId");
-	String memName=(String)session.getAttribute("memName");
-	if(memName==null) {
-		memName="";
+	
+	String userId=(String)session.getAttribute("userId");
+	if(userId==null) {
+		userId="";
 	} else {
-		session.removeAttribute("memName");
+		session.removeAttribute("userId");
 	}
-%>  
+%> 
 
 <%-- 아이디 찾기 페이지 --%>
 
@@ -294,17 +294,16 @@ margin:0 5px;
 				<h2 class="pagetitle1">
 					<span>아이디/비밀번호 찾기</span> ID/PASSWORD SEARCH
 				</h2>
-<%-- 
-				<form name="form1" method="post" action="/shop/lostpass.html"	target="loginiframe">
+
+				<form id="form1" name="form1" method="post" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findId_action"  method="post">
 					<input type="hidden" name="focus_ok"> 
 					<input type="hidden"	name="msecure_key"> 
-					<input type="hidden" name="sslid"	value="vittz"> 
 					<input type="hidden" name="mail">
 					<input type="hidden" name="authtext" value=""> 
 					<input type="hidden" name="authid"> 
 					<input type="hidden"	name="find_type" value="find_pw" />
 					
---%>				
+			
 					<div class="member-findid ">
 						<div class="inner">
 							
@@ -334,7 +333,7 @@ margin:0 5px;
 									<br>
 								    <div class="btn-area"> 
 								    <a class="info-confirm" href="javascript:find_type('find_id');"> 아이디 찾기 </a>
-								    <a class="info-confirm" href="/shop/member.html?type=login&returnurl=%2Fhtml%2Fmainm.html"> 로그인 </a> 
+								    <a class="info-confirm" href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> 
 								    </div>
 								</div>
 							</div>
@@ -380,7 +379,7 @@ margin:0 5px;
 										<br>
 										<div class="btn-area"> 
 										<a href="javascript:find_type('find_pw');"> 임시 비밀번호 발급 </a> 
-										<a href="/shop/member.html?type=login&returnurl=%2Fhtml%2Fmainm.html"> 로그인 </a> 
+										<a href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> 
 										</div>
 									</div>
 								</div>
@@ -394,26 +393,106 @@ margin:0 5px;
 	</div>
 	
 <script type="text/javascript">
-	$("#memName").focus();
+	$("#name").focus();
 	
+	//아이디 찾기
 	$("#findId").submit(function() {
 	
 	    var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
-	    
-		if ($("#memName").val()=="") {
+	    	    
+		if ($("#findId").val()=="") {
 			alert("이름을 입력해 주세요.");
-			$("#memName").focus();
+			$("#findId").focus();
 			return false ;
-		}else if($("#memEmail").val()=="") {
+		}else if($("#email").val()=="") {
 			alert("이메일을 입력해 주세요.");
-			$("#memEmail").focus();
+			$("#email").focus();
 			return false ;
-		}else if(checkEmail.test($("#memEmail").val())!=true) {
+		}else if(checkEmail.test($("#email").val())!=true) {
 			alert("올바른 형식의 이메일로 입력해 주세요.");
-			$("#memEmail").focus();
+			$("#email").focus();
 			return false ;
 		}
-		});	
+		});
 	
+	
+	function find_type(type) {
+		if (document.form1.find_type) {
+		    document.form1.find_type.value = type;
+		}
+		send();
+		}
+	
+	function send() {
+		var find_type = '';
+
+		if (document.form1.find_type && document.form1.find_type.value.length > 0) {
+		    find_type = document.form1.find_type.value;
+		}
+
+	 if (find_type == 'find_pw') {
+		    var find_pw_type = 'email';
+		    if (document.form1.find_pw_type) {
+		        for (var i = 0; i < document.form1.find_pw_type.length; i++) {
+		            if (document.form1.find_pw_type[i].checked) {
+		                find_pw_type = document.form1.find_pw_type[i].value;
+		            }
+		        }
+		    }
+		 
+		    if (document.form1.user_id.value.length == 0) {
+		        alert('아이디를 입력해주세요.');
+		        document.form1.user_id.focus();
+		        return;
+		    }
+
+		    if (find_pw_type == 'email') {
+		       
+		        if (document.form1.email.value.length == 0) {
+		            alert('이메일을 입력해주세요.');
+		            document.form1.email.focus();
+		            return;
+		        }
+		    } 
+		} else if (find_type == 'find_id') {
+		    var find_id_type = 'email';
+		    if (document.form1.find_id_type) {
+		        for (var i = 0; i < document.form1.find_id_type.length; i++) {
+		            if (document.form1.find_id_type[i].checked) {
+		                find_id_type = document.form1.find_id_type[i].value;
+		            }
+		        }
+		    }
+		    if (document.form1.name.value.length == 0) {
+		        alert("이름을 입력해주세요.");
+		        alert(1);
+		        document.form1.name.focus();
+		        return;
+		    }
+
+		    if (find_id_type == 'email') {
+		
+		        if (document.form1.find_id_email.value.length == 0) {
+		            alert('이메일을 입력해주세요.');
+		            document.form1.find_id_email.focus();
+		            return;
+		        }
+		    } 
+		} else {
+		    if (document.form1.name.value.length == 0) {
+		        alert("이름을 입력해주세요.");
+		        document.form1.name.focus();
+		        return;
+		    }
+		
+		    if (document.form1.email.value.length == 0) {
+		        alert('이메일을 입력해주세요.');
+		        document.form1.email.focus();
+		        return;
+		    }
+		}
+
+	 	$("#form1").submit();	 
+	}
 </script>
 

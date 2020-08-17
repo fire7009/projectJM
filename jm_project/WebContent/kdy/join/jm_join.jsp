@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 
-<link rel="stylesheet" type="text/css" href="../css/joinC.css">
 <style type="text/css">
 .pagetitle1 {
 	font-family: 'Noto Sans KR';
@@ -16,6 +15,287 @@
 	font-weight: 500;
 	color: #555;
 	text-align: center;
+    margin-top: 100px;
+}
+
+.new-privercy-contract textarea {height:150px !Important;}
+
+.new-btn-area a {
+    display: block;
+    width: 234px;
+    height: 64px;
+    line-height: 66px;
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    background: none !Important;
+    border: none !Important;
+}
+
+.MS_input_txt.w137 {min-width:180px;}
+
+.xans-member-join h3 {
+	float:left;
+}
+.xans-member-join .chkAdd {
+	float:right;
+	margin:34px 0 0;
+	color:#34a7b3;
+	font-size:12px;
+}
+.xans-member-join div.boardView {
+	clear:both;
+	margin-top:18px;
+}
+.xans-member-join table.boardView {
+	border-collapse:collapse;
+	border:1px solid #ddd;
+}
+.xans-member-join table.boardView input, .xans-member-join table.boardView textarea {
+	border:1px solid #bcbcbc;
+	background:#fff;
+	color:#202020;
+	padding:1px 0 2px 4px;
+}
+.xans-member-join table.boardView input {
+	border:1px solid #ddd;
+	height:29px;
+	line-height:29px;
+	padding:0 5px;
+}
+.xans-member-join table.boardView select {
+	border:1px solid #ddd;
+	height:31px;
+	line-height:31px;
+	padding:0 5px;
+}
+.xans-member-join table.boardView th {
+	width:148px;
+	padding:15px;
+	text-align:left;
+	border-bottom:1px solid #e6e6e6;
+	color:#555;
+	font-weight:normal;
+	background:#f7f7f7;
+	font-size:14px;
+	font-weight:600;
+}
+.xans-member-join table.boardView td {
+	padding:15px;
+	border-bottom:1px solid #e6e6e6;
+	font-size:14px;
+	color:#8b8b8c;
+}
+.xans-member-join table.boardView td fieldset {
+	width:580px;
+}
+.xans-member-join table.boardView td.write {
+	width:100%;
+}
+.xans-member-join table.boardView td img {
+	vertical-align:middle;
+}
+.xans-member-join table.boardView thead th {
+	border-bottom:1px solid #bfc5c5;
+}
+.xans-member-join table.boardView thead td {
+	border-bottom:1px solid #bfc5c5;
+}
+.xans-member-join table.boardView tfoot th {
+	border-top:1px solid #bfc5c5;
+}
+.xans-member-join table.boardView tfoot td {
+	border-top:1px solid #bfc5c5;
+}
+.xans-member-join table.boardView .first {
+	border-top:0;
+	padding-top:20px;
+}
+.xans-member-join .agree01 {
+	width:100%;
+}
+.xans-member-join .agree02 {
+	width:100%;
+}
+.xans-member-join .agreeWrap {
+	content:"";
+	display:block;
+	clear:both;
+	margin:70px 0 0;
+}
+.xans-member-join .agreeArea {
+	clear:both;
+	padding:20px;
+	background:#f7f7f7;
+	border:1px solid #bfc5c5;
+	border-top:1px solid #333;
+	font-size:12px;
+	line-height:2em;
+	color:#8f8f8f;
+}
+.xans-member-join .agreeArea .agreeInner {
+	overflow:auto;
+	height:140px;
+	padding:20px 20px 37px;
+	border:1px solid #bcbcbc;
+	background:#fff;
+}
+.xans-member-join .agreeArea .agreement {
+	height:500px;
+}
+.xans-member-join .agreeArea>p {
+	font-size:14px;
+	font-weight:600;
+	color:#444;
+	padding:10px 0 0;
+}
+.xans-member-join .agreeArea p span {
+	padding:0 20px 0 0;
+}
+.xans-member-join #hint_answer {
+	width:500px;
+}
+.xans-member-join #postcode1, .xans-member-join #postcode2 {
+	width:40px;
+	text-align:center;
+	padding:1px 0 2px 0;
+}
+.xans-member-join #addr1, .xans-member-join #addr2 {
+	width:500px;
+	margin:3px 0;
+}
+.xans-member-join #phone1, .xans-member-join #mobile1 {
+	width:60px;
+	margin:0 4px 0 0;
+}
+.xans-member-join #phone2, .xans-member-join #phone3, .xans-member-join #mobile2, .xans-member-join #mobile3 {
+	width:80px;
+	margin:0 4px;
+}
+.xans-member-join #email1, .xans-member-join #email2 {
+	width:150px;
+	margin:0 4px 0 0;
+}
+.xans-member-join #email2 {
+	margin:0 4px;
+}
+.xans-member-join #birth_year, .xans-member-join #marry_year, .xans-member-join #partner_year {
+	width:60px;
+	margin:0 4px 0 0;
+}
+.xans-member-join #birth_month, .xans-member-join #marry_month, .xans-member-join #partner_month, .xans-member-join #birth_day, .xans-member-join #marry_day, .xans-member-join #partner_day {
+	width:30px;
+	margin:0 4px 0 0;
+}
+.xans-member-join #job, .xans-member-join #job_class, .xans-member-join #school, .xans-member-join #region, .xans-member-join #internet, .xans-member-join #child, .xans-member-join #car, .xans-member-join #earning {
+	width:200px;
+}
+.xans-member-join #add1, .xans-member-join #add2, .xans-member-join #add3, .xans-member-join #add4, .xans-member-join #add5, .xans-member-join #add6, .xans-member-join #add7, .xans-member-join #add8, .xans-member-join #add9 {
+	width:500px;
+}
+.xans-member-join .btnArea {
+	clear:both;
+	text-align:center;
+	overflow:hidden;
+	width:100%;
+	padding-top:30px;
+	margin:20px 0 50px;
+}
+.xans-member-join .btnArea.miniType {
+	margin:10px 0 20px;
+	padding:0 15px;
+}
+.xans-member-join .btnArea img {
+	padding:0 1px 0 0;
+	cursor:pointer;
+}
+.xans-member-join .btnArea p.btnRight {
+	float:right;
+}
+.xans-member-join .btnArea p.btnRight img {
+	float:left;
+	padding:0 0 0 1px;
+}
+#realNameAuth p span {
+	display:inline-block;
+	width:80px;
+}
+#ipinWrap img {
+	display:block;
+}
+.mem_title {
+	padding:70px 0 0;
+	font-size:19px;
+	font-weight:600;
+	color:#333;
+	padding-bottom:10px;
+	background:url(/design/vittz/img/mem_title_bg.gif) no-repeat left bottom
+}
+.mem_title2 {
+	padding:70px 0 0;
+	font-size:19px;
+	font-weight:600;
+	color:#333;
+	padding-bottom:10px;
+}
+
+.error {
+	color: red;
+	position: relative;
+	left: 10px;
+	display: none;
+}
+
+.xans-member-join table.memcate {
+}
+.xans-member-join table.memcate th {
+}
+.xans-member-join table.memcate td {
+}
+
+
+
+
+/***기본CSS***/
+.tb-l { text-align: left; }
+.tb-c { text-align: center; }
+.pl-30 { padding-left: 15px; }
+.pl-6 { padding-left: 6px; }
+
+#join h1.tit-join { margin-bottom: 30px; padding-bottom: 6px; border-bottom: 4px solid #3a4452; font-size: 16px; font-weight: bold; }
+#join h3.cont-tit { margin-top: 30px; margin-bottom: 5px; padding-left: 15px; color: #575757; font-weight: bold; background: url("/images/d3/modern_simple/bull_tit_h11.gif") no-repeat 0 0; }
+
+#join .red { color: #ff3333 }
+#join .font-n { font-weight: normal; }
+#join .w137 { width : 137px; }
+#join .w415 { width : 415px; }
+
+#join .ipin-confirm { height: 110px; padding: 15px 0; border: 3px solid #d4d4d4; text-align: center; background-color: #fdfdfd; }
+#join .ipin-confirm .chk-wrap { line-height: 20px; vertical-align: middle; }
+#join .ipin-confirm .chk-wrap i { display: inline-block; vertical-align: middle; }
+#join .ipin-confirm .chk-wrap label { vertical-align: middle; line-height: 1.25; }
+#join .ipin-confirm .chk-wrap .first { margin-right: 20px; }
+#join .ipin-confirm p { margin: 20px 0; line-height: 18px; font-size: 14px;  }
+
+#join a.ipin-svc { font-size: 14px; font-weight: bold; color: #ff3333; text-decoration: underline; margin :0 10px;}
+
+#join .btn-area { text-align: center; margin:10px 0;}
+#join .btn-area a { font-size: 0; }
+#join .ftr-btn { margin-top: 55px; }
+#join .ipin-btn { margin-top: 35px; }
+
+/* 회원 정보입력 */
+#join .join-info { margin-top: 40px; margin-bottom: 5px; padding-left: 15px; background: url("/images/d3/modern_simple/bull_terms_h14.gif") no-repeat 0 0; }
+#join .tb-tit { padding: 15px 0 10px 25px; border-width: 1px 1px 2px 1px; border-color: #dedfde #dedfde #3a4452 #dedfde; border-style: solid; color: #575757; font-weight: bold; background: url("/images/d3/modern_simple/bull_tit_h11.gif") no-repeat 10px 14px #f7f7f7; }
+
+h4.tit {
+    margin-top: 50px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    font-size: 19px !Important;
+    font-weight: bold;
+    color: #333;
 }
 </style>
 
@@ -26,10 +306,10 @@
       function openDaumZipAddress() {
          new daum.Postcode({
             oncomplete:function(data) {
-               jQuery("#hpost").val(data.zonecode);
-               jQuery("#haddress1").val(data.address);
-               jQuery("#haddress2").focus();
-               console.log(data);
+               jQuery("#postCd").val(data.zonecode);
+               jQuery("#basAddr").val(data.address);
+               jQuery("#detlAddr").focus();
+               console.log($("#postCd").val());
             }
          }).open();
       }
@@ -73,7 +353,6 @@
 <%-- 회원가입 폼 설정 --%>
 <form id="join" name="joinForm" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join_action" method="post">
 	<input type="hidden" name="idCheckResult"  id="idCheckResult" value="0" > 
-		                                            <%-- jm_login_action 으로 넘어가는 경로 설정 다시해야함!!!--%>
 		
 <%-- 테이블 테두리 --%>
 <div class="xans-member-join" align="center">
@@ -107,7 +386,7 @@
 				<div class="tb-l pl-6"  >
 					<input type="text" name="userId"  id="id"  value=""  class="MS_input_txt w137" size="10" maxlength="20" />
 					<span><a style="font-size: 0;">
-					<img 	alt="중복확인" src="../img/btn_memJoin3.gif" height="30px" id="idCheck" /></a>
+					<img 	alt="중복확인" src="./img/btn_memJoin3.gif" height="30px" id="idCheck" /></a>
 					</span>	(영문소문자/숫자,4~10자) 
 					</div>
 					
@@ -153,10 +432,10 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="postCd" value="" form="join_form" id="hpost"
-                                  class="MS_input_txt" size="20" maxlength="20" readonly="readonly"> 
+                               <input type="text" name="postCd" value=""  id="postCd"
+                                  class="MS_input_txt"  maxlength="5" readonly="readonly"> 
                                 <input type="button" onClick="openDaumZipAddress();" value = "우편번호검색" />
-                            	<div id="zipcodeMsg" class="error">우편번호를 입력해 주세요.</div>
+                            	<div id="postCdMsg" class="error">우편번호를 입력해 주세요.</div>
                             </div></td>
                       </tr>
 		                     <tr>
@@ -166,9 +445,10 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="basAddr" value="" form="join_form"
-                                  id="haddress1" class="MS_input_txt w415" size="40"
+                               <input type="text" name="basAddr" value="" 
+                                  id="basAddr" class="MS_input_txt w415" size="40"
                                   maxlength="100" readonly="readonly">
+                                  <div id="basAddrMsg" class="error">기본주소를 입력해 주세요.</div>
                             </div></td>
                       </tr>
                       <tr>
@@ -178,11 +458,10 @@
                             </div>
                          </th>
                          <td><div class="tb-l pl-6">
-                               <input type="text" name="detlAddr" value="" form="join_form"
-                                  id="haddress2" class="MS_input_txt w415" size="40"
-                                  maxlength="100">
+                               <input type="text" name="detlAddr" value=""  id="detlAddr" class="MS_input_txt w415" 
+                               size="40"  maxlength="100">
+                            <div id="detlAddrMsg" class="error">상세주소를 입력해 주세요.</div>
                             </div></td>
-                            <div id="address2Msg" class="error">상세주소를 입력해 주세요.</div>
                       </tr>
 			<tr>
 				<th>
@@ -191,8 +470,8 @@
 					</div>
 				</th>
 				<td><div class="tb-l pl-6">
-						<input type="hidden" name="contAddr" form="join_form" value="" />
-						<select name="etcphone1" id="etcphone1" form="join_form"
+						<input type="hidden" name="contAddr"  value="" />
+						<select name="etcphone1" id="etcphone1" 
 							class="MS_select MS_tel">
 							<option value=''>선택</option>
 							<option value="010">010</option>
@@ -202,9 +481,9 @@
 							<option value="018">018</option>
 							<option value="019">019</option>
 						</select> - 
-						<input type="text" name='etcphone2' form="join_form" 	id="etcphone2" class="MS_input_tel" value="" size="4"
+						<input type="text" name='etcphone2'  	id="etcphone2" class="MS_input_tel" value="" size="4"
 							maxlength="4" /> - 
-						<input type="text" name="etcphone3"  form="join_form" id="etcphone3" class="MS_input_tel" value=""
+						<input type="text" name="etcphone3"   id="etcphone3" class="MS_input_tel" value=""
 							size="4" maxlength="4" minlength=4 />
 					<div id="mobileMsg" class="error">전화번호를 입력해 입력해 주세요.</div>
 			<div id="mobileRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
@@ -219,26 +498,8 @@
 					</div>
 				</th>
 				<td><div class="tb-l pl-6">
-						<input type="hidden" name="emailAddr" id="oldemail" value="" />
-						<input type="hidden" name="email" id="email" value="" /> 
-						<input type="text" name="email1" id="email1"
-							onchange="this.form.emailcheck.value=''" class="MS_input_txt"
-							size="10" maxlength="20" value="" /> <span>@</span> 
-							<span id="direct_email"	style="margin-top: 3px; display: inline-block"> 
-							<input type="text" name="email3" id="email3" class="MS_input_txt"
-							value="" size="15" maxlength="25" onchange="this.form.emailcheck.value=''" />
-						</span> <select name="email2" id="email2" class="MS_select MS_email"
-							style="margin-right: 5px;" onchange="viewdirect()">
-							<option value='direct'>직접입력</option>
-							<option value="naver.com">naver.com</option>
-							<option value="hotmail.com">hotmail.com</option>
-							<option value="hanmail.net">hanmail.net</option>
-							<option value="yahoo.com">yahoo.com</option>
-							<option value="nate.com">nate.com</option>
-							<option value="gmail.com">gmail.com</option>
-						</select> <span><a style="font-size: 0;"
-							href="javascript:emailcheck('Y', 'N');"><img alt="중복확인"
-								src="../img/btn_overlap_h19.gif" height="30px" /></a></span>
+							<input type="text" name="email" id="email" class="MS_input_txt"
+							value="" size="40" maxlength="25" />
 								<div id="emailMsg" class="error">이메일을 입력해 주세요.</div>
 								<div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지 않습니다.</div>
 					</div></td>
@@ -248,15 +509,12 @@
 	<br> <br>
 	
 	<%-- 버튼 / 회원가입, 다시입력, 취소 --%>
-	<div id="fs">
+	<div id="fs"  style="margin-bottom: 100px;">
 		<button type="submit" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
-		<img src="../img/joinBtn.png" alt="회원가입" width="150px" ></button>
-		
-		<button type="reset" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
-		<img src="../img/resetBtn.png" alt="다시입력" width="150px" ></button>
-	
+		<img src="./img/joinBtn.png" alt="회원가입" width="150px" ></button>
+
 		<a	 href="<%=request.getContextPath() %>/index.jsp " class="cancelBtn"> 
-			<img	src="../img/CCBtn.png" alt="취소" width="150px" /></a>
+			<img	src="./img/CCBtn.png" alt="취소" width="150px" /></a>
 	</div>
 </form>
 
@@ -282,18 +540,18 @@ $("#join").submit(function() {
 	}
 		
 	var passwdReg=/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_-]).{4,12}$/g;
-	if($("#password1").val()=="") {
+	if($("#password").val()=="") {
 		$("#passwdMsg").css("display","block");
 		submitResult=false;
-	} else if(!passwdReg.test($("#password1").val())) {
+	} else if(!passwdReg.test($("#password").val())) {
 		$("#passwdRegMsg").css("display","block");
 		submitResult=false;
 	} 
 	
-	if($("#password2").val()=="") {
+	if($("#password1").val()=="") {
 		$("#repasswdMsg").css("display","block");
 		submitResult=false;
-	} else if($("#password1").val()!=$("#password2").val()) {
+	} else if($("#password").val()!=$("#password1").val()) {
 		$("#repasswdMatchMsg").css("display","block");
 		submitResult=false;
 	}
@@ -304,10 +562,10 @@ $("#join").submit(function() {
 	}
 	
 	var emailReg=/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+(\.[-a-zA-Z0-9]+)+)*$/g;
-	if($("#oldemail").val()=="") {
+	if($("#email").val()=="") {
 		$("#emailMsg").css("display","block");
 		submitResult=false;
-	} else if(!emailReg.test($("#oldemail").val())) {
+	} else if(!emailReg.test($("#email").val())) {
 		$("#emailRegMsg").css("display","block");
 		submitResult=false;
 	}
@@ -322,18 +580,18 @@ $("#join").submit(function() {
 		submitResult=false;
 	}
 	
-	if($("#hpost").val()=="") {
-		$("#hpost").css("display","block");
+	if($("#postCd").val()=="") {
+		$("#postCdMsg").css("display","block");
 		submitResult=false;
 	}
 	
-	if($("#haddress1").val()=="") {
-		$("#haddress1Msg").css("display","block");
+	if($("#basAddr").val()=="") {
+		$("#basAddrMsg").css("display","block");
 		submitResult=false;
 	}
 	
-	if($("#haddress2").val()=="") {
-		$("#haddress2Msg").css("display","block");
+	if($("#detlAddr").val()=="") {
+		$("#detlAddrMsg").css("display","block");
 		submitResult=false;
 	}
 	
