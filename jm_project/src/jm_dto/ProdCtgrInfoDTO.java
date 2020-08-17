@@ -1,19 +1,5 @@
 package jm_dto;
 
-import oracle.sql.DATE;
-
-/*
- �̸�               ��?       ����           
----------------- -------- ------------ 
-CTGR_CD          NOT NULL VARCHAR2(8)  
-CTGR_NM          NOT NULL VARCHAR2(30) 
-UZ_YN            NOT NULL CHAR(1)      
-DEL_YN           NOT NULL CHAR(1)      
-FRST_RGSR_USRNO  NOT NULL VARCHAR2(8)  
-FRST_RGST_DTTM   NOT NULL DATE         
-LAST_PROCR_USRNO NOT NULL VARCHAR2(8)  
-LAST_PROC_DTTM   NOT NULL DATE   
- */
 public class ProdCtgrInfoDTO {
 	private String ctgrCd;
 	private String ctgrNm;

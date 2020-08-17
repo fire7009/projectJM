@@ -9,189 +9,284 @@ import java.sql.SQLException;
 import jm_dto.UserInfoDTO;
 
 public class UserInfoDAO extends JdbcDAO {
-	
-	private static UserInfoDAO _dao;
-	
-	public UserInfoDAO() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	static {
-		_dao=new UserInfoDAO();
-	}
-	
-	public static UserInfoDAO getDAO() {
-		return _dao;
-	}
-	
-	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¹Þ¾ï¿½  UserInfo ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½ 
-	// => ï¿½ï¿½ï¿½Ìµï¿½, ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½Ã³, ï¿½ï¿½ï¿½ï¿½ï¿½È£, ï¿½âº»ï¿½Ö¼ï¿½, ï¿½ï¿½ï¿½Ö¼ï¿½, È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¸ï¿½ï¿½ï¿½
-	public int insertUserInfo(UserInfoDTO userInfo) {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		int rows=0;
-		try {
-	         con=getConnection();
-	         //SQLï¿½ï¿½ ï¿½Ñ¹ï¿½ È®ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½ï¿½!!
-	         String sql="insert into user_Info values( (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),?,?,?,?,?,?,?,?,'2','N','N',"
-	         		+ "(SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),sysdate,(SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),sysdate)";
-	         pstmt=con.prepareStatement(sql);
-	         pstmt.setString(1, userInfo.getUserId());
-	         pstmt.setString(2, userInfo.getPassword());
-	         pstmt.setString(3, userInfo.getUserNm());
-	         pstmt.setString(4, userInfo.getContAddr());
-	         pstmt.setString(5, userInfo.getEmailAddr());
-	         pstmt.setString(6, userInfo.getPostCd());
-	         pstmt.setString(7, userInfo.getBasAddr());
-	         pstmt.setString(8, userInfo.getDetlAddr());
-	         
-	         rows=pstmt.executeUpdate();
-	      } catch (SQLException e) {
-	         System.out.println("[ï¿½ï¿½ï¿½ï¿½]insertUserInfo() ï¿½Þ¼Òµï¿½ï¿½ï¿½ SQL ï¿½ï¿½ï¿½ï¿½ = "+e.getMessage());
-	      } finally {
-	         close(con, pstmt);
-	      }
-	      return rows;
-	   }
-	
-	
-	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½!
-	//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Þ¹Þ¾ï¿½ MEMBER ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
-	//ï¿½Ë»ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
-	public UserInfoDTO selectIdUserinfo(String userId) {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		UserInfoDTO userInfo=null;
-		try {
-			con=getConnection();
-			
-			String sql="select * from User_Info where USER_ID=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			
-			rs=pstmt.executeQuery();
-	         
-	         if(rs.next()) {
-	        	userInfo=new UserInfoDTO();
-				userInfo.setUserNo(rs.getString("user_no"));
-	        	userInfo.setUserId(rs.getString("user_id"));
-	        	userInfo.setPassword(rs.getString("password"));
-	        	userInfo.setUserNm(rs.getString("user_nm"));
-	        	userInfo.setContAddr(rs.getString("cont_addr"));
-	        	userInfo.setEmailAddr(rs.getString("email_addr"));
-	        	userInfo.setPostCd(rs.getString("post_cd"));
-	        	userInfo.setBasAddr(rs.getString("bas_addr"));
-	        	userInfo.setDetlAddr(rs.getString("detl_addr"));
-	        	userInfo.setUserDv(rs.getString("user_dv"));
-	        	userInfo.setWithdYn(rs.getString("withd_yn"));
-	        	userInfo.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
-	        	userInfo.setUserDv(rs.getString("frst_rgst_dttm"));
-	        	userInfo.setLastProcrUsrno(rs.getString("last_procr_usrno"));
-	        	userInfo.setLastProcDttm(rs.getString("last_proc_dttm"));
+   
+   private static UserInfoDAO _dao;
+   
+   public UserInfoDAO() {
+      // TODO Auto-generated constructor stub
+   }
+   
+   static {
+      _dao=new UserInfoDAO();
+   }
+   
+   public static UserInfoDAO getDAO() {
+      return _dao;
+   }
+   
+   // È¸¿øÁ¤º¸ Àü´Þ¹Þ¾Æ  UserInfo Å×ÀÌºí¿¡ »ðÀÔÇÏ°í »ðÀÔÇàÀÇ °¹¼ö¸¦ ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå 
+   // => ¾ÆÀÌµð, ÆÐ½º¿öµå, ÀÌ¸§, ¿¬¶ôÃ³, ¿ìÆí¹øÈ£, ±âº»ÁÖ¼Ò, »ó¼¼ÁÖ¼Ò, È¸¿ø±¸ºÐ, ÀÌ¸ÞÀÏ
+   public int insertUserInfo(UserInfoDTO userInfo) {
+      Connection con=null;
+      PreparedStatement pstmt=null;
+      int rows=0;
+      try {
+            con=getConnection();
+            //SQL¹® ÇÑ¹ø È®ÀÎ ÇØ¾ßÇÔ!!
+            String sql="insert into user_Info values( (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),?,?,?,?,?,?,?,?,'2','N','N','1',sysdate,'1',sysdate)";
+            pstmt=con.prepareStatement(sql);
+            pstmt.setString(1, userInfo.getUserId());
+            pstmt.setString(2, userInfo.getPassword());
+            pstmt.setString(3, userInfo.getUserNm());
+            pstmt.setString(4, userInfo.getContAddr());
+            pstmt.setString(5, userInfo.getEmailAddr());
+            pstmt.setString(6, userInfo.getPostCd());
+            pstmt.setString(7, userInfo.getBasAddr());
+            pstmt.setString(8, userInfo.getDetlAddr());
+            
+            rows=pstmt.executeUpdate();
+         } catch (SQLException e) {
+            System.out.println("[¿¡·¯]insertUserInfo() ¸Þ¼ÒµåÀÇ SQL ¿À·ù = "+e.getMessage());
+         } finally {
+            close(con, pstmt);
+         }
+         return rows;
+      }
+   
+   
+   // ·Î±×ÀÎ ÇÒ ¶§ ÇÊ¿äÇÔ! / ºñ¹Ð¹øÈ£ Ã£À»¶§ ÇÊ¿äÇÔ!
+   //È¸¿ø ¾ÆÀÌµð¸¦ Àü´Þ¹Þ¾Æ MEMBER Å×ÀÌºí¿¡ ÀúÀåµÈ ÇØ´ç ¾ÆÀÌµðÀÇ È¸¿øÁ¤º¸¸¦ 
+   //°Ë»öÇÏ¿© ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå - ´ÜÀÏÇà °Ë»ö
+   public UserInfoDTO selectIdUserinfo(String userId) {
+      Connection con=null;
+      PreparedStatement pstmt=null;
+      ResultSet rs=null;
+      UserInfoDTO userInfo=null;
+      try {
+         con=getConnection();
+         
+         String sql="select * from User_Info where USER_ID=?";
+         pstmt=con.prepareStatement(sql);
+         pstmt.setString(1, userId);
+         
+         rs=pstmt.executeQuery();
+            
+            if(rs.next()) {
+              userInfo=new UserInfoDTO();
+            userInfo.setUserNo(rs.getString("user_no"));
+              userInfo.setUserId(rs.getString("user_id"));
+              userInfo.setPassword(rs.getString("password"));
+              userInfo.setUserNm(rs.getString("user_nm"));
+              userInfo.setContAddr(rs.getString("cont_addr"));
+              userInfo.setEmailAddr(rs.getString("email_addr"));
+              userInfo.setPostCd(rs.getString("post_cd"));
+              userInfo.setBasAddr(rs.getString("bas_addr"));
+              userInfo.setDetlAddr(rs.getString("detl_addr"));
+              userInfo.setUserDv(rs.getString("user_dv"));
+              userInfo.setWithdYn(rs.getString("withd_yn"));
+              userInfo.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
+              userInfo.setUserDv(rs.getString("frst_rgst_dttm"));
+              userInfo.setLastProcrUsrno(rs.getString("last_procr_usrno"));
+              userInfo.setLastProcDttm(rs.getString("last_proc_dttm"));
 
-			}
-		} catch (SQLException e) {
-			System.out.println("[ï¿½ï¿½ï¿½ï¿½]selectIdUserInfo() ï¿½Þ¼Òµï¿½ï¿½ï¿½ SQL ï¿½ï¿½ï¿½ï¿½ = "+e.getMessage());
-		} finally {
-			close(con, pstmt, rs);
-		}
-		return userInfo;
-	}
-	
-	
-	
-	
-	
-	//È¸ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¹Þ¾ï¿½ user_info ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½
-	 public UserInfoDTO selectUserInfo(String userNo) {
-	      Connection con=null;
-	      PreparedStatement pstmt=null;
-	      ResultSet rs=null;
-	      UserInfoDTO userInfo=null;
-	      try {
-	         con=getConnection();
-	         
-	         String sql="select user_no, user_id, user_nm, cont_addr, post_cd, bas_addr, detl_addr, to_char(first_rgst_dttm,"
-	         		+ "'yyyy-mm-dd'), email_addr from user_info where user_no=? ";
-	         pstmt=con.prepareStatement(sql);
-	         pstmt.setString(1, userNo);
-	         
-	         rs=pstmt.executeQuery();
-	         
-	         if(rs.next()) {
-	        	userInfo=new UserInfoDTO();
-	        	userInfo.setUserNo(rs.getString("userNo"));
-	        	userInfo.setUserId(rs.getString("userId"));
-	        	userInfo.setUserNm(rs.getString("userNm"));
-	        	userInfo.setContAddr(rs.getString("contAddr"));
-	        	userInfo.setPostCd(rs.getString("postCd"));
-	        	userInfo.setBasAddr(rs.getString("basAddr"));
-	        	userInfo.setDetlAddr(rs.getString("detlAddr"));
-	        	userInfo.setUserDv(rs.getString("firstRgstDttm"));
-	        	userInfo.setEmailAddr(rs.getString("emailAddr"));
-	            
-	         }
-	      } catch (SQLException e) {
-	         System.out.println("[ï¿½ï¿½ï¿½ï¿½]selectUserInfo() ï¿½Þ¼Òµï¿½ï¿½ï¿½ SQL ï¿½ï¿½ï¿½ï¿½ = "+e.getMessage());
-	      } finally {
-	         close(con, pstmt, rs);
-	      }
-	      return userInfo;
-	   }
+         }
+      } catch (SQLException e) {
+         System.out.println("[¿¡·¯]selectIdUserInfo() ¸Þ¼ÒµåÀÇ SQL ¿À·ù = "+e.getMessage());
+      } finally {
+         close(con, pstmt, rs);
+      }
+      return userInfo;
+   }
+   
+   
+      // ¾ÆÀÌµð Ã£À» ¶§ ÇÊ¿äÇÔ
+      // È¸¿ø ¾ÆÀÌµð¸¦ Àü´Þ¹Þ¾Æ MEMBER Å×ÀÌºí¿¡ ÀúÀåµÈ ÇØ´ç ¾ÆÀÌµðÀÇ È¸¿øÁ¤º¸¸¦ 
+      //°Ë»öÇÏ¿© ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå - ´ÜÀÏÇà °Ë»ö
+      public UserInfoDTO selectfindIdUserinfo(String userNm) {
+         Connection con=null;
+         PreparedStatement pstmt=null;
+         ResultSet rs=null;
+         UserInfoDTO userInfo=null;
+         try {
+            con=getConnection();
+            
+            String sql="select * from User_Info where USER_Nm=?";
+            pstmt=con.prepareStatement(sql);
+            pstmt.setString(1, userNm);
+            
+            rs=pstmt.executeQuery();
+               
+               if(rs.next()) {
+                 userInfo=new UserInfoDTO();
+               userInfo.setUserNo(rs.getString("user_no"));
+                 userInfo.setUserId(rs.getString("user_id"));
+                 userInfo.setPassword(rs.getString("password"));
+                 userInfo.setUserNm(rs.getString("user_nm"));
+                 userInfo.setContAddr(rs.getString("cont_addr"));
+                 userInfo.setEmailAddr(rs.getString("email_addr"));
+                 userInfo.setPostCd(rs.getString("post_cd"));
+                 userInfo.setBasAddr(rs.getString("bas_addr"));
+                 userInfo.setDetlAddr(rs.getString("detl_addr"));
+                 userInfo.setUserDv(rs.getString("user_dv"));
+                 userInfo.setWithdYn(rs.getString("withd_yn"));
+                 userInfo.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
+                 userInfo.setUserDv(rs.getString("frst_rgst_dttm"));
+                 userInfo.setLastProcrUsrno(rs.getString("last_procr_usrno"));
+                 userInfo.setLastProcDttm(rs.getString("last_proc_dttm"));
 
-	 	
+            }
+         } catch (SQLException e) {
+            System.out.println("[¿¡·¯]selectIdUserInfo() ¸Þ¼ÒµåÀÇ SQL ¿À·ù = "+e.getMessage());
+         } finally {
+            close(con, pstmt, rs);
+         }
+         return userInfo;
+      }
+      
+      
+   
+   
+   //È¸¿ø¹øÈ£¸¦ Àü´Þ¹Þ¾Æ user_info Å×ÀÌºí¿¡ ÀúÀåµÈ ÇØ´ç ¾ÆÀÌµðÀÇ È¸¿ø Á¤º¸¸¦ °Ë»öÇÏ¿© ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå
+    public UserInfoDTO selectUserInfo(String userNo) {
+         Connection con=null;
+         PreparedStatement pstmt=null;
+         ResultSet rs=null;
+         UserInfoDTO userInfo=null;
+         try {
+            con=getConnection();
+            
+            String sql="select user_no, user_id, user_nm, cont_addr, post_cd, bas_addr, detl_addr, to_char(first_rgst_dttm,"
+                  + "'yyyy-mm-dd'), email_addr from user_info where user_no=? ";
+            pstmt=con.prepareStatement(sql);
+            pstmt.setString(1, userNo);
+            
+            rs=pstmt.executeQuery();
+            
+            if(rs.next()) {
+              userInfo=new UserInfoDTO();
+              userInfo.setUserNo(rs.getString("userNo"));
+              userInfo.setUserId(rs.getString("userId"));
+              userInfo.setUserNm(rs.getString("userNm"));
+              userInfo.setContAddr(rs.getString("contAddr"));
+              userInfo.setPostCd(rs.getString("postCd"));
+              userInfo.setBasAddr(rs.getString("basAddr"));
+              userInfo.setDetlAddr(rs.getString("detlAddr"));
+              userInfo.setUserDv(rs.getString("firstRgstDttm"));
+              userInfo.setEmailAddr(rs.getString("emailAddr"));
+               
+            }
+         } catch (SQLException e) {
+            System.out.println("[¿¡·¯]selectUserInfo() ¸Þ¼ÒµåÀÇ SQL ¿À·ù = "+e.getMessage());
+         } finally {
+            close(con, pstmt, rs);
+         }
+         return userInfo;
+      }
 
-	   //È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¹Þ¾ï¿½ MEMBER ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½
-	   public int updateUserInfo(UserInfoDTO userInfo) {
-	      Connection con=null;
-	      PreparedStatement pstmt=null;
-	      int rows=0;
-	      try {
-	         con=getConnection();
-	         
-	         String sql="update user_info set user_nm=?, cont_addr=?, post_cd=?"
-	         		+ "bas_addr=?, detl_addr=?, last_procr_usrno=?, last_proc_dttm=sysdate where user_no=? , email_addr=?";
-	         pstmt=con.prepareStatement(sql);
-	         pstmt.setString(1, userInfo.getUserNm());
-	         pstmt.setString(2, userInfo.getContAddr());
-	         pstmt.setString(3, userInfo.getPostCd());
-	         pstmt.setString(4, userInfo.getBasAddr());
-	         pstmt.setString(5, userInfo.getDetlAddr());
-	         pstmt.setString(6, userInfo.getLastProcrUsrno());
-	         pstmt.setString(7, userInfo.getLastProcDttm());
-	         pstmt.setString(8, userInfo.getEmailAddr());
-	         
-	         rows=pstmt.executeUpdate();
-	      } catch (SQLException e) {
-	         System.out.println("[ï¿½ï¿½ï¿½ï¿½]updateUserInfo() ï¿½Þ¼Òµï¿½ï¿½ï¿½ SQL ï¿½ï¿½ï¿½ï¿½ = "+e.getMessage());
-	      } finally {
-	         close(con, pstmt);
-	      }
-	      return rows;
-	   }
-	   
-	
-	 
-	 
-/*	private String userNo;
-	private String userId;
-	private String password;
-	private String userNm;
-	private String contAddr;
-	private String postCd;
-	private String basAddr;
-	private String detlAddr;
-	private String userDv;
-	private String duplJoinYn;
-	private String withdYn;
-	private String firstRgsrUsrno;
-	private String firstRgstDttm;
-	private String lastProcrUsrno;
-	private String lastProcDttm;
-	
-	*/
-	
-	
-	
+           
+      //È¸¿øÁ¤º¸¸¦ Àü´Þ¹Þ¾Æ MEMBER Å×ÀÌºí¿¡ ÀúÀåµÈ È¸¿øÁ¤º¸¸¦ º¯°æÇÏ°í º¯°æÇàÀÇ °¹¼ö¸¦ ¹ÝÈ¯ÇÏ´Â ¸Þ¼Òµå
+      public int updateUserInfo(UserInfoDTO userInfo) {
+         Connection con=null;
+         PreparedStatement pstmt=null;
+         int rows=0;
+         try {
+            con=getConnection();
+            
+            String sql="update user_info set user_nm=?, cont_addr=?, post_cd=?"
+                  + "bas_addr=?, detl_addr=?, last_procr_usrno=?, last_proc_dttm=sysdate where user_no=? , email_addr=?";
+            pstmt=con.prepareStatement(sql);
+            pstmt.setString(1, userInfo.getUserNm());
+            pstmt.setString(2, userInfo.getContAddr());
+            pstmt.setString(3, userInfo.getPostCd());
+            pstmt.setString(4, userInfo.getBasAddr());
+            pstmt.setString(5, userInfo.getDetlAddr());
+            pstmt.setString(6, userInfo.getLastProcrUsrno());
+            pstmt.setString(7, userInfo.getLastProcDttm());
+            pstmt.setString(8, userInfo.getEmailAddr());
+            
+            rows=pstmt.executeUpdate();
+         } catch (SQLException e) {
+            System.out.println("[¿¡·¯]updateUserInfo() ¸Þ¼ÒµåÀÇ SQL ¿À·ù = "+e.getMessage());
+         } finally {
+            close(con, pstmt);
+         }
+         return rows;
+      }
+      
+      
+      
+      //ÀÓ½Ãºñ¹Ð¹øÈ£ ¹ß±Þ ½Ã ÇÊ¿äÇÑ DAO
+      //ºñ¹Ð¹øÈ£Ã£±â¸¦ ´­·¶À»¶§ È¸¿ø¿¡°Ô Àü´ÞµÈ ÀÓ½Ã ºñ¹Ð¹øÈ£ »ý¼º
+      public static String randomPassword(int length) {
+         
+         int index = 0; 
+         char[] charset = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+               , 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'
+               , 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b'
+               , 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'
+               , 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+         
+         StringBuffer sb= new StringBuffer();
+         for (int i = 0; i < length; i++) {
+            index = (int)(charset.length*Math.random());
+            sb.append(charset[index]);
+         }
+
+      return sb.toString();
+      }
+      //ÀÓ½Ã ºñ¹Ð¹øÈ£ »ý¼º ÈÄ ÀúÀåÃ³¸®¸¦ À§ÇÑ ¸Þ¼Òµå 
+      public int updatePwdUserInfo(UserInfoDTO userInfo) {
+         Connection con=null;
+         PreparedStatement pstmt=null;
+         int rows=0;
+         try {
+            con=getConnection();
+            
+            String sql="update user_info set Password=? where User_id=?";
+            pstmt=con.prepareStatement(sql);
+            pstmt.setString(1, userInfo.getPassword());
+            pstmt.setString(2, userInfo.getUserId());
+            
+            rows=pstmt.executeUpdate();
+         } catch (SQLException e) {
+            System.out.println("[¿¡·¯]updatePwdUserInfo() ¸Þ¼ÒµåÀÇ SQL ¿À·ù = "+e.getMessage());
+         } finally {
+            close(con, pstmt);
+         }
+         return rows;
+      }
+      
+
+   // È¸¿øÁ¤º¸¸¦ »èÁ¦ Ã³¸®ÇÏ´Â ¸Þ¼Òµå(ÀÌ°Ô ¸Â³ª...)
+   public int updateStatusInfo(String userNo) {
+      Connection con = null;
+      PreparedStatement pstmt = null;
+      int rows = 0;
+      try {
+         con = getConnection();
+
+         String sql = "update user_info set withd_yn='Y' where user_no=?";
+
+         pstmt = con.prepareStatement(sql);
+         pstmt.setString(1, userNo);
+
+         rows = pstmt.executeUpdate();
+      } catch (SQLException e) {
+         System.out.println("[¿¡·¯]updateStatusInfo() ¸Þ¼ÒµåÀÇ SQL ¿À·ù = " + e.getMessage());
+      } finally {
+         close(con, pstmt);
+      }
+      return rows;
+   }
+
+   /*
+    * private String userNo; private String userId; private String password;
+    * private String userNm; private String contAddr; private String postCd;
+    * private String basAddr; private String detlAddr; private String userDv;
+    * private String duplJoinYn; private String withdYn; private String
+    * firstRgsrUsrno; private String firstRgstDttm; private String lastProcrUsrno;
+    * private String lastProcDttm;
+    * 
+    */
+
 }

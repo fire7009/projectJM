@@ -128,20 +128,20 @@ public class ProductInfoDTO {
 		this.delYn = delYn;
 	}
 
-	public String getFirstRgstUsrno() {
+	public String getFrstRgsrUsrno() {
 		return frstRgsrUsrno;
 	}
 
-	public void setFirstRgstUsrno(String firstRgstUsrno) {
-		this.frstRgsrUsrno = firstRgstUsrno;
+	public void setFrstRgsrUsrno(String frstRgsrUsrno) {
+		this.frstRgsrUsrno = frstRgsrUsrno;
 	}
 
-	public String getFirstRgstDttm() {
+	public String getFrstRgstDttm() {
 		return frstRgstDttm;
 	}
 
-	public void setFirstRgstDttm(String firstRgstDttm) {
-		this.frstRgstDttm = firstRgstDttm;
+	public void setFrstRgstDttm(String frstRgstDttm) {
+		this.frstRgstDttm = frstRgstDttm;
 	}
 
 	public String getLastProcrUsrno() {

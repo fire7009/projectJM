@@ -4,12 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo("1");
-	int price=product.getProdPrice();
-	String prodNm=product.getProdNm();
-	String pcode=product.getProdCd();
-	
-	String imgPath="assets/img/shopping"+prodNm+".jpg";
 %>
 
 
@@ -53,12 +47,12 @@ table.shop .even {
 
 <form id="shoppingForm">
   <div class="shopping">
-       <h2><%=prodNm%> 제품 정보</h2>
+       <h2> 제품 정보</h2>
 	<table class="shop">
 
 	<tr>
 		<th class="title">제품명</td>
-		<td class="value"><%=product.getProdNm()%></td>
+		<td class="value"></td>
 	</tr>
 	<tr>
 		<th class="title">제품이미지</td>
@@ -66,7 +60,7 @@ table.shop .even {
 	</tr>
 	<tr>
 		<th class="title">상세설명</td>
-		<td class="value"><%=product.getProdDetl().replace("\n", "<br>") %></td>
+		<td class="value"></td>
 	</tr>
 	<tr>
 		<th class="title">상품수량선택</td>
@@ -82,7 +76,7 @@ table.shop .even {
 	</tr>
 	<tr>
 		<th class="title">제품가격</td>
-		<td class="value"><%=product.getProdPrice()%></td>
+		<td class="value"></td>
 	</tr>
 </table>
 
@@ -94,25 +88,18 @@ table.shop .even {
 </form>
      
         
-				
-<script type="text/javascript">
-$("#cartBtn").click(function() {
+<%-- $("#cartBtn").click(function() {
 	var select=$("select[name=select]").val();
 	var price=<%=product.getProdPrice()%>;
 	
 	$("#shoppingForm").attr("method","post");
 	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&pcode=<%=product.getProdCd()%>");
 	$("#shoppingForm").submit();
-});
-
+}); --%>
+				
+<script type="text/javascript">
 
 
 </script>
 
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
-        <%-- <script src="js/scripts.js"></script> --%>
 

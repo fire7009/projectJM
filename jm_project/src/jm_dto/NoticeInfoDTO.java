@@ -1,17 +1,5 @@
 package jm_dto;
-/*
- �̸�               ��?       ����            
----------------- -------- ------------- 
-POST_NO          NOT NULL VARCHAR2(8)   
-TITLE            NOT NULL VARCHAR2(120) 
-CONTENT          NOT NULL VARCHAR2(300) 
-VIEW_CNT         NOT NULL NUMBER        
-NOTICE_YN        NOT NULL CHAR(1)       
-FRST_RGSR_USRNO  NOT NULL VARCHAR2(8)   
-FRST_RGST_DTTM   NOT NULL DATE          
-LAST_PROCR_USRNO NOT NULL VARCHAR2(8)   
-LAST_PROC_DTTM   NOT NULL DATE 
- */
+
 public class NoticeInfoDTO {
 	private String postNo;
 	private String title;
