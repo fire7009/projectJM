@@ -120,9 +120,9 @@
 					name="type" value="upd"> <input type="hidden" name="reurl"
 					value="">
 
-				<div class="xans-element- xans-member xans-member-join">
+				<div class="xans-element- xans-member xans-member-join" align="center">
 
-					<br> <br>
+					<br> 
 					<div class="boardView">
 						<table summary="회원정보 중 기본정보 입력란입니다." class="boardView joinForm">
 							<tbody>
@@ -184,7 +184,7 @@
 									</th>
 									<td><div class="tb-l pl-6">
 											<input type="text" name="hpost" value="" form="join_form" id="hpost"
-												class="MS_input_txt" size="7" maxlength="15"
+												class="MS_input_txt"
 												readonly="readonly"> 
 												<input type="button" onClick="openDaumZipAddress();" value = "우편번호검색" />
 										</div></td>
@@ -239,39 +239,18 @@
 								</tr>
 
 								<tr>
-									<th>
-										<div class="tb-l pl-30">
-											<span class="red">*</span> 이메일
-										</div>
-									</th>
-									<td><div class="tb-l pl-6">
-											<input type="hidden" name="oldemail" id="oldemail"
-												value="ysmb13579@naver.com"> <input type="hidden"
-												name="email" id="email" value="ysmb13579@naver.com">
-											<input type="text" name="email1" id="email1"
-												onchange="this.form.emailcheck.value=''"
-												class="MS_input_txt" size="10" maxlength="20"
-												value="ysmb13579"> <span>@</span> <span
-												id="direct_email"
-												style="margin-top: 3px; display: inline-block"> <input
-												type="text" name="email3" id="email3" class="MS_input_txt"
-												value="naver.com" disabled="disabled" size="15"
-												maxlength="25" onchange="this.form.emailcheck.value=''">
-											</span> <select name="email2" id="email2" class="MS_select MS_email"
-												style="margin-right: 5px;" onchange="viewdirect()">
-												<option value="direct">직접입력</option>
-												<option value="naver.com" selected="selected">naver.com</option>
-												<option value="hotmail.com">hotmail.com</option>
-												<option value="hanmail.net">hanmail.net</option>
-												<option value="yahoo.com">yahoo.com</option>
-												<option value="nate.com">nate.com</option>
-												<option value="gmail.com">gmail.com</option>
-											</select> <span><a style="font-size: 0;"
-												href="javascript:emailcheck('Y', 'N');"><img alt="중복확인"
-													src="btn_overlap_h19.gif"></a></span>
-
-										</div></td>
-								</tr>
+            <th>
+               <div class="tb-l pl-30">
+                  <span class="red">*</span> 이메일
+               </div>
+            </th>
+            <td><div class="tb-l pl-6">
+                     <input type="text" name="email3" id="email3" class="MS_input_txt"
+                     value="" onchange="this.form.emailcheck.value=''" />
+                        <div id="emailMsg" class="error">이메일을 입력해 주세요.</div>
+                        <div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지 않습니다.</div>
+               </div></td>
+         </tr>
 
 							</tbody>
 						</table>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,9 +12,9 @@
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
 
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="semi/css/common.css" rel="stylesheet" type="text/css"/>
-		<link href="semi/css/css.css" rel="stylesheet" type="text/css"/>
-		<link href="semi/css/css_02.css" rel="stylesheet" type="text/css"/>
+        <link href="css/common.css" rel="stylesheet" type="text/css"/>
+		<link href="css/css.css" rel="stylesheet" type="text/css"/>
+		<link href="css/css_02.css" rel="stylesheet" type="text/css"/>
 		<link href="css/header.css" rel="stylesheet" type="text/css"/>
 		<link href="css/footer.css" rel="stylesheet" type="text/css"/>
 		<link href="css/nanumsquareround.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +31,7 @@
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
-		</style>
+</style>
     </head>
     <body id="page-top">
 	<div class="mem_title"> 주문조회 </div>
