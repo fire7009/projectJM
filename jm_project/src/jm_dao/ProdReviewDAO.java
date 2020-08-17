@@ -104,7 +104,7 @@ public class ProdReviewDAO extends JdbcDAO {
 		}
 	
 	//∏Æ∫‰±€ º±≈√
-	public ProdReviewDTO selectReview(String ) {
+	public ProdReviewDTO selectReview(String ctgrCd) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -114,7 +114,7 @@ public class ProdReviewDAO extends JdbcDAO {
 			
 			String sql="select * from prod_ctgr_info where ctgr_cd=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1,ctgr);
+			pstmt.setString(1,ctgrCd);
 			
 			rs=pstmt.executeQuery();
 			
