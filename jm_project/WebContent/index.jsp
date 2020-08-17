@@ -13,7 +13,7 @@
 
 	String contentPath=workgroup+"/"+work+".jsp";
 	
-	String
+	//String
 %>    
 
 <!DOCTYPE html>
