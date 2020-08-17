@@ -353,7 +353,6 @@ h4.tit {
 <%-- 회원가입 폼 설정 --%>
 <form id="join" name="joinForm" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join_action" method="post">
 	<input type="hidden" name="idCheckResult"  id="idCheckResult" value="0" > 
-		                                            <%-- jm_login_action 으로 넘어가는 경로 설정 다시해야함!!!--%>
 		
 <%-- 테이블 테두리 --%>
 <div class="xans-member-join" align="center">
