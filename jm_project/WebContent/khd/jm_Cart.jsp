@@ -1,3 +1,5 @@
+<%@page import="jm_dao.ProductInfoDAO"%>
+<%@page import="jm_dto.ProductInfoDTO"%>
 <%@page import="jm_dao.CartHisDAO"%>
 <%@page import="jm_dto.CartHisDTO"%>
 <%@page import="java.util.List"%>
@@ -6,6 +8,8 @@
 <%
 	String pcode=request.getParameter("pcode");
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(pcode);
+	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(pcode);
+	
 %>
 
 <style type="text/css">
@@ -47,6 +51,7 @@ td {
 
 				<table>
 					<tr>
+						<th>상품이름</th>
 						<th>수량</th>
 						<th>총상품 금액</th>
 						<th>상품취소</th>
@@ -55,16 +60,25 @@ td {
 					<tr>
 				<td colspan="3">등록된 제품이 하나도 없습니다.</td>
 		<% } else { %>
-			<% for(CartHisDTO cart:cartList){  %>
+			<% for(CartHisDTO cart:cartList){ %>
 					<tr>
+						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
 						<button>수정</button></th>
-						<th><%=cart.getHisSeqno() %></th>
-						<th><button>삭제</button></th>
+						<th><%=cart.getProdQty()%>*<%=product.getProdPrice() %></th>
+						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 					</tr>
 			<%} %>
 		<%} %>
 		</table>
  	
 	</div>
+	
+	<script type="text/javascript">
+	function removeCart(his) {
+			location.href="khd/jm_Cart_delete.jsp?his="+his;
+	}
+
+	</script>
+	
 
