@@ -74,9 +74,9 @@ fieldset {
 						<div class="scede-frm">
 							<fieldset>
 								<div class="btn-foot">
-									<a href="/jm_project/syd/jm_Mainlayout.jsp"><img
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=syd&work=jm_Mainlayout"><img
 										src="img/btn_h32_secede.gif" alt="회원탈퇴" /></a> <a
-										href="khm/jm_project/khm/jm_updateInfo5.jsp"><img src="img/btn_h32_cancel.gif"
+										href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_updateInfo"><img src="img/btn_h32_cancel.gif"
 										alt="탈퇴취소" /></a>
 								</div>
 							</fieldset>

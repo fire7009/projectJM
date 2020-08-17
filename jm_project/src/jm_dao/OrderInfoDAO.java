@@ -31,7 +31,7 @@ public class OrderInfoDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into order_info values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into order_info values(?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, sysdate, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, orderInfo.getOrdNo());
 			pstmt.setInt(2, orderInfo.getOrdSumQty());
@@ -40,15 +40,9 @@ public class OrderInfoDAO extends JdbcDAO {
 			pstmt.setString(5, orderInfo.getDlvrPostCd());
 			pstmt.setString(6, orderInfo.getDlvrBasAddr());
 			pstmt.setString(7, orderInfo.getDlvrDetlAddr());
-			pstmt.setString(8, orderInfo.getOrdPathDv());
-			pstmt.setString(9, orderInfo.getPaymtDvcd());
-			pstmt.setString(10, orderInfo.getPaystDvcd());
-			pstmt.setString(11, orderInfo.getOrdPrcstDvcd());
-			pstmt.setString(12, orderInfo.getOrdCnclReqYn());
-			pstmt.setString(13, orderInfo.getOrdCnclYn());
-			pstmt.setString(14, orderInfo.getOrdCnclRsDvcd());
-			pstmt.setString(15, orderInfo.getFrstRgsrUsno());
-			pstmt.setString(16, orderInfo.getLastProcrUsrno());
+			pstmt.setString(8, orderInfo.getOrdCnclYn());
+			pstmt.setString(9, orderInfo.getFrstRgsrUsno());
+			pstmt.setString(10, orderInfo.getLastProcrUsrno());
 
 			rows = pstmt.executeUpdate();
 			
@@ -60,9 +54,8 @@ public class OrderInfoDAO extends JdbcDAO {
 		return rows;
 	}
 	
-	
 	//주문정보 선택 쿼리
-	
+	//public 
 	
 	//주문정보 수정 쿼리
 	

@@ -13,7 +13,7 @@
 	}
 
 	//입력값을 반환받아 저장
-	String passwd=Utility.encrypt(request.getParameter("passwd"));
+	String password=Utility.encrypt(request.getParameter("password"));
 	
 	//로그인 사용자의 비밀번호와 입력 비밀번호 비교
 	if(!loginMember.getPassword().equals(password)) {//비밀번호가 틀린 경우
@@ -26,11 +26,11 @@
 	
 	//아이디를 전달받아 MEMBER 테이블에 저장된 해당 아이디의 회원정보를
 	//삭제하는 DAO 클래스의 메소드 호출
-	UserInfoDAO.getDAO().deleteMember(loginMember.getUserId());
+	UserInfoDAO.getDAO().updateStatusInfo(loginMember.getUserNo());
 	
 	
 	//로그아웃 처리페이지 이동
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=member&work=member_logout_action';");
+	out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=syd&work=jm_Mainlayout';");
 	out.println("</script>");
 %>    

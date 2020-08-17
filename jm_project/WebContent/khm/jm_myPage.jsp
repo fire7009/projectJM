@@ -91,8 +91,8 @@
   </div>
 	<div id="shopMain">
 		<div class="shopMain" >
-			<a href="/semiProject2/semi/jm_orderlist2.jsp">
-				<img class="img-fluid" src="assets/img/mP/order.png"/>
+			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList">
+				<img class="img-fluid" src="img/mP/order.png"/>
 				<div class="order">
 					<h3>주문내역 조회</h3>
 					<p>
@@ -102,8 +102,8 @@
 			</a>
 		</div>
 		<div class="shopMain">
-			<a href="/semiProject2/semi/jm_updateInfo5.jsp">
-			<img class="img-fluid" src="assets/img/mP/info.png"/>
+			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_updateInfo">
+			<img class="img-fluid" src="img/mP/info.png"/>
 				<div class="profile">
 					<h3>회원 정보</h3>
 					<p>
@@ -113,8 +113,8 @@
 			</a>
 		</div>
 		<div class="shopMain">
-			<a href="/semiProject2/semi/jm_review3.jsp">
-			<img class="img-fluid" src="assets/img/mP/review.png"/>
+			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_review">
+			<img class="img-fluid" src="img/mP/review.png"/>
 				<div class="board">
 					<h3>게시물 관리</h3>
 					<p>

@@ -10,7 +10,7 @@
 		session.removeAttribute("message");
 	}
 %>
-<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=userInfo&work=jm_updateInfo5" method="post" onsubmit="return sumbitCheck();">
+<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=userInfo&work=jm_updateInfo" method="post" onsubmit="return sumbitCheck();">
 	<p>회원정보변경을 위한 비밀번호를 입력해주세요. </p>
 	<p>
 		<input type="password" name="passwd">

@@ -1,3 +1,4 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="jm_dto.ProdReviewDTO"%>
@@ -25,7 +26,7 @@
 	//BOARD 테이블에 저장된 전체 게시글의 갯수를 검색하여 반환하는 DAO 클래스의 메소드 호출
 	//int totalBoard=BoardDAO.getDAO().selectBoardCount();
 	//리뷰 테이블에 저장된 전체 게시글 중 카테고리를 검색하여 반환
-	int totalReviewBoard=ProdReviewDAO.getDAO().selectReviewBoard(search, keyword);
+	int totalReviewBoard=ProdReviewDAO.getDAO().selectReviewCount(search, keyword);
 	
 	//검색 게시글에 대한 페이지의 갯수를 계산하여 저장
 	//int totalPage = totalBoard/pageSize+(totalBoard%pageSize==0?0:1);
@@ -61,7 +62,7 @@
 	//세션에 저장된 권한 관련 정보를 반환받아 저장
 	// => 로그인 사용자에게만 글쓰기 권한 부여
 	// => 비밀글인 경우 게시글 작성자와 관리자에게 상세보기 권한 부여 
-	//MemberDTO loginMember = (MemberDTO)session.getAttribute("loginMember");
+	UserInfoDTO loginMember = (UserInfoDTO)session.getAttribute("loginMember");
 	
 	//시스템의 현재 날짜를 반환받아 저장
 	// => 게시글 작성일자를 현재 날짜와 비교하여 출력
@@ -122,25 +123,25 @@
 			<th width="100">조회수</th>
 		</tr>
 		
-		<% if(totalBoard == 0) { %>
+		<% if(totalReviewBoard == 0) { %>
 		<tr>
 			<td colspan="5">검색된 게시글이 하나도 없습니다.</td>
 		</tr>
 		<% } else {%>
 		<%-- 게시글 목록 출력 - 반복처리 --%>
-			<% for(BoardDTO board:boardList) { %>
+			<% for(ProdReviewDTO boardReview:boardReviewList) { %>
 			<tr>
 				<%-- 글번호 --%>
 				<td><%=number %></td>
 				
 				<%-- 제목 --%>
 				<td class="subject">
-				<% if(board.getReStep() != 0) {//답글인 경우 %>
+				<% if(boardReview.getReStep() != 0) {//답글인 경우 %>
 					<%-- 왼쪽 여백을 답글 깊이에 따라 다르게 출력 --%>
-					<span style="margin-left: <%=board.getReLevel()*20%>px;">┗[답글]</span>
+					<span style="margin-left: <%=boardReview.getReLevel()*20%>px;">┗[답글]</span>
 				<% } %>
 				
-				<%-- 게시글 상태에 대한 제목 출력과 하이퍼 링크 설정 --%>
+				<%-- 게시글 상태에 대한 제목 출력과 하이퍼 링크 설정
 				<% if(board.getStatus() == 0) {//일반 게시글인 경우%>
 					<a href="<%=request.getContextPath()%>/site/index.jsp?workgroup=board&work=board_detail&num=<%=board.getNum()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>"><%=board.getSubject()%></a>
 				<% } else if(board.getStatus() == 1) {//비밀 게시글인 경우 %>
@@ -153,23 +154,23 @@
 				<% } else if(board.getStatus()==9){//삭제 게시글인 경우 %>
 					<span class="remove">삭제글</span>
 					작성자 또는 관리자에 의해 삭제된 게시글입니다.
-				<% } %>
+				<% } %> --%>
 				</td>
 				
-				<% if(board.getStatus() != 9) {//삭제글이 아닌 경우 %>
+				<% if(boardReview.getStatus() != 9) {//삭제글이 아닌 경우 %>
 				<%-- 작성자 --%>
-				<td><%=board.getWriter() %></td>
+				<td><%=loginMember.getUserNm() %></td>
 				
 				<%-- 조회수 --%>
-				<td><%=board.getReadcount() %></td>
+				<td><%=boardReview.getReadcount() %></td>
 				
 				<%-- 작성일 --%>
 				<td>
 				<%-- 오늘 작성된 게시글은 시간만 출력되어 과거에 작성된 경우 날짜와 시간 출력 --%>
-				<% if(currentDate.equals(board.getRegDate().substring(0,10))) { %>
-					<%= board.getRegDate().substring(11, 19) %>
+				<% if(currentDate.equals(boardReview.getFrstRgstDttm().substring(0,10))) { %>
+					<%= boardReview.getFrstRgstDttm().substring(11, 19) %>
 				<% } else { %>
-					<%= board.getRegDate().substring(0, 19) %>
+					<%= boardReview.getFrstRgstDttm().substring(0, 19) %>
 				<% } %>
 				</td>				
 				
@@ -237,26 +238,7 @@
             </div>
             
               <!-- Footer-->
-	<footer class="footer py-4">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-4 text-lg-left">Copyright © Your Website
-					2020</div>
-				<div class="col-lg-4 my-3 my-lg-0">
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-twitter"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-facebook-f"></i></a> <a
-						class="btn btn-dark btn-social mx-2" href="#!"><i
-						class="fab fa-linkedin-in"></i></a>
-				</div>
-				<div class="col-lg-4 text-lg-right">
-					<a class="mr-3" href="#!">Privacy Policy</a> <a href="#!">Terms
-						of Use</a>
-				</div>
-			</div>
-		</div>
-	</footer>
+
 
 	<!-- Bootstrap core JS-->
 	<script
