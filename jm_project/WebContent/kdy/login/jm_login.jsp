@@ -162,8 +162,8 @@ fieldset .link a{
 
 
 <%-- 로그인 폼 / 경로 입력 --%>
-<form id="login" name="loginForm"  action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login_action"  method="post">
 <div class="login">
+<form id="login" name="loginForm"  action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login_action"  method="post">
 	<div class="titleArea">
 		<h3>LOGIN</h3>
 		<span>WELCOM BACK</span>

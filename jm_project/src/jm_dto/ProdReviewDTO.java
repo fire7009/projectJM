@@ -13,7 +13,7 @@ LAST_PROC_DTTM   NOT NULL DATE
  */
 public class ProdReviewDTO {
 	private String postNo;
-	private String prodNo;
+	private String prodCd;
 	private String content;
 	private int prodGrd;
 	private String frstRgsrUsrno;
@@ -33,12 +33,12 @@ public class ProdReviewDTO {
 		this.postNo = postNo;
 	}
 
-	public String getProdNo() {
-		return prodNo;
+	public String getProdCd() {
+		return prodCd;
 	}
 
-	public void setProdNo(String prodNo) {
-		this.prodNo = prodNo;
+	public void setProdCd(String prodCd) {
+		this.prodCd = prodCd;
 	}
 
 	public String getContent() {

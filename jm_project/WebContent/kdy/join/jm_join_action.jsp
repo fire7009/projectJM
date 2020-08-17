@@ -3,7 +3,7 @@
 <%@page import="jm.util.Utility"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 회원정보를 전달받아 userInfo 테이블에 저장하고 로그인 입력페이지 (jm_login.jsp)로 이동하는 JSP 문서 --%>    
+<%-- 회원정보를 전달받아 userInfo 테이블에 저장하고 로그인 입력페이지 (jm_joinComplete.jsp)로 이동하는 JSP 문서 --%>    
 <%
 
 	//비정상적인 요청에 대한 응답 처리 - 에러페이지 이동
@@ -51,7 +51,7 @@
 	//MEMBER 테이블에 회원정보를 삽입하는 DAO 클래스의 메소드 호출
 	UserInfoDAO.getDAO().insertUserInfo(userInfo);
 	
-	//로그인 입력페이지 이동
+	//회원가입 완료 페이지로 이동
 	out.println("<script type='text/javascript'>");
 	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/join&work=jm_joinComplete';");
 	out.println("</script>");

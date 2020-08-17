@@ -153,12 +153,27 @@ legend {
 	border:1px solid #d2d2cf;
 	padding:60px 0 70px;
 	width:1025px;
-	margin:0 auto 100px;
+	margin : 0 auto;
 	background:#fefefe;
 	border:7px solid #f2f2f2;
 	padding:54px 121px;
 }
 .member-findid .inner {
+	width:440px;
+	margin:0 auto;
+}
+
+.member-findpw {
+	background:#f5f5f5;
+	border:1px solid #d2d2cf;
+	padding:60px 0 70px;
+	width:1025px;
+	margin : 0 auto;
+	background:#fefefe;
+	border:7px solid #f2f2f2;
+	padding:54px 121px;
+}
+.member-findpw .inner {
 	width:440px;
 	margin:0 auto;
 }
@@ -294,17 +309,16 @@ margin:0 5px;
 				<h2 class="pagetitle1">
 					<span>아이디/비밀번호 찾기</span> ID/PASSWORD SEARCH
 				</h2>
-<%-- 
-				<form name="form1" method="post" action="/shop/lostpass.html"	target="loginiframe">
+
+				<form id="form1" name="form1" method="post" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findId_action"  method="post">
 					<input type="hidden" name="focus_ok"> 
 					<input type="hidden"	name="msecure_key"> 
-					<input type="hidden" name="sslid"	value="vittz"> 
 					<input type="hidden" name="mail">
 					<input type="hidden" name="authtext" value=""> 
 					<input type="hidden" name="authid"> 
 					<input type="hidden"	name="find_type" value="find_pw" />
 					
---%>				
+			
 					<div class="member-findid ">
 						<div class="inner">
 							
@@ -338,12 +352,20 @@ margin:0 5px;
 								    </div>
 								</div>
 							</div>
-							<!--/#find_id/-->
-
-
+							</div>
+					</div>
+				</form><!--/#find_id/-->
 							<br> 
 							<br>
-
+			<form id="form2" name="form2" method="post" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findId_action"  method="post">
+			<div class="member-findpw ">
+						<div class="inner">
+					<input type="hidden" name="focus_ok"> 
+					<input type="hidden"	name="msecure_key"> 
+					<input type="hidden" name="mail">
+					<input type="hidden" name="authtext" value=""> 
+					<input type="hidden" name="authid"> 
+					<input type="hidden"	name="find_type" value="find_pw" />
 
 							<h3 class="login_tit">비밀번호 찾기</h3>
 
@@ -361,7 +383,7 @@ margin:0 5px;
 												<tr class="user-name">
 													<th scope="row"><div>아이디</div></th>
 													<td><div>
-															<input type="text" name="user_id" id="user_id" value="<% %>"
+															<input type="text" name="userId" id="userId" value="<% %>"
 																class="MS_input_txt" size="10" maxlength="20" />
 														</div></td>
 												</tr>
@@ -379,16 +401,15 @@ margin:0 5px;
 										</table>
 										<br>
 										<div class="btn-area"> 
-										<a href="javascript:find_type('find_pw');"> 임시 비밀번호 발급 </a> 
+										<a href="javascript:find_pw;"> 임시 비밀번호 발급 </a> 
 										<a href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> 
 										</div>
 									</div>
 								</div>
+								</div>
+								</div>
 							</div>
-							<!--/#find_pw/-->
-						</div>
-					</div>
-				</form>
+					</form>			<!--/#find_pw/-->
 			</div>
 		</div>
 	</div>
@@ -396,24 +417,133 @@ margin:0 5px;
 <script type="text/javascript">
 	$("#name").focus();
 	
-	$("#findId").submit(function() {
+	//아이디 찾기
+	$("#find_id").submit(function() {
 	
 	    var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
-	    
-		if ($("#findId").val()=="") {
+	    	    
+		if ($("#name").val()=="") {
 			alert("이름을 입력해 주세요.");
-			$("#findId").focus();
+			$("#name").focus();
+			return false ;
+		}else if($("#find_id_email").val()=="") {
+			alert("이메일을 입력해 주세요.");
+			$("#find_id_email").focus();
+			return false ;
+		}else if(checkEmail.test($("#find_id_email").val())!=true) { // 이메일 유효성 검사 넘어가기 전에 바로 action으로 넘어가버림. 왜그러지???
+			alert("올바른 형식의 이메일로 입력해 주세요.");
+			$("#find_id_email").focus();
+			return false ;
+		}
+		});
+	
+	//비밀번호 찾기
+	$("#find_pw").submit(function() {
+	
+	    var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
+	    	    
+		if ($("#userId").val()=="") {
+			alert("아이디를 입력해 주세요.");
+			$("#userId").focus();
 			return false ;
 		}else if($("#email").val()=="") {
 			alert("이메일을 입력해 주세요.");
 			$("#email").focus();
 			return false ;
-		}else if(checkEmail.test($("#email").val())!=true) {
+		}else if(checkEmail.test($("#email").val())!=true) { // 이메일 유효성 검사 넘어가기 전에 바로 action으로 넘어가버림. 왜그러지???
 			alert("올바른 형식의 이메일로 입력해 주세요.");
 			$("#email").focus();
 			return false ;
 		}
-		});	
+		});
 	
+	
+	function find_type(type) {
+		if (document.form1.find_type) {
+		    document.form1.find_type.value = type;
+		}
+		send();
+		}
+	
+	function send() {
+		var find_type = '';
+
+		if (document.form1.find_type && document.form1.find_type.value.length > 0) {
+		    find_type = document.form1.find_type.value;
+		}
+		
+		
+		//아이디 찾을 때
+		if (find_type == 'find_id') {
+		    var find_id_type = 'email';
+		    if (document.form1.find_id_type) {
+		        for (var i = 0; i < document.form1.find_id_type.length; i++) {
+		            if (document.form1.find_id_type[i].checked) {
+		                find_id_type = document.form1.find_id_type[i].value;
+		            }
+		        }
+		    }
+		    if (document.form1.name.value.length == 0) {
+		        alert("이름을 입력해주세요.");
+		        alert(1);
+		        document.form1.name.focus();
+		        return;
+		    }
+
+		    if (find_id_type == 'email') {
+		
+		        if (document.form1.find_id_email.value.length == 0) {
+		            alert('이메일을 입력해주세요.');
+		            document.form1.find_id_email.focus();
+		            return;
+		        }
+		    } 
+		} else {
+		    if (document.form1.name.value.length == 0) {
+		        alert("이름을 입력해주세요.");
+		        document.form1.name.focus();
+		        return;
+		    }
+		
+		    if (document.form1.email.value.length == 0) {
+		        alert('이메일을 입력해주세요.');
+		        document.form1.email.focus();
+		        return;
+		    }
+		}
+	
+		
+		//비밀번호 찾을 때 
+		 if (find_type == 'find_pw') {
+			    var find_pw = 'email';
+			    if (document.form2.find_pw) {
+			        for (var i = 0; i < document.form2.find_pw.length; i++) {
+			            if (document.form2.find_pw.checked) {
+			                find_pw_type = document.form2.find_pw.value;
+			            }
+			        }
+			    }
+			 
+			    if (document.form2.userId.value.length == 0) {
+			        alert('아이디를 입력해주세요.');
+			        document.form2.userId.focus();
+			        return;
+			    }
+
+			    if (find_pw == 'email') {
+			       
+			        if (document.form2.email.value.length == 0) {
+			            alert('이메일을 입력해주세요.');
+			            document.form2.email.focus();
+			            return;
+			        }
+			    } 
+			} 
+			
+
+	 	$("#form1").submit();	 
+	 	$("#form2").submit();	 
+	 	
+	}
 </script>
 
