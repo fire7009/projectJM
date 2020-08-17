@@ -5,6 +5,10 @@ public class ProductInfoDTO {
 	private String ctgrCd;
 	private String prodNm;
 	private int prodPrice;
+	private String basFilePath;
+	private String basFileNm;
+	private String detlFilePath;
+	private String detlFileNm;
 	private String prodDetl;
 	private int viewCnt;
 	private String mainExpYn;
@@ -18,6 +22,7 @@ public class ProductInfoDTO {
 	public ProductInfoDTO() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	public String getProdCd() {
 		return prodCd;
@@ -49,6 +54,38 @@ public class ProductInfoDTO {
 
 	public void setProdPrice(int prodPrice) {
 		this.prodPrice = prodPrice;
+	}
+	
+	public String getBasFilePath() {
+		return basFilePath;
+	}
+
+	public void setBasFilePath(String basFilePath) {
+		this.basFilePath = basFilePath;
+	}
+	
+	public String getBasFileNm() {
+		return basFileNm;
+	}
+
+	public void setBasFileNm(String basFileNm) {
+		this.basFileNm = basFileNm;
+	}
+	
+	public String getDetlFilePath() {
+		return detlFilePath;
+	}
+
+	public void setDetlFilePath(String detlFilePath) {
+		this.detlFilePath = detlFilePath;
+	}
+	
+	public String getDetlFileNm() {
+		return detlFileNm;
+	}
+
+	public void setDetlFileNm(String detlFileNm) {
+		this.detlFileNm = detlFileNm;
 	}
 
 	public String getProdDetl() {
@@ -122,7 +159,6 @@ public class ProductInfoDTO {
 	public void setLastProcDttm(String lastProcDttm) {
 		this.lastProcDttm = lastProcDttm;
 	}
-	
-	
+		
 	
 }

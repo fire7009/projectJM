@@ -85,22 +85,23 @@ public class CartHisDAO extends JdbcDAO{
 		return cartList;
 	}
 	
-	public int deleteCart(String his) {
+	public int updateQtyCart(int num,String his) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rows=0;
 		try {
 			con=getConnection();
 			
-			String sql="delete from cart_his where his_seqno=?";
+			String sql="update cart_his set prod_qty=? where his_seqno=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, his);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, his);
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[에러]deleteCart() 메소드의 SQL 오류 = "+e.getMessage());
+			// TODO: handle exception
 		} finally {
-			close(con, pstmt);
+			close(con,pstmt);
 		}
 		return rows;
 	}

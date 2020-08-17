@@ -11,7 +11,6 @@ public class UserInfoDTO {
 	private String basAddr;
 	private String detlAddr;
 	private String userDv;
-	private String duplJoinYn;
 	private String withdYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
@@ -101,14 +100,6 @@ public class UserInfoDTO {
 
 	public void setUserDv(String userDv) {
 		this.userDv = userDv;
-	}
-
-	public String getDuplJoinYn() {
-		return duplJoinYn;
-	}
-
-	public void setDuplJoinYn(String duplJoinYn) {
-		this.duplJoinYn = duplJoinYn;
 	}
 
 	public String getWithdYn() {

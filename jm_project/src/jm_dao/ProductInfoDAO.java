@@ -25,8 +25,8 @@ public class ProductInfoDAO extends JdbcDAO {
 		return _dao;
 	}
 
-	// ��ǰ���� ���޹޾� ProductInfo ���̺��� �����ϰ� �������� ������ ��ȯ�ϴ� �޼ҵ�
-	// => ��ǰ�ڵ�, ī�װ����ڵ�, ��ǰ��, ��ǰ����, ��ǰ��, ���ʵ����ȸ����ȣ, ����ó����ȸ����ȣ
+	// 占쏙옙품占쏙옙占쏙옙 占쏙옙占쌨받억옙 ProductInfo 占쏙옙占싱븝옙 占쏙옙占쏙옙占싹곤옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙환占싹댐옙 占쌨소듸옙
+	// => 占쏙옙품占쌘듸옙, 카占쌓곤옙占쌘듸옙, 占쏙옙품占쏙옙, 占쏙옙품占쏙옙占쏙옙, 占쏙옙품占쏙옙, 占쏙옙占십듸옙占쏙옙占싫몌옙占쏙옙占싫�, 占쏙옙占쏙옙처占쏙옙占쏙옙회占쏙옙占쏙옙호
 	public int insertProductInfo(ProductInfoDTO ProductInfo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -34,19 +34,23 @@ public class ProductInfoDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "insert into product_Info(prod_cd, ctgr_cd, prod_nm, prod_price, prod_detl, frst_rgst_usrno"
-					+ ", last_procr_usrno) values(?,?,?,?,?,?)";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, ProductInfo.getProdCd());
-			pstmt.setString(2, ProductInfo.getCtgrCd());
-			pstmt.setString(3, ProductInfo.getProdNm());
-			pstmt.setString(4, ProductInfo.getProdDetl());
-			pstmt.setString(5, ProductInfo.getFirstRgstUsrno());
-			pstmt.setString(6, ProductInfo.getLastProcrUsrno());
-
+			String sql = "insert into product_Info(prod_cd, ctgr_cd, prod_nm, prod_price, bas_file_path, bas_file_nm, detl_file_path, detl_file_nm, prod_detl, frst_rgsr_usrno"
+					+ ", last_procr_usrno) values((SELECT (NVL(MAX(PROD_CD), 0) + 1) FROM PRODUCT_INFO), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			pstmt = con.prepareStatement(sql);			
+			pstmt.setString(1, ProductInfo.getCtgrCd());
+			pstmt.setString(2, ProductInfo.getProdNm());
+			pstmt.setInt(3, ProductInfo.getProdPrice());
+			pstmt.setString(4, ProductInfo.getBasFilePath());
+			pstmt.setString(5, ProductInfo.getBasFileNm());
+			pstmt.setString(6, ProductInfo.getDetlFilePath());
+			pstmt.setString(7, ProductInfo.getDetlFileNm());
+			pstmt.setString(8, ProductInfo.getProdDetl());
+			pstmt.setString(9, ProductInfo.getFrstRgsrUsrno());
+			pstmt.setString(10, ProductInfo.getLastProcrUsrno());
+			
 			rows = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[����]insertProductInfo() �޼ҵ��� SQL ���� = " + e.getMessage());
+			System.out.println("[占쏙옙占쏙옙]insertProductInfo() 占쌨소듸옙占쏙옙 SQL 占쏙옙占쏙옙 = " + e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
@@ -56,8 +60,8 @@ public class ProductInfoDAO extends JdbcDAO {
 	
 	
 	
-	//��ǰ���� �� ��ȸ 
-	//��ǰ�ڵ带 ���޹޾� ProductInfo ���̺��� ����� �ش� ��ǰ�ڵ忡 �ش��ϴ� ��ǰ�� �˻��Ͽ� ��ȯ�ϴ� �޼ҵ�
+	//占쏙옙품占쏙옙占쏙옙 占쏙옙 占쏙옙회 
+	//占쏙옙품占쌘드를 占쏙옙占쌨받억옙 ProductInfo 占쏙옙占싱븝옙 占쏙옙占쏙옙占� 占쌔댐옙 占쏙옙품占쌘드에 占쌔댐옙占싹댐옙 占쏙옙품占쏙옙 占싯삼옙占싹울옙 占쏙옙환占싹댐옙 占쌨소듸옙
 	public ProductInfoDTO selectProductInfo(String prodCd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -85,7 +89,7 @@ public class ProductInfoDAO extends JdbcDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("[����]selectProductInfo() �޼ҵ��� SQL ���� = " + e.getMessage());
+			System.out.println("[占쏙옙占쏙옙]selectProductInfo() 占쌨소듸옙占쏙옙 SQL 占쏙옙占쏙옙 = " + e.getMessage());
 		} finally {
 			close(con, pstmt, rs);
 		}
