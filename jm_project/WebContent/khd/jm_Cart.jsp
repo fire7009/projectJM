@@ -51,6 +51,7 @@ td {
 
 				<table>
 					<tr>
+						<th>상품사진</th>
 						<th>상품이름</th>
 						<th>수량</th>
 						<th>총상품 금액</th>
@@ -58,10 +59,11 @@ td {
 					</tr>
 					<%if(cartList.isEmpty()){ %>
 					<tr>
-				<td colspan="3">등록된 제품이 하나도 없습니다.</td>
+				<td colspan="5">등록된 제품이 하나도 없습니다.</td>
 		<% } else { %>
 			<% for(CartHisDTO cart:cartList){ %>
 					<tr>
+						<th>상품사진</th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
 						<button>수정</button></th>
