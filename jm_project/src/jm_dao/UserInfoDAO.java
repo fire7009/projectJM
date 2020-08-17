@@ -278,15 +278,9 @@ public class UserInfoDAO extends JdbcDAO {
       }
       return rows;
    }
-
-   /*
-    * private String userNo; private String userId; private String password;
-    * private String userNm; private String contAddr; private String postCd;
-    * private String basAddr; private String detlAddr; private String userDv;
-    * private String duplJoinYn; private String withdYn; private String
-    * firstRgsrUsrno; private String firstRgstDttm; private String lastProcrUsrno;
-    * private String lastProcDttm;
-    * 
-    */
-
+   
+   
+   
+   
+   
 }

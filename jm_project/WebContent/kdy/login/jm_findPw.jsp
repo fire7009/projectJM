@@ -17,9 +17,9 @@
 	}
 %> 
 
-<%-- 아이디 찾기 페이지 --%>
+<%-- 비밀번호 찾기 페이지 --%>
 
-<title>아이디 찾기</title>
+<title>비밀번호 찾기</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -148,21 +148,20 @@ legend {
 	margin:10px auto;
 }
 
-.member-findid {
+.member-findpw {
 	background:#f5f5f5;
 	border:1px solid #d2d2cf;
 	padding:60px 0 70px;
 	width:1025px;
-	margin : 0 auto 100px;
+	margin : 0 auto;
 	background:#fefefe;
 	border:7px solid #f2f2f2;
 	padding:54px 121px;
 }
-.member-findid .inner {
+.member-findpw .inner {
 	width:440px;
 	margin:0 auto;
 }
-
 .member-findid .inner input {
 	font-size:12px;
 }
@@ -293,9 +292,10 @@ margin:0 5px;
 		<div id="contentWrap">
 			<div id="contents">
 				<h2 class="pagetitle1">
-					<span>아이디 찾기</span> ID SEARCH
+					<span>비밀번호 찾기</span> PASSWORD SEARCH
 				</h2>
-				<form id="findId" name="findId" method="post" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findId_action"  method="post">
+
+				<form id=findPw name="findPw" method="post" action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findPw_action"  method="post">
 					<input type="hidden" name="focus_ok"> 
 					<input type="hidden"	name="msecure_key"> 
 					<input type="hidden" name="mail">
@@ -303,67 +303,85 @@ margin:0 5px;
 					<input type="hidden" name="authid"> 
 					<input type="hidden"	name="find_type" value="find_pw" />
 					
-					<div class="member-findid ">
+			
+					<div class="member-findpw ">
 						<div class="inner">
 							
-							<h3 class="login_tit">아이디 찾기</h3>
-							<div id="find_id" class="find_idpw">
-								<p class="sub-tit">회원가입 시, 입력하신 이름 + 이메일로 아이디를 확인하실 수 있습니다.</p>
-								
-								<div class="find-info">
-									<table>
-											<th><div>이&nbsp;&nbsp;름</div></th>
-											<td><div>
-													<input type="text" id="name" name="name"
-														class="MS_input_txt" value="" maxlength="30" title="이름" 	placeholder="">
-												</div></td>
-										<tr/>
-										<tr height="38" id="find_id_email_wrap">
-											<th><div>이메일</div></th>
-											<td><div>
-													<input type="text" id="find_id_email" name="find_id_email"
-														class="MS_input_txt" value="" maxlength="80" 	title="이메일 주소" placeholder="">
-												  </div>
-											</td>
-										</tr>
-									</table>
-									<br>
-								    <div class="btn-area"> 
-								    <button type="submit" id="submit_findId"><img src="./kdy/img/findid.png"></button>
+							<h3 class="login_tit">비밀번호 찾기</h3>
+
+							<div id="find_pw" class="find_idpw">
+							
+								<p class="sub-tit">
+									가입하신 아이디 + 이메일을 입력, 본인인증을 통해 이메일로 임시
+									비밀번호를 보내드립니다. 확인 후 로그인하셔서 반드시 비밀번호를 변경하시기 바랍니다.
+								</p>
+								<div id="find_pw_input_wrap">
+									<div class="find-info">
+										<table border="0" summary="이름, 이메일">
+											<caption>임시 비밀번호 발급 폼</caption>
+											 
+											<tbody>
+												<tr class="user-id">
+													<th scope="row"><div>아이디</div></th>
+													<td><div>
+															<input type="text" name="userId" id="userId" value="<% %>"
+																class="MS_input_txt" size="10" maxlength="20" />
+														</div></td>
+												</tr>
+												<tr id="find_pw_email_wrap">
+													<th scope="row"><div>이메일</div></th>
+													<td><div>
+															<input type="text" id="email" name="email"
+																class="MS_input_txt" value="" maxlength="80"
+																title="이메일 주소" placeholder=""
+																onfocus="document.findPw.focus_ok.value='yes'">
+														</div></td>
+												</tr>
+												
+											</tbody>
+										</table>
+										<br>
+										<div class="btn-area"> 
+									
+									<button type="submit" id="submit_findpw"><img src="./kdy/img/FindPasswd.png"></button>
 								    <button><img src="./kdy/img/login01.png"><a href="index.jsp?workgroup=kdy/login&work=jm_login"></a></button>
-								   <!-- <a class="info-confirm" href="javascript:find_id;"> 아이디 찾기 </a>  --> 
-								   <!-- <a class="info-confirm" href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> --> 
-								    </div>
+										<!-- <a href="javascript: find_type('find_pw');"> 임시 비밀번호 발급 </a> -->
+										<!-- <a href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> -->
+										</div>
+									</div>
+								</div>
+								</div>
 								</div>
 							</div>
-							</div>
-					</div>
-				</form><!--/#find_id/-->
+					</form>			<!--/#find_pw/-->
 			</div>
 		</div>
 	</div>
 	
 <script type="text/javascript">
-$("#name").focus();
-
-$("#findId").submit(function() {
-
-    var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
-    
-	if ($("#name").val()=="") {
-		alert("이름을 입력해 주세요.");
-		$("#name").focus();
-		return false ;
-	}else if($("#find_id_email").val()=="") {
-		alert("이메일을 입력해 주세요.");
-		$("#find_id_email").focus();
-		return false ;
-	}else if(checkEmail.test($("#find_id_email").val())!=true) {
-		alert("올바른 형식의 이메일로 입력해 주세요.");
-		$("#find_id_email").focus();
-		return false ;
-	}
-	});	
+	$("#userId").focus();
 	
+	//비밀번호 찾기
+	$("#findPw").submit(function() {
+	
+	    var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
+	    	    
+		if ($("#userId").val()=="") {
+			alert("아이디를 입력해 주세요.");
+			$("#userId").focus();
+			return false ;
+		}else if($("#email").val()=="") {
+			alert("이메일을 입력해 주세요.");
+			$("#email").focus();
+			return false ;
+		}else if(checkEmail.test($("#email").val())!=true) { 
+			alert("올바른 형식의 이메일로 입력해 주세요.");
+			$("#email").focus();
+			return false ;
+		}
+		});
+	
+	
+
 </script>
 
