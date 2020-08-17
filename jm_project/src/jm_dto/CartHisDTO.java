@@ -60,7 +60,7 @@ public class CartHisDTO {
 		return frstRgsrUsrno;
 	}
 
-	public void setFrstRgsrUsrno(String firstRgsrUsrno) {
+	public void setFrstRgsrUsrno(String frstRgsrUsrno) {
 		this.frstRgsrUsrno = frstRgsrUsrno;
 	}
 
@@ -68,7 +68,7 @@ public class CartHisDTO {
 		return frstRgstDttm;
 	}
 
-	public void setFrstRgstDttm(String firstRgstDttm) {
+	public void setFrstRgstDttm(String frstRgstDttm) {
 		this.frstRgstDttm = frstRgstDttm;
 	}
 
