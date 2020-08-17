@@ -29,11 +29,7 @@
 	
 	%> 
 	
-	<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>JSP</title>
+
 <style type="text/css">
 
 div {
@@ -44,11 +40,4 @@ div {
 .id { color: red; }
 
 </style>
-</head>
-<body>
-<!-- <form action="index.jsp?workgroup=kdy/login&work=jm_login"> -->
-<%-- 		<div style="width: 300px;margin: 0 auto;">입력한 회원의 아이디는 <span class="memId">[<%=userInfo.getUserId() %>]</span>입니다. --%>
-<!-- 		<button type="submit" style="margin-top: 15px; "><img src="./member/fine_id/savech.png"></button></div> -->
-<!-- </form> -->
-</body>
-</html>
+
