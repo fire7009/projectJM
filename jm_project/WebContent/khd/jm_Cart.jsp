@@ -6,9 +6,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String pcode=request.getParameter("pcode");
-	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(pcode);
-	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(pcode);
+	String user=request.getParameter("user");
+	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
+	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
 	
 %>
 
@@ -63,7 +63,7 @@ td {
 		<% } else { %>
 			<% for(CartHisDTO cart:cartList){ %>
 					<tr>
-						<th>상품사진</th>
+						<th></th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
 						<button>수정</button></th>

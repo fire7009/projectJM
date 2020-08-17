@@ -18,7 +18,7 @@
 		</p>
 	</div>
 	<h1>
-		<a href="#"><img src="img/kurly_logo.png" alt="마켓 컬리" /></a>
+		<a href="khd/jm_Shopping.jsp"><img src="img/kurly_logo.png" alt="마켓 컬리" /></a>
 	</h1>
 	<dl id="util_menu">
 		<dt class="hide">유틸메뉴</dt>

@@ -13,23 +13,23 @@
 	}
 
 	int select=Integer.parseInt(request.getParameter("select"));
-	String pcode=request.getParameter("pcode");
+	String prodCd=request.getParameter("prodCd");
+	String user=request.getParameter("user");
 	
 	ProductInfoDAO product=new ProductInfoDAO();
-	product.selectProductInfo(pcode);
+	product.selectProductInfo(prodCd);
 	
 	CartHisDTO cart=new CartHisDTO();
 
-	cart.setProdCd(pcode);
+	cart.setProdCd(prodCd);
 	cart.setProdQty(select);
-	cart.setOrdYn("1");
-	cart.setDelYn("1");
+	cart.setFrstRgsrUsrno(user);
 	CartHisDAO.getDAO().insertCart(cart);
 	
 
 	//장바구니 페이지 이동
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Cart&pcode="+pcode+"';");
+	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Cart&user="+user+"';");
 	out.println("</script>");
 	
 %>

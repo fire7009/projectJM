@@ -34,13 +34,15 @@ public class CartHisDAO extends JdbcDAO{
 			con=getConnection();
 			
 			String sql="insert into cart_his(his_seqno,prod_cd,prod_qty,ord_yn,del_yn,"
-					+ "frst_rgsr_usrno,frst_rgst_dttm,last_procr_usrno,last_proc_dttm)"
-					+ "values((select(nvl(max(his_seqno),0)+1)from cart_his),?,?,?,?,'1',sysdate,'1',sysdate)";
+					+ "frst_rgsr_usrno,last_procr_usrno)"
+					+ "values((select(nvl(max(his_seqno),0)+1)from cart_his),?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, cart.getProdCd());
 			pstmt.setInt(2, cart.getProdQty());
 			pstmt.setString(3, cart.getOrdYn());
 			pstmt.setString(4, cart.getDelYn());
+			pstmt.setString(5,cart.getFrstRgsrUsrno());
+			pstmt.setString(6, cart.getLastProcrUsrno());
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -52,8 +54,8 @@ public class CartHisDAO extends JdbcDAO{
 	}
 	
 	
-	//선택된 his코드에 해당하는 장바구니 목록 출력
-	public List<CartHisDTO> selectCartList(String pcode) {
+	//선택된 사용자 코드에 해당하는 장바구니 목록 출력
+	public List<CartHisDTO> selectCartList(String frst) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -61,9 +63,9 @@ public class CartHisDAO extends JdbcDAO{
 		try {
 			con=getConnection();
 			
-			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where prod_cd=?";
+			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1,pcode);
+			pstmt.setString(1,frst);
 			
 			rs=pstmt.executeQuery();
 			
@@ -85,6 +87,7 @@ public class CartHisDAO extends JdbcDAO{
 		return cartList;
 	}
 	
+	//지정된 장바구니의 his code에 해당하는 수량 수정
 	public int updateQtyCart(int num,String his) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -95,6 +98,27 @@ public class CartHisDAO extends JdbcDAO{
 			String sql="update cart_his set prod_qty=? where his_seqno=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);
+			pstmt.setString(2, his);
+			
+			rows=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+		} finally {
+			close(con,pstmt);
+		}
+		return rows;
+	}
+	
+	public int updateDelCart(String delYn,String his) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rows=0;
+		try {
+			con=getConnection();
+			
+			String sql="update cart_his set del_yn=? where his_seqno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, delYn);
 			pstmt.setString(2, his);
 			
 			rows=pstmt.executeUpdate();
