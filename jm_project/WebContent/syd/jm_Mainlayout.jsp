@@ -11,7 +11,7 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">카페인테리어</h2>
+                    <h2 class="section-heading text-uppercase">비츠 기획전</h2>
                     <h3 class="section-subheading text-muted">자세히 보기</h3>
                 </div>
                 <div class="row">
@@ -21,7 +21,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="MS_prod_img_s" src="shopimages/vittz/0630070005243.gif" alt="상품 섬네일" title="상품 섬네일">
+                                <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">리시브 제품</div>
@@ -35,7 +35,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                               <img class="MS_prod_img_s" src="/shopimages/vittz/0630070003363.gif" alt="상품 섬네일" title="상품 섬네일">
+                                <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">카페인테리어</div>
@@ -49,7 +49,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                               <img class="MS_prod_img_s" src="/shopimages/vittz/0630070002923.jpg" alt="상품 섬네일" title="상품 섬네일">
+                                <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">아파트 인테리어</div>
@@ -94,7 +94,6 @@
                                 <img class="img-fluid" src="assets/img/portfolio/06-thumbnail.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                           
                                 <div class="portfolio-caption-heading">비츠파라솔</div>
                                 <div class="portfolio-caption-subheading text-muted">Photography</div>
                             </div>
