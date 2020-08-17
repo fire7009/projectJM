@@ -158,4 +158,34 @@ public class ProdReviewDAO extends JdbcDAO {
 		}
 		return rows;
 	}
+	
+	//게시글 갯수 검색
+	public int selectReviewCount(String search, String keyword) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int count=0;
+		try {
+			con=getConnection();
+			
+			if(keyword.equals("")) {//검색을 하지 않은 경우
+				String sql="select count(*) from prod_review";
+			}else {//검색을 한 경우
+				String sql="select count(*) from board where"+search+" like '%'||?||'%'";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, keyword);
+			}
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]selectReviewCount 메소드의 sql 오류=" +e.getMessage());
+		} finally {
+			close(con,pstmt,rs);
+		}
+		
+		return count;
+	}
 }

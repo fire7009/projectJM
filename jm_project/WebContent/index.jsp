@@ -41,7 +41,7 @@
 		<jsp:include page="/jm_Header.jsp"/>
 	</div>
 	<%--test --%>
-	<%-- Content 영역 : 요청에 대한 결과 출력 --%>
+	<%-- Content 영역 : 요청에 대한 결과 출력  --%>
 	<div id="content">
 		<jsp:include page="<%=contentPath%>"/>		
 	</div>

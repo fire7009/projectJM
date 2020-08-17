@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jm_dto.ProductInfoDTO;
 import jm_dto.UserInfoDTO;
@@ -25,32 +27,34 @@ public class ProductInfoDAO extends JdbcDAO {
 		return _dao;
 	}
 
-	// 占쏙옙품占쏙옙占쏙옙 占쏙옙占쌨받억옙 ProductInfo 占쏙옙占싱븝옙 占쏙옙占쏙옙占싹곤옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙환占싹댐옙 占쌨소듸옙
-	// => 占쏙옙품占쌘듸옙, 카占쌓곤옙占쌘듸옙, 占쏙옙품占쏙옙, 占쏙옙품占쏙옙占쏙옙, 占쏙옙품占쏙옙, 占쏙옙占십듸옙占쏙옙占싫몌옙占쏙옙占싫�, 占쏙옙占쏙옙처占쏙옙占쏙옙회占쏙옙占쏙옙호
-	public int insertProductInfo(ProductInfoDTO ProductInfo) {
+	//
+	public int insertProductInfo(ProductInfoDTO product) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		int rows = 0;
 		try {
 			con = getConnection();
 
-			String sql = "insert into product_Info(prod_cd, ctgr_cd, prod_nm, prod_price, bas_file_path, bas_file_nm, detl_file_path, detl_file_nm, prod_detl, frst_rgsr_usrno"
-					+ ", last_procr_usrno) values((SELECT (NVL(MAX(PROD_CD), 0) + 1) FROM PRODUCT_INFO), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into product_info(prod_cd,ctgr_cd, prod_nm,prod_price,bas_file_path,bas_file_nm,detl_file_path,detl_file_nm,\r\n" + 
+					"prod_detl,view_cnt,main_exp_yn,del_yn,frst_rgsr_usrno,last_procr_usrno) values((SELECT (NVL(MAX(PROD_CD), 0) + 1) FROM PRODUCT_INFO),?,?,?,?,?,?,?,?,?,?,?,?,?);";
 			pstmt = con.prepareStatement(sql);			
-			pstmt.setString(1, ProductInfo.getCtgrCd());
-			pstmt.setString(2, ProductInfo.getProdNm());
-			pstmt.setInt(3, ProductInfo.getProdPrice());
-			pstmt.setString(4, ProductInfo.getBasFilePath());
-			pstmt.setString(5, ProductInfo.getBasFileNm());
-			pstmt.setString(6, ProductInfo.getDetlFilePath());
-			pstmt.setString(7, ProductInfo.getDetlFileNm());
-			pstmt.setString(8, ProductInfo.getProdDetl());
-			pstmt.setString(9, ProductInfo.getFrstRgsrUsrno());
-			pstmt.setString(10, ProductInfo.getLastProcrUsrno());
+			pstmt.setString(1,product.getCtgrCd());
+			pstmt.setString(2, product.getProdNm());
+			pstmt.setInt(3, product.getProdPrice());
+			pstmt.setString(4, product.getBasFilePath());
+			pstmt.setString(5, product.getBasFileNm());
+			pstmt.setString(6, product.getDetlFilePath());
+			pstmt.setString(7, product.getDetlFileNm());
+			pstmt.setString(8, product.getProdDetl());
+			pstmt.setInt(9, product.getViewCnt());
+			pstmt.setString(10, product.getMainExpYn());
+			pstmt.setString(11, product.getDelYn());
+			pstmt.setString(12, product.getFrstRgsrUsrno());
+			pstmt.setString(13, product.getLastProcrUsrno());
 			
 			rows = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("[占쏙옙占쏙옙]insertProductInfo() 占쌨소듸옙占쏙옙 SQL 占쏙옙占쏙옙 = " + e.getMessage());
+			System.out.println("[����]insertProductInfo()�� SQL ���� = " + e.getMessage());
 		} finally {
 			close(con, pstmt);
 		}
@@ -59,41 +63,72 @@ public class ProductInfoDAO extends JdbcDAO {
 
 	
 	
-	
-	//占쏙옙품占쏙옙占쏙옙 占쏙옙 占쏙옙회 
-	//占쏙옙품占쌘드를 占쏙옙占쌨받억옙 ProductInfo 占쏙옙占싱븝옙 占쏙옙占쏙옙占� 占쌔댐옙 占쏙옙품占쌘드에 占쌔댐옙占싹댐옙 占쏙옙품占쏙옙 占싯삼옙占싹울옙 占쏙옙환占싹댐옙 占쌨소듸옙
+
 	public ProductInfoDTO selectProductInfo(String prodCd) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		ProductInfoDTO productInfo = null;
+		ProductInfoDTO product = null;
 		try {
 			con = getConnection();
 
-			String sql = "SELECT PROD_CD,CTGR_CD,PROD_NM,PROD_PRICE,PROD_DETL,VIEW_CNT,MAIN_EXP_YN,SALES_YN FROM PRODUCT_INFO WHERE PROD_CD=?";
+			String sql = "SELECT B.PROD_CD" + 
+					", B.PROD_NM" + 
+					", B.PROD_PRICE" + 
+					", B.BAS_FILE_PATH" + 
+					", B.BAS_FILE_NM" + 
+					", B.DETL_FILE_PATH" + 
+					", B.DETL_FILE_NM" + 
+					", B.PROD_DETL" + 
+					" FROM PROD_CTGR_INFO A" + 
+					" INNER JOIN" + 
+					" PRODUCT_INFO B" + 
+					" ON A.CTGR_CD = B.CTGR_CD" + 
+					" WHERE B.PROD_CD = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, prodCd);
 
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				productInfo = new ProductInfoDTO();
-				productInfo.setProdCd(rs.getString("prod_cd"));
-				productInfo.setCtgrCd(rs.getString("ctgr_cd"));
-				productInfo.setProdNm(rs.getString("prod_nm"));
-				productInfo.setProdPrice(rs.getInt("prod_price"));
-				productInfo.setProdDetl(rs.getString("prod_detl"));
-				productInfo.setViewCnt(rs.getInt("view_cnt"));
-				productInfo.setMainExpYn(rs.getString("main_exp_yn"));
-				productInfo.setSalesYn(rs.getString("sales_yn"));
+				product=new ProductInfoDTO();
+				product.setProdCd(rs.getString("prod_cd"));
+				product.setProdNm(rs.getString("prod_nm"));
+				product.setProdPrice(rs.getInt("prod_price"));
+				product.setBasFileNm(rs.getString("bas_file_nm"));
+				product.setBasFileNm(rs.getString("bas_file_path"));
+				product.setBasFileNm(rs.getString("detl_file_nm"));
+				product.setBasFileNm(rs.getString("detl_file_path"));
+				product.setProdDetl(rs.getString("prod_detl"));
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("[占쏙옙占쏙옙]selectProductInfo() 占쌨소듸옙占쏙옙 SQL 占쏙옙占쏙옙 = " + e.getMessage());
+			System.out.println("[����]selectProductInfo()�� SQL���� = " + e.getMessage());
 		} finally {
 			close(con, pstmt, rs);
 		}
-		return productInfo;
+		return product;
+	}
+	
+	public int updateProduct(String delYn,String prodCd) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rows=0;
+		try {
+			con=getConnection();
+			
+			String sql="update product_info set del_yn=? where prod_cd=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, delYn);
+			pstmt.setString(2, prodCd);
+			
+			rows=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO: handle exception
+		} finally {
+			close(con,pstmt);
+		}
+		return rows;
 	}
 	
 }

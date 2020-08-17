@@ -4,6 +4,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo("1");
+	int price=product.getProdPrice();
+	String prodNm=product.getProdNm();
+	String ctgr=product.getCtgrCd();
+	String basFileNm=product.getBasFileNm();
+	String basFilePath=product.getBasFilePath();
+	String detlFileNm=product.getDetlFileNm();
+	String detlFilePath=product.getDetlFilePath();
+	String prodDetl=product.getProdDetl();
+	String user=product.getFrstRgsrUsrno();
 %>
 
 
@@ -52,15 +62,15 @@ table.shop .even {
 
 	<tr>
 		<th class="title">제품명</td>
-		<td class="value"></td>
+		<td class="value"><%=prodNm%></td>
 	</tr>
 	<tr>
 		<th class="title">제품이미지</td>
-		<td class="value">		<img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg"alt="" /></td>
+		<td class="value"><img src="img/JM_03.png"alt="" /></td>
 	</tr>
 	<tr>
 		<th class="title">상세설명</td>
-		<td class="value"></td>
+		<td class="value"><%=prodDetl %></td>
 	</tr>
 	<tr>
 		<th class="title">상품수량선택</td>
@@ -76,7 +86,7 @@ table.shop .even {
 	</tr>
 	<tr>
 		<th class="title">제품가격</td>
-		<td class="value"></td>
+		<td class="value"><%=price %></td>
 	</tr>
 </table>
 
@@ -88,18 +98,17 @@ table.shop .even {
 </form>
      
         
-<%-- $("#cartBtn").click(function() {
-	var select=$("select[name=select]").val();
-	var price=<%=product.getProdPrice()%>;
-	
-	$("#shoppingForm").attr("method","post");
-	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&pcode=<%=product.getProdCd()%>");
-	$("#shoppingForm").submit();
-}); --%>
+
 				
 <script type="text/javascript">
-
-
+$("#cartBtn").click(function(){
+var select=$("select[name=select]").val();
+	
+	$("#shoppingForm").attr("method","post");
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=product.getProdCd()%>&user="+user);
+	$("#shoppingForm").submit();
+	
+});
 </script>
 
 

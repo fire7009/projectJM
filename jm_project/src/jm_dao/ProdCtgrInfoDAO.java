@@ -32,17 +32,12 @@ public class ProdCtgrInfoDAO extends JdbcDAO {
 		try {
 			con=getConnection();
 			
-			String sql="insert into prod_ctgr_info values(?,?,?,?,?,?,?,?)";
+			String sql="insert into prod_ctgr_info(ctgr_cd, ctgr_nm,frst_rgsr_usrno,last_procr_usrno) values ((select nvl(max(ctgr_cd),0)+1 ctgr_cd from prod_ctgr_info),?,?,?)";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, ctgr.getCtgrCd());
-			pstmt.setString(2, ctgr.getCtgrNm());
-			pstmt.setString(3, ctgr.getUzYn());
-			pstmt.setString(4, ctgr.getDelYn());
-			pstmt.setString(5, ctgr.getFrstRgsrUsrno());
-			pstmt.setString(6, ctgr.getFrstRgstDttm());
-			pstmt.setString(7, ctgr.getLastProcrUsrno());
-			pstmt.setString(8, ctgr.getLastProcDttm());
-			
+			pstmt.setString(1, ctgr.getCtgrNm());
+			pstmt.setString(2, ctgr.getFrstRgsrUsrno());
+			pstmt.setString(3, ctgr.getLastProcrUsrno());
+
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("[에러]insertProd()메소드의 sql 오류=" +e.getMessage());
@@ -61,7 +56,7 @@ public class ProdCtgrInfoDAO extends JdbcDAO {
 		try {
 			con=getConnection();
 			
-			String sql="select * from prod_ctgr_info where ctgr_cd=?";
+			String sql="select (ctgr_nm,frst_rgsr_usrno,last_procr_usrno) from prod_ctgr_info where ctgr_cd=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,ctgr);
 			
@@ -70,12 +65,9 @@ public class ProdCtgrInfoDAO extends JdbcDAO {
 			if(rs.next()) {
 				ctgrProd.setCtgrCd(rs.getString("ctgr_cd"));
 				ctgrProd.setCtgrNm(rs.getString("ctgr_nm"));
-				ctgrProd.setUzYn(rs.getString("uz_yn"));
 				ctgrProd.setDelYn(rs.getString("del_yn"));
 				ctgrProd.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
-				ctgrProd.setFrstRgstDttm(rs.getString("frst_rgst_dttm"));
 				ctgrProd.setLastProcrUsrno(rs.getString("last_procr_usrno"));
-				ctgrProd.setLastProcDttm(rs.getString("last_proc_dttm"));
 			}
 			
 		} catch (SQLException e) {
@@ -86,24 +78,5 @@ public class ProdCtgrInfoDAO extends JdbcDAO {
 		return ctgrProd;
 	}
 	
-	//카테고리 업데이트
-	public int updateCtgr(String ctgr) {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		int rows=0;
-		try {
-			con=getConnection();
-			
-			String sql="update prod_ctgr_info set last_proc_dttm=sysdate where ctgr_cd=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, ctgr);
-			
-			rows=pstmt.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println("[에러]updateCtgr() 메소드의 SQL 오류 = "+e.getMessage());
-		} finally {
-			close(con, pstmt);
-		}
-		return rows;
-	}
 }
+
