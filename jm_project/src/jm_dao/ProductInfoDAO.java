@@ -13,7 +13,7 @@ public class ProductInfoDAO extends JdbcDAO {
 
 	private static ProductInfoDAO _dao;
 
-	public ProductInfoDAO() {
+	public ProductInfoDAO() {//
 		// TODO Auto-generated constructor stub
 	}
 
