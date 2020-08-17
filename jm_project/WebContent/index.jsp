@@ -12,6 +12,8 @@
 	if(work==null) work="jm_Mainlayout";
 
 	String contentPath=workgroup+"/"+work+".jsp";
+	
+	String
 %>    
 
 <!DOCTYPE html>
