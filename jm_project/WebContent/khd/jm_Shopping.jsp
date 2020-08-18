@@ -22,15 +22,15 @@ table.shop {
     border-collapse: collapse;
     text-align: left;
     line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: 5px solid #ccc;
+    border-bottom: 4px solid #ccc;
     margin: 20px 10px;
 }
 table.shop thead th {
     width: 150px;
     padding: 10px;
     font-weight: bold;
-    vertical-align: top;
+
     color: #fff;
     background: #e7708d;
     margin: 20px 10px;
@@ -42,13 +42,14 @@ table.shop tbody th {
 table.shop td {
     width: 350px;
     padding: 10px;
-    vertical-align: top;
+    text-align:center;
+    vertical-align: center;
 }
 table.shop .even {
     background: #fdf3f5;
 }
 .shopping{
-	width: 500px;
+	width: 1000px;
 	margin: auto;
 	padding: 50px 20px;
 	text-align:center;
@@ -104,9 +105,8 @@ table.shop .even {
 $("#cartBtn").click(function(){
 var select=$("select[name=select]").val();
 	$("#shoppingForm").attr("method","post");
-	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/indexcul.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=product.getProdCd()%>&user=<%=user%>");
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=product.getProdCd()%>&user=<%=user%>");
 	$("#shoppingForm").submit();
-	
 });
 </script>
 

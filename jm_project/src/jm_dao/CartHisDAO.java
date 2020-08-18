@@ -86,17 +86,18 @@ public class CartHisDAO extends JdbcDAO{
 	}
 	
 	//지정된 장바구니의 his code에 해당하는 수량 수정
-	public int updateQtyCart(int num,String his) {
+	public int updateQtyCart(int num,String his, String user) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rows=0;
 		try {
 			con=getConnection();
 			
-			String sql="update cart_his set prod_qty=? where his_seqno=?";
+			String sql="update cart_his set prod_qty=? where his_seqno=? and frst_rgsr_usrno=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, his);
+			pstmt.setString(3, user);
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -107,17 +108,18 @@ public class CartHisDAO extends JdbcDAO{
 		return rows;
 	}
 	
-	public int updateDelCart(String his) {
+	public int updateDelCart(String user,String his) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rows=0;
 		try {
 			con=getConnection();
 			
-			String sql="update cart_his set del_yn=? where his_seqno=?";
+			String sql="update cart_his set del_yn=? where his_seqno=? and frst_rgsr_usrno=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, "Y");
 			pstmt.setString(2, his);
+			pstmt.setString(3, user);
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {

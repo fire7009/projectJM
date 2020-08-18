@@ -66,23 +66,35 @@ td {
 						<th></th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
-						<button>수정</button></th>
+						<select id="select" name="select">
+        				<option value="1" >1</option>
+         				<option value="2" >2</option>
+         				<option value="3">3</option>
+         				<option value="4">4</option>
+        				<option value="5">5</option>
+        				</select>
+						<input type="button" value="수정" onclick="updateCart(<%=cart.getHisSeqno()%>);"></th>
 						<th><%=cart.getProdQty()%>x<%=product.getProdPrice()%></th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 					</tr>
-					<%} %>
-				<%} %>
+				<%} %>	
 			<%} %>
+		<%} %>
 		</table>
  	
 	</div>
 	
 	<script type="text/javascript">
-	alert(his);
 	function removeCart(his) {
-			location.href="khd/jm_Cart_delete.jsp?his="+his;
+			location.href="khd/jm_Cart_delete.jsp?his="+his+"&user=<%=user%>";
 	}
+	
+	function updateCart(his) {
+		var select=document.getElementById("select");
+		select=select.options[select.selectedIndex].value;
+		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+select;
 
+	}
 	</script>
 	
 

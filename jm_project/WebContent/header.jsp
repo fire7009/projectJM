@@ -96,7 +96,7 @@
 			<ul id="gnb">
 				<li class="fir"><a href="#">거실조명</a>
 					<ul class="sub1">
-						<li><a href="indexcul.jsp?workgroup=khd&work=jm_Shopping">20평대</a></li>
+						<li><a href="index.jsp?workgroup=khd&work=jm_Shopping">20평대</a></li>
 						<li><a href="#">30평대</a></li>
 						<li><a href="#">40평대</a></li>
 						<li><a href="#">50평대</a></li>

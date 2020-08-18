@@ -9,12 +9,13 @@
 
 	String user=request.getParameter("user");
 
+	int qty=Integer.parseInt(request.getParameter("qty"));
 
-	int rows=CartHisDAO.getDAO().updateDelCart(user,his);
+	int rows=CartHisDAO.getDAO().updateQtyCart(qty, his, user);
 
 	//비정상적인 요청에 대한 응답 처리
 	if(rows<=0) {//삭제된 학생정보가 없는 경우
-		session.setAttribute("message", "삭제하고자 하는 장바구니 목록이 없습니다.");
+		session.setAttribute("message", "수량을 수정하고자 하는 장바구니 목록이 없습니다.");
 	}
 	
 	out.println("<script type='text/javascript'>");
