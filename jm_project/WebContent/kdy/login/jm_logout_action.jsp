@@ -6,7 +6,8 @@
 	session.invalidate();
 	
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=syd&work=main;");
+	out.println("<script>location.href='"+request.getContextPath()+"/index.jsp?workgroup=syd&work=main; </script>");
 	out.println("</script>");
+	
 	
 %>
