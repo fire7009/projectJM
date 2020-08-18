@@ -18,7 +18,7 @@
 			<li><img src="img/visual_bullet_off.png" /></li>
 			<li><img src="img/visual_bullet_off.png" /></li>
 			<li><img src="img/visual_bullet_off.png" /></li>
-	
+
 		</ul>
 		<p class="touch_left_btn">
 			<a href="#"><img src="img/slide-left-button.png" alt="이전 배너" /></a>
@@ -32,7 +32,7 @@
 
 	<div id="contents">
 		<div id="main_goods">
-			<h2>인기상품</h2>
+			<h2>신상품</h2>
 			<a href="#">
 				<div class="goods_box">
 					<div class="goods_img01">
@@ -75,131 +75,20 @@
 				</div>
 			</a>
 		</div>
-		<!-- id="main_goods" -->
-		<div id="contents_top">
-			<div id="roll_banner_wrap">
-				<h3>신상품</h3>
-				<dl>
-					<dt class="roll_btn1">
-						<a href="#" class="active"><img src="img/pop_btn_1_over.png"
-							alt="버튼1" /></a>
-					</dt>
-					<dd>
-						<a href="#"><img src="img/new_goods01.jpg" alt="배너1" /></a>
-					</dd>
-					<dt class="roll_btn2">
-						<a href="#"><img src="img/pop_btn_2_out.png" alt="버튼2" /></a>
-					</dt>
-					<dd>
-						<a href="#"><img src="img/new_goods02.jpg" alt="배너2" /></a>
-					</dd>
 
-					<dt class="roll_btn3">
-						<a href="#"><img src="img/pop_btn_3_out.png" alt="버튼3" /></a>
-					</dt>
-					<dd>
-						<a href="#"><img src="img/new_goods03.jpg" alt="배너3" /></a>
-					</dd>
-					<dt class="roll_btn4">
-						<a href="#"><img src="img/pop_btn_4_out.png" alt="버튼4" /></a>
-					</dt>
-					<dd>
-						<a href="#"><img src="img/new_goods04.jpg" alt="배너4" /></a>
-					</dd>
-					<dt class="roll_btn5">
-						<a href="#"><img src="img/pop_btn_5_out.png" alt="버튼5" /></a>
-					</dt>
-					<dd>
-						<a href="#"><img src="img/new_goods05.jpg" alt="배너5" /></a>
-					</dd>
-					<dt class="roll_btn6">
-						<a href="#"><img src="img/pop_btn_6_out.png" alt="버튼6" /></a>
-					</dt>
-					<dd>
-						<a href="#"><img src="img/new_goods06.jpg" alt="배너6" /></a>
-					</dd>
-					<dt class="roll_btn7">
-						<a href="#"><img src="img/pop_btn_7_out.png" alt="버튼7" /></a>
-					</dt>
-					<dd>
-						<a href="#"><img src="img/new_goods07.jpg" alt="배너7" /></a>
-					</dd>
-				</dl>
-				<!-- 총 7개 -->
-				<p class="ctl_btn">
-					<a href="#" class="playBtn"><img src="img/pop_btn_play_on.gif"
-						alt="재생 버튼" /></a> <a href="#" class="stopBtn"><img
-						src="img/pop_btn_stop_off.gif" alt="정지 버튼" /></a>
-				</p>
-			</div>
-			<!-- id="roll_banner_wrap" -->
-			<!-- 탭 메뉴를 이용해 최근 게시물 리스트 만들기 -->
-			<dl id="tabmenu">
-				<dt class="tab_btn1">
-					<a href="#"><img src="img/tab_btn_1_over.jpg" alt="무료배송" /></a>
-				</dt>
-				<dd>
-					<img src="img/banner01.jpg" alt="kulry lovers" class="fl" />
-					<p class="tab_more">
-						<a href="#"><img src="img/tab_more_btn.png" alt="더보기" /></a>
-					</p>
-				</dd>
-				<dt class="tab_btn2">
-					<a href="#"><img src="img/tab_btn_2_out.jpg" alt="회원혜택" /></a>
-				</dt>
-				<dd>
-					<img src="img/banner02.jpg" alt="kulry lovers" class="fl" />
-					<p class="tab_more">
-						<a href="#"><img src="img/tab_more_btn.png" alt="더보기" /></a>
-					</p>
-				</dd>
-				<dt class="tab_btn3">
-					<a href="#"><img src="img/tab_btn_3_out.jpg" alt="무료배송" /></a>
-				</dt>
-				<dd>
-					<img src="img/banner03.jpg" alt="kulry lovers" class="fl" />
-					<p class="tab_more">
-						<a href="#"><img src="img/tab_more_btn.png" alt="더보기" /></a>
-					</p>
-				</dd>
-			</dl>
-			<!-- id="tabmenu" -->
-			<div id="event_wrap" class="fl">
-				<div id="brandVisual">
-					<ul>
-					
-						<li class="visual_1"><a href="#">베너이미지2</a></li>
-						<li class="visual_2"><a href="#">베너이미지3</a></li>
-						<li class="visual_3"><a href="#">베너이미지4</a></li>
-						<li class="visual_4"><a href="#">베너이미지5</a></li>
-						<li class="visual_5"><a href="#">베너이미지6</a></li>
-					</ul>
-				</div>
-				<div id="buttonList">
-					<li class="on"><a href="#">배너1</a></li>
-					<li><a href="#">배너2</a></li>
-					<li><a href="#">배너3</a></li>
-					<li><a href="#">배너4</a></li>
-					<li><a href="#">배너5</a></li>
-					<li><a href="#">배너6</a></li>
-				</div>
-			</div>
-			<!-- id="event_wrap" -->
-		</div>
 		<!-- id="contents_top" -->
 
 		<!-- 레시피 상품 슬라이드 만들기 -->
 		<div id="recipe">
-			<h3>레시피</h3>
-			<a href="#" class="r_more">레시피 전체보기</a>
+			<h3>추천상품</h3>
 			<div class="animation_canvas">
 				<div class="slider_panel">
-					<a href="#"><img src="img/recipe01.png" class="slider_image"
-						alt="" /></a> <a href="#"><img src="img/recipe02.png"
+					<a href="#"> <img src="img/조명18.jpg" class="slider_image"
+						alt="" /></a> <a href="#"><img src="img/조명19.jpg"
 						class="slider_image" alt="" /></a> <a href="#"><img
-						src="img/recipe03.png" class="slider_image" alt="" /></a> <a href="#"><img
-						src="img/recipe04.png" class="slider_image" alt="" /></a> <a href="#"><img
-						src="img/recipe05.png" class="slider_image" alt="" /></a>
+						src="img/조명20.png" class="slider_image" alt="" /></a> <a href="#"><img
+						src="img/조명21.jpg" class="slider_image" alt="" /></a> <a href="#"><img
+						src="img/조명22.jpg" class="slider_image" alt="" /></a>
 				</div>
 				<div class="control_panel">
 					<div class="control_button"></div>
@@ -209,61 +98,33 @@
 					<div class="control_button"></div>
 				</div>
 			</div>
-			<!-- class="animation_canvas" -->
-			<div class="slider_text_panel">
-				<div class="slider_text">
-					<h2>레시피상품</h2>
-					<p class="line"></p>
-					<a href="#"><img src="img/r_goods01.png" alt="" /></a>
-					<p>[데치코] 엑스트라버진 올리브 오일</p>
-					<p>10,800</p>
-				</div>
-				<div class="slider_text">
-					<h2>레시피상품</h2>
-					<p class="line"></p>
-					<a href="#"><img src="img/r_goods02.png" alt="" /></a>
-					<p>[선솔트] 머레이리버 고메 핑크솔트</p>
-					<p>18,800</p>
-				</div>
-				<div class="slider_text">
-					<h2>레시피상품</h2>
-					<p class="line"></p>
-					<a href="#"><img src="img/r_goods03.png" alt="" /></a>
-					<p>[소프트] 카망베르 치즈 2종</p>
-					<p>14,900</p>
-				</div>
-				<div class="slider_text">
-					<h2>레시피상품</h2>
-					<p class="line"></p>
-					<a href="#"><img src="img/r_goods04.png" alt="" /></a>
-					<p>[그림치즈] 마담로익 4종</p>
-					<p>11,900</p>
-				</div>
-				<div class="slider_text">
-					<h2>레시피상품</h2>
-					<p class="line"></p>
-					<a href="#"><img src="img/r_goods05.png" alt="" /></a>
-					<p>[프루네티] 레제로 프리미엄 엑스트라 버진 오일</p>
-					<p>32,900</p>
-				</div>
-			</div>
 		</div>
 		<!-- id="recipe" -->
 		<!-- 자동슬라이드 배너를 이용한 베스트 상품 영역 만들기 -->
 		<div id="bestgoods_zone">
-			<h3>신선 계절 상품</h3>
+			<h3>인기상품</h3>
 			<div id="best_bg">
 				<ul>
-					<li><a href="#"><img src="img/fruit01.png" alt="" /><span>바나나</span></a></li>
-					<li><a href="#"><img src="img/fruit02.png" alt="" /><span>레몬</span></a></li>
-					<li><a href="#"><img src="img/fruit03.png" alt="" /><span>참외</span></a></li>
-					<li><a href="#"><img src="img/fruit04.png" alt="" /><span>샐러드</span></a></li>
-					<li><a href="#"><img src="img/fruit05.png" alt="" /><span>블루베리</span></a></li>
-					<li><a href="#"><img src="img/fruit06.png" alt="" /><span>포도</span></a></li>
-					<li><a href="#"><img src="img/fruit07.png" alt="" /><span>가지</span></a></li>
-					<li><a href="#"><img src="img/fruit08.png" alt="" /><span>블로콜리</span></a></li>
-					<li><a href="#"><img src="img/fruit09.png" alt="" /><span>귤</span></a></li>
-					<li><a href="#"><img src="img/fruit10.png" alt="" /><span>사과</span></a></li>
+					<li><a href="#"><img src="img/조명7.jpg" alt="" /><span>별별무슨별
+								조명</span></a></li>
+					<li><a href="#"><img src="img/조명8.jpg" alt="" /><span>조개모양이네
+								조명</span></a></li>
+					<li><a href="#"><img src="img/조명9.jpg" alt="" /><span>화려한불빛이
+								날 비추네 조명</span></a></li>
+					<li><a href="#"><img src="img/조명10.jpg" alt="" /><span>이게
+								더 조개같네 조명</span></a></li>
+					<li><a href="#"><img src="img/조명11.jpg" alt="" /><span>태양열대신
+								조명</span></a></li>
+					<li><a href="#"><img src="img/조명12.jpg" alt="" /><span>흰색검정색
+								깔맞춤 조명</span></a></li>
+					<li><a href="#"><img src="img/조명13.jpg" alt="" /><span>배게같아서
+								눕고싶지 조명</span></a></li>
+					<li><a href="#"><img src="img/조명14.jpg" alt="" /><span>선앤문
+								조명</span></a></li>
+					<li><a href="#"><img src="img/조명16.jpg" alt="" /><span>동남아st
+								조명</span></a></li>
+					<li><a href="#"><img src="img/조명17.jpg" alt="" /><span>네인
+								조명아닌 조명</span></a></li>
 				</ul>
 				<!-- 총 10개 -->
 				<p class="prev_btn">
@@ -278,33 +139,14 @@
 		</div>
 		<!-- id="bestgoods_zone" -->
 
-		<div id="contents_bottom">
+		<div id="contents_bottom"></div>
+		<!-- id="map_wrap" -->
 
-			</div>
-			<!-- id="map_wrap" -->
-		
-			<!-- id="online_wrap" -->
-		</div>
-		<!-- id="contents_bottom" -->
+		<!-- id="online_wrap" -->
+	</div>
+	<!-- id="contents_bottom" -->
 
-		<div id="quick_menu">
-			<h3>
-				<a href="#">배송안내<img src="img/icon-truck.png" alt="배송안내" /></a>
-			</h3>
-			<ul>
-				<li><a href="#">신상품</a></li>
-				<li><a href="#">알뜰쇼핑</a></li>
-				<li><a href="#">베스트 구매후기</a></li>
-				<li><a href="#">늘 사는것</a></li>
-				<li><a href="#">장바구니(0)</a></li>
-				<li><a href="#">Kurly Loves</a></li>
-				<li><a href="#">Kurly Recipe</a></li>
-				<li class="last"><a href="#top" class="fl quick_btn"><img
-						src="img/quick_up.png" alt="위로" /></a> <a href="#footer_wrap"
-					class="fl quick_btn"><img src="img/quick_down.png" alt="아래로" /></a>
-				</li>
-			</ul>
-		</div>
+
 	</div>
 	<!-- id="contents" -->
 	</div>
