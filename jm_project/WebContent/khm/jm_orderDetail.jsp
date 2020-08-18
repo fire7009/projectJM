@@ -61,9 +61,6 @@
 				}
 			</script>
 
-
-
-
 			<div class="prod-image" data-global-banner-fold="">
 				<div id="repImageContainer" class="prod-image-container"
 					data-global-banner-fold="">

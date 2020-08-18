@@ -7,7 +7,7 @@
 	//비정상적인 요청에 대한 응답처리
 	if(request.getMethod().equals("GET")) {
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
+		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=error&work=error400';");
 		out.println("</script>");
 		return;
 	}
@@ -31,6 +31,6 @@
 	
 	//로그아웃 처리페이지 이동
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=syd&work=jm_Mainlayout';");
+	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=syd&work=jm_Mainlayout';");
 	out.println("</script>");
 %>    

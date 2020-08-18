@@ -38,7 +38,7 @@
                 <div id="myOrder">
                     <div class="page-body">
                         <div class="table-d2-list">
-                            <table summary="번호, 주문일자, 상품명, 결제금액, 주문상세, 배송현황" border ="1">
+                            <table summary="번호, 주문일자, 상품명, 결제금액, 주문상세" border ="1">
                                 <caption>주문내역</caption>
                                 <colgroup>
                                     <col width="70">
@@ -55,7 +55,6 @@
                                         <th scope="row"><div class="tb-center">상품명</div></th>
                                         <th scope="row"><div class="tb-center">결제금액</div></th>
                                         <th scope="row"><div class="tb-center">주문상세</div></th>
-                                        <th scope="row"><div class="tb-center">배송현황</div></th>
                                     </tr>
                                 </thead>
                                 <tbody>

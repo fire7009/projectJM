@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/kdy/security/login_check.jspf" %>
-
+<%-- 이거 안 쓰는 거임 --%>
 <%
 	String message = (String)session.getAttribute("message");
 	if(message == null) {
@@ -10,7 +10,7 @@
 		session.removeAttribute("message");
 	}
 %>
-<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=userInfo&work=jm_updateInfo" method="post" onsubmit="return sumbitCheck();">
+<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_updateInfo" method="post" onsubmit="return sumbitCheck();">
 	<p>회원정보변경을 위한 비밀번호를 입력해주세요. </p>
 	<p>
 		<input type="password" name="passwd">

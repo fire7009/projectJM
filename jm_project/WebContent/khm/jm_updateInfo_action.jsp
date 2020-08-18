@@ -6,13 +6,14 @@
 <%@include file="/kdy/security/login_check.jspf" %>
 <%
 	//비정상적인 요청에 대한 응답 처리 - 에러페이지 이동
+	
 	if(request.getMethod().equals("GET")) {
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
+		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=error&work=error400';");
 		out.println("</script>");
 		return;
 	}
-
+	
 	//전달된 회원정보(입력값)를 반환받아 저장
 	String userId=request.getParameter("userId");
 	String password=request.getParameter("password");
@@ -22,6 +23,7 @@
 	} else {//비밀번호가 입력되지 않은 경우 - 기존 비밀번호 사용
 		password = loginMember.getPassword();
 	}
+	
 	String userNm= Utility.stripTag(request.getParameter("userNm")) ;
 	String postCd=request.getParameter("postCd");
 	String basAddr=request.getParameter("basAddr");
@@ -30,9 +32,12 @@
 			+"-"+request.getParameter("etcphone2")
 			+"-"+request.getParameter("etcphone3");
 	String emailAddr=request.getParameter("email");
-	System.out.println("address2 = "+detlAddr);
+	/*
+	System.out.println("detlAddr= "+detlAddr);
 	System.out.println("postCd = "+postCd);
 	System.out.println("email = "+emailAddr);
+	*/
+	System.out.println(request.getParameter("userId"));
 	
 	//DTO 인스턴스를 생성하여 입력값으로 필드값 변경
 	UserInfoDTO userInfo=new UserInfoDTO();
