@@ -15,11 +15,12 @@
 <style type="text/css">
 table {
 	border-collapse: collapse;
-	text-align: left;
+	text-align: center;
 	line-height: 1.5;
-	border-top: 1px solid #ccc;
-	border-left: 3px solid #369;
-	margin: 20px 10px;
+	border-top: 10px solid #ccc;
+	border-left: 10px solid #369;
+	margin: auto;
+	width: 60%;
 }
 
 th {
@@ -44,7 +45,6 @@ td {
 	
 	<div class="container">
 		<div class="text-center">
-			<h3 class="section-subheading text-muted">장바구니 목록</h3>
 		</div>
 			<div>
 
@@ -54,7 +54,7 @@ td {
 						<th>상품이름</th>
 						<th>수량</th>
 						<th>총상품 금액</th>
-						<th>상품취소</th>
+						<th>목록삭제</th>
 					</tr>
 					<%if(cartList.isEmpty()){ %>
 					<tr>
@@ -81,7 +81,7 @@ td {
 			<%} %>
 		<%} %>
 		</table>
- 	
+ 	<input type="button" value="구매페이지로 이동""></button>
 	</div>
 	
 	<script type="text/javascript">

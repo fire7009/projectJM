@@ -268,23 +268,6 @@ legend {
 .find_idpw tr.user-name th,
 .find_idpw tr.user-name td { border-bottom: 1px solid #ececee; }
 .find_idpw .btn-area { padding:20px 0 50px; text-align: center; }
-.find_idpw .btn-area a {
-    font-size: 14px;
-    background: #110252;
-    padding: 10px 40px;
-    color: #fff;
-    font-family: 'Noto Sans KR',sans-serif;
-margin:0 5px;
-}
-
-.find_idpw .btn-area a {
-    font-size: 14px;
-    background: #110252;
-    padding: 10px 40px;
-    color: #fff;
-    font-family: 'Noto Sans KR',sans-serif;
-    margin: 0 5px;
-}
 
 </style>
 
@@ -312,8 +295,8 @@ margin:0 5px;
 							<div id="find_pw" class="find_idpw">
 							
 								<p class="sub-tit">
-									가입하신 아이디 + 이메일을 입력, 본인인증을 통해 이메일로 임시
-									비밀번호를 보내드립니다. 확인 후 로그인하셔서 반드시 비밀번호를 변경하시기 바랍니다.
+									가입하신 아이디+이메일을 입력하면 임시 비밀번호를 발급해드립니다. <br>
+									확인 후 로그인하셔서 반드시 비밀번호를 변경하시기 바랍니다.
 								</p>
 								<div id="find_pw_input_wrap">
 									<div class="find-info">
@@ -343,8 +326,10 @@ margin:0 5px;
 										<br>
 										<div class="btn-area"> 
 									
-									<button type="submit" id="submit_findpw"><img src="./kdy/img/FindPasswd.png"></button>
-								    <button><img src="./kdy/img/login01.png"><a href="index.jsp?workgroup=kdy/login&work=jm_login"></a></button>
+									<button type="submit" id="submit_findpw">임시 비밀번호 발급</button>
+								    <button style="width:100px; padding: 0 auto;"><a href="index.jsp?workgroup=kdy/login&work=jm_login"></a>로그인</button>
+								        <!--<button type="submit" id="submit_findpw"><img src="./kdy/img/FindPasswd.png"></button>-->
+								        <!--<button><img src="./kdy/img/login01.png"><a href="index.jsp?workgroup=kdy/login&work=jm_login"></a></button>-->
 										<!-- <a href="javascript: find_type('find_pw');"> 임시 비밀번호 발급 </a> -->
 										<!-- <a href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> -->
 										</div>

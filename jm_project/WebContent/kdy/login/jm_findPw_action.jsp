@@ -16,7 +16,6 @@ System.out.println(emailAddr);
 UserInfoDTO userInfo=UserInfoDAO.getDAO().selectIdUserinfo(userId);
 if(userInfo==null) {
 	out.println("<script>location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 사용자 아이디가 존재하지 않습니다'); </script>");
-	out.println(userInfo.getUserNm());
 	return;
 }
 
@@ -42,9 +41,10 @@ if(userInfo.getUserDv()==""){
 	
 	
 	//아이디와 이메일이 일치할 경우
-	if(userInfo!=null || userInfo.getEmailAddr().equals(emailAddr)){
+	if(userInfo.getUserId().equals(userId) && userInfo.getEmailAddr().equals(emailAddr)){
 		out.println("<script>location.href='"+request.getContextPath()+
-				"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 회원 임시 비밀번호는 " + passwd +" 입니다.'); </script>");
+				"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 회원 임시 비밀번호는 [ " + passwd +" ] 입니다.'); </script>");
+	return;
 	}
 		
 	//out.println("<script type='text/javascript'>");
