@@ -1,28 +1,6 @@
 jQuery(document).ready(function(){
 
-	/* ·Î±×ÀÎ¹öÆ° */
-	$('.login_wrap>a').on('click',function(){
-		$('#login_f').animate({top:'20px'},500);
-		return false;
-	});
-	$('.login_wrap .login_close_btn, input[alt="login"]').on('click',function(){
-		$('#login_f').animate({top:'-500px'},500);
-		return false;
-	});
-	
-	$('#user_id, #user_pw').on('focus',function(){
-		$(this).prev().css('left','-5555px');
-	});
-	$('#user_id, #user_pw').on('blur',function(){
-		if($(this).val()=='') $(this).prev().css('left','2px');
-	});
-	
-	/* top ÀÌº¥Æ®¹è³Ê */
-	$('#top_event').find('.close_btn').on('click',function(){
-		$('#top_event').slideUp();
-	});
-	
-	/* zoom ¹öÆ° */
+	/* zoom ï¿½ï¿½Æ° */
 	var base = 100;
 	var mybody = $('body');
 	$('#zoom a').on('click',function(){
@@ -41,32 +19,32 @@ jQuery(document).ready(function(){
 		return false;
 	});
 	
-	/* ÀÎ¼â¹öÆ° */
+	/* ï¿½Î¼ï¿½ï¿½Æ° */
 	$('.print_btn').on('click',function(){
 		window.print();
 		return false;
 	});
 
-	/* °Ë»ö Ã¢ ¾È³» °¡ÀÌµå */
+	/* ï¿½Ë»ï¿½ Ã¢ ï¿½È³ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
 	$('#keyword').on('focus',function(){
 		$(this).css('background-position','0 -500px');
 	}).on('blur',function(){
 		if($(this).val()=='') $(this).css('background-position','0 0');
 	});
 	
-	/* ÀüÃ¼¸Þ´º */
+	/* ï¿½ï¿½Ã¼ï¿½Þ´ï¿½ */
 	$('#total_btn a').on('click',function(){
 		$('#total_menu').slideDown('fast');
 		return false;
 	});
 
-	/* ÀüÃ¼ ¸Þ´º ´Ý±â ¹öÆ° */
+	/* ï¿½ï¿½Ã¼ ï¿½Þ´ï¿½ ï¿½Ý±ï¿½ ï¿½ï¿½Æ° */
 	$('#total_close a').on('click',function(){
 		$('#total_menu').slideUp('fast');
 		return false;
 	});
 	
-	/* ³¯Â¥Ç¥±â */
+	/* ï¿½ï¿½Â¥Ç¥ï¿½ï¿½ */
 	var t = new Date();
 	var y = t.getFullYear();
 	var m = t.getMonth();
@@ -79,14 +57,14 @@ jQuery(document).ready(function(){
 	}	
 	$('#date_wrap .date').text(d);
 	
-	/* °ü·Ã»çÀÌÆ® ÀÌµ¿ */
+	/* ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Æ® ï¿½Ìµï¿½ */
 	$('form[name=rel_f]').on('submit',function(){
 		var url= $('select', this).val();
 		window.open(url);
 		return false;
 	});
 
-	/* Äü¸Þ´º */
+	/* ï¿½ï¿½ï¿½Þ´ï¿½ */
 	var defaultTop = parseInt($('#quick_menu').css('top'));
 	$(window).on('scroll',function(){
 		var scv = $(window).scrollTop();

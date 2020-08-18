@@ -1,86 +1,44 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<style>
-#map-canvas {
-	width: 450px;
-	height: 222px;
-	margin-top: 1px;
-	background-color: #ffffff;
-	border: 1px solid #e0e0e0;
-}
-</style>
+<%
+	//세션에 저장된 권한 관련 정보를 반환받아 저장
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+%>    
+
+
 <div id="wrap">
-	<div id="top_event">
-		<div class="event">
-			<div class="close_btn"></div>
-		</div>
+
 	</div>
 
 	<div id="header">
-		<div class="head_info">
-			<img src="img/7_clock.png" class="fl" alt="clock" />
-			<p class="txt fl">여기는</p>
-			<p class="txt2 fl">
-				<span>비츠</span>헤더 입니다.
-			</p>
-		</div>
 		<h1>
-			<a href="#"><img src="img/logo.png" alt="vittz" /></a>
+			<a href="<%=request.getContextPath() %>/index.jsp"><img src="img/JM_02.png" alt="vittz" style="width: 100px;"/></a>
 		</h1>
 		<dl id="util_menu">
 			<dt class="hide">유틸메뉴</dt>
-			<dd class="clickme fl DB_etc10_1" style="width: 128px">
-				<img src="img/login_click.png" />
-			</dd>
 			<dd class="util_first">
 				<ul>
-					<li class="login_wrap logtxt"><a href="#">로그인</a>
-						<form action="#" id="login_f" method="post" name="log_f">
-							<fieldset>
-								<legend>로그인</legend>
-								<p class="user_id">
-									<label for="user_id"><img src="img/login_title_id.gif"
-										alt="아이디" /></label> <input type="text" name="user_id" id="user_id" />
-								</p>
-								<p class="user_pw">
-									<label for="user_pw"><img src="img/login_title_pw.gif"
-										alt="패스워드" /></label> <input type="text" name="user_pw" id="user_pw" />
-								</p>
-								<p>
-									<input type="checkbox" name="save_id" id="save_id" /> <label
-										for="save_id">비밀번호 저장</label>
-								</p>
-								<p class="log_btn">
-									<input type="image" src="img/login_btn.png" alt="login" />
-								</p>
-								<p class="join_btn_wrap">
-									<a href="#">회원가입</a> <a href="#" class="sch_id_btn">아이디/비밀번호찾기</a>
-								</p>
-								<p class="login_close_btn">
-									<a href="#"><img src="img/login_close_btn.png" alt="닫기버튼" /></a>
-								</p>
-							</fieldset>
-						</form></li>
-					<li class="logtxt"><a href="#">|&nbsp;&nbsp;&nbsp;회원가입</a></li>
+				<% if(loginMember==null) {//비로그인 사용자 %>	
+				  	<li class="login_wrap logtxt"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login" >로그인</a> 
+				
+					<li class="logtxt"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join" >|&nbsp;&nbsp;&nbsp;회원가입</a></li>
 				</ul>
-			</dd>
-			<dd>
-				<ul id="zoom">
-					<li><img src="img/util_zoom_1.gif" /></li>
-					<li><a href="#" class="zoom_in"><img
-							src="img/util_zoom_2.gif" /></a></li>
-					<li><a href="#" class="zoom_return"><img
-							src="img/util_zoom_3.gif" /></a></li>
-					<li><a href="#" class="zoom_out"><img
-							src="img/util_zoom_4.gif" /></a></li>
+				<% } else {//로그인 사용자 %>
+			
+				<ul>	
+			<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
+					<li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
+					
+					<li calss="mypage"><a href="#" >|&nbsp;&nbsp;&nbsp;내정보</a></li>
 				</ul>
+			<% if(loginMember.getUserDv()=="9") { //관리자인 경우 %>
+			
+		<a href="index.jsp?workgroup=admin&work=admin_main">관리자</a>&nbsp;&nbsp;
+			<% } %>
+			<% } %>	
 			</dd>
-			<dd>
-				<a href="#" class="print_btn"><img src="img/util_print.gif" /></a>
-			</dd>
-
 		</dl>
 		<form action="#" method="get" name="sch_f" id="sch_f">
 			<fieldset>

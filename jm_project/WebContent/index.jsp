@@ -7,12 +7,21 @@
 	request.setCharacterEncoding("utf-8");
 
 	String workgroup=request.getParameter("workgroup");
+	//String workgroup2=request.getParameter("workgroup2");
+	
 	if(workgroup==null) workgroup="syd";
+	///if(workgroup2==null) workgroup="header";
+	
+	String headerPath="/header.jsp";
+	if(workgroup.equals("admin")) {
+		headerPath="/admin/adminHeader.jsp";
+	}
 	
 	String work=request.getParameter("work");
 	if(work==null) work="main";
 
 	String contentPath=workgroup+"/"+work+".jsp";
+	
 %>    
 
 <!DOCTYPE html>
@@ -21,13 +30,13 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="Generator" content="Notepad++"/>
-<meta name="Author" content="오윤석"/>
+<meta name="Author" content="강형동"/>
 <meta name="keywords" content="Market Kurly" />
-<meta name="Description" content="Market Kurly 메인 페이지에 오신 것을 환영합니다"/>
+<meta name="Description" content="JM 조명 메인 페이지에 오신 것을 환영합니다"/>
 <link rel="shortcut icon" href="favicon/favicon.ico"> <!-- 파비콘 -->
 <link rel="apple-touch-icon-precomposed" href="apple-icon.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-icon-114x114.png">
-<title>Market Kurly</title>
+<title>JM조명</title>
 <link rel="stylesheet" type="text/css" href="css/base.css" media="all" />
 <link rel="stylesheet" type="text/css" href="css/main.css" media="all" />
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> <!-- 제이쿼리 라이이브러리 연동 -->
@@ -45,7 +54,7 @@
     <body>
 	<%-- Header 영역 : 회사로고,메뉴,슬라이더등 --%>
 	<div id="header">
-		<jsp:include page="/header.jsp"/>
+		<jsp:include page="<%=headerPath %>"/>
 	</div>
 	<%--test --%>
 	<%-- Content 영역 : 요청에 대한 결과 출력 --%>

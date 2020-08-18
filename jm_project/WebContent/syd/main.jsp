@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<style>
-#map-canvas {
-	width: 450px;
-	height: 222px;
-	margin-top: 1px;
-	background-color: #ffffff;
-	border: 1px solid #e0e0e0;
-}
-</style>
 <body>
 	<div id="visual">
 		<div id="mySwipe" class="swipe">
@@ -289,49 +279,10 @@
 		<!-- id="bestgoods_zone" -->
 
 		<div id="contents_bottom">
-			<div id="map_wrap">
-				<h3>오시는 길</h3>
-				<div id="map-canvas" title="찾아오는 길">
-					<div id="map"></div>
-					<script>
-						var map;
-						function initMap() {
-							map = new google.maps.Map(document
-									.getElementById('map'), {
-								center : {
-									lat : -34.397,
-									lng : 150.644
-								},
-								zoom : 8
-							});
-						}
-					</script>
-					<script
-						src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-						async defer></script>
 
-				</div>
 			</div>
 			<!-- id="map_wrap" -->
-			<div id="online_wrap">
-				<h3>Kurly Loves</h3>
-				<p>| Partners</p>
-				<ul>
-					<!-- 총 6개 -->
-					<li class="fl"><a href="#"><img
-							src="img/online_banner01.png" alt="배너1" title="커피리브레" /></a></li>
-					<li class="fl"><a href="#"><img
-							src="img/online_banner02.png" alt="배너2" title="커피리브레" /></a></li>
-					<li class="fl"><a href="#"><img
-							src="img/online_banner03.png" alt="배너3" title="커피리브레" /></a></li>
-					<li class="fl"><a href="#"><img
-							src="img/online_banner04.png" alt="배너4" title="커피리브레" /></a></li>
-					<li class="fl"><a href="#"><img
-							src="img/online_banner05.png" alt="배너5" title="커피리브레" /></a></li>
-					<li class="fl"><a href="#"><img
-							src="img/online_banner06.png" alt="배너6" title="커피리브레" /></a></li>
-				</ul>
-			</div>
+		
 			<!-- id="online_wrap" -->
 		</div>
 		<!-- id="contents_bottom" -->
@@ -354,15 +305,6 @@
 				</li>
 			</ul>
 		</div>
-		<!-- id="quick_menu" -->
-
-		<p id="pop_wrap">
-			<img src="img/popup.png" alt="컬리를 가장 쉽고 편하게 이용하는 방법" usemap="#pop" />
-			<map name="pop" id="pop">
-				<area shape="rect" coords="322,397,359,413" href="창닫기" />
-				<area shape="rect" coords="161,396,289,418" href="하루동안 창 닫기" />
-			</map>
-		</p>
 	</div>
 	<!-- id="contents" -->
 	</div>

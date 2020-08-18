@@ -1,9 +1,9 @@
 $(function(){
 
-	/* ¸ÞÀÎºñÁÖ¾ó¹è³Ê */
+	/* ï¿½ï¿½ï¿½Îºï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ */
 	window.mySwipe = $('#mySwipe').Swipe({
-		auto: 3000, //¹è³Ê ÀÌµ¿ ¼Óµµ
-		continuous: true, // ¹Ýº¹ÇØ¼­ ·Ñ¸µ
+		auto: 3000, //ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Óµï¿½
+		continuous: true, // ï¿½Ýºï¿½ï¿½Ø¼ï¿½ ï¿½Ñ¸ï¿½
 		callback: function(index,element){
 			$('.touch_bullet .active')
 				.attr('src',$('.touch_bullet .active')
@@ -16,7 +16,7 @@ $(function(){
 		}
 	}).data('Swipe');
     
-	/* ºñÁÖ¾ó ÀÌÀü, ´ÙÀ½ ¹öÆ° */
+	/* ï¿½ï¿½ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° */
 	$('.touch_left_btn a').on('click',function(){
 		mySwipe.prev();
 		return false;
@@ -26,18 +26,7 @@ $(function(){
 		return false;
 	});
   
-	/* ·Ñ¸µ ¹öÆ° ¹è³Ê */
-	$('#roll_banner_wrap dd').not(':first').hide();
-	var onBtn = $('#roll_banner_wrap dt a:first');
-	$('#roll_banner_wrap dt a').on('click',function(){
-		$('#roll_banner_wrap dd:visible').hide();
-		$('img',onBtn).attr('src',$('img',onBtn).attr('src').replace('over.png','out.png'));
-		var num = $('#roll_banner_wrap dt a').index(this);
-		$('#roll_banner_wrap dd').eq(num).show();
-		$('img',this).attr('src',$('img',this).attr('src').replace('out.png','over.png'));
-		onBtn=$(this);
-		return false;
-	});
+
 	var btnNum = 0;
 	function autoPlay(){
 		btnNum++;
@@ -59,7 +48,7 @@ $(function(){
 		$('.playBtn img').attr('src',$('.playBtn img').attr('src').replace('on.gif','off.gif'));
 		return false;
 	});	
-	/* ÅÇ¸Þ´º */
+	/* ï¿½Ç¸Þ´ï¿½ */
 	var onTab=$('#tabmenu dt a:first');
 	$('#tabmenu dt a').on('mouseover focus click',function(){
 		$('#tabmenu dd:visible').hide();
@@ -70,9 +59,9 @@ $(function(){
 		return false;
 	});
 	
-	/* ½Å°èÀý»óÇ° ½½¶óÀÌ´õ */
+	/* ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ */
 	var mySlider = $('#best_bg ul').bxSlider({
-		mode:'horizontal', // ¼öÆò¹æÇâÀ¸·Î ÀÌµ¿
+		mode:'horizontal', // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 		speed:300,
 		pager:false,
 		moveSlides:1,
@@ -93,20 +82,8 @@ $(function(){
 		return false;
 	});
 	
-	/* ÆË¾÷¿¬µ¿ */
-	if($.cookie('pop1')!='no') $('#pop_wrap').show();
-	$('#pop_wrap').css('cursor','move').draggable();
-	$('#pop_wrap area:eq(0)').on('click',function(){
-		$('#pop_wrap').fadeOut('fast');
-		return false;
-	});
-	$('#pop_wrap area:eq(1)').on('click',function(){
-		$.cookie('pop1','no',{expires:1});
-		$('#pop_wrap').fadeOut('fast');
-		return false;
-	});
 	
-	/* ÀÌº¥Æ®½½¶óÀÌµå¹è³Ê */
+	/* ï¿½Ìºï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ */
 	var visual = $('#brandVisual > ul > li');
 	var button = $('#buttonList > li');
 	var current = 0;
@@ -144,7 +121,7 @@ $(function(){
 		}
 	);
 	
-	/* ·¹½ÃÇÇ ½½¶óÀÌµå */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ */
 	function moveSlider(index){
 		var willMoveLeft = -(index*785);
 		$('.slider_panel').animate({left:willMoveLeft},'500');
