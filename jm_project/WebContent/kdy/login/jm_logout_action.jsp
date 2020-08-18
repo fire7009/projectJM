@@ -8,4 +8,5 @@
 	out.println("<script type='text/javascript'>");
 	out.println("location.href='"+request.getContextPath()+"/index.jsp;");
 	out.println("</script>");
+	
 %>
