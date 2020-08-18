@@ -54,7 +54,7 @@
     <body>
 	<%-- Header 영역 : 회사로고,메뉴,슬라이더등 --%>
 	<div id="header">
-		<jsp:include page="<%=headerPath %>"/>
+		<jsp:include page="<%=headerPath%>"/>
 	</div>
 	<%--test --%>
 	<%-- Content 영역 : 요청에 대한 결과 출력 --%>

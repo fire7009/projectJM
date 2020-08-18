@@ -9,7 +9,7 @@
 	String user=request.getParameter("user");
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
-	
+	String qty,price,value;
 %>
 
 <style type="text/css">
@@ -49,7 +49,7 @@ td {
 }
 </style>
 
-<form name="pay" method="post" action="jm_Pay_action.jsp">
+<form name="pay" method="post" action="khd/jm_Pay_action.jsp">
 
 	
 		<div class="content">
@@ -61,7 +61,7 @@ td {
 						<th>수량</th>
 						<th>총상품 금액</th>
 						<th>목록삭제</th>
-						<th>선택</th>
+						<th>주문번호</th>
 					</tr>
 					<%if(cartList.isEmpty()){ %>
 					<tr>
@@ -81,14 +81,14 @@ td {
         				<option value="5">5</option>
         				</select>
 						<input type="button" value="수정" onclick="updateCart(<%=cart.getHisSeqno()%>);"></th>
-						<th><%=cart.getProdQty()%>x<%=product.getProdPrice()%></th>
+						<th>
+						<%=cart.getProdQty()%>x<%=product.getProdPrice()%>
+						</th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
-						<input type="checkbox" name="check" id="order">
-						<div style="visibility:hidden">
-						<%=cart.getHisSeqno()%>
-						<%=user %>
-						</div>
+						<%=value=cart.getHisSeqno()+"_"+user%>
+						<input type="checkbox" name="check" id="order" value="<%=value%>">
+			
 						</th>
 					</tr>
 				<%} %>	
@@ -111,10 +111,7 @@ td {
 		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+select;
 
 	}
-	
-	function selectPay(his){
-		alert(his);
-	}
+
 	</script>
 	
 

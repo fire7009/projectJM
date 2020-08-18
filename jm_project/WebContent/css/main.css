@@ -28,15 +28,11 @@
 #main_goods{width:100%; height:450px;}
 	#main_goods h2{font-size:25px; text-indent:10px; font-weight:bold; margin-bottom:20px;}
 	.goods_box{width:23%; height:410px; border:1px solid #dddddd; float:left;margin-right:13px}
-	.goods_img01{background:url(../img/main_goods01.png) no-repeat; width:253px; height:340px;}
-	.goods_img02{background:url(../img/main_goods02.jpg) no-repeat; width:253px; height:340px;}
-	.goods_img03{background:url(../img/main_goods03.jpg) no-repeat; width:253px; height:340px;}
-	.goods_img04{background:url(../img/main_goods04.jpg) no-repeat; width:253px; height:340px;}
 	.goods_info{padding:19px;}
 	.goods_info p{font-size:14px; color:#666666;}
 	.goods_info p.strong{font-weight:bold;}
-	.goods_box img{display:none; width:253px; height:340px;}
-	.goods_box:hover img{display:block;}
+	.goods_box {width:253px; height:340px;}
+	.goods_box img{width: 100%; height: 120%;}
 
 #contents_top{width:100%; height:500px; margin-top:60px;}
 /* ���� 濡ㅻ� 諛곕���� ���� 踰��쇱�� ���⑺�� 諛곕�� ��由쇳�� */
@@ -129,6 +125,7 @@ margin-top:13px; font-weight:600;}
 	#best_bg span{padding-top: 6px; font-size:14px; text-indent:23px;}
 	#best_bg .prev_btn{position: absolute; top: 98px; left: 0px;}
 	#best_bg .next_btn{position: absolute; top: 98px; right: 0px;}
+	#best_bg img {width: 100%; height: 70%} 
 
 /* ���⑥�� 留�耳��� ����(吏����ы��) �ㅽ���� */
 #contents_bottom{padding-bottom: 30px;}
