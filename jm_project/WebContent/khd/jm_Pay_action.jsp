@@ -6,13 +6,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%	
-	if(request.getMethod().equals("GET")) {
-		session.setAttribute("message", "비정상적인 방법으로 요청 하였습니다.");
-		response.sendRedirect("jm_Shopping.jsp");
-		return;
-	}
+
+	request.setCharacterEncoding("utf-8");
+
 	String value=request.getParameter("value");
-	
 	String[] spString=value.split("_"); 
 	String his=spString[0];
 	String user=spString[1];

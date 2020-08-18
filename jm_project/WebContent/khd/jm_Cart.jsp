@@ -1,3 +1,4 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="jm_dao.ProductInfoDAO"%>
 <%@page import="jm_dto.ProductInfoDTO"%>
 <%@page import="jm_dao.CartHisDAO"%>
@@ -5,11 +6,25 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+
+if(loginMember==null) {
+   out.println("<script type='text/javascript'>");
+   out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=error&work=error400';");
+   out.println("</script>");
+   return;
+}
+
+%>
+	
 <%
 	String user=request.getParameter("user");
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
-	String qty,price,value;
+	String value;
+	int qty,price;
 %>
 
 <style type="text/css">
@@ -86,9 +101,10 @@ td {
 						</th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
+						<div visible="hidden">
 						<%=value=cart.getHisSeqno()+"_"+user%>
+						</div>
 						<input type="checkbox" name="check" id="order" value="<%=value%>">
-			
 						</th>
 					</tr>
 				<%} %>	
@@ -109,7 +125,6 @@ td {
 		var select=document.getElementById("select");
 		select=select.options[select.selectedIndex].value;
 		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+select;
-
 	}
 
 	</script>
