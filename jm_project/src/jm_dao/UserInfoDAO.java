@@ -164,15 +164,15 @@ public class UserInfoDAO extends JdbcDAO {
             
             if(rs.next()) {
               userInfo=new UserInfoDTO();
-              userInfo.setUserNo(rs.getString("userNo"));
-              userInfo.setUserId(rs.getString("userId"));
-              userInfo.setUserNm(rs.getString("userNm"));
-              userInfo.setContAddr(rs.getString("contAddr"));
-              userInfo.setPostCd(rs.getString("postCd"));
-              userInfo.setBasAddr(rs.getString("basAddr"));
-              userInfo.setDetlAddr(rs.getString("detlAddr"));
-              userInfo.setUserDv(rs.getString("firstRgstDttm"));
-              userInfo.setEmailAddr(rs.getString("emailAddr"));
+              userInfo.setUserNo(rs.getString("user_no"));
+              userInfo.setUserId(rs.getString("user_id"));
+              userInfo.setUserNm(rs.getString("user_nm"));
+              userInfo.setContAddr(rs.getString("cont_addr"));
+              userInfo.setPostCd(rs.getString("post_cd"));
+              userInfo.setBasAddr(rs.getString("bas_addr"));
+              userInfo.setDetlAddr(rs.getString("detl_addr"));
+              userInfo.setUserDv(rs.getString("user_dv"));
+              userInfo.setEmailAddr(rs.getString("email_addr"));
                
             }
          } catch (SQLException e) {
@@ -193,7 +193,7 @@ public class UserInfoDAO extends JdbcDAO {
             con=getConnection();
             
             String sql="update user_info set user_nm=?, cont_addr=?, post_cd=?"
-                  + "bas_addr=?, detl_addr=?, last_procr_usrno=?, last_proc_dttm=sysdate where user_no=? , email_addr=?";
+                  + "bas_addr=?, detl_addr=?, last_procr_usrno=?, last_proc_dttm=sysdate where user_id=?";
             pstmt=con.prepareStatement(sql);
             pstmt.setString(1, userInfo.getUserNm());
             pstmt.setString(2, userInfo.getContAddr());
@@ -201,8 +201,10 @@ public class UserInfoDAO extends JdbcDAO {
             pstmt.setString(4, userInfo.getBasAddr());
             pstmt.setString(5, userInfo.getDetlAddr());
             pstmt.setString(6, userInfo.getLastProcrUsrno());
-            pstmt.setString(7, userInfo.getLastProcDttm());
-            pstmt.setString(8, userInfo.getEmailAddr());
+            //pstmt.setString(7, userInfo.getLastProcDttm());
+            pstmt.setString(7, userInfo.getEmailAddr());
+            pstmt.setString(8, userInfo.getUserId());
+            
             
             rows=pstmt.executeUpdate();
          } catch (SQLException e) {
