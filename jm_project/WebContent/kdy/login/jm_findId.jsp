@@ -246,11 +246,8 @@ legend {
 .find_idpw a:hover,
 .find_idpw select,
 .find_idpw input { vertical-align: middle; text-align: left; font-family:'Dotum'; }
-.find_idpw .input-radio { width:12px; height:12px; margin:-2px 0 0; padding:0; }
 .find_idpw .tit { margin:0; padding-bottom: 6px; border-bottom: 4px solid #3b4453; font-size: 16px; font-weight: bold; line-height:20px; }
 .find_idpw .sub-tit { margin:10px 0 40px; font-family: 'Noto Sans KR',sans-serif;}
-.find_idpw .radio-wrap { margin:0 0 10px; }
-.find_idpw .radio-wrap label { margin-right:30px; color:#575757; font-weight:bold; }
 .find_idpw .find-info table {
     width: 100%;
     border-spacing: 0;
@@ -269,23 +266,6 @@ legend {
 .find_idpw tr.user-name th,
 .find_idpw tr.user-name td { border-bottom: 1px solid #ececee; }
 .find_idpw .btn-area { padding:20px 0 50px; text-align: center; }
-.find_idpw .btn-area a {
-    font-size: 14px;
-    background: #110252;
-    padding: 10px 40px;
-    color: #fff;
-    font-family: 'Noto Sans KR',sans-serif;
-margin:0 5px;
-}
-
-.find_idpw .btn-area a {
-    font-size: 14px;
-    background: #110252;
-    padding: 10px 40px;
-    color: #fff;
-    font-family: 'Noto Sans KR',sans-serif;
-    margin: 0 5px;
-}
 
 </style>
 
@@ -329,8 +309,10 @@ margin:0 5px;
 									</table>
 									<br>
 								    <div class="btn-area"> 
-								    <button type="submit" id="submit_findId"><img src="./kdy/img/findid.png"></button>
-								    <button><img src="./kdy/img/login01.png"><a href="index.jsp?workgroup=kdy/login&work=jm_login"></a></button>
+								    <button type="submit" id="submit_findId" style="color:black; width:100;">아이디 찾기</button>
+								    <button style="color:black; width:100;"><a href="index.jsp?workgroup=kdy/login&work=jm_login" ></a>로그인</button> 
+								   <!--  <button type="submit" id="submit_findId"><img src="./kdy/img/findid.png"></button>--> 
+								   <!-- <button><img src="./kdy/img/login01.png"><a href="index.jsp?workgroup=kdy/login&work=jm_login"></a></button>--> 
 								   <!-- <a class="info-confirm" href="javascript:find_id;"> 아이디 찾기 </a>  --> 
 								   <!-- <a class="info-confirm" href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> --> 
 								    </div>
