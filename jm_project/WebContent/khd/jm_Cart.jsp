@@ -40,8 +40,7 @@ td {
 	border-bottom: 1px solid #ccc;
 }
 </style>
-</head>
-<body id="page-top">
+
 	
 	<div class="container">
 		<div class="text-center">
@@ -62,21 +61,24 @@ td {
 				<td colspan="5">등록된 제품이 하나도 없습니다.</td>
 		<% } else { %>
 			<% for(CartHisDTO cart:cartList){ %>
+				<% if(cart.getDelYn().equals("N")) {%>
 					<tr>
 						<th></th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
 						<button>수정</button></th>
-						<th><%=cart.getProdQty()%>*<%=product.getProdPrice() %></th>
+						<th><%=cart.getProdQty()%>x<%=product.getProdPrice()%></th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 					</tr>
+					<%} %>
+				<%} %>
 			<%} %>
-		<%} %>
 		</table>
  	
 	</div>
 	
 	<script type="text/javascript">
+	alert(his);
 	function removeCart(his) {
 			location.href="khd/jm_Cart_delete.jsp?his="+his;
 	}

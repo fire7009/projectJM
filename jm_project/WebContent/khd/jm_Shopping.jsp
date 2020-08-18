@@ -13,7 +13,7 @@
 	String detlFileNm=product.getDetlFileNm();
 	String detlFilePath=product.getDetlFilePath();
 	String prodDetl=product.getProdDetl();
-	String user=product.getFrstRgsrUsrno();
+	String user="1";
 %>
 
 
@@ -103,9 +103,8 @@ table.shop .even {
 <script type="text/javascript">
 $("#cartBtn").click(function(){
 var select=$("select[name=select]").val();
-	
 	$("#shoppingForm").attr("method","post");
-	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=product.getProdCd()%>&user="+user);
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/indexcul.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=product.getProdCd()%>&user=<%=user%>");
 	$("#shoppingForm").submit();
 	
 });

@@ -33,16 +33,14 @@ public class CartHisDAO extends JdbcDAO{
 		try {
 			con=getConnection();
 			
-			String sql="insert into cart_his(his_seqno,prod_cd,prod_qty,ord_yn,del_yn,"
-					+ "frst_rgsr_usrno,last_procr_usrno)"
-					+ "values((select(nvl(max(his_seqno),0)+1)from cart_his),?,?,?,?,?,?)";
+			String sql="insert into cart_his(his_seqno,prod_cd,prod_qty,"
+					+ "frst_rgsr_usrno)"
+					+ "values((select(nvl(max(his_seqno),0)+1)from cart_his),?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, cart.getProdCd());
 			pstmt.setInt(2, cart.getProdQty());
-			pstmt.setString(3, cart.getOrdYn());
-			pstmt.setString(4, cart.getDelYn());
-			pstmt.setString(5,cart.getFrstRgsrUsrno());
-			pstmt.setString(6, cart.getLastProcrUsrno());
+			pstmt.setString(3,cart.getFrstRgsrUsrno());
+	
 			
 			rows=pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -109,7 +107,7 @@ public class CartHisDAO extends JdbcDAO{
 		return rows;
 	}
 	
-	public int updateDelCart(String delYn,String his) {
+	public int updateDelCart(String his) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rows=0;
@@ -118,7 +116,7 @@ public class CartHisDAO extends JdbcDAO{
 			
 			String sql="update cart_his set del_yn=? where his_seqno=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, delYn);
+			pstmt.setString(1, "Y");
 			pstmt.setString(2, his);
 			
 			rows=pstmt.executeUpdate();
