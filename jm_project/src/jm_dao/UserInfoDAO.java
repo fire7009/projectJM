@@ -192,17 +192,16 @@ public class UserInfoDAO extends JdbcDAO {
          try {
             con=getConnection();
             
-            String sql="update user_info set user_nm=?, cont_addr=?, post_cd=?"
-                  + "bas_addr=?, detl_addr=?, last_procr_usrno=?, last_proc_dttm=sysdate where user_id=?";
+            String sql="update user_info set user_nm=?, password=?, cont_addr=?, email_addr=?, post_cd=?,"
+                  + "bas_addr=?, detl_addr=? where user_id=?";
             pstmt=con.prepareStatement(sql);
             pstmt.setString(1, userInfo.getUserNm());
-            pstmt.setString(2, userInfo.getContAddr());
-            pstmt.setString(3, userInfo.getPostCd());
-            pstmt.setString(4, userInfo.getBasAddr());
-            pstmt.setString(5, userInfo.getDetlAddr());
-            pstmt.setString(6, userInfo.getLastProcrUsrno());
-            //pstmt.setString(7, userInfo.getLastProcDttm());
-            pstmt.setString(7, userInfo.getEmailAddr());
+            pstmt.setString(2, userInfo.getPassword());
+            pstmt.setString(3, userInfo.getContAddr());
+            pstmt.setString(4, userInfo.getEmailAddr());
+            pstmt.setString(5, userInfo.getPostCd());
+            pstmt.setString(6, userInfo.getBasAddr());
+            pstmt.setString(7, userInfo.getDetlAddr());
             pstmt.setString(8, userInfo.getUserId());
             
             
@@ -258,7 +257,7 @@ public class UserInfoDAO extends JdbcDAO {
          return rows;
       }
       
-
+    /*
    // 회원정보를 삭제 처리하는 메소드(이게 맞나...)
    public int updateStatusInfo(String userNo) {
       Connection con = null;
@@ -280,9 +279,28 @@ public class UserInfoDAO extends JdbcDAO {
       }
       return rows;
    }
+   */
    
-   
-   
+  	
+  	public int deleteUserInfo(String userId) {
+  		Connection con = null;
+  		PreparedStatement pstmt = null;
+  		int rows = 0;
+  		try {
+  			con = getConnection();
+
+  			String sql = "delete from user_info where user_id=?";
+  			pstmt = con.prepareStatement(sql);
+  			pstmt.setString(1, userId);
+
+  			rows = pstmt.executeUpdate();
+  		} catch (SQLException e) {
+  			System.out.println("[에러]deleteMember() 메소드의 SQL 오류 = " + e.getMessage());
+  		} finally {
+  			close(con, pstmt);
+  		}
+  		return rows;
+  	}
    
    
 }

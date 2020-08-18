@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- 회원탈퇴를 위한 비밀번호를 입력받는 JSP 문서 --%>
+<%-- => 비로그인 사용자가 요청한 경우 에러페이지로 이동 - 비정상적인 요청 --%>
+<%-- => [입력완료]를 클릭한 경우 회원탈퇴 처리페이지(member_remove_action.jsp) 요청 - 입력값 전달 --%>
 <%@include file="/kdy/security/login_check.jspf" %>
-
 <%
 	String message = (String)session.getAttribute("message");
 	if(message == null) {
@@ -10,10 +12,10 @@
 		session.removeAttribute("message");
 	}
 %>
-<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_updateInfo" method="post" onsubmit="return sumbitCheck();">
-	<p>회원정보변경을 위한 비밀번호를 입력해주세요. </p>
+<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_deleteInfo_action" method="post" onsubmit="return sumbitCheck();">
+	<p>회원탈퇴를 위한 비밀번호를 입력해주세요. </p>
 	<p>
-		<input type="password" name="passwd">
+		<input type="password" name="password">
 		<button type="submit">입력완료</button>
 	</p>
 	<p id="message" style="color: red;"><%= message %></p>

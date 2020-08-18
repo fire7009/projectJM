@@ -41,8 +41,13 @@
 
 <style type="text/css">
 fieldset {
-	width: 630px;
+	width: 500px;
 	height: 256px;
+}
+#contentWrap {
+	width: 450px;
+	height: 300px;
+	border: 1px solid aqua;
 }
 
 </style>
@@ -52,7 +57,7 @@ fieldset {
 		src="/shopimages/vittz/template/work/24129/header.1.js?t=202007211018"></script>
 	<div id="contentWrapper">
 		<div id="contentWrap">
-			<div id="content">
+
 				<div class="mem_title" style="color: #87a1c4">회원탈퇴</div>
 				<div id="mySecede">
 
@@ -74,7 +79,7 @@ fieldset {
 						<div class="scede-frm">
 							<fieldset>
 								<div class="btn-foot">
-									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=syd&work=jm_Mainlayout"><img
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_deleteInfo_confirm"><img
 										src="img/btn_h32_secede.gif" alt="회원탈퇴" /></a> <a
 										href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_updateInfo"><img src="img/btn_h32_cancel.gif"
 										alt="탈퇴취소" /></a>
@@ -86,8 +91,7 @@ fieldset {
 					<!-- .page-body -->
 				</div>
 				<!-- #mySecede -->
-			</div>
-			<!-- #content -->
+
 		</div>
 		<!-- #contentWrap -->
 	</div>

@@ -45,7 +45,7 @@
 	width: 298px;
 	height: 241px;
 	border: 1px solid #ddd;
-	margin: 0 26px 26px 0;
+	margin: 30px 26px 26px 30px;
 	font-family: 'Noto Sans KR';
 }
 

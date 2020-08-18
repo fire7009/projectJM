@@ -9,7 +9,7 @@
 	
 	if(request.getMethod().equals("GET")) {
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=error&work=error400';");
+		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
 		out.println("</script>");
 		return;
 	}
@@ -32,12 +32,13 @@
 			+"-"+request.getParameter("etcphone2")
 			+"-"+request.getParameter("etcphone3");
 	String emailAddr=request.getParameter("email");
+	//System.out.println("contAddr = "+contAddr);
 	/*
 	System.out.println("detlAddr= "+detlAddr);
 	System.out.println("postCd = "+postCd);
 	System.out.println("email = "+emailAddr);
 	*/
-	System.out.println(request.getParameter("userId"));
+	//System.out.println(request.getParameter("userNm"));
 	
 	//DTO 인스턴스를 생성하여 입력값으로 필드값 변경
 	UserInfoDTO userInfo=new UserInfoDTO();
@@ -51,7 +52,8 @@
 	userInfo.setDetlAddr(detlAddr);
 	
 	//회원정보를 전달받아 MEMBER 테이블에 저장된 회원정보를 변경하는 DAO 메소드
-	UserInfoDAO.getDAO().updateUserInfo(userInfo);
+	int rows=UserInfoDAO.getDAO().updateUserInfo(userInfo);
+	//System.out.println("rows = "+rows);
 	
 	//세션에 저장된 권한 관련 정보 변경
 	session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userId));

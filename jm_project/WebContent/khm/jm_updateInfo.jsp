@@ -7,7 +7,7 @@
 	//비정상적인 요청에 대한 응답처리
 	if(request.getMethod().equals("GET")) {
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=error&work=error400';");
+		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
 		out.println("</script>");
 		return;
 	}
@@ -17,9 +17,8 @@
 	
 	//로그인 사용자의 비밀번호와 입력 비밀번호 비교
 	if(!loginMember.getPassword().equals(password)) {//비밀번호가 틀린 경우
-		session.setAttribute("message", "비밀번호가 맞지 않습니다.");
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khm&work=update_confirm';");
+		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khm&work=jm_update_confirm';");
 		out.println("</script>");
 		return;
 	}
@@ -611,7 +610,7 @@ h4.tit {
 									<td><div class="tb-l pl-6">
 											<input type="text" name="userNm" id="userNm"
 												value="<%=loginMember.getUserNm()%>"
-												class="MS_input_txt w137" disabled="">
+												class="MS_input_txt w137" readonly="readonly">
 										</div></td>
 								</tr>
 								<tr>
@@ -620,10 +619,8 @@ h4.tit {
 											<span class="red">*</span> 아이디
 										</div>
 									</th>
-									<td><div class="tb-l pl-6">
-											<%=loginMember.getUserId()%><input type="hidden" name="userId"
-												id="userId" value="아이디">
-
+									<td><div class="tb-l pl-6"><%=loginMember.getUserId()%>
+											<input type="hidden" name="userId" id="userId" value="<%=loginMember.getUserId()%>">
 										</div></td>
 								</tr>
 								<tr>
@@ -634,10 +631,10 @@ h4.tit {
 									</th>
 									<td><div class="tb-l pl-6">
 											<input type="password" name="password" id="password"
-												class="MS_input_txt w137" value="" size="15" maxlength="20"
-												onkeyup="check_pwd_length(this, 'password');"> <span
+												class="MS_input_txt w137" value="" size="15" maxlength="20"> <span
 												class="idpw-info"> (영문자/숫자,4~12자) </span>
 												<div id="passwdMsg" class="error">비밀번호를 입력해 주세요.</div>
+												<div id="passwdRegMsg" class="error">비밀번호를 형식에 맞게 입력해 주세요.</div>
 										</div></td>
 								</tr>
 								<tr>
@@ -648,8 +645,7 @@ h4.tit {
 									</th>
 									<td><div class="tb-l pl-6">
 											<input type="password" name="repassword" id="repassword"
-												class="MS_input_txt w137" value="" size="15" maxlength="20"
-												onkeyup="check_pwd_length(this, 'repassword');">
+												class="MS_input_txt w137" value="" size="15" maxlength="20">
 											<div id="repasswdMsg" class="error">비밀번호 확인을 입력해 주세요.</div>
 											<div id="repasswdMatchMsg" class="error">비밀번호와 비밀번호 확인이
 												서로 맞지 않습니다.</div>
@@ -664,7 +660,7 @@ h4.tit {
 									</th>
 									<td><div class="tb-l pl-6">
 											<input type="text" name="postCd"
-												value="<%=loginMember.getPostCd()%>" form="modify_form"
+												value="<%=loginMember.getPostCd()%>"
 												id="postCd" class="MS_input_txt" readonly="readonly">
 											<input type="button" onClick="openDaumZipAddress();"
 												value="우편번호검색" />
@@ -679,7 +675,7 @@ h4.tit {
 									</th>
 									<td><div class="tb-l pl-6">
 											<input type="text" name="basAddr"
-												value="<%=loginMember.getBasAddr()%>" form="modify_form"
+												value="<%=loginMember.getBasAddr()%>"
 												id="basAddr" class="MS_input_txt w415" size="40"
 												maxlength="100" readonly="readonly">
 											<div id="basAddrMsg" class="error">집주소를 입력해 주세요.</div>
@@ -693,8 +689,8 @@ h4.tit {
 									</th>
 									<td><div class="tb-l pl-6">
 											<input type="text" name="detlAddr"
-												value="<%=loginMember.getDetlAddr()%>" form="modify_form"
-												id="hdetlAddr" class="MS_input_txt w415" size="40"
+												value="<%=loginMember.getDetlAddr()%>" 
+												id="detlAddr" class="MS_input_txt w415" size="40"
 												maxlength="100">
 												<div id="detlAddrMsg" class="error">상세주소를 입력해 주세요.</div>
 										</div></td>
@@ -707,9 +703,7 @@ h4.tit {
 										</div>
 									</th>
 									<td><div class="tb-l pl-6">
-											<input type="hidden" name="etcphone" form="modify_form"
-												value=""> <select name="etcphone1"
-												id="etcphone1" form="modify_form" class="MS_select MS_tel">
+											<select name="etcphone1" id="etcphone1"  class="MS_select MS_tel">
 												<option value="">선택</option>
 												<option value="010" selected="selected">010</option>
 												<option value="011">011</option>
@@ -717,10 +711,10 @@ h4.tit {
 												<option value="017">017</option>
 												<option value="018">018</option>
 												<option value="019">019</option>
-											</select> - <input type="text" name="etcphone2" form="modify_form"
+											</select> - <input type="text" name="etcphone2" 
 												id="etcphone2" class="MS_input_tel" value="<%=mobile[1] %>" size="4"
 												maxlength="4"> - <input type="text" name="etcphone3"
-												form="modify_form" id="etcphone3" class="MS_input_tel"
+												 id="etcphone3" class="MS_input_tel"
 												value="<%=mobile[2] %>" size="4" maxlength="4" minlength="4">
 												<div id="mobileMsg" class="error">전화번호를 입력해 주세요.</div>
 												<div id="mobileRegMsg" class="error">전화번호는 3~4 자리의 숫자로만 입력해 주세요.</div>
@@ -739,8 +733,7 @@ h4.tit {
 												value="<%=loginMember.getEmailAddr()%>"
 												onchange="this.form.emailcheck.value=''" />
 											<div id="emailMsg" class="error">이메일을 입력해 주세요.</div>
-											<div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지
-												않습니다.</div>
+											<div id="emailRegMsg" class="error">입력한 이메일이 형식에 맞지 않습니다.</div>
 										</div></td>
 								</tr>
 
@@ -756,7 +749,7 @@ h4.tit {
 						</button>
 						<button type="submit">
 							<img src="btn_modifyOk.gif" alt="회원정보수정"
-								class="smp-btn-reg"></a>
+								class="smp-btn-reg">
 						</button>
 						<button type="button">
 							<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_deleteInfo"> <img src="btn_modifyBye.gif" alt="회원탈퇴"
@@ -804,14 +797,12 @@ h4.tit {
 				submitResult = false;
 			}
 	
-			var etcphone1Reg = /\d{3}/;
-			var etcphone3Reg = /\d{4,4}/;
-			if ($("#etcphone1").val() == ""
-					|| $("#etcphone3").val() == "") {
+			var etcphone2Reg = /\d{4}/;
+			var etcphone3Reg = /\d{4}/;
+			if ($("#etcphone2").val() == "" || $("#etcphone3").val() == "") {
 				$("#mobileMsg").css("display", "block");
 				submitResult = false;
-			} else if (!mobile2Reg.test($("#etcphone1").val())
-					|| !mobile3Reg.test($("#etcphone3").val())) {
+			} else if (!etcphone2Reg.test($("#etcphone2").val()) || !etcphone3Reg.test($("#etcphone3").val())) {
 				$("#mobileRegMsg").css("display", "block");
 				submitResult = false;
 			}
@@ -830,6 +821,7 @@ h4.tit {
 				$("#detlAddrMsg").css("display", "block");
 				submitResult = false;
 			}
+			
 	
 			return submitResult;
 	});
