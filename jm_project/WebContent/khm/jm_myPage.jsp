@@ -68,16 +68,14 @@
 
 .shopMain .order {
 	padding-top:30px;
-	background:url(/design/vittz/img/mypage_icon1.gif) center 40px no-repeat;
+	
 }
 .shopMain .profile {
 	padding-top:30px;
-	background:url(/design/vittz/img/mypage_icon2.gif) center 40px no-repeat;
 }
 
 .shopMain .board {
 	padding-top:30px;
-	background:url(/design/vittz/img/mypage_icon7.gif) center 40px no-repeat;
 }
 
 </style>
@@ -92,7 +90,7 @@
 	<div id="shopMain">
 		<div class="shopMain" >
 			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList">
-				<img class="img-fluid" src="img/mP/order.png"/>
+				<img class="img-fluid" src="./khm/img/mP/order.png"/>
 				<div class="order">
 					<h3>주문내역 조회</h3>
 					<p>
@@ -103,7 +101,7 @@
 		</div>
 		<div class="shopMain">
 			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_updateInfo">
-			<img class="img-fluid" src="img/mP/info.png"/>
+			<img class="img-fluid" src="./khm/img/mP/info.png"/>
 				<div class="profile">
 					<h3>회원 정보</h3>
 					<p>
@@ -114,7 +112,7 @@
 		</div>
 		<div class="shopMain">
 			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_review">
-			<img class="img-fluid" src="img/mP/review.png"/>
+			<img class="img-fluid" src="./khm/img/mP/review.png"/>
 				<div class="board">
 					<h3>게시물 관리</h3>
 					<p>
@@ -124,6 +122,7 @@
 			</a>
 		</div>
 	</div>
+	<br>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
