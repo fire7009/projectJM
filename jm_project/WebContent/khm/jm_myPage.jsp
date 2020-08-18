@@ -27,7 +27,7 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-	crossorigin="anonymous"></script> -->
+	crossorigin="anonymous"></script> 
 <!-- CSS 디자인 -->
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/css.css" rel="stylesheet" type="text/css" />
@@ -113,7 +113,7 @@
 			</a>
 		</div>
 		<div class="shopMain">
-			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_review">
+			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_review">
 			<img class="img-fluid" src="img/mP/review.png"/>
 				<div class="board">
 					<h3>게시물 관리</h3>
