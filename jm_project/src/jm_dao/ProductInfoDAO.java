@@ -10,6 +10,7 @@ import java.util.List;
 import jm_dto.ProductInfoDTO;
 import jm_dto.UserInfoDTO;
 
+
 public class ProductInfoDAO extends JdbcDAO {
 
 
@@ -131,4 +132,47 @@ public class ProductInfoDAO extends JdbcDAO {
 		return rows;
 	}
 	
+
+
+public List<ProductInfoDTO> selectCategoryProduct(String category) {
+	Connection con=null;
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	List<ProductInfoDTO> productList=new ArrayList<ProductInfoDTO>();
+	try {
+		con=getConnection();
+		
+		if(category.equals("ALL")) {
+			String sql="select * from product_info order by frst_rgst_dttm";
+			pstmt=con.prepareStatement(sql);
+		} else {
+			String sql="select * from product_info where prod_cd like ?||'%' order by prod_cd";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, category);
+		}
+		
+		rs=pstmt.executeQuery();
+		
+		while(rs.next()) {
+			ProductInfoDTO product=new ProductInfoDTO();
+			product.setProdCd(rs.getString("prod_cd"));
+			product.setCtgrCd(rs.getString("ctgr_cd"));
+			product.setProdNm(rs.getString("prod_nm"));
+			product.setProdPrice(rs.getInt("prod_price"));
+			product.setBasFilePath(rs.getString("bas_file_path"));
+			product.setDetlFilePath(rs.getString("detl_file_path"));
+			product.setDetlFileNm(rs.getString("detl_file_nm"));
+			product.setProdDetl(rs.getString("prod_detl"));
+			product.setViewCnt(rs.getInt("view_cnt"));
+			product.setMainExpYn(rs.getString("main_exp_yn"));
+			product.setDelYn(rs.getString("del_yn"));
+			productList.add(product);
+		}
+		} catch (SQLException e) {
+		System.out.println("[에러]selectCategoryProduct() 메소드의 SQL 오류 = "+e.getMessage());
+	} finally {
+		close(con, pstmt, rs);
+	}
+	return productList;
+}
 }
