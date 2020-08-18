@@ -61,7 +61,7 @@ public class CartHisDAO extends JdbcDAO{
 		try {
 			con=getConnection();
 			
-			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=?";
+			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=? order by his_seqno";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,frst);
 			

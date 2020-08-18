@@ -11,7 +11,12 @@
 		response.sendRedirect("jm_Shopping.jsp");
 		return;
 	}
-	String user=request.getParameter("user");
+	String value=request.getParameter("value");
+	
+	String[] spString=value.split("_"); 
+	String his=spString[0];
+	String user=spString[1];
+	
 	String[] hisList=request.getParameterValues("his");
 	
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
