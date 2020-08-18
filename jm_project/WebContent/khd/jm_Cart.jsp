@@ -100,7 +100,7 @@ td {
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
 						<input type="checkbox" name="check" id="order" value="value"><%=cart.getHisSeqno()%>
-						<input type="hidden" name="hidden" id="user" value="user"> 
+						<input type="hidden" name="hidden" id="user" value="user"> <%=user %>
 						</th>
 					</tr>
 				<%} %>	
@@ -109,6 +109,7 @@ td {
 		</table>
 		<br>
 		<input type="submit" value="선택목록구매">
+			
 		</form>
 	</div>
 	

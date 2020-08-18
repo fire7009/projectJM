@@ -23,8 +23,10 @@
 		}
 	}
 	
+	
 	out.println("<script type='text/javascript'>");
 	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Pay&user="+user+"';");
 	out.println("</script>");
 
+		
 %>
