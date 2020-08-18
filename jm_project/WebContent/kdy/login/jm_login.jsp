@@ -188,6 +188,7 @@ fieldset .link a{
 			<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_findPw" >비밀번호찾기</a></li>
 			<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join" >회원가입</a></li>
 		</ul>
+		
 	</fieldset>
 	
 </div>
