@@ -63,9 +63,6 @@ td {
 	border-bottom: 1px solid #ccc;
 }
 </style>
-
-<form name="pay" method="post" action="khd/jm_Pay_action.jsp">
-
 	
 		<div class="content">
 
@@ -97,14 +94,13 @@ td {
         				</select>
 						<input type="button" value="수정" onclick="updateCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
+						<form name="pay" method="post" action="khd/jm_Pay_action.jsp">
 						<%=cart.getProdQty()%>x<%=product.getProdPrice()%>
 						</th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
-						<div visible="hidden">
-						<%=value=cart.getHisSeqno()+"_"+user%>
-						</div>
-						<input type="checkbox" name="check" id="order" value="<%=value%>">
+						<input type="checkbox" name="check" id="order" value="value"><%=cart.getHisSeqno()%>
+						<input type="hidden" name="hidden" id="user" value="user"> 
 						</th>
 					</tr>
 				<%} %>	

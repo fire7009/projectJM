@@ -82,6 +82,8 @@ td {
 		<%} %>
 		</table>
 		<br>
+		<h1>상품 구매 완료!</h1>
+		<br>
 		<input type="button" value="메인으로이동">
 		</form>
 	</div>
