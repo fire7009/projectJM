@@ -99,8 +99,8 @@ td {
 						</th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
-						<input type="checkbox" name="check" id="order" value="value"><%=cart.getHisSeqno()%>
-						<input type="hidden" name="hidden" id="user" value="user"> <%=user %>
+						<input type="checkbox" name="check" id="order" value="<%=cart.getHisSeqno()%>">
+						<input type="hidden" name="user" id="user" value="<%=user %>">
 						</th>
 					</tr>
 				<%} %>	
@@ -108,7 +108,7 @@ td {
 		<%} %>
 		</table>
 		<br>
-		<input type="submit" value="선택목록구매">
+		<input type="button" value="선택목록구매" onclick="submitCheck();">
 			
 		</form>
 	</div>
@@ -122,6 +122,11 @@ td {
 		var select=document.getElementById("select");
 		select=select.options[select.selectedIndex].value;
 		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+select;
+	}
+	
+	
+	function submitCheck(){
+		pay.submit();		
 	}
 
 	</script>

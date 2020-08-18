@@ -8,7 +8,7 @@
 <%	
 
 
-	String[] his=request.getParameterValues("value");
+	String[] his=request.getParameterValues("ckeck");
 	String user=request.getParameter("user");
 	OrdProdHisDTO order=new OrdProdHisDTO();
 	List<CartHisDTO> cartList=CartHisDAO.getDAO().selectCartList("user");
