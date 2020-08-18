@@ -85,6 +85,39 @@ public class CartHisDAO extends JdbcDAO{
 		return cartList;
 	}
 	
+	//선택된 사용자 코드와 his에 해당하는 장바구니 목록 출력
+	public List<CartHisDTO> selectCartListTwo(String frst, String his) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<CartHisDTO> cartList=new ArrayList<CartHisDTO>();
+		try {
+			con=getConnection();
+			
+			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=? and his_seqno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,frst);
+			pstmt.setString(2,his);
+
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CartHisDTO cart=new CartHisDTO();
+				cart.setProdCd(rs.getString("prod_cd"));
+				cart.setProdQty(rs.getInt("prod_qty"));
+				cart.setOrdYn(rs.getString("ord_yn"));
+				cart.setDelYn(rs.getString("del_yn"));
+				cartList.add(cart);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("[에러]selectCart 메소드의 sql 오류=" +e.getMessage());
+		}finally {
+			close(con,pstmt,rs);
+		}
+		return cartList;
+	}
+	
 	//지정된 장바구니의 his code에 해당하는 수량 수정
 	public int updateQtyCart(int num,String his, String user) {
 		Connection con=null;

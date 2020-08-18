@@ -60,8 +60,7 @@ td {
 						<th>상품이름</th>
 						<th>수량</th>
 						<th>총상품 금액</th>
-						<th>목록삭제</th>
-						<th>선택</th>
+						
 					</tr>
 					<%if(cartList.isEmpty()){ %>
 					<tr>
@@ -73,48 +72,22 @@ td {
 						<th></th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
-						<select id="select" name="select">
-        				<option value="1" >1</option>
-         				<option value="2" >2</option>
-         				<option value="3">3</option>
-         				<option value="4">4</option>
-        				<option value="5">5</option>
-        				</select>
+					
 						<input type="button" value="수정" onclick="updateCart(<%=cart.getHisSeqno()%>);"></th>
 						<th><%=cart.getProdQty()%>x<%=product.getProdPrice()%></th>
-						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
-						<th>
-						<input type="checkbox" name="check" id="order">
-						<div style="visibility:hidden">
-						<%=cart.getHisSeqno()%>
-						<%=user %>
-						</div>
-						</th>
+				
 					</tr>
 				<%} %>	
 			<%} %>
 		<%} %>
 		</table>
 		<br>
-		<input type="submit" value="선택목록구매">
+		<input type="button" value="메인으로이동">
 		</form>
 	</div>
 	
 	<script type="text/javascript">
-	function removeCart(his) {
-			location.href="khd/jm_Cart_delete.jsp?his="+his+"&user=<%=user%>";
-	}
-	
-	function updateCart(his) {
-		var select=document.getElementById("select");
-		select=select.options[select.selectedIndex].value;
-		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+select;
 
-	}
-	
-	function selectPay(his){
-		alert(his);
-	}
 	</script>
 	
 

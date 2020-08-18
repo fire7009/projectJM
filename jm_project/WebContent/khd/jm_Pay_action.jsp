@@ -1,0 +1,37 @@
+<%@page import="java.util.List"%>
+<%@page import="jm_dto.CartHisDTO"%>
+<%@page import="jm_dto.OrdProdHisDTO"%>
+<%@page import="jm_dao.OrdProdHisDAO"%>
+<%@page import="jm_dao.CartHisDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%	
+	if(request.getMethod().equals("GET")) {
+		session.setAttribute("message", "비정상적인 방법으로 요청 하였습니다.");
+		response.sendRedirect("jm_Shopping.jsp");
+		return;
+	}
+	String user=request.getParameter("user");
+	String[] hisList=request.getParameterValues("his");
+	
+	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
+	
+	for(CartHisDTO cart:cartList){
+		
+		for(int i=0;i<hisList.length;i++){
+			
+			OrdProdHisDTO order=new OrdProdHisDTO();
+			order.setFrstRgsrUsrno(user);
+			order.setOrdQty(cart.getProdQty());
+			order.setHisSeqno(hisList[i]);
+			CartHisDAO.getDAO().updateDelCart(user,hisList[i]);
+			OrdProdHisDAO.getDAO().insertOrdProdHis(user, order);
+		}
+	
+	}
+	
+	out.println("<script type='text/javascript'>");
+	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Pay&user="+user+"';");
+	out.println("</script>");
+
+%>

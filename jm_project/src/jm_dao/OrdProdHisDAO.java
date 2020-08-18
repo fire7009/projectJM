@@ -21,7 +21,7 @@ public class OrdProdHisDAO extends JdbcDAO {
 		return _dao;
 	}
 	
-	public int insertOrdProdHis(OrdProdHisDTO ordProdHis) {
+	public int insertOrdProdHis(String user,OrdProdHisDTO ordProdHis) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -30,14 +30,13 @@ public class OrdProdHisDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into ord_prod_his values((SELECT (NVL(MAX(HIS_SEQNO), 0) + 1) FROM ORD_PROD_HIS), ?, ?, ?, ?, ?)";
+			String sql = "insert into ord_prod_his values(?,(SELECT (NVL(MAX(ORD_NO), 0) + 1) FROM ORD_PROD_HIS), ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ordProdHis.getHisSeqno());
-			pstmt.setString(2, ordProdHis.getOrdNo());
-			pstmt.setString(3, ordProdHis.getProdCd());
-			pstmt.setInt(4, ordProdHis.getOrdQty());
-			pstmt.setString(5, ordProdHis.getFrstRgsrUsrno());
-			pstmt.setString(6, ordProdHis.getLastProcrUsrno());
+			pstmt.setString(2, ordProdHis.getProdCd());
+			pstmt.setInt(3, ordProdHis.getOrdQty());
+			pstmt.setString(4, user);
+
 
 			rows = pstmt.executeUpdate();
 			
