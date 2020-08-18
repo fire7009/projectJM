@@ -21,7 +21,7 @@ if(userInfo==null) {
 
 //이메일에 대한 인증 처리
 if(!userInfo.getEmailAddr().equals(emailAddr)) {//이메일에 대한 인증 실패
-	out.println("<script>location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 사용자의 이메일이 맞지 않습니다.'); </script>");
+	out.println("<script>location.href='" +request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 사용자의 이메일이 맞지 않습니다.'); </script>");
 	return;
 	}
 
