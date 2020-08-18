@@ -15,7 +15,7 @@ String keyword = request.getParameter("keyword");
 if (keyword == null)
 	keyword = "";
 
-//전달된 페이지 번호를 반환받아 저장
+//전달된 페이지 번호를 반환받아 저장 
 // => 전달값이 존재하지 않을 경우 첫번째 페이지 검색 (pageNum -> 페이지번호)
 int pageNum = 1;//
 if (request.getParameter("pageNum") != null) {//전달값이 있는 경우
