@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>JM 조명</title>
+<title>JM 조명 회원탈퇴</title>
 
 <!-- CSS only-->
 <link rel="stylesheet"
