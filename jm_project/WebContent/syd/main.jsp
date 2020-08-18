@@ -36,41 +36,41 @@
 			<a href="#">
 				<div class="goods_box">
 					<div class="goods_img01">
-						<img src="img/main_goods_op.png" alt="" />
+						<img src="img/조명1.jpg" alt="" />
 					</div>
 					<div class="goods_info">
-						<p class="strong">[콜린스그린] 원데이 클렌즈(1일)</p>
-						<p>41,000</p>
+						<p class="strong">노오란 전구</p>
+						<p>18,000</p>
 					</div>
 				</div>
 			</a> <a href="#">
 				<div class="goods_box">
 					<div class="goods_img02">
-						<img src="img/main_goods_op.png" alt="" />
+						<img src="img/조명2.png" alt="" />
 					</div>
 					<div class="goods_info">
-						<p class="strong">GAP 양광사과</p>
-						<p>8,000</p>
+						<p class="strong">조명이 세개있는거같은 조명</p>
+						<p>48,000</p>
 					</div>
 				</div>
 			</a> <a href="#">
 				<div class="goods_box">
 					<div class="goods_img03">
-						<img src="img/main_goods_op.png" alt="" />
+						<img src="img/조명3.jpg" alt="" />
 					</div>
 					<div class="goods_info">
-						<p class="strong">[MEYER] 한우 채끝등심</p>
+						<p class="strong">사전구</p>
 						<p>32,500</p>
 					</div>
 				</div>
 			</a> <a href="#">
 				<div class="goods_box">
 					<div class="goods_img04">
-						<img src="img/main_goods_op.png" alt="" />
+						<img src="img/조명4.jpg" alt="" />
 					</div>
 					<div class="goods_info">
-						<p class="strong">유기농 베이비 채소</p>
-						<p>2,600</p>
+						<p class="strong">드래곤볼에서 두개 모자라는 전구</p>
+						<p>56,000</p>
 					</div>
 				</div>
 			</a>

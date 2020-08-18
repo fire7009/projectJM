@@ -31,7 +31,7 @@
 			<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
 					<li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
 					
-					<li calss="mypage"><a href="#" >|&nbsp;&nbsp;&nbsp;내정보</a></li>
+					<li calss="mypage"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">|&nbsp;&nbsp;&nbsp;내정보</a></li>
 				</ul>
 			<% if(loginMember.getUserDv()=="9") { //관리자인 경우 %>
 			
