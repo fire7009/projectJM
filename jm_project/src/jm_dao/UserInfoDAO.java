@@ -259,31 +259,6 @@ public class UserInfoDAO extends JdbcDAO {
          return rows;
       }
       
-    /*
-   // 회원정보를 삭제 처리하는 메소드(이게 맞나...)
-   public int updateStatusInfo(String userNo) {
-      Connection con = null;
-      PreparedStatement pstmt = null;
-      int rows = 0;
-      try {
-         con = getConnection();
-
-         String sql = "update user_info set withd_yn='Y' where user_no=?";
-
-         pstmt = con.prepareStatement(sql);
-         pstmt.setString(1, userNo);
-
-         rows = pstmt.executeUpdate();
-      } catch (SQLException e) {
-         System.out.println("[에러]updateStatusInfo() 메소드의 SQL 오류 = " + e.getMessage());
-      } finally {
-         close(con, pstmt);
-      }
-      return rows;
-   }
-   */
-   
-  	
   	public int deleteUserInfo(String userId) {
   		Connection con = null;
   		PreparedStatement pstmt = null;
