@@ -17,10 +17,10 @@
 	}
 
 	//입력값을 반환받아 저장
-	String userNo=request.getParameter("userNo");
+	//String userNo=request.getParameter("userNo");
 	String userId=request.getParameter("userId");
-	String userNm=request.getParameter("userNm");
-	String userDv=request.getParameter("userDv");
+	//String userNm=request.getParameter("userNm");
+	//String userDv=request.getParameter("userDv");
 	String password=Utility.encrypt(request.getParameter("password"));
 	
 	//인증처리 - 아이디와 비밀번호 비교
@@ -50,10 +50,10 @@
 	}
 	
 	//세션에 권한 관련 정보(회원정보) 저장
-	session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userNo));
+	//session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userNo));
 	session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userId));
-	session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userNm));
-	session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userDv));
+	//session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userNm));
+	//session.setAttribute("loginMember", UserInfoDAO.getDAO().selectIdUserinfo(userDv));
 	
 	//세션에 저장된 기존 요청페이지의 URL 주소를 반환받아 저장
 	String url=(String)session.getAttribute("url");
