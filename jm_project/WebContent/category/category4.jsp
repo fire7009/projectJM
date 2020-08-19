@@ -63,9 +63,9 @@ th {
 <h1 class="title"><a href="#">주방/화장실</a></h1>
 
 <table>
-	<th><a href="#">&nbsp;주방&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;화장실&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;바리솔&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=201">&nbsp;주방&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=202">&nbsp;&nbsp;&nbsp;화장실&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=203">&nbsp;&nbsp;&nbsp;바리솔&nbsp;&nbsp;&nbsp;|</a></th>
 	
 </table>
 

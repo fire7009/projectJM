@@ -35,7 +35,7 @@
 				</ul>
 			<% if(loginMember.getUserDv()=="9") { //관리자인 경우 %>
 			
-		<a href="index.jsp?workgroup=admin&work=admin_main">관리자</a>&nbsp;&nbsp;
+		<a href="index.jsp?workgroup=admin/layout&work=template">관리자</a>&nbsp;&nbsp;
 			<% } %>
 			<% } %>	
 			</dd>
@@ -54,50 +54,50 @@
 			<ul id="gnb">
 				<li class="fir"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category1">거실조명</a>
 					<ul class="sub1">
-						<li><a href="index.jsp?workgroup=khd&work=jm_Shopping">20평대</a></li>
-						<li><a href="#">30평대</a></li>
-						<li><a href="#">40평대</a></li>
-						<li><a href="#">50평대</a></li>
-						<li><a href="#">대형/복층/샹들리에</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=20">20평대</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=30">30평대</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=40">40평대</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=50">50평대</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=51">대형/복층/샹들리에</a></li>
 					</ul></li>
 				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category2">식탁/포인트 조명</a>
 					<ul class="sub2">
-						<li><a href="#">2인 식탁</a></li>
-						<li><a href="#">4인 식탁</a></li>
-						<li><a href="#">6인 식탁</a></li>
-						<li><a href="#">대형 식탁</a></li>
-						<li><a href="#">포인트</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=2">2인 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=4">4인 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=6">6인 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=8">대형 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=10">포인트</a></li>
 					</ul></li>
 				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category3">방조명</a>
 					<ul class="sub3">
-						<li><a href="#">큰방</a></li>
-						<li><a href="#">안방</a></li>
-						<li><a href="#">작은방</a></li>
-						<li><a href="#">드레스룸</a></li>
-						<li><a href="#">JM오리진</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=100">큰방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=101">안방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=102">작은방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=103">드레스룸</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=104">JM오리진</a></li>
 					</ul></li>
 					
 				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category4">주방/화장실 조명</a>
 					<ul class="sub4">
-						<li><a href="#">주방</a></li>
-						<li><a href="#">화장실</a></li>
-						<li><a href="#">바리솔</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=201">주방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=202">화장실</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=203">바리솔</a></li>
 						
 					</ul></li>
 				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category5">스탠드</a>
 					<ul class="sub5">
-						<li><a href="#">침실</a></li>
-						<li><a href="#">거실조명</a></li>
-						<li><a href="#">책상</a></li>
-						<li><a href="#">무드등/수유등</a></li>
-						<li><a href="#">JM오리진</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=301">침실</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=302">거실조명</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=303">책상</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=304">무드등/수유등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=305">JM오리진</a></li>
 					</ul></li>
 				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category6">실외조명</a>
 					<ul class="sub6">
-						<li><a href="#">실외벽등</a></li>
-						<li><a href="#">문주등</a></li>
-						<li><a href="#">정원등</a></li>
-						<li><a href="#">지중등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=401">실외벽등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=402">문주등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=403">정원등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=404">지중등</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -109,11 +109,11 @@
 				<dt>거실조명</dt>
 				<dd>
 					<ul>
-						<li><a href="#">20평대</a></li>
-						<li><a href="#">30평대</a></li>
-						<li><a href="#">40평대</a></li>
-						<li><a href="#">50평대</a></li>
-						<li><a href="#">대형/복층/샹들리에</a></li>
+				<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=20">20평대</a></li>
+		<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=30">30평대</a></li>
+		<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=40">40평대</a></li>
+		<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=50">50평대</a></li>
+		<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=51">대형/복층/샹들리에</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -121,11 +121,11 @@
 				<dt>식탁/포인트 조명</dt>
 				<dd>
 					<ul>
-						<li><a href="#">2인 식탁</a></li>
-						<li><a href="#">4인 식탁</a></li>
-						<li><a href="#">6인 식탁</a></li>
-						<li><a href="#">대형 식탁</a></li>
-						<li><a href="#">포인트</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=2">2인 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=4">4인 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=6">6인 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=8">대형 식탁</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=10">포인트</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -133,11 +133,11 @@
 				<dt>방조명</dt>
 				<dd>
 					<ul>
-						<li><a href="#">큰방</a></li>
-						<li><a href="#">안방</a></li>
-						<li><a href="#">작은방</a></li>
-						<li><a href="#">드레스룸</a></li>
-						<li><a href="#">JM오리진</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=100">큰방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=101">안방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=102">작은방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=103">드레스룸</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=104">JM오리진</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -145,9 +145,9 @@
 				<dt>주방/화장실 조명</dt>
 				<dd>
 					<ul>
-					<li><a href="#">주방</a></li>
-						<li><a href="#">화장실</a></li>
-						<li><a href="#">바리솔</a></li>
+					<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=201">주방</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=202">화장실</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category4&category=203">바리솔</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -155,11 +155,11 @@
 				<dt>스탠드</dt>
 				<dd>
 					<ul>
-					<li><a href="#">침실</a></li>
-						<li><a href="#">거실조명</a></li>
-						<li><a href="#">책상</a></li>
-						<li><a href="#">무드등/수유등</a></li>
-						<li><a href="#">JM오리진</a></li>
+					<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=301">침실</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=302">거실조명</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=303">책상</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=304">무드등/수유등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=305">JM오리진</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -167,10 +167,10 @@
 				<dt>실외조명</dt>
 				<dd>
 					<ul>
-						<li><a href="#">실외벽등</a></li>
-						<li><a href="#">문주등</a></li>
-						<li><a href="#">정원등</a></li>
-						<li><a href="#">지중등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=401">실외벽등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=402">문주등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=403">정원등</a></li>
+						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=404">지중등</a></li>
 					</ul>
 				</dd>
 			</dl>

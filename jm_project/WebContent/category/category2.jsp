@@ -63,11 +63,11 @@ th {
 <h1 class="title"><a href="#">식탁/포인트</a></h1>
 
 <table>
-	<th><a href="#">&nbsp;2인 식탁&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;4인 식탁&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;5인 식탁&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;대형 식탁&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;포인트&nbsp;</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=2">&nbsp;2인 식탁&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=4">&nbsp;&nbsp;&nbsp;4인 식탁&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=6">&nbsp;&nbsp;&nbsp;5인 식탁&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=8">&nbsp;&nbsp;&nbsp;대형 식탁&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category2&category=10">&nbsp;&nbsp;&nbsp;포인트&nbsp;</a></th>
 	
 </table>
 

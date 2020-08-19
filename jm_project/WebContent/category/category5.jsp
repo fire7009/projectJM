@@ -63,11 +63,11 @@ th {
 <h1 class="title"><a href="#">스탠드</a></h1>
 
 <table>
-	<th><a href="#">&nbsp;침실&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;거실조명&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;책상&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;무드등/수유등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;JM오리진&nbsp;</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=301">&nbsp;침실&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=302">&nbsp;&nbsp;&nbsp;거실조명&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=303">&nbsp;&nbsp;&nbsp;책상&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=304">&nbsp;&nbsp;&nbsp;무드등/수유등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category5&category=305">&nbsp;&nbsp;&nbsp;JM오리진&nbsp;</a></th>
 	
 </table>
 

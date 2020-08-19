@@ -64,11 +64,11 @@ th {
 
 
 <table>
-	<th><a href="#">&nbsp;큰방&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;안방&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;작은방&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;드레스룸&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;JM오리진&nbsp;</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=100">&nbsp;큰방&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=101">&nbsp;&nbsp;&nbsp;안방&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=102">&nbsp;&nbsp;&nbsp;작은방&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=103">&nbsp;&nbsp;&nbsp;드레스룸&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category3&category=104">&nbsp;&nbsp;&nbsp;JM오리진&nbsp;</a></th>
 	
 </table>
 

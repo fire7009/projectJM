@@ -64,18 +64,23 @@ th {
 <div id="productList">
 	<% for(ProductInfoDTO product:productList) { %>
 <table>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=<%=product.get%>">&nbsp;20평대&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;30평대&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;40평대&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;50평대&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="#">&nbsp;&nbsp;&nbsp;대형/복층/샹들리에&nbsp;</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=20">&nbsp;20평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=30">&nbsp;&nbsp;&nbsp;30평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=40">&nbsp;&nbsp;&nbsp;40평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=50">&nbsp;&nbsp;&nbsp;50평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=51">&nbsp;&nbsp;&nbsp;대형/복층/샹들리에&nbsp;</a></th>
 	
 </table>
+
+	
+	
+
+
 	<div class="product">
 		<div><%=product.getProdNm() %></div>
 		<div>[<%=product.getProdCd() %>]</div>
 		<div>
-			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khd&work=<%=product.getProdCd() %>" >
+			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=category" >
 				<img src="<%=request.getContextPath()%>/image/<%=product.getBasFileNm()%>" width="250">
 			</a>
 		</div>
