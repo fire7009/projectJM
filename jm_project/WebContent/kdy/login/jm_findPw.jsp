@@ -152,7 +152,7 @@ legend {
 	background:#f5f5f5;
 	border:1px solid #d2d2cf;
 	padding:60px 0 70px;
-	width:1025px;
+	width:800px;
 	margin : 0 auto;
 	background:#fefefe;
 	border:7px solid #f2f2f2;
@@ -251,7 +251,6 @@ legend {
 .find_idpw .radio-wrap { margin:0 0 10px; }
 .find_idpw .radio-wrap label { margin-right:30px; color:#575757; font-weight:bold; }
 .find_idpw .find-info table {
-    width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
     font-size: 12px;
@@ -285,9 +284,8 @@ legend {
 					<input type="hidden" name="authtext" value=""> 
 					<input type="hidden" name="authid"> 
 					<input type="hidden"	name="find_type" value="find_pw" />
-					
 			
-					<div class="member-findpw ">
+					<div class="member-findpw " style="margin-bottom: 100px; ">
 						<div class="inner">
 							
 							<h3 class="login_tit">비밀번호 찾기</h3>

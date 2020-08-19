@@ -63,6 +63,7 @@ fieldset{
 	position:relative;
 	width:400px;
 	margin:0 auto;
+	margin-bottom: 100px;
 }
 
 fieldset .id, fieldset  .passwd{ 
@@ -169,13 +170,12 @@ fieldset .link a{
 		<span>WELCOM BACK</span>
 	</div>
 	<fieldset>
-		<label class="id">
-		<input id="userId" name="userId"  label="아이디" msg=""  class="inputTypeText"
-			autocomplete="off"  value="<%=userId %>" type="text" /></label> 
 		
-		<label class="password">
+		<input id="userId" name="userId"  label="아이디" msg=""  style="margin-bottom: 10px;"
+			autocomplete="off"  value="<%=userId %>" type="text" />
+		
 		<input id="password" name="password"  label="패스워드" msg=""
-			autocomplete="off"  type="password" /></label>
+			autocomplete="off"  type="password" />
 	
 		<a id="login_btn"  class="loginBtn"> <img src="./img/btn_login.png" alt="로그인" /></a>
 		<div id="message"><%=message %></div>
