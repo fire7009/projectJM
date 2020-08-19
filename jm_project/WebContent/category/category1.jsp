@@ -14,8 +14,21 @@
 
 
 table {
+
+	
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	
+}
+
+th {
+
 	font-size: 1.5em;
-	border: 1px solid black;
+}
+
+.bottom {
+	margin-bottom: 30px;
 }
 </style>   
 
@@ -49,11 +62,11 @@ table {
 <h1 class="title"><a href="#">거실조명</a></h1>
 
 <table>
-	<td>20평대&nbsp;|</td>
-	<td>&nbsp;30평대&nbsp;|</td>
-	<td>&nbsp;40평대&nbsp;|</td>
-	<td>&nbsp;50평대&nbsp;|</td>
-	<td>&nbsp;대형/복층/샹들리에</td>
+	<th><a href="#">&nbsp;20평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;30평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;40평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;50평대&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;대형/복층/샹들리에&nbsp;</a></th>
 	
 </table>
 <div id="productList">
@@ -73,4 +86,4 @@ table {
 	<% } %>
 </div>
 
-<div style="clear: both;"></div>
+<div class="bottom" style="clear: both;"></div>

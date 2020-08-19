@@ -60,7 +60,7 @@
 						<li><a href="#">50평대</a></li>
 						<li><a href="#">대형/복층/샹들리에</a></li>
 					</ul></li>
-				<li><a href="#">식탁/포인트 조명</a>
+				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category2">식탁/포인트 조명</a>
 					<ul class="sub2">
 						<li><a href="#">2인 식탁</a></li>
 						<li><a href="#">4인 식탁</a></li>
@@ -68,29 +68,31 @@
 						<li><a href="#">대형 식탁</a></li>
 						<li><a href="#">포인트</a></li>
 					</ul></li>
-				<li><a href="#">방조명</a>
+				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category3">방조명</a>
 					<ul class="sub3">
 						<li><a href="#">큰방</a></li>
 						<li><a href="#">안방</a></li>
 						<li><a href="#">작은방</a></li>
 						<li><a href="#">드레스룸</a></li>
-						<li><a href="#">비츠오리진</a></li>
+						<li><a href="#">JM오리진</a></li>
 					</ul></li>
-				<li><a href="#">주방/화장실 조명</a>
+					
+				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category4">주방/화장실 조명</a>
 					<ul class="sub4">
 						<li><a href="#">주방</a></li>
 						<li><a href="#">화장실</a></li>
 						<li><a href="#">바리솔</a></li>
+						
 					</ul></li>
-				<li><a href="#">스탠드</a>
+				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category5">스탠드</a>
 					<ul class="sub5">
 						<li><a href="#">침실</a></li>
 						<li><a href="#">거실조명</a></li>
 						<li><a href="#">책상</a></li>
 						<li><a href="#">무드등/수유등</a></li>
-						<li><a href="#">비츠오리진</a></li>
+						<li><a href="#">JM오리진</a></li>
 					</ul></li>
-				<li><a href="#">실외조명</a>
+				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category6">실외조명</a>
 					<ul class="sub6">
 						<li><a href="#">실외벽등</a></li>
 						<li><a href="#">문주등</a></li>
@@ -135,7 +137,7 @@
 						<li><a href="#">안방</a></li>
 						<li><a href="#">작은방</a></li>
 						<li><a href="#">드레스룸</a></li>
-						<li><a href="#">비츠오리진</a></li>
+						<li><a href="#">JM오리진</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -157,7 +159,7 @@
 						<li><a href="#">거실조명</a></li>
 						<li><a href="#">책상</a></li>
 						<li><a href="#">무드등/수유등</a></li>
-						<li><a href="#">비츠오리진</a></li>
+						<li><a href="#">JM오리진</a></li>
 					</ul>
 				</dd>
 			</dl>

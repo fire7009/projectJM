@@ -70,7 +70,7 @@ dd{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 #gnb>li:hover ul{display: block;}
 #gnb>li>ul>li:hover{background-color: #7b4ea7;}
 #gnb>li>ul>li:hover a{color: #ffffff;}
-#gnb ul.sub5{height: 36px;}
+#gnb ul.sub4{height: 110px;}
 #gnb ul.sub6{height: 144px;}
 
 /* ��泥� 硫��� ���� */

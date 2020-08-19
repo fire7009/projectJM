@@ -12,6 +12,25 @@
 	margin-bottom: 50px;
 }	
 
+
+table {
+
+	
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	
+}
+
+th {
+
+	font-size: 1.5em;
+}
+
+.bottom {
+	margin-bottom: 30px;
+}
+
 </style>   
 
       
@@ -42,7 +61,13 @@
 <br>
 </div>
 <h1 class="title"><a href="#">실외조명</a></h1>
-
+<table>
+	<th><a href="#">&nbsp;실외벽등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;문주등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;정원등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;지중등&nbsp;&nbsp;&nbsp;|</a></th>
+	
+</table>
 <div id="productList">
 	<% for(ProductInfoDTO product:productList) { %>
 	<div class="product">
@@ -60,4 +85,4 @@
 	<% } %>
 </div>
 
-<div style="clear: both;"></div>
+<div class="bottom" style="clear: both;"></div>

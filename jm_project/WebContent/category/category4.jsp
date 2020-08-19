@@ -12,6 +12,25 @@
 	margin-bottom: 50px;
 }	
 
+
+table {
+
+	
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	
+}
+
+th {
+
+	font-size: 1.5em;
+}
+
+.bottom {
+	margin-bottom: 30px;
+}
+
 </style>   
 
       
@@ -43,6 +62,13 @@
 </div>
 <h1 class="title"><a href="#">주방/화장실</a></h1>
 
+<table>
+	<th><a href="#">&nbsp;주방&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;화장실&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="#">&nbsp;&nbsp;&nbsp;바리솔&nbsp;&nbsp;&nbsp;|</a></th>
+	
+</table>
+
 <div id="productList">
 	<% for(ProductInfoDTO product:productList) { %>
 	<div class="product">
@@ -60,4 +86,4 @@
 	<% } %>
 </div>
 
-<div style="clear: both;"></div>
+<div class="bottom" style="clear: both;"></div>
