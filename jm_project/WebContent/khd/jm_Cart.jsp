@@ -94,13 +94,13 @@ td {
         				</select>
 						<input type="button" value="수정" onclick="updateCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
-						<form name="pay" method="post" action="khd/jm_Pay_action.jsp">
 						<%=cart.getProdQty()%>x<%=product.getProdPrice()%>
 						</th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
-						<input type="checkbox" name="check" id="order" value="<%=cart.getHisSeqno()%>">
-						<input type="hidden" name="user" id="user" value="<%=user %>">
+						<form name="pay" method="post" action="khd/jm_Pay_action.jsp">
+						<input type="checkbox" name="check" id="check" value="<%=cart.getHisSeqno()%>">
+						<input type="hidden" name="user" id="user" value="<%=user%>">
 						</th>
 					</tr>
 				<%} %>	

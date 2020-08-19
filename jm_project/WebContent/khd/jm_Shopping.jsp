@@ -54,11 +54,15 @@ table.shop .even {
 	padding: 50px 20px;
 	text-align:center;
 }
+h2{
+	text-align: left;
+    font-size: xxx-large;
+}
 </style>
 
 <form id="shoppingForm">
   <div class="shopping">
-       <h2> 제품 정보</h2>
+       <h2><%=prodNm%>제품 정보</h2>
 	<table class="shop">
 
 	<tr>
@@ -90,11 +94,8 @@ table.shop .even {
 		<td class="value"><%=price %></td>
 	</tr>
 </table>
+	<button type="button"  id="cartBtn">장바구니</button>	
 
-	<div id="btnDiv">
-		<button type="button"  id="cartBtn" style="float:right" >장바구니</button>		
-	</div>
-	
 </div>
 </form>
      

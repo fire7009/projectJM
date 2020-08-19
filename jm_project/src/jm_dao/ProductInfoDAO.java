@@ -65,7 +65,7 @@ public class ProductInfoDAO extends JdbcDAO {
 	
 	
 
-	public ProductInfoDTO selectProductInfo(String prodCd) {
+	public ProductInfoDTO selectProductInfo(String user) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -85,9 +85,9 @@ public class ProductInfoDAO extends JdbcDAO {
 					" INNER JOIN" + 
 					" PRODUCT_INFO B" + 
 					" ON A.CTGR_CD = B.CTGR_CD" + 
-					" WHERE B.PROD_CD = ?";
+					" WHERE B.FRST_RGSR_USRNO = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, prodCd);
+			pstmt.setString(1, user);
 
 			rs = pstmt.executeQuery();
 
@@ -110,6 +110,7 @@ public class ProductInfoDAO extends JdbcDAO {
 		}
 		return product;
 	}
+	
 	
 	public int updateProduct(String delYn,String prodCd) {
 		Connection con=null;

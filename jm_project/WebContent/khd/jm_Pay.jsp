@@ -1,3 +1,5 @@
+<%@page import="jm_dao.OrdProdHisDAO"%>
+<%@page import="jm_dto.OrdProdHisDTO"%>
 <%@page import="jm_dao.ProductInfoDAO"%>
 <%@page import="jm_dto.ProductInfoDTO"%>
 <%@page import="jm_dao.CartHisDAO"%>
@@ -7,9 +9,8 @@
 	pageEncoding="UTF-8"%>
 <%
 	String user=request.getParameter("user");
-	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
+	List<OrdProdHisDTO> orderList=OrdProdHisDAO.getDAO().selectOrdList(user);
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
-	
 %>
 
 <style type="text/css">
@@ -60,32 +61,27 @@ td {
 						<th>상품이름</th>
 						<th>수량</th>
 						<th>총상품 금액</th>
-						
 					</tr>
-					<%if(cartList.isEmpty()){ %>
+					<%if(orderList.isEmpty()){ %>
 					<tr>
-				<td colspan="6">등록된 제품이 하나도 없습니다.</td>
+				<td colspan="4">등록된 제품이 하나도 없습니다.</td>
 		<% } else { %>
-			<% for(CartHisDTO cart:cartList){ %>
-				<% if(cart.getDelYn().equals("N")) {%>
+			<% for(OrdProdHisDTO ord:orderList){ %>
 					<tr>
 						<th></th>
-						<th><%=product.getProdNm()%></th>
-						<th><%=cart.getProdQty()%><br>
-					
-						<input type="button" value="수정" onclick="updateCart(<%=cart.getHisSeqno()%>);"></th>
-						<th><%=cart.getProdQty()%>x<%=product.getProdPrice()%></th>
-				
-					</tr>
-				<%} %>	
+						<th><%=ord.getOrdNo()%></th>
+						<th><%=ord.getOrdQty()%><br>
+						<th>
+						<%=ord.getOrdQty()%>
+						</th>
+					</tr>	
 			<%} %>
 		<%} %>
 		</table>
 		<br>
 		<h1>상품 구매 완료!</h1>
 		<br>
-		<input type="button" value="메인으로이동">
-		</form>
+
 	</div>
 	
 	<script type="text/javascript">
