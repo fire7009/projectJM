@@ -67,14 +67,29 @@ public class UserInfoDAO extends JdbcDAO {
       try {
          con=getConnection();
          
-         String sql="select * from User_Info where USER_ID=?";
+         String sql =   "SELECT USER_NO    " 
+         		      + "     , USER_ID    " 
+         		      + "     , PASSWORD   " 
+         		      + "     , USER_NM    " 
+         		      + "     , CONT_ADDR  " 
+         		      + "     , EMAIL_ADDR "
+         		      + "     , POST_CD    " 
+         		      + "     , BAS_ADDR   "
+         		      + "     , DETL_ADDR  " 
+         		      + "     , USER_DV    " 
+         		      + "     , WITHD_YN   "
+         		      + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM "
+         		      + "  FROM USER_INFO   " 
+         		      + " WHERE USER_ID = ? ";
          pstmt=con.prepareStatement(sql);
          pstmt.setString(1, userId);
          
          rs=pstmt.executeQuery();
             
             if(rs.next()) {
-              userInfo=new UserInfoDTO();
+            	
+              userInfo = new UserInfoDTO();
+              
               userInfo.setUserNo(rs.getString("user_no"));
               userInfo.setUserId(rs.getString("user_id"));
               userInfo.setPassword(rs.getString("password"));
@@ -85,11 +100,8 @@ public class UserInfoDAO extends JdbcDAO {
               userInfo.setBasAddr(rs.getString("bas_addr"));
               userInfo.setDetlAddr(rs.getString("detl_addr"));
               userInfo.setUserDv(rs.getString("user_dv"));
-              userInfo.setWithdYn(rs.getString("withd_yn"));
-              userInfo.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
-              userInfo.setUserDv(rs.getString("frst_rgst_dttm"));
-              userInfo.setLastProcrUsrno(rs.getString("last_procr_usrno"));
-              userInfo.setLastProcDttm(rs.getString("last_proc_dttm"));
+              userInfo.setWithdYn(rs.getString("withd_yn"));              
+              userInfo.setUserDv(rs.getString("frst_rgst_dttm"));              
 
          }
       } catch (SQLException e) {
@@ -157,8 +169,8 @@ public class UserInfoDAO extends JdbcDAO {
          try {
             con=getConnection();
             
-            String sql="select user_no, user_id, user_nm, cont_addr, post_cd, bas_addr, detl_addr, to_char(first_rgst_dttm,"
-                  + "'yyyy-mm-dd'), email_addr from user_info where user_no=? ";
+            String sql="select user_no, user_id, user_nm, cont_addr, post_cd, bas_addr, detl_addr, to_char(frst_rgst_dttm,"
+                  + "'yyyy-mm-dd') frst_rgst_dttm, email_addr from user_info where user_no=? ";
             pstmt=con.prepareStatement(sql);
             pstmt.setString(1, userNo);
             

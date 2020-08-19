@@ -36,7 +36,7 @@
 			<% if(loginMember.getUserDv().equals("1")) { //관리자인 경우 %>
 			
 				 <li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
-				<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=template">관리자</a>&nbsp;&nbsp; 
+				<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=adminIndex">|&nbsp;&nbsp;&nbsp;관리자</a>&nbsp;&nbsp; 
 			<% } %>
 			<% } %>	
 			</dd>
