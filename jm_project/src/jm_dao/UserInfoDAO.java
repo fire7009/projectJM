@@ -75,7 +75,7 @@ public class UserInfoDAO extends JdbcDAO {
             
             if(rs.next()) {
               userInfo=new UserInfoDTO();
-            userInfo.setUserNo(rs.getString("user_no"));
+              userInfo.setUserNo(rs.getString("user_no"));
               userInfo.setUserId(rs.getString("user_id"));
               userInfo.setPassword(rs.getString("password"));
               userInfo.setUserNm(rs.getString("user_nm"));
