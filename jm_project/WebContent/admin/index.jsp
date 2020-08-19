@@ -16,6 +16,7 @@
    
 %>
 
+// dkjflksdjflsd
 <jsp:forward page = "layout/template.jsp">
    <jsp:param value = "<%=workgroup %>" name = "workgorup"/>
    <jsp:param value = "<%=work %>" name = "work"/>
