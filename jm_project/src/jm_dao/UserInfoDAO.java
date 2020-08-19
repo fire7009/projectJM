@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import jm_dto.UserInfoDTO;
 
@@ -33,7 +34,8 @@ public class UserInfoDAO extends JdbcDAO {
       try {
             con=getConnection();
             //SQL문 한번 확인 해야함!!
-            String sql="insert into user_Info values( (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),?,?,?,?,?,?,?,?,'2','N','1',sysdate,'1',sysdate)";
+            String sql="insert into user_Info values( (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),?,?,?,?,?,?,?,?,'2','N', (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),"
+            		+ "sysdate, (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO), sysdate)";
             pstmt=con.prepareStatement(sql);
             pstmt.setString(1, userInfo.getUserId());
             pstmt.setString(2, userInfo.getPassword());
@@ -301,6 +303,123 @@ public class UserInfoDAO extends JdbcDAO {
   		}
   		return rows;
   	}
+  	
+  	// 관리자 > 회원관리 > 회원 목록 쿼리
+  	public List<UserInfoDTO> getAdminUserList() {
+  		
+  		Connection con			= null;
+  		PreparedStatement pstmt = null;
+  		ResultSet rs			= null;
+  		
+  		List<UserInfoDTO> adminUserList = new ArrayList<UserInfoDTO>();
+  		
+  		try {
+  			
+  			con = getConnection();
+  			
+  			String sql =   "SELECT USER_NO  "
+  					     + "     , USER_ID  " 
+  					     + "     , USER_NM  " 
+  					     + "     , USER_DV  " 
+  					     + "     , WITHD_YN " 
+  					     + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM " 
+  					     + "  FROM USER_INFO" 
+  					     + " WHERE USER_DV	= '2'  " 
+  					     + "   AND WITHD_YN = 'N'  " 
+  					     + " ORDER BY USER_NO DESC";
+  			
+  			pstmt	= con.prepareStatement(sql);  			  		  			
+  			rs		= pstmt.executeQuery();
+  			
+  			while (rs.next()) {
+  				
+  				UserInfoDTO userInfoDTO = new UserInfoDTO();
+  				
+  				userInfoDTO.setUserNo(rs.getString("user_no"));
+  				userInfoDTO.setUserId(rs.getString("user_id"));
+  				userInfoDTO.setUserNm(rs.getString("user_nm"));
+  				userInfoDTO.setUserDv(rs.getString("user_dv"));
+  				userInfoDTO.setWithdYn(rs.getString("withd_yn"));
+  				userInfoDTO.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
+  				  				
+  				adminUserList.add(userInfoDTO);
+  				
+  			}
+  				
+  		} catch (SQLException e) {
+  			
+  			System.out.println(e.getMessage());
+  			
+		} finally {
+			
+			close(con, pstmt, rs);			
+  			
+  		}
+  		
+		return adminUserList;
+  		
+  	}
+  	
+  	// 관리자 > 회원관리 > 회원 상세 쿼리
+  	public UserInfoDTO getAdminUserInfo(String userNo) {
+        
+  		Connection con				= null;
+        PreparedStatement pstmt		= null;
+        ResultSet rs				= null;
+        
+        UserInfoDTO userInfoDTO 	= null;
+        
+        try {
+        	
+           con = getConnection();
+           
+           String sql=   "SELECT USER_NO    " 
+           		       + "     , USER_ID    " 
+           		       + "     , USER_NM    " 
+           		       + "     , CONT_ADDR  " 
+           		       + "     , EMAIL_ADDR "
+           		       + "     , POST_CD    " 
+           		       + "     , BAS_ADDR   " 
+           		       + "     , DETL_ADDR  " 
+           		       + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM "
+           		       + "  FROM USER_INFO  "
+           		       + " WHERE USER_NO = ?";
+           
+           pstmt = con.prepareStatement(sql);
+           
+           pstmt.setString(1, userNo);
+           
+           rs = pstmt.executeQuery();
+              
+              if(rs.next()) {
+            	  
+                userInfoDTO = new UserInfoDTO();
+                
+                userInfoDTO.setUserNo(rs.getString("user_no"));
+                userInfoDTO.setUserId(rs.getString("user_id"));                
+                userInfoDTO.setUserNm(rs.getString("user_nm"));
+                userInfoDTO.setContAddr(rs.getString("cont_addr"));
+                userInfoDTO.setEmailAddr(rs.getString("email_addr"));
+                userInfoDTO.setPostCd(rs.getString("post_cd"));
+                userInfoDTO.setBasAddr(rs.getString("bas_addr"));
+                userInfoDTO.setDetlAddr(rs.getString("detl_addr"));                
+                userInfoDTO.setUserDv(rs.getString("frst_rgst_dttm"));
+                
+              }
+              
+        } catch (SQLException e) {
+           
+        	System.out.println(e.getMessage());
+        	
+        } finally {
+        	
+           close(con, pstmt, rs);
+           
+        }
+        
+        return userInfoDTO;
+        
+     }
    
    
 }
