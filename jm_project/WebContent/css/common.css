@@ -45,7 +45,8 @@ dd{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 
 /* 濡�洹몄�� ���� */
 .login_wrap{position: relative; overflow: visible;}
-.login_wrap>a{color: #9326ff; text-decoration: underline;}
+.login_wrap>a{color: #9326ff;}
+
 
 	
 /* ���� 硫��� ���� */
