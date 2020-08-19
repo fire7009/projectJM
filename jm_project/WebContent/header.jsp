@@ -31,11 +31,12 @@
 			<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
 					<li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
 					
-					<li class="mypage"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">|&nbsp;&nbsp;&nbsp;내정보</a></li>
+					<li calss="mypage"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">|&nbsp;&nbsp;&nbsp;내정보</a></li>
 				</ul>
-			<% if(loginMember.getUserDv()=="1") { //관리자인 경우 %>
+			<% if(loginMember.getUserDv().equals("1")) { //관리자인 경우 %>
 			
-		<a href="index.jsp?workgroup=admin/layout&work=template">|관리자</a>&nbsp;&nbsp;
+				 <li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
+				<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=template">관리자</a>&nbsp;&nbsp; 
 			<% } %>
 			<% } %>	
 			</dd>
