@@ -79,7 +79,7 @@
 		<!-- id="contents_top" -->
 
 		<!-- 레시피 상품 슬라이드 만들기 -->
-		<div id="recipe">
+		<div id="recomend">
 			<h3>추천상품</h3>
 			<div class="animation_canvas">
 				<div class="slider_panel">

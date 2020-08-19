@@ -7,33 +7,26 @@
     pageEncoding="UTF-8"%>
 <%	
 
-	request.setCharacterEncoding("utf-8");
 
-	String value=request.getParameter("value");
-	String[] spString=value.split("_"); 
-	String his=spString[0];
-	String user=spString[1];
-	
-	String[] hisList=request.getParameterValues("his");
-	
-	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
-	
+	String[] his=request.getParameterValues("ckeck");
+	String user=request.getParameter("user");
+	OrdProdHisDTO order=new OrdProdHisDTO();
+	List<CartHisDTO> cartList=CartHisDAO.getDAO().selectCartList("user");
+
 	for(CartHisDTO cart:cartList){
-		
-		for(int i=0;i<hisList.length;i++){
-			
-			OrdProdHisDTO order=new OrdProdHisDTO();
+		for(int i=0;i<his.length;i++){
 			order.setFrstRgsrUsrno(user);
+			order.setHisSeqno(his[i]);
 			order.setOrdQty(cart.getProdQty());
-			order.setHisSeqno(hisList[i]);
-			CartHisDAO.getDAO().updateDelCart(user,hisList[i]);
+			order.setProdCd(cart.getProdCd());
 			OrdProdHisDAO.getDAO().insertOrdProdHis(user, order);
 		}
-	
 	}
+	
 	
 	out.println("<script type='text/javascript'>");
 	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Pay&user="+user+"';");
 	out.println("</script>");
 
+		
 %>
