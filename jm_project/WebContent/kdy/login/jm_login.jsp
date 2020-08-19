@@ -63,6 +63,7 @@ fieldset{
 	position:relative;
 	width:400px;
 	margin:0 auto;
+	margin-bottom: 100px;
 }
 
 fieldset .id, fieldset  .passwd{ 
@@ -86,7 +87,7 @@ fieldset .id, fieldset  .passwd{
 	line-height:45px;
 	letter-spacing:0.08em;
 	font-weight:normal;
-	transition:all .5s ease;
+	transition: all .5s ease;
 	-webkit-transition:all .5s ease;
 }
 
@@ -164,20 +165,19 @@ fieldset .link a{
 <%-- 로그인 폼 / 경로 입력 --%>
 <div class="login">
 <form id="login" name="loginForm"  action="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login_action"  method="post">
-	<div class="titleArea">
+	<div class="titleArea"     style="margin-top: 100px;">
 		<h3>LOGIN</h3>
 		<span>WELCOM BACK</span>
 	</div>
 	<fieldset>
-		<label class="id">
-		<input id="userId" name="userId"  label="아이디" msg=""  class="inputTypeText"
-			autocomplete="off"  value="<%=userId %>" type="text" /></label> 
 		
-		<label class="password">
+		<input id="userId" name="userId"  label="아이디" msg=""  style="margin-bottom: 10px;"
+			autocomplete="off"  value="<%=userId %>" type="text" />
+		
 		<input id="password" name="password"  label="패스워드" msg=""
-			autocomplete="off"  type="password" /></label>
+			autocomplete="off"  type="password" />
 	
-		<a id="login_btn"  class="loginBtn"> <img src="./img/btn_login.gif" alt="로그인" /></a>
+		<a id="login_btn"  class="loginBtn"> <img src="./img/btn_login.png" alt="로그인" /></a>
 		<div id="message"><%=message %></div>
 		
 		<p class="security">

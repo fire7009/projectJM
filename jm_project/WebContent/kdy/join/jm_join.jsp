@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 
+
 <style type="text/css">
 .pagetitle1 {
 	font-family: 'Noto Sans KR';
@@ -407,7 +408,7 @@ h4.tit {
 						class="MS_input_txt w137" value="" size="15" maxlength="20" /> 
 					<span class="idpw-info"> (영문자/숫자,4~12자) </span>
 	<div id="passwdMsg" class="error">비밀번호를 입력해 주세요.</div>
-	<div id="passwdRegMsg" class="error">비밀번호는 영문자,숫자,특수문자가 반드시 하나이상 포함된 4~12 범위의 문자로만 작성 가능합니다.</div>
+	<div id="passwdRegMsg" class="error">비밀번호는 영문자,숫자가 반드시 하나이상 포함된 4~12 범위의 문자로만 작성 가능합니다.</div>
 						
 					</div></td>
 			</tr>
@@ -511,7 +512,7 @@ h4.tit {
 	<%-- 버튼 / 회원가입, 다시입력, 취소 --%>
 	<div id="fs"  style="margin-bottom: 100px;">
 		<button type="submit" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
-		<img src="./img/joinBtn.png" alt="회원가입" width="150px" ></button>
+			<img src="./img/joinBtn.png" alt="회원가입" width="150px" ></button>
 
 		<a	 href="<%=request.getContextPath() %>/index.jsp " class="cancelBtn"> 
 			<img	src="./img/CCBtn.png" alt="취소" width="150px" /></a>

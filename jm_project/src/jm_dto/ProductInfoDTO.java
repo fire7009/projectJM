@@ -18,6 +18,7 @@ public class ProductInfoDTO {
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
+	private int prodCtgr;
 	
 	public ProductInfoDTO() {
 		// TODO Auto-generated constructor stub
@@ -158,6 +159,16 @@ public class ProductInfoDTO {
 
 	public void setLastProcDttm(String lastProcDttm) {
 		this.lastProcDttm = lastProcDttm;
+	}
+
+
+	public int getProdCtgr() {
+		return prodCtgr;
+	}
+
+
+	public void setProdCtgr(int prodCtgr) {
+		this.prodCtgr = prodCtgr;
 	}
 		
 	

@@ -83,12 +83,12 @@
 			<h3>추천상품</h3>
 			<div class="animation_canvas">
 				<div class="slider_panel">
-					<a href="#"> <img src="img/조명18.jpg" class="slider_image"
-						alt="" /></a> <a href="#"><img src="img/조명19.jpg"
-						class="slider_image" alt="" /></a> <a href="#"><img
-						src="img/조명20.png" class="slider_image" alt="" /></a> <a href="#"><img
-						src="img/조명21.jpg" class="slider_image" alt="" /></a> <a href="#"><img
-						src="img/조명22.jpg" class="slider_image" alt="" /></a>
+					<a href="#"><img src="img/하배1.jpg" class="slider_image" alt="" /></a> 
+					<a href="#"><img src="img/하배5.jpg" class="slider_image" alt="" /></a> 
+					<a href="#"><img src="img/하배2.jpg" class="slider_image" alt="" /></a>
+					<a href="#"><img src="img/하배3.jpg" class="slider_image" alt="" /></a>
+					<a href="#"><img src="img/하배4.jpg" class="slider_image" alt="" /></a>
+						
 				</div>
 				<div class="control_panel">
 					<div class="control_button"></div>
@@ -103,28 +103,18 @@
 		<!-- 자동슬라이드 배너를 이용한 베스트 상품 영역 만들기 -->
 		<div id="bestgoods_zone">
 			<h3>인기상품</h3>
-			<div id="best_bg">
+			<div id="best_bg" style="text-align: left;">
 				<ul>
-					<li><a href="#"><img src="img/조명7.jpg" alt="" /><span>별별무슨별
-								조명</span></a></li>
-					<li><a href="#"><img src="img/조명8.jpg" alt="" /><span>조개모양이네
-								조명</span></a></li>
-					<li><a href="#"><img src="img/조명9.jpg" alt="" /><span>화려한불빛이
-								날 비추네 조명</span></a></li>
-					<li><a href="#"><img src="img/조명10.jpg" alt="" /><span>이게
-								더 조개같네 조명</span></a></li>
-					<li><a href="#"><img src="img/조명11.jpg" alt="" /><span>태양열대신
-								조명</span></a></li>
-					<li><a href="#"><img src="img/조명12.jpg" alt="" /><span>흰색검정색
-								깔맞춤 조명</span></a></li>
-					<li><a href="#"><img src="img/조명13.jpg" alt="" /><span>배게같아서
-								눕고싶지 조명</span></a></li>
-					<li><a href="#"><img src="img/조명14.jpg" alt="" /><span>선앤문
-								조명</span></a></li>
-					<li><a href="#"><img src="img/조명16.jpg" alt="" /><span>동남아st
-								조명</span></a></li>
-					<li><a href="#"><img src="img/조명17.jpg" alt="" /><span>네일
-								조명아닌 조명</span></a></li>
+					<li><a href="#"><img src="img/조명7.jpg" alt="" /><span><br>별별<br>무슨별 조명</span></a></li>
+					<li><a href="#"><img src="img/조명8.jpg" alt="" /><span><br>조개모양 조명</span></a></li>
+					<li><a href="#"><img src="img/조명9.jpg" alt="" /><span><br>화려한불빛이<br> 날 비추는 조명</span></a></li>
+					<li><a href="#"><img src="img/조명10.jpg" alt="" /><span><br>이게 더 <br>조개같네 조명</span></a></li>
+					<li><a href="#"><img src="img/조명11.jpg" alt="" /><span><br>태양열 판넬 <br>대신 조명</span></a></li>
+					<li><a href="#"><img src="img/조명12.jpg" alt="" /><span><br>흰색검정색 <br>깔맞춤 조명</span></a></li>
+					<li><a href="#"><img src="img/조명13.jpg" alt="" /><span><br>배게같아서 <br>눕고싶지 조명</span></a></li>
+					<li><a href="#"><img src="img/조명14.jpg" alt="" /><span><br>선앤문 조명</span></a></li>
+					<li><a href="#"><img src="img/조명16.jpg" alt="" /><span><br>동남아st 조명</span></a></li>
+					<li><a href="#"><img src="img/조명17.jpg" alt="" /><span><br>네일 조명 <br>아닌 조명</span></a></li>
 				</ul>
 				<!-- 총 10개 -->
 				<p class="prev_btn">

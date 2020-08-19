@@ -33,6 +33,7 @@
 	.goods_info p.strong{font-weight:bold;}
 	.goods_box {width:253px; height:340px;}
 	.goods_box img{width: 100%; height: 100%;}
+	
 
 #contents_top{width:100%; height:500px; margin-top:60px;}
 /* ���� 濡ㅻ� 諛곕���� ���� 踰��쇱�� ���⑺�� 諛곕�� ��由쇳�� */
@@ -85,15 +86,17 @@ margin-top:13px; font-weight:600;}
 #contents_m ul li{margin-right:15px;}	
 	
 /* �����쇱�щ�쇱�대�� */
-#recomend{align-content:center; height: 100%; width:100%; margin-top:50px; position:relative;}
+	#recomend{align-content:center; height: 100%; width:100%; margin-top:50px; position:relative;}
 	#recomend h3{font-size:25px; font-weight:bold; float:left; margin-bottom:15px; color:#484848;}
-	#recomend a.r_more{font-size:16px; color:#56297a; margin-left:10px; line-height:38px;font-weight:600; }
+	#recomend a.r_more{font-size:16px; color:#56297a; margin-left:10px; line-height:38px; font-weight:600; }
+	
 .animation_canvas{overflow: hidden;  position: relative; width: 100%; height: 338px;}
-.slider_panel {width: 100%;}
+
+.slider_panel img{width:1100px;}
 
 /* slider panel */
-.slider_panel{width: 3925px; position: relative; }
-.slider_image{float: left; width: 785px; height: 338px;}
+.slider_panel{width: 5700px; position: relative; }
+.slider_image{ width: 1100px; height: 338px;}
 /* .cl{clear:both;} */
 
 /* slider text panel */

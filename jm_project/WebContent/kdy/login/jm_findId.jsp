@@ -152,12 +152,13 @@ legend {
 	background:#f5f5f5;
 	border:1px solid #d2d2cf;
 	padding:60px 0 70px;
-	width:1025px;
+	width:800px;
 	margin : 0 auto 100px;
 	background:#fefefe;
 	border:7px solid #f2f2f2;
 	padding:54px 121px;
 }
+
 .member-findid .inner {
 	width:440px;
 	margin:0 auto;
@@ -308,17 +309,18 @@ legend {
 										</tr>
 									</table>
 									<br>
+									
 								    <div class="btn-area"> 
-								    <button type="submit" id="submit_findId" style="color:black; width:100;">아이디 찾기</button>
-								    <button style="color:black; width:100;"><a href="index.jsp?workgroup=kdy/login&work=jm_login" ></a>로그인</button> 
-								   <!--  <button type="submit" id="submit_findId"><img src="./kdy/img/findid.png"></button>--> 
-								   <!-- <button><img src="./kdy/img/login01.png"><a href="index.jsp?workgroup=kdy/login&work=jm_login"></a></button>--> 
-								   <!-- <a class="info-confirm" href="javascript:find_id;"> 아이디 찾기 </a>  --> 
-								   <!-- <a class="info-confirm" href="index.jsp?workgroup=kdy/login&work=jm_login"> 로그인 </a> --> 
+									    <button type="submit" id="submit_findId" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
+									    	<img src="./img/findid.png"  width="150px" ></button>
+
+									    <a	 href="<%=request.getContextPath()%>/index.jsp?workgroup=kdy/login&work=jm_login" class="loginBtn"> 
+											<img	src="./img/login01.PNG" alt="로그인" height="41.25px;" /></a>
 								    </div>
+								    
 								</div>
 							</div>
-							</div>
+						</div>
 					</div>
 				</form><!--/#find_id/-->
 			</div>
