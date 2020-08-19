@@ -6,7 +6,7 @@
 <%
 
 	String his=request.getParameter("his");
-
+	String prodCd=request.getParameter("prodCd");
 	String user=request.getParameter("user");
 
 
@@ -18,7 +18,7 @@
 	}
 	
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Cart&user="+user+"';");
+	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Cart&prodCd="+prodCd+"&user="+user+"';");
 	out.println("</script>");
 %>
 

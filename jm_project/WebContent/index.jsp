@@ -14,7 +14,7 @@
 	
 	String headerPath="/header.jsp";
 	if(workgroup.equals("admin")) {
-		headerPath="/admin/layout/adminHeader.jsp";
+		headerPath="/admin/adminHeader.jsp";
 	}
 	
 	String work=request.getParameter("work");

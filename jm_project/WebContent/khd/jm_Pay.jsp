@@ -6,7 +6,7 @@
 <%@page import="jm_dto.CartHisDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%
 	String user=request.getParameter("user");
 	List<OrdProdHisDTO> orderList=OrdProdHisDAO.getDAO().selectOrdList(user);

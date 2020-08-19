@@ -5,8 +5,8 @@
 <%@page import="jm_dto.CartHisDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
+    pageEncoding="UTF-8"%>
+<%--
 <%
 UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
@@ -18,11 +18,15 @@ if(loginMember==null) {
 }
 
 %>
-	
+--%>
 <%
 	String user=request.getParameter("user");
+	String prodCd=request.getParameter("prodCd");
+	System.out.println("prodCd = "+prodCd);
+	
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
-	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
+	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(prodCd);
+
 	String value;
 	int qty=0;
 	int price=0;
@@ -67,6 +71,7 @@ td {
 </style>
 	
 		<div class="content">
+
 			<form name="pay" id="pay">
 				<table>
 					<tr>
@@ -123,11 +128,11 @@ td {
 		//엘리먼트 속성값을 반환받아 저장
 		var his=$(this).attr("name");//고유값
 		var qty=$(this).val();//변경값
-		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+qty;
+		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+qty+"&prodCd=<%=prodCd%>";
 	});
 	
 	function removeCart(his) {
-		location.href="khd/jm_Cart_delete.jsp?his="+his+"&user=<%=user%>";
+		location.href="khd/jm_Cart_delete.jsp?his="+his+"&user=<%=user%>&prodCd=<%=prodCd%>";
 	}
 	
 	$("#orderBtn").click(function(){
@@ -138,7 +143,7 @@ td {
 		}
 
 		$("#pay").attr("method","post");
-		$("#pay").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Pay_action");
+		$("#pay").attr("action","<%=request.getContextPath()%>/khd/");
 		$("#pay").submit();
 	});
 

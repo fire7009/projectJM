@@ -4,7 +4,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo("1");
+	String user="1";
+	String prodCd="1";
+	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
 	int price=product.getProdPrice();
 	String prodNm=product.getProdNm();
 	String ctgr=product.getCtgrCd();
@@ -13,7 +15,6 @@
 	String detlFileNm=product.getDetlFileNm();
 	String detlFilePath=product.getDetlFilePath();
 	String prodDetl=product.getProdDetl();
-	String user="1";
 %>
 
 
@@ -75,7 +76,7 @@ h2{
 	</tr>
 	<tr>
 		<th class="title">상세설명</td>
-		<td class="value"><%=prodDetl %></td>
+		<td class="value"><%=prodDetl%></td>
 	</tr>
 	<tr>
 		<th class="title">상품수량선택</td>
@@ -106,7 +107,7 @@ h2{
 $("#cartBtn").click(function(){
 var select=$("select[name=select]").val();
 	$("#shoppingForm").attr("method","post");
-	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=product.getProdCd()%>&user=<%=user%>");
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=prodCd%>&user=<%=user%>");
 	$("#shoppingForm").submit();
 });
 </script>

@@ -60,7 +60,7 @@ public class OrderInfoDAO extends JdbcDAO {
 	}
 	
 	//주문정보 선택
-	public OrderInfoDTO selectOrderInfo(String ordNo) {
+	public List<OrderInfoDTO> selectOrderInfo(String ordNo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -77,9 +77,14 @@ public class OrderInfoDAO extends JdbcDAO {
 
 			if (rs.next()) {
 				OrderInfoDTO order=new OrderInfoDTO();
-				
+				order.setOrdSumQty(rs.getInt("ord_sum_qty"));
+				order.setOrdSumAmt(rs.getInt("ord_sum_amt"));
+				order.setRcvrNm(rs.getString("rcvr_nm"));
+				order.setDlvrPostCd(rs.getString("dlvr_post_cd"));
+				order.setDlvrBasAddr(rs.getString("dlvr_bas_addr"));
+				order.setDlvrDetlAddr(rs.getString("dlvr_detl_addr"));
+				order.setOrdCnclYn(rs.getString("ord_cncl_yn"));
 				orderList.add(order);
-
 			}
 			
 		} catch (SQLException e) {

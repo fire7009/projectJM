@@ -3,6 +3,7 @@
 <%@page import="jm_dto.CartHisDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%
 	//비정상적인 요청에 대한 응답 처리 - 쇼핑페이지 이동
 	if(request.getMethod().equals("GET")) {
@@ -29,7 +30,7 @@
 
 	//장바구니 페이지 이동
 	out.println("<script type='text/javascript'>");
-	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Cart&user="+user+"';");
+	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Cart&prodCd="+prodCd+"&user="+user+"';");
 	out.println("</script>");
 	
 %>
