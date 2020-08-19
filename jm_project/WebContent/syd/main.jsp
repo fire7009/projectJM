@@ -123,7 +123,7 @@
 								조명</span></a></li>
 					<li><a href="#"><img src="img/조명16.jpg" alt="" /><span>동남아st
 								조명</span></a></li>
-					<li><a href="#"><img src="img/조명17.jpg" alt="" /><span>네인
+					<li><a href="#"><img src="img/조명17.jpg" alt="" /><span>네일
 								조명아닌 조명</span></a></li>
 				</ul>
 				<!-- 총 10개 -->

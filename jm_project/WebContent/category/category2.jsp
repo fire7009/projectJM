@@ -41,7 +41,7 @@
 <div>
 <br>
 </div>
-<h1 class="title"><a href="#">거실조명</a></h1>
+<h1 class="title"><a href="#">식탁/포인트</a></h1>
 
 <div id="productList">
 	<% for(ProductInfoDTO product:productList) { %>
