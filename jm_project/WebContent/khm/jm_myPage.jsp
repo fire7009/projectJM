@@ -34,7 +34,7 @@
 <link href="css/css_02.css" rel="stylesheet" type="text/css" />
 <link href="css/header.css" rel="stylesheet" type="text/css" />
 <link href="css/footer.css" rel="stylesheet" type="text/css" />
-<link href="css/mp_main.css" rel="stylesheet" type="text/css" />
+<link href="khm/css/mp_main.css" rel="stylesheet" type="text/css" />
 <link href="css/nanumsquareround.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" source = js/header.js"></script>
 
@@ -64,6 +64,7 @@
 	border: 40px;
 	width: 60px;
 	height: 60px;
+	!important;
 }
 
 .shopMain .order {

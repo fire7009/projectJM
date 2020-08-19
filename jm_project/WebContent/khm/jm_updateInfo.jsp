@@ -766,7 +766,7 @@ h4.tit {
 		var submitResult = true;
 			$(".error").css("display", "none");
 	
-			var passwdReg = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[~!@#$%^&*_-]).{4,12}$/g;
+			var passwdReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{4,12}$/g;
 			if ($("#password").val() == "") {
 				$("#passwdMsg").css("display", "block");
 				submitResult = false;

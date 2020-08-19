@@ -9,7 +9,7 @@
 	
 	if(request.getMethod().equals("GET")) {
 		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/site/index.jsp?workgroup=error&work=error400';");
+		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=error&work=error400';");
 		out.println("</script>");
 		return;
 	}
