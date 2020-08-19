@@ -1,6 +1,6 @@
 package jm_dto;
 
-// DTOi
+// DTOiddddd
 public class UserInfoDTO {
 	private String userNo;
 	private String userId;
