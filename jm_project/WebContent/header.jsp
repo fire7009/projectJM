@@ -23,7 +23,7 @@
 				<% if(loginMember==null) {//비로그인 사용자 %>	
 				  	<li class="login_wrap logtxt"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login" >로그인</a> 
 				
-					<li class="logtxt"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join" >|&nbsp;&nbsp;&nbsp;회원가입</a></li>
+					<li class="login_wrap"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join" >|&nbsp;&nbsp;&nbsp;회원가입</a></li>
 				</ul>
 				<% } else {//로그인 사용자 %>
 			

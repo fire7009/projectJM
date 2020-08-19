@@ -123,12 +123,12 @@ $(function(){
 	
 	/* ������ �����̵� */
 	function moveSlider(index){
-		var willMoveLeft = -(index*785);
-		$('.slider_panel').animate({left:willMoveLeft},'500');
+		var willMoveLeft = -(index*1100);
+		$('.slider_panel').animate({left:willMoveLeft},'1100');
 		$('.control_button[data-index='+index+']').addClass('active');
 		$('.control_button[data-index!='+index+']').removeClass('active');
-		$('.slider_text[data-index='+index+']').fadeIn('fast').animate({left:0},'500');
-		$('.slider_text[data-index!='+index+']').fadeOut('fast',function(){$(this).css('left',-100)});
+		$('.slider_text[data-index='+index+']').fadeIn('fast').animate({left:0},'1100');
+		$('.slider_text[data-index!='+index+']').fadeOut('fast',function(){$(this).css('left',-1100)});
 		/* $('.slider_text[data-index='+index+']').show().animate({left:0},'500');
 		$('.slider_text[data-index!='+index+']').hide('500',function(){$(this).css('left',-100)}); */
 	};
