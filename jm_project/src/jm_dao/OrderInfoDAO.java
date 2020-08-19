@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jm_dto.OrderInfoDTO;
 import jm_dto.ProductInfoDTO;
@@ -33,18 +35,19 @@ public class OrderInfoDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into order_info values(?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, sysdate, ?)";
+			String sql = "insert into order_info (ord_no,ord_sum_qty,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,"
+					+ "dlvr_detl_addr,ord_cncl_yn,frst_rgsr_usrno) values((SELECT (NVL(MAX(ORD_NO), 0) + 1) FROM ORDER_INFO), ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, orderInfo.getOrdNo());
-			pstmt.setInt(2, orderInfo.getOrdSumQty());
-			pstmt.setInt(3, orderInfo.getOrdSumAmt());
-			pstmt.setString(4, orderInfo.getRcvrNm());
-			pstmt.setString(5, orderInfo.getDlvrPostCd());
-			pstmt.setString(6, orderInfo.getDlvrBasAddr());
-			pstmt.setString(7, orderInfo.getDlvrDetlAddr());
-			pstmt.setString(8, orderInfo.getOrdCnclYn());
-			pstmt.setString(9, orderInfo.getFrstRgsrUsno());
-			pstmt.setString(10, orderInfo.getLastProcrUsrno());
+			
+			pstmt.setInt(1, orderInfo.getOrdSumQty());
+			pstmt.setInt(2, orderInfo.getOrdSumAmt());
+			pstmt.setString(3, orderInfo.getRcvrNm());
+			pstmt.setString(4, orderInfo.getDlvrPostCd());
+			pstmt.setString(5, orderInfo.getDlvrBasAddr());
+			pstmt.setString(6, orderInfo.getDlvrDetlAddr());
+			pstmt.setString(7, orderInfo.getOrdCnclYn());
+			pstmt.setString(8, orderInfo.getFrstRgsrUsno());
+		
 
 			rows = pstmt.executeUpdate();
 			
@@ -55,44 +58,28 @@ public class OrderInfoDAO extends JdbcDAO {
 		}
 		return rows;
 	}
-	/*
-	//주문정보 선택 쿼리
+	
+	//주문정보 선택
 	public OrderInfoDTO selectOrderInfo(String ordNo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		OrderInfoDTO order = null;
+		List<OrderInfoDTO> orderList=new ArrayList<OrderInfoDTO>();
 		try {
 			con = getConnection();
 
-			String sql = "SELECT B.PROD_CD" + 
-					", B.PROD_NM" + 
-					", B.PROD_PRICE" + 
-					", B.BAS_FILE_PATH" + 
-					", B.BAS_FILE_NM" + 
-					", B.DETL_FILE_PATH" + 
-					", B.DETL_FILE_NM" + 
-					", B.PROD_DETL" + 
-					" FROM ORD_PROD_HIS A" + 
-					" INNER JOIN" + 
-					" ORDER_INFO B" + 
-					" ON A.ORD_CD = B.ORD_CD" + 
-					" WHERE B.PROD_CD = ?";
+			String sql = "select ord_sum_qty,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,dlvr_detl_addr,"
+					+ "ord_cncl_yn from order_info where ord_no=? order by ord_no";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ordNo);
 
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				product=new ProductInfoDTO();
-				product.setProdCd(rs.getString("prod_cd"));
-				product.setProdNm(rs.getString("prod_nm"));
-				product.setProdPrice(rs.getInt("prod_price"));
-				product.setBasFileNm(rs.getString("bas_file_nm"));
-				product.setBasFileNm(rs.getString("bas_file_path"));
-				product.setBasFileNm(rs.getString("detl_file_nm"));
-				product.setBasFileNm(rs.getString("detl_file_path"));
-				product.setProdDetl(rs.getString("prod_detl"));
+				OrderInfoDTO order=new OrderInfoDTO();
+				
+				orderList.add(order);
+
 			}
 			
 		} catch (SQLException e) {
@@ -100,10 +87,8 @@ public class OrderInfoDAO extends JdbcDAO {
 		} finally {
 			close(con, pstmt, rs);
 		}
-		return product;
+		return orderList;
 	}
-	*/
 	
-	//주문정보 수정 쿼리
 	
 }

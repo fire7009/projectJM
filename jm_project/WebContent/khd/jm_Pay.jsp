@@ -62,24 +62,25 @@ td {
 						<th>수량</th>
 						<th>총상품 금액</th>
 					</tr>
-					<%if(orderList.isEmpty()){ %>
+		<%if(orderList.isEmpty()){ %>
 					<tr>
-				<td colspan="4">등록된 제품이 하나도 없습니다.</td>
+					<td colspan="4">등록된 제품이 하나도 없습니다.</td>
+					</tr>
 		<% } else { %>
 			<% for(OrdProdHisDTO ord:orderList){ %>
 					<tr>
 						<th></th>
 						<th><%=ord.getOrdNo()%></th>
-						<th><%=ord.getOrdQty()%><br>
-						<th>
-						<%=ord.getOrdQty()%>
-						</th>
+						<th><%=ord.getOrdQty()%></th>
+						<th></th>
 					</tr>	
-			<%} %>
-		<%} %>
-		</table>
-		<br>
+			<%}%>
+				<br>
 		<h1>상품 구매 완료!</h1>
+		<%} %>
+					
+		</table>
+	
 		<br>
 
 	</div>

@@ -24,7 +24,9 @@ if(loginMember==null) {
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
 	String value;
-	int qty,price;
+	int qty=0;
+	int price=0;
+	int tot=0;
 %>
 
 <style type="text/css">
@@ -65,7 +67,7 @@ td {
 </style>
 	
 		<div class="content">
-
+			<form name="pay" id="pay">
 				<table>
 					<tr>
 						<th>상품사진</th>
@@ -85,22 +87,23 @@ td {
 						<th></th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
-						<select id="select" name="select">
+						<select class="selected" name="<%=cart.getHisSeqno()%>">
         				<option value="1" >1</option>
          				<option value="2" >2</option>
          				<option value="3">3</option>
          				<option value="4">4</option>
         				<option value="5">5</option>
         				</select>
-						<input type="button" value="수정" onclick="updateCart(<%=cart.getHisSeqno()%>);"></th>
+        				</th>
+        				
 						<th>
-						<%=cart.getProdQty()%>x<%=product.getProdPrice()%>
+						<%qty=cart.getProdQty();%>
+						<%price=product.getProdPrice();%>
+						<%=tot=qty*price%> 
 						</th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
-						<form name="pay" method="post" action="khd/jm_Pay_action.jsp">
-						<input type="checkbox" name="check" id="check" value="<%=cart.getHisSeqno()%>">
-						<input type="hidden" name="user" id="user" value="<%=user%>">
+						<input type="checkbox" name="check" value="<%=cart.getHisSeqno()%> class="check">
 						</th>
 					</tr>
 				<%} %>	
@@ -108,26 +111,36 @@ td {
 		<%} %>
 		</table>
 		<br>
-		<input type="button" value="선택목록구매" onclick="submitCheck();">
+		<input type="hidden" name="user" value="<%=user%>">
+		<button type="button" id="orderBtn">선택목록구매</button>
 			
 		</form>
 	</div>
 	
 	<script type="text/javascript">
+	
+	$(".selected").change(function() {
+		//엘리먼트 속성값을 반환받아 저장
+		var his=$(this).attr("name");//고유값
+		var qty=$(this).val();//변경값
+		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+qty;
+	});
+	
 	function removeCart(his) {
-			location.href="khd/jm_Cart_delete.jsp?his="+his+"&user=<%=user%>";
+		location.href="khd/jm_Cart_delete.jsp?his="+his+"&user=<%=user%>";
 	}
 	
-	function updateCart(his) {
-		var select=document.getElementById("select");
-		select=select.options[select.selectedIndex].value;
-		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+select;
-	}
-	
-	
-	function submitCheck(){
-		pay.submit();		
-	}
+	$("#orderBtn").click(function(){
+		if($("input[type=checkbox]").filter(":checked").size()==0) {
+			//$("#message").text("선택한 상품이 하나도 없습니다.");
+			alert("선택한 상품이 하나도 없습니다.")
+			return;
+		}
+
+		$("#pay").attr("method","post");
+		$("#pay").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Pay_action");
+		$("#pay").submit();
+	});
 
 	</script>
 	

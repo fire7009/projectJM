@@ -7,25 +7,14 @@
     pageEncoding="UTF-8"%>
 <%	
 
-	String[] his=request.getParameterValues("ckeck");
+	String[] check=request.getParameterValues("check");
 	String user=request.getParameter("user");
 	
 	System.out.println(user);
-	for(int i=0;i<his.length;i++){
-		System.out.println(his[i]);
-	}
 	
-	OrdProdHisDTO order=new OrdProdHisDTO();
-	List<CartHisDTO> cartList=CartHisDAO.getDAO().selectCartList(user);
-	
-	for(int i=0;i<his.length;i++){
-		for(CartHisDTO cart:cartList){
-			order.setHisSeqno(his[i]);
-			order.setOrdQty(cart.getProdQty());
-			order.setProdCd(cart.getProdCd());
-			order.setFrstRgsrUsrno(cart.getFrstRgsrUsrno());
-			OrdProdHisDAO.getDAO().insertOrdProdHis(order);
-		}
+
+	for(String his:check){
+		CartHisDAO.getDAO().updateDelCart(user, his);
 	}
 	
 	

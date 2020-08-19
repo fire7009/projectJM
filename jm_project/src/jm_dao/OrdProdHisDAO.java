@@ -34,9 +34,9 @@ public class OrdProdHisDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into ord_prod_his values(?,(SELECT (NVL(MAX(ORD_NO), 0) + 1) FROM ORD_PROD_HIS), ?, ?, ?)";
+			String sql = "insert into ord_prod_his(his_seqno,ord_no,prod_cd,ord_qty,frst_rgsr_usrno) values((SELECT (NVL(MAX(HIS_SEQNO), 0) + 1) FROM ORD_PROD_HIS),?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, ordProdHis.getHisSeqno());
+			pstmt.setString(1, ordProdHis.getOrdNo());
 			pstmt.setString(2, ordProdHis.getProdCd());
 			pstmt.setInt(3, ordProdHis.getOrdQty());
 			pstmt.setString(4, ordProdHis.getFrstRgsrUsrno());
@@ -62,7 +62,7 @@ public class OrdProdHisDAO extends JdbcDAO {
 		try {
 			con=getConnection();
 			
-			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from ord_prod_his where frst_rgsr_usrno=? order by his_seqno";
+			String sql="select ord_no,prod_cd,ord_qty from ord_prod_his where frst_rgsr_usrno=? order by his_seqno";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,frst);
 			
@@ -70,14 +70,14 @@ public class OrdProdHisDAO extends JdbcDAO {
 			
 			while(rs.next()) {
 				OrdProdHisDTO ord=new OrdProdHisDTO();
-				ord.setHisSeqno(rs.getString("his_seqno"));
+				ord.setOrdNo(rs.getString("ord_no"));
 				ord.setProdCd(rs.getString("prod_cd"));
 				ord.setOrdQty(rs.getInt("ord_qty"));
 				ordList.add(ord);
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("[에러]selectCart 메소드의 sql 오류=" +e.getMessage());
+			System.out.println("[에러]selectOrdList 메소드의 sql 오류=" +e.getMessage());
 		}finally {
 			close(con,pstmt,rs);
 		}
