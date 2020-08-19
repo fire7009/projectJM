@@ -311,11 +311,11 @@ legend {
 									<br>
 									
 								    <div class="btn-area"> 
-								    <button type="submit" id="submit_findId" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
-								    	<img src="./img/findid.png"  width="150px" ></button>
-								    <button style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
-								    	<a href="index.jsp?workgroup=kdy/login&work=jm_login" >
-								    	<img src="./img/login01.png" width="150px" ></a></button> 
+									    <button type="submit" id="submit_findId" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
+									    	<img src="./img/findid.png"  width="150px" ></button>
+
+									    <a	 href="<%=request.getContextPath()%>/index.jsp?workgroup=kdy/login&work=jm_login" class="loginBtn"> 
+											<img	src="./img/login01.PNG" alt="·Î±×ÀÎ" height="41.25px;" /></a>
 								    </div>
 								    
 								</div>
