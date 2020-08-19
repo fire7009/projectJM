@@ -33,7 +33,7 @@
 					
 					<li calss="mypage"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">|&nbsp;&nbsp;&nbsp;내정보</a></li>
 				</ul>
-			<% if(loginMember.getUserDv()=="9") { //관리자인 경우 %>
+			<% if(loginMember.getUserDv()=="1") { //관리자인 경우 %>
 			
 		<a href="index.jsp?workgroup=admin/layout&work=template">관리자</a>&nbsp;&nbsp;
 			<% } %>
