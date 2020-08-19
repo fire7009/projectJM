@@ -9,12 +9,14 @@
     	String work = request.getParameter("work");
     	//String adminName = request.getParameter("adminName");
     	
+    	
     	if(workgroup == null || work == null){
     		//전달해온 값이 아무것도 없는 null이면 클라이언트한테 응답해줘라
     		//너 에러났다~~잘못된 요청이다
     		response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     		return;
     	}
+    	
     	
     	//이 경로로 해당 파일명으로 저장될것임
     	// /admin/home/home_order.jsp
@@ -27,7 +29,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>OHYES COFFEE</title>
+<title>JM조명 관리자</title>
 
 
 <!--  link href = "<%=request.getContextPath()%>/action/template/CSS/style.css" rel="stylesheet" type="text/css"-->
