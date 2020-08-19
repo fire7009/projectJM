@@ -34,7 +34,7 @@
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 <link href="css/css_02.css" rel="stylesheet" type="text/css" />
-<link href="css/new_join.css" rel="stylesheet" type="text/css" />
+<link href="khm/css/new_join.css" rel="stylesheet" type="text/css" />
 <link href="css/nanumsquareround.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -45,9 +45,12 @@ fieldset {
 	height: 256px;
 }
 #contentWrap {
+	margin-top: 30px;
+	margin-bottom: 30px;
 	width: 450px;
 	height: 300px;
-	border: 1px solid aqua;
+	border: 1px solid;
+	border-color: "#87a1c4";
 }
 
 </style>
@@ -80,9 +83,9 @@ fieldset {
 							<fieldset>
 								<div class="btn-foot">
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_deleteInfo_confirm"><img
-										src="img/btn_h32_secede.gif" alt="회원탈퇴" /></a> <a
-										href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_updateInfo"><img src="img/btn_h32_cancel.gif"
-										alt="탈퇴취소" /></a>
+										src="khm/img/btn_delete.png" alt="회원탈퇴" width="130px" /></a> <a
+										href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_updateInfo">
+										<img src="khm/img/btn_cancel.png" alt="취소" width="130px" /></a>
 								</div>
 							</fieldset>
 						</div>

@@ -744,16 +744,17 @@ h4.tit {
 					<div class="agreeWrap"></div>
 
 					<div class="btnArea">
-						<button type="button">
-							<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage"> <img src="btn_modifyCancel.gif" alt="취소"></a>
+						<button type="button" style="border:none;";>
+							<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">
+							 <img src="khm/img/btn_cancel.png" alt="취소" width="130px" ></a>
 						</button>
-						<button type="submit">
-							<img src="btn_modifyOk.gif" alt="회원정보수정"
+						<button type="submit" style="border:none;";>
+							<img src="khm/img/btn_modify.png" alt="회원정보수정" width="130px" 
 								class="smp-btn-reg">
 						</button>
-						<button type="button">
-							<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_deleteInfo"> <img src="btn_modifyBye.gif" alt="회원탈퇴"
-								class="smp-btn-reg"></a>
+						<button type="button" style="border:none;";>
+							<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_deleteInfo"> <img src="khm/img/btn_delete.png" alt="회원탈퇴"
+								width="130px" class="smp-btn-reg"></a>
 						</button>
 					</div>
 				</div>

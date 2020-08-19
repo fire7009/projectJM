@@ -12,8 +12,9 @@
 		session.removeAttribute("message");
 	}
 %>
-<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_deleteInfo_action" method="post" onsubmit="return sumbitCheck();">
-	<p>회원탈퇴를 위한 비밀번호를 입력해주세요. </p>
+<form name="passwdForm" action="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_deleteInfo_action" 
+	method="post" onsubmit="return sumbitCheck();" style="text-align: center; font-size: 17px; margin: 200px;">
+	<p style="margin-bottom: 10px;">회원탈퇴를 위한 비밀번호를 입력해주세요. </p>
 	<p>
 		<input type="password" name="password">
 		<button type="submit">입력완료</button>
