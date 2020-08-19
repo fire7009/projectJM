@@ -35,7 +35,7 @@
 				</ul>
 			<% if(loginMember.getUserDv()=="1") { //관리자인 경우 %>
 			
-		<a href="index.jsp?workgroup=admin/layout&work=template">관리자</a>&nbsp;&nbsp;
+		<a href="index.jsp?workgroup=admin/layout&work=template">|관리자</a>&nbsp;&nbsp;
 			<% } %>
 			<% } %>	
 			</dd>
