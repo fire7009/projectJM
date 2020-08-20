@@ -24,6 +24,12 @@
 
 <style type="text/css">
 
+h2 {
+   font-size: 30px;
+   color: #87a1c4;
+   margin : 30px;
+}
+
 .adminMain{
 	float: left;
 	width: 298px;
