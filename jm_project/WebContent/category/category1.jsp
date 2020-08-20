@@ -76,7 +76,7 @@ th {
 	<% for(ProductInfoDTO product:productList) { %>
 	<div class="product">
 		<div>
-			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khd&work=jm_Shopping&prodCd=<%=product.getProdCd() %>>" >
+			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khd&work=jm_Shopping&prodCd=<%=product.getProdCd() %>" >
 				<img src="img/<%=product.getBasFileNm()%>.jpg" width="250">
 			</a>
 		</div>
