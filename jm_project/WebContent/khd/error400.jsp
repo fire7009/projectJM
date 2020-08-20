@@ -4,7 +4,6 @@
 
 <%--회원가입 완료 페이지 --%>
 <%
-	//세션에 저장된 권한 관련 정보를 반환받아 저장
 	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 %> 
 
@@ -12,7 +11,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>주문 완료</title>
+<title>로그인 에러</title>
 <style type="text/css">
 
 #join-complete h1.tit-join-complete {
@@ -61,7 +60,7 @@ dt {
 			<div id="content">
 				<div id="join-complete">
 
-					<h1 class="tit-join-complete">주문 완료</h1>
+					<h1 class="tit-join-complete">로그인 오류</h1>
 					<div class="complete-box">
 						<dl>
 							<dd>
@@ -70,12 +69,12 @@ dt {
 							</dd>
 							<br>
 
-							<dt> 주문이 성공적으로 이루어졌습니다.</dt>
+							<dt> 로그인을 하고 장바구니 기능을 이용해주세요.</dt>
 							<dd>JM조명 안에서 즐거운 쇼핑 되세요.</dd>
 						 
 							<dd class="font-b">감사합니다.</dd>
 							<br>
-							<a href="<%=request.getContextPath() %>/index.jsp?workgroup=syd&work=main" >메인화면으로</a>
+							<h2><a href="<%=request.getContextPath() %>/index.jsp?workgroup=syd&work=main" >메인화면으로</a></h2>
 
 						</dl>
 					</div>

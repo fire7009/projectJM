@@ -12,18 +12,15 @@ public class ProductInfoDTO {
 	private String prodDetl;
 	private int viewCnt;
 	private String mainExpYn;
-	private String salesYn;
 	private String delYn;
 	private String frstRgsrUsrno;
 	private String frstRgstDttm;
 	private String lastProcrUsrno;
 	private String lastProcDttm;
-	private int prodCtgr;
 	
 	public ProductInfoDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	
 
 	public String getProdCd() {
 		return prodCd;
@@ -56,7 +53,7 @@ public class ProductInfoDTO {
 	public void setProdPrice(int prodPrice) {
 		this.prodPrice = prodPrice;
 	}
-	
+
 	public String getBasFilePath() {
 		return basFilePath;
 	}
@@ -64,7 +61,7 @@ public class ProductInfoDTO {
 	public void setBasFilePath(String basFilePath) {
 		this.basFilePath = basFilePath;
 	}
-	
+
 	public String getBasFileNm() {
 		return basFileNm;
 	}
@@ -72,7 +69,7 @@ public class ProductInfoDTO {
 	public void setBasFileNm(String basFileNm) {
 		this.basFileNm = basFileNm;
 	}
-	
+
 	public String getDetlFilePath() {
 		return detlFilePath;
 	}
@@ -80,7 +77,7 @@ public class ProductInfoDTO {
 	public void setDetlFilePath(String detlFilePath) {
 		this.detlFilePath = detlFilePath;
 	}
-	
+
 	public String getDetlFileNm() {
 		return detlFileNm;
 	}
@@ -111,14 +108,6 @@ public class ProductInfoDTO {
 
 	public void setMainExpYn(String mainExpYn) {
 		this.mainExpYn = mainExpYn;
-	}
-
-	public String getSalesYn() {
-		return salesYn;
-	}
-
-	public void setSalesYn(String salesYn) {
-		this.salesYn = salesYn;
 	}
 
 	public String getDelYn() {
@@ -161,15 +150,4 @@ public class ProductInfoDTO {
 		this.lastProcDttm = lastProcDttm;
 	}
 
-
-	public int getProdCtgr() {
-		return prodCtgr;
-	}
-
-
-	public void setProdCtgr(int prodCtgr) {
-		this.prodCtgr = prodCtgr;
-	}
-		
-	
 }
