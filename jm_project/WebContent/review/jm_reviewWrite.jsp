@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
-<%-- »óÇ°ÈÄ±â ÀÛ¼º ÆäÀÌÁö  --%>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>»óÇ°ÈÄ±â ÀÛ¼º</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file = "/kdy/security/login_check.jspf" %>
+<%-- ìƒí’ˆí›„ê¸° ì‘ì„± í˜ì´ì§€  --%>
+<%
+	String pageNum = "1";
+	pageNum = request.getParameter("pageNum");
+%>
+<title>ìƒí’ˆí›„ê¸° ì‘ì„±</title>
 <style type="text/css">
 .displaynone {
 	display: none !important;
@@ -841,7 +840,7 @@ th, td {
 
 input, select, textarea {
 	font-size: 100%;
-	font-family: "µ¸¿ò", Dotum;
+	font-family: "ë‹ì›€", Dotum;
 	color: #353535;
 	vertical-align: middle;
 }
@@ -2527,19 +2526,19 @@ input, select, textarea, button {
 }
 
 .thumbnail .list_button .zoom:hover:after {
-	content: "»õÃ¢º¸±â";
+	content: "ìƒˆì°½ë³´ê¸°";
 }
 
 .thumbnail .list_button .basket:hover:after {
-	content: "Àå¹Ù±¸´Ï";
+	content: "ì¥ë°”êµ¬ë‹ˆ";
 }
 
 .thumbnail .list_button .option:hover:after {
-	content: "¿É¼Çº¸±â";
+	content: "ì˜µì…˜ë³´ê¸°";
 }
 
 .thumbnail .list_button .wishIcon:hover:after {
-	content: "°ü½É»óÇ°";
+	content: "ê´€ì‹¬ìƒí’ˆ";
 }
 
 .ec-base-product .prdList .thumbnail .prdIcon {
@@ -3521,7 +3520,7 @@ ul.xans-board-listheader-8 li {
 }
 
 .xans-product-optionpreview .prdOption::before {
-	content: "¿É¼Ç ¹Ì¸®º¸±â";
+	content: "ì˜µì…˜ ë¯¸ë¦¬ë³´ê¸°";
 	position: absolute;
 	z-index: 30;
 	top: 20px;
@@ -4238,7 +4237,7 @@ body i {
 }
 
 .-chk label:after {
-	content: '¿À´ÃÇÏ·ç ¿­Áö¾ÊÀ½';
+	content: 'ì˜¤ëŠ˜í•˜ë£¨ ì—´ì§€ì•ŠìŒ';
 	position: absolute;
 	left: -116px;
 	top: 0;
@@ -6299,6 +6298,7 @@ scale(
 </style>
 </head>
 <body>
+
 	<hr class="layout" />
 	<div id="wrap">
 		<div id="container">
@@ -6308,35 +6308,32 @@ scale(
 					<div
 						class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
 						<div class="path">
-							<span>ÇöÀç À§Ä¡</span>
+							<span>í˜„ì¬ ìœ„ì¹˜</span>
 							<ol>
-								<li><a href="/">È¨</a></li>
-								<li><a href="/board/index.html">°Ô½ÃÆÇ</a></li>
-								<li title="ÇöÀç À§Ä¡"><strong>»óÇ° »ç¿ëÈÄ±â</strong></li>
+								<li><a href="/">í™ˆ</a></li>
+								<li><a href="/board/index.html">ê²Œì‹œíŒ</a></li>
+								<li title="í˜„ì¬ ìœ„ì¹˜"><strong>ìƒí’ˆ ì‚¬ìš©í›„ê¸°</strong></li>
 							</ol>
 						</div>
 						<div class="title">
 							<h2>
-								<font color="#555555">»óÇ° »ç¿ëÈÄ±â</font>
+								<font color="#555555">ìƒí’ˆ ì‚¬ìš©í›„ê¸°</font>
 							</h2>
-							<p>»óÇ° »ç¿ëÈÄ±âÀÔ´Ï´Ù. ÈÄ±â´Â ÁÖ¹®³»¿ªÀÌ ÀÖ´Â »óÇ°¿¡ ´ëÇØ¼­¸¸ ÀÛ¼ºÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù.</p>
+							<p>ìƒí’ˆ ì‚¬ìš©í›„ê¸°ì…ë‹ˆë‹¤. í›„ê¸°ëŠ” ì£¼ë¬¸ë‚´ì—­ì´ ìˆëŠ” ìƒí’ˆì— ëŒ€í•´ì„œë§Œ ì‘ì„±í•˜ì‹¤ ìˆ˜ ìˆìŠµë‹ˆë‹¤.</p>
 						</div>
 					</div>
 					<form id="boardWriteForm" name=""
-						action="/exec/front/Board/write/4" method="post" target="_self"
+						action="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_write_action" method="post" target="_self"
 						enctype="multipart/form-data">
-						<input id="board_no" name="board_no" value="4" type="hidden" /> <input
-							id="product_no" name="product_no" value="0" type="hidden" /> <input
-							id="move_write_after" name="move_write_after"
-							value="/board/product/list.html?board_no=4" type="hidden" /> <input
-							id="cate_no" name="cate_no" value="" type="hidden" /> <input
-							id="bUsePassword" name="bUsePassword" value="" type="hidden" />
-						<input id="order_id" name="order_id" value="" type="hidden" /> <input
-							id="is_post_checked" name="is_post_checked" value=""
-							type="hidden" /> <input id="586" name="586"
-							value="0776c18d8d9cf9daf88b27e2849c8dcd" type="hidden" />
-						<div
-							class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
+						<input id="board_no" name="board_no" value="4" type="hidden" /> 
+						<input id="product_no" name="product_no" value="0" type="hidden" /> 
+						<input id="move_write_after" name="move_write_after" value="/board/product/list.html?board_no=4" type="hidden" /> 
+						<input id="cate_no" name="cate_no" value="" type="hidden" /> 
+						<input id="bUsePassword" name="bUsePassword" value="" type="hidden" />
+						<input id="order_id" name="order_id" value="" type="hidden" /> 
+						<input id="is_post_checked" name="is_post_checked" value="" type="hidden" /> 
+						<input id="586" name="586" value="0776c18d8d9cf9daf88b27e2849c8dcd" type="hidden" />
+						<div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
 							<!--
             $write_success_url = /board/product/list.html
             $product_select_url = /product/search_board_list.html
@@ -6344,8 +6341,8 @@ scale(
             $login_page_url = /member/login.html
             $deny_access_url = /index.html
         -->
-							<!-- »óÇ°Á¤º¸¼±ÅÃ -->
-							<div class="ec-base-box typeProduct  ">
+							<!-- ìƒí’ˆì •ë³´ì„ íƒ -->
+							<div class="ec-base-box typeProduct">
 								<p class="thumbnail">
 									<a href=""><img id="iPrdImg"
 										src="//boy2.co.kr/web/product/tiny/"
@@ -6366,57 +6363,57 @@ scale(
 											href="/product/detail.html?product_no=0" id="aPrdLink"
 											target="_blank"><img
 												src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_prd_detail.gif"
-												alt="»óÇ°»ó¼¼º¸±â" /></a></span> <span class=""><a href="#none"
+												alt="ìƒí’ˆìƒì„¸ë³´ê¸°" /></a></span> <span class=""><a href="#none"
 											onclick="BOARD_WRITE.product_popup('/product/search_board_list.html')"><img
 												src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_prd_select.gif"
-												alt="»óÇ°Á¤º¸¼±ÅÃ" /></a></span> <span class=""><a href="#none"
+												alt="ìƒí’ˆì •ë³´ì„ íƒ" /></a></span> <span class=""><a href="#none"
 											onclick="BOARD_WRITE.product_popup('/order/search_board_list.html')"><img
 												src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_prd_order.gif"
-												alt="ÁÖ¹®»óÇ°¼±ÅÃ" /></a></span>
+												alt="ì£¼ë¬¸ìƒí’ˆì„ íƒ" /></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="ec-base-table typeWrite ">
 								<table border="1" summary="">
-									<caption>±Û¾²±â Æû</caption>
+									<caption>ê¸€ì“°ê¸° í¼</caption>
 									<colgroup>
 										<col style="width: 130px;" />
 										<col style="width: auto;" />
 									</colgroup>
 									<tbody>
 										<tr>
-											<th scope="row">Á¦¸ñ</th>
+											<th scope="row">ì œëª©</th>
 											<td><input id="subject" name="subject"
-												fw-filter="isFill" fw-label="Á¦¸ñ" fw-msg=""
+												fw-filter="isFill" fw-label="ì œëª©" fw-msg=""
 												class="inputTypeText" placeholder="" maxLength="125"
 												value="" type="text" /></td>
 										</tr>
 										<tr class="displaynone">
-											<th scope="row">ÀÛ¼ºÀÚ</th>
+											<th scope="row">ì‘ì„±ì</th>
 											<td></td>
 										</tr>
 										<tr class="displaynone">
-											<th scope="row">ÀÌ¸ŞÀÏ</th>
+											<th scope="row">ì´ë©”ì¼</th>
 											<td></td>
 										</tr>
 										<tr class="">
-											<th scope="row">ÆòÁ¡</th>
+											<th scope="row">í‰ì </th>
 											<td><input id="point0" name="point" fw-filter=""
-												fw-label="ÆòÁ¡" fw-msg="" value="5" type="radio"
+												fw-label="í‰ì " fw-msg="" value="5" type="radio"
 												checked="checked" /><label for="point0"><span
-													class="point5"><em>¡Ú¡Ú¡Ú¡Ú¡Ú</em></span></label> <input id="point1"
-												name="point" fw-filter="" fw-label="ÆòÁ¡" fw-msg="" value="4"
+													class="point5"><em>â˜…â˜…â˜…â˜…â˜…</em></span></label> <input id="point1"
+												name="point" fw-filter="" fw-label="í‰ì " fw-msg="" value="4"
 												type="radio" /><label for="point1"><span
-													class="point4"><em>¡Ú¡Ú¡Ú¡Ú</em></span></label> <input id="point2"
-												name="point" fw-filter="" fw-label="ÆòÁ¡" fw-msg="" value="3"
+													class="point4"><em>â˜…â˜…â˜…â˜…</em></span></label> <input id="point2"
+												name="point" fw-filter="" fw-label="í‰ì " fw-msg="" value="3"
 												type="radio" /><label for="point2"><span
-													class="point3"><em>¡Ú¡Ú¡Ú</em></span></label> <input id="point3"
-												name="point" fw-filter="" fw-label="ÆòÁ¡" fw-msg="" value="2"
+													class="point3"><em>â˜…â˜…â˜…</em></span></label> <input id="point3"
+												name="point" fw-filter="" fw-label="í‰ì " fw-msg="" value="2"
 												type="radio" /><label for="point3"><span
-													class="point2"><em>¡Ú¡Ú</em></span></label> <input id="point4"
-												name="point" fw-filter="" fw-label="ÆòÁ¡" fw-msg="" value="1"
+													class="point2"><em>â˜…â˜…</em></span></label> <input id="point4"
+												name="point" fw-filter="" fw-label="í‰ì " fw-msg="" value="1"
 												type="radio" /><label for="point4"><span
-													class="point1"><em>¡Ú</em></span></label></td>
+													class="point1"><em>â˜…</em></span></label></td>
 										</tr>
 										<tr>
 											<td colspan="2" class="clear"><script
@@ -6471,7 +6468,7 @@ scale(
 																oNN_content,
 																"content");
 													</script> <input type="hidden" id="content_hidden"
-												fw-filter="isSimplexEditorFill" fw-label="³»¿ë"
+												fw-filter="isSimplexEditorFill" fw-label="ë‚´ìš©"
 												value="oNN_content" /></td>
 										</tr>
 										<tr class="ucc">
@@ -6482,48 +6479,48 @@ scale(
 									</tbody>
 									<tbody class="">
 										<tr>
-											<th scope="row">Ã·ºÎÆÄÀÏ1</th>
+											<th scope="row">ì²¨ë¶€íŒŒì¼1</th>
 											<td><input name="attach_file[]" type="file" /></td>
 										</tr>
 										<tr>
-											<th scope="row">Ã·ºÎÆÄÀÏ2</th>
+											<th scope="row">ì²¨ë¶€íŒŒì¼2</th>
 											<td><input name="attach_file[]" type="file" /></td>
 										</tr>
 										<tr>
-											<th scope="row">Ã·ºÎÆÄÀÏ3</th>
+											<th scope="row">ì²¨ë¶€íŒŒì¼3</th>
 											<td><input name="attach_file[]" type="file" /></td>
 										</tr>
 									</tbody>
 									<tbody>
 										<tr class="">
-											<th scope="row">ºñ¹Ğ¹øÈ£</th>
+											<th scope="row">ë¹„ë°€ë²ˆí˜¸</th>
 											<td><input id="password" name="password"
-												fw-filter="isFill" fw-label="ºñ¹Ğ¹øÈ£" fw-msg="" value=""
+												fw-filter="isFill" fw-label="ë¹„ë°€ë²ˆí˜¸" fw-msg="" value=""
 												type="password" /></td>
 										</tr>
 										<tr class="displaynone">
-											<th scope="row">ºñ¹Ğ±Û¼³Á¤</th>
+											<th scope="row">ë¹„ë°€ê¸€ì„¤ì •</th>
 											<td><input id="secure0" name="secure" fw-filter="isFill"
-												fw-label="ºñ¹Ğ±Û¼³Á¤" fw-msg="" value="F" type="radio"
-												checked="checked" /><label for="secure0">°ø°³±Û</label> <input
+												fw-label="ë¹„ë°€ê¸€ì„¤ì •" fw-msg="" value="F" type="radio"
+												checked="checked" /><label for="secure0">ê³µê°œê¸€</label> <input
 												id="secure1" name="secure" fw-filter="isFill"
-												fw-label="ºñ¹Ğ±Û¼³Á¤" fw-msg="" value="T" type="radio" /><label
-												for="secure1">ºñ¹Ğ±Û</label></td>
+												fw-label="ë¹„ë°€ê¸€ì„¤ì •" fw-msg="" value="T" type="radio" /><label
+												for="secure1">ë¹„ë°€ê¸€</label></td>
 										</tr>
 										<tr class="captcha displaynone">
-											<th scope="row">ÀÚµ¿µî·Ï¹æÁö<br />º¸¾È¹®ÀÚ
+											<th scope="row">ìë™ë“±ë¡ë°©ì§€<br />ë³´ì•ˆë¬¸ì
 											</th>
 											<td>
 												<p class="gBlank5">
-													<span class="ec-base-help txtInfo">¿µ¹®, ¼ıÀÚ Á¶ÇÕÀ» °ø¹é¾øÀÌ
-														ÀÔ·ÂÇÏ¼¼¿ä(´ë¼Ò¹®ÀÚ±¸ºĞ)</span>
+													<span class="ec-base-help txtInfo">ì˜ë¬¸, ìˆ«ì ì¡°í•©ì„ ê³µë°±ì—†ì´
+														ì…ë ¥í•˜ì„¸ìš”(ëŒ€ì†Œë¬¸ìêµ¬ë¶„)</span>
 												</p>
 											</td>
 										</tr>
 										<tr class="agree displaynone">
-											<th scope="row">°³ÀÎÁ¤º¸ ¼öÁı ¹× <br />ÀÌ¿ë µ¿ÀÇ
+											<th scope="row">ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° <br />ì´ìš© ë™ì˜
 											</th>
-											<td><br /> °³ÀÎÁ¤º¸ ¼öÁı ¹× ÀÌ¿ë¿¡ µ¿ÀÇÇÏ½Ê´Ï±î?</td>
+											<td><br /> ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° ì´ìš©ì— ë™ì˜í•˜ì‹­ë‹ˆê¹Œ?</td>
 										</tr>
 									</tbody>
 								</table>
@@ -6532,15 +6529,15 @@ scale(
 								<span class="gLeft"> <span class="displaynone"><a
 										href="#none" onclick=""><img
 											src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_reply_admin.gif"
-											alt="°ü¸®ÀÚ´äº¯º¸±â" /></a></span> <a href="/board/»óÇ°-»ç¿ëÈÄ±â/4/"><img
+											alt="ê´€ë¦¬ìë‹µë³€ë³´ê¸°" /></a></span> <a href="/board/ìƒí’ˆ-ì‚¬ìš©í›„ê¸°/4/"><img
 										src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_list.gif"
-										alt="¸ñ·Ï" /></a>
+										alt="ëª©ë¡" /></a>
 								</span> <span class="gRight"> <a href="#none"
 									onclick="BOARD_WRITE.form_submit('boardWriteForm');"><img
 										src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_register.gif"
-										alt="µî·Ï" /></a> <a href="/board/»óÇ°-»ç¿ëÈÄ±â/4/"><img
+										alt="ë“±ë¡" /></a> <a href="/board/ìƒí’ˆ-ì‚¬ìš©í›„ê¸°/4/"><img
 										src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_cancel.gif"
-										alt="Ãë¼Ò" /></a>
+										alt="ì·¨ì†Œ" /></a>
 								</span>
 							</div>
 						</div>
