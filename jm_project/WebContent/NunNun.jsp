@@ -1,0 +1,124 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<style type="text/css">
+.cs_title {
+	font-size:23px;
+	font-weight:600;
+	color:#333;
+	margin-bottom:15px;
+}
+.xans-board-read table {
+	font-size:13px;
+}
+.xans-board-read table input {
+	border:1px solid #ddd;
+	background:#fff;
+	color:#202020;
+	padding:1px 0 2px 4px;
+}
+
+.xans-board-read table th {
+	width:80px;
+	padding:15px;
+	text-align:left;
+	line-height:2em;
+	border-bottom:1px solid #e6e6e6;
+	color:#000;
+	font-weight:600;
+	font-size:14px;
+	background:#f7f7f7;
+}
+
+.xans-board-read table td {
+	padding:15px;
+	border-bottom:1px solid #e6e6e6;
+	line-height:2em;
+	color:#8b8b8c;
+	text-align:left;
+	font-weight:normal;
+	font-size:13px;
+}
+
+.xans-board-read table td img {
+	vertical-align:middle;
+}
+
+.bbs-table-view {
+    margin-top: 10px;
+    border-top: 2px solid #333;
+}
+
+</style>
+<div class="cs_title"> 공지사항</div>	
+<div
+	class="xans-element- xans-board xans-board-read-4 xans-board-read xans-board-4">
+	<div class="boardView">
+		<div id="bbsData">
+			<div class="page-body">
+
+
+				<div class="bbs-table-view">
+					<table summary="게시글 보기">
+						<caption>게시글 보기</caption>
+						<tbody>
+							<tr class="">
+								<th scope="row">제목</th>
+								<td>2019 한국브랜드 만족지수 1위 비츠조명</td>
+							</tr>
+							<tr>
+								<th scope="row">작성자</th>
+								<td>관리자</td>
+							</tr>
+							<tr class="etcArea ">
+								<td colspan="2"><ul>
+										<li class=""><strong class="th">작성일</strong> <span
+											class="td">2019-02-22</span></li>
+										<li class=""><strong class="th">조회수</strong> <span
+											class="td">6682</span></li>
+									</ul></td>
+							</tr>
+
+							<tr>
+								<td colspan="2" style="padding: 0px;">
+									<div class="data-bd-cont">
+
+											<a>내용</a>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr size="1" color="#E5E5E5">
+					<div class="view-link">
+						<dl class="bbs-link con-link">
+							<dt></dt>
+							<dd>
+								<a
+									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;num1=999968&amp;num2=00000&amp;type=q&amp;type2=u"
+									class="none"><img src="img/btn_wModify2.gif"
+									alt="수정"></a> <a
+									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;num1=999968&amp;num2=00000&amp;type=q&amp;type2=d"><img
+									src="img/btn_delete2.gif" alt="삭제"></a>
+							</dd>
+						</dl>
+						<dl class="bbs-link">
+							<dt></dt>
+							<dd>
+								<a class="write"
+									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;type=i"><img
+									src="img/btn_wWrite2.gif" alt="글쓰기"></a> <a
+									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;s_id=&amp;stext=&amp;ssubject=&amp;shname=&amp;scontent=&amp;sbrand=&amp;sgid=&amp;datekey=&amp;branduid=">
+									<img src="img/btn_list2.gif" alt="목록">
+								</a>
+							</dd>
+						</dl>
+					</div>
+
+				</div>
+			</div>
+			<!-- .page-body -->
+		</div>
+		<!-- #bbsData -->
+	</div>
+</div>
