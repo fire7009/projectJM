@@ -63,9 +63,9 @@ th {
 <h1 class="title"><a href="#">주방/화장실</a></h1>
 
 <table>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=20">&nbsp;주방&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=30">&nbsp;&nbsp;&nbsp;화장실&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=40">&nbsp;&nbsp;&nbsp;바리솔&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action4&category=20">&nbsp;주방&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action4category=30">&nbsp;&nbsp;&nbsp;화장실&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action4&category=40">&nbsp;&nbsp;&nbsp;바리솔&nbsp;&nbsp;&nbsp;|</a></th>
 	
 </table>
 

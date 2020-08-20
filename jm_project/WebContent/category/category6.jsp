@@ -62,10 +62,10 @@ th {
 </div>
 <h1 class="title"><a href="#">실외조명</a></h1>
 <table>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=20">&nbsp;실외벽등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=30">&nbsp;&nbsp;&nbsp;문주등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=40">&nbsp;&nbsp;&nbsp;정원등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=50">&nbsp;&nbsp;&nbsp;지중등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=20">&nbsp;실외벽등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=30">&nbsp;&nbsp;&nbsp;문주등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=40">&nbsp;&nbsp;&nbsp;정원등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=50">&nbsp;&nbsp;&nbsp;지중등&nbsp;&nbsp;&nbsp;|</a></th>
 	
 </table>
 

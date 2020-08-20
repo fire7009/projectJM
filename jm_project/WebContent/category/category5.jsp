@@ -63,11 +63,11 @@ th {
 <h1 class="title"><a href="#">스탠드</a></h1>
 
 <table>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=20">&nbsp;침실&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=30">&nbsp;&nbsp;&nbsp;거실조명&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=40">&nbsp;&nbsp;&nbsp;책상&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=50">&nbsp;&nbsp;&nbsp;무드등/수유등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=51">&nbsp;&nbsp;&nbsp;JM오리진&nbsp;</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action5&category=20">&nbsp;침실&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action5&category=30">&nbsp;&nbsp;&nbsp;거실조명&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action5&category=40">&nbsp;&nbsp;&nbsp;책상&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action5&category=50">&nbsp;&nbsp;&nbsp;무드등/수유등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action5&category=51">&nbsp;&nbsp;&nbsp;JM오리진&nbsp;</a></th>
 	
 </table>
 
