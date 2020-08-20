@@ -22,7 +22,6 @@ if(loginMember==null) {
 <%
 	String user=request.getParameter("user");
 	String prodCd=request.getParameter("prodCd");
-	System.out.println("prodCd = "+prodCd);
 	
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(prodCd);
@@ -72,7 +71,7 @@ td {
 	
 		<div class="content">
 
-			<form name="pay" id="pay">
+			<form name="cartForm" id="cartForm">
 				<table>
 					<tr>
 						<th>상품사진</th>
@@ -104,11 +103,14 @@ td {
 						<th>
 						<%qty=cart.getProdQty();%>
 						<%price=product.getProdPrice();%>
-						<%=tot=qty*price%> 
+						<%tot=qty*price;%>
+						<%=tot%>
 						</th>
 						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
 						<th>
-						<input type="checkbox" name="check" value="<%=cart.getHisSeqno()%> class="check">
+						<input type="checkbox" name="check" value="<%=cart.getHisSeqno()%>">
+						<input type="hidden" name="tot" value="<%=tot%>">
+						<input type="hidden" name="prodNm" value="<%=product.getProdNm()%>">
 						</th>
 					</tr>
 				<%} %>	
@@ -117,6 +119,7 @@ td {
 		</table>
 		<br>
 		<input type="hidden" name="user" value="<%=user%>">
+		
 		<button type="button" id="orderBtn">선택목록구매</button>
 			
 		</form>
@@ -138,13 +141,13 @@ td {
 	$("#orderBtn").click(function(){
 		if($("input[type=checkbox]").filter(":checked").size()==0) {
 			//$("#message").text("선택한 상품이 하나도 없습니다.");
-			alert("선택한 상품이 하나도 없습니다.")
+			alert("선택한 상품이 하나도 없습니다.");
 			return;
 		}
 
-		$("#pay").attr("method","post");
-		$("#pay").attr("action","<%=request.getContextPath()%>/khd/");
-		$("#pay").submit();
+		$("#cartForm").attr("method","post");
+		$("#cartForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Order");
+		$("#cartForm").submit();
 	});
 
 	</script>

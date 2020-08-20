@@ -1,12 +1,17 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="jm_dao.ProductInfoDAO"%>
 <%@page import="jm_dto.ProductInfoDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	//UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+	//String user=loginMember.getFrstRgsrUsrno();
+	//String prodCd=request.getParameter("prodCd");
 	String user="1";
 	String prodCd="1";
-	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(user);
+	
+	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(prodCd);
 	int price=product.getProdPrice();
 	String prodNm=product.getProdNm();
 	String ctgr=product.getCtgrCd();
