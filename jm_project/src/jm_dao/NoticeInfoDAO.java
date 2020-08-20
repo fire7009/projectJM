@@ -51,7 +51,6 @@ public class NoticeInfoDAO extends JdbcDAO {
 	}
 	
 	
-	//공지사항 검색  >> 이거 단어로 검색하게 바꾸면 좋을 것 같움 :>
 	public NoticeInfoDTO selectNotice(String post) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
@@ -84,7 +83,7 @@ public class NoticeInfoDAO extends JdbcDAO {
 		}
 		return notice;
 	}
-	
+		
 	/*
 	public int updateNotice(String notice,String no) {
 		Connection con=null;

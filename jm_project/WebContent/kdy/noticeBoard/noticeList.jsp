@@ -918,13 +918,6 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 .img_ty{overflow:hidden; text-indent:-1000px; font-size:0;}
 </style>
 
-<%
-	List<NoticeInfoDTO> noticeInfo=NoticeInfoDAO.getDAO().selectNotice();
-%>
-
-
-
-
 
 <html>
 <head>
@@ -939,7 +932,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 	</div>
 </div>
 
-<div class="cs_title">공지사항</div>
+<div class="cs_title" style="text-align: left;">공지사항</div>
 <!--게시판상단-->
 
 <div id="bbsData">
@@ -982,6 +975,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 			</tr>	
 			<% } %>
 		<% } %>
+		<hr>
 	</table>
 	--%>
 
@@ -1175,7 +1169,8 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 						<td><div class="tb-center">2014/10/23</div></td>
 						<td><div class="tb-center">11441</div></td>
 					</tr>
-
+					<hr style="color: black;">
+					
 					<!--. 공지사항 리스트 끝! -->
 				
 				</tbody>
@@ -1197,35 +1192,6 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 					style="display: none"><img
 					src="/design/vittz/img/btn_pageLast.gif" alt="마지막 페이지"></a>
 			</p>
-		</div>
-
-		<div class="bbs-sch">
-			<form action="board.html" name="form1">
-				<input type=hidden name=s_id value=""> 
-				<input type=hidden name=code value="vittz_board1"> 
-				<input type=hidden  name=page value=1> 
-				<input type=hidden name=type value=s>
-				<input type=hidden name=board_cate value=""> 
-				<input type=hidden name="review_type" value="" />
-					
-				<!-- .검색 폼시작 -->
-				<fieldset>
-					<legend>게시판 검색 폼</legend>
-					<select name="search_type" class="brd-st">
-						<option value="">선택</option>
-						<option value="hname">이름</option>
-						<option value="subject">제목</option>
-						<option value="content">내용</option>
-
-					</select> <span class="key-wrap"> <input type='text' name='stext'
-						value='' class="MS_input_txt"  style="height: 30px;"/> <a
-						href="javascript:document.form1.submit();"><img
-							src="../img/btn_find.gif" alt="검색" title="검색" /></a>
-					</span>
-					
-				</fieldset>
-			</form>
-			<!-- .검색 폼 끝 -->
 		</div>
 		<!-- .bbs-sch -->
 	</div>
