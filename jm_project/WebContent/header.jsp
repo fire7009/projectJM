@@ -35,7 +35,7 @@
 					<li calss="mypage"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">|&nbsp;&nbsp;&nbsp;내정보</a></li>
 					<% } %>	
 					<% if(loginMember.getUserDv().equals("1")) { %>
-					<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=adminIndex">관리자</a>&nbsp;&nbsp; 
+					<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=adminIndex">|관리자</a>&nbsp;&nbsp; 
 					<% } %>	
 					
 				</ul>				
