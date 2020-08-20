@@ -122,6 +122,17 @@
 				</div>
 			</a>
 		</div>
+		<div class="shopMain">
+			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&prodCd=0">
+			<img class="img-fluid" src="./khm/img/mP/cart.jpg"/>
+				<div class="profile">
+					<h3>장바구니</h3>
+					<p>
+						 고객님의 장바구니 목록을<br> 관리하는 공간입니다.
+					</p>
+				</div>
+			</a>
+		</div>
 	</div>
 	<br>
 	<!-- Bootstrap core JS-->
