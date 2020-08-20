@@ -25,24 +25,20 @@
 				<ul>
 				<% if(loginMember==null) {//비로그인 사용자 %>	
 				  	<li class="login_wrap logtxt"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_login" >로그인</a> 
-				
 					<li class="login_wrap"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join" >|&nbsp;&nbsp;&nbsp;회원가입</a></li>
-				</ul>
-				<% } else if(loginMember.getUserDv().equals("1")) {//로그인 사용자 %>
-
-				<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
-				 <li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
-				<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=asd">관리자</a>&nbsp;&nbsp; 
-			
-			<% } else  { //관리자인 경우 %>
+				</ul>			
+			<% } else  { //로그인 사용자 %>
 				<ul>	
 				<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
 					<li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
-					
+					<% if(loginMember.getUserDv().equals("2")) { %>
 					<li calss="mypage"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">|&nbsp;&nbsp;&nbsp;내정보</a></li>
-				</ul>
-			
-			
+					<% } %>	
+					<% if(loginMember.getUserDv().equals("1")) { %>
+					<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=adminIndex">관리자</a>&nbsp;&nbsp; 
+					<% } %>	
+					
+				</ul>				
 			<% } %>	
 			</dd>
 		</dl>

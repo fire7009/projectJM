@@ -12,11 +12,7 @@
 	if(workgroup==null) workgroup="syd";
 	///if(workgroup2==null) workgroup="header";
 	
-	String headerPath="/header.jsp";
-	if(workgroup.equals("admin")) {
-		headerPath="/admin/adminHeader.jsp"; 
-	}
-	
+
 	String work=request.getParameter("work");
 	if(work==null) work="main";
 
@@ -54,7 +50,7 @@
     <body>
 	<%-- Header 영역 : 회사로고,메뉴,슬라이더등 --%>
 	<div id="header">
-		<jsp:include page="<%=headerPath%>"/>
+		<jsp:include page="/header.jsp"/>
 	</div>
 	<%--test --%>
 	<%-- Content 영역 : 요청에 대한 결과 출력 --%>

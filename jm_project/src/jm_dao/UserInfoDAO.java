@@ -102,7 +102,7 @@ public class UserInfoDAO extends JdbcDAO {
               userInfo.setDetlAddr(rs.getString("detl_addr"));
               userInfo.setUserDv(rs.getString("user_dv"));
               userInfo.setWithdYn(rs.getString("withd_yn"));              
-              userInfo.setUserDv(rs.getString("frst_rgst_dttm"));
+              userInfo.setFrstRgstDttm(rs.getString("frst_rgst_dttm"));
               userInfo.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
 
          }
