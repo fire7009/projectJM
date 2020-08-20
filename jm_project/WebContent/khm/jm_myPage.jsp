@@ -9,28 +9,10 @@
 <meta name="description" content="" />
 <title>JM 마이페이지</title>
 <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<!-- CSS only-->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
 
- <!--JS, Popper.js, and jQuery-->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-	integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-	crossorigin="anonymous"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-	crossorigin="anonymous"></script> 
 <!-- CSS 디자인 -->
 <link href="css/common.css" rel="stylesheet" type="text/css" />
-<link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="khm/css/css.css" rel="stylesheet" type="text/css" />
 <link href="css/css_02.css" rel="stylesheet" type="text/css" />
 <link href="css/header.css" rel="stylesheet" type="text/css" />
 <link href="css/footer.css" rel="stylesheet" type="text/css" />
@@ -39,6 +21,12 @@
 <script type="text/javascript" source = js/header.js"></script>
 
 <style type="text/css">
+
+h2 {
+	font-size: 30px;
+	color: #87a1c4;
+	margin : 30px;
+}
 
 .shopMain{
 	float: left;
@@ -81,7 +69,7 @@
 
 </style>
 </head>
-<body id="page-top" align="center">
+<body id="page-top">
 <h2 class="pagetitle1"> <span>마이페이지</span> MYPAGE</h2>
 <div class="xans-element- xans-myshop xans-myshop-benefit">
     <div class="inner">
