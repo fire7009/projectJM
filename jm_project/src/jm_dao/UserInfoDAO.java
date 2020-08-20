@@ -78,6 +78,7 @@ public class UserInfoDAO extends JdbcDAO {
          		      + "     , DETL_ADDR  " 
          		      + "     , USER_DV    " 
          		      + "     , WITHD_YN   "
+         		      + "     , FRST_RGSR_USRNO   "
          		      + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM "
          		      + "  FROM USER_INFO   " 
          		      + " WHERE USER_ID = ? ";
@@ -101,7 +102,8 @@ public class UserInfoDAO extends JdbcDAO {
               userInfo.setDetlAddr(rs.getString("detl_addr"));
               userInfo.setUserDv(rs.getString("user_dv"));
               userInfo.setWithdYn(rs.getString("withd_yn"));              
-              userInfo.setUserDv(rs.getString("frst_rgst_dttm"));              
+              userInfo.setUserDv(rs.getString("frst_rgst_dttm"));
+              userInfo.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
 
          }
       } catch (SQLException e) {

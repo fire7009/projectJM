@@ -1,3 +1,4 @@
+<%@page import="jm_dao.UserInfoDAO"%>
 <%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="jm_dao.ProductInfoDAO"%>
 <%@page import="jm_dto.ProductInfoDTO"%>
@@ -8,20 +9,17 @@
     pageEncoding="UTF-8"%>
 
 <%
-UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
-if(loginMember==null) {
-   out.println("<script type='text/javascript'>");
-   out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
-   out.println("</script>");
-   return;
-}
-
-%>
-
-<%
-
+	if(loginMember==null) {
+   	out.println("<script type='text/javascript'>");
+   	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
+   	out.println("</script>");
+   	return;
+	}
+	
 	String user=loginMember.getFrstRgsrUsrno();
+	
 	String prodCd=request.getParameter("prodCd");
 	
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
@@ -107,7 +105,7 @@ td {
 						<%tot=qty*price;%>
 						<%=tot%>
 						</th>
-						<th><input type="button" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);"></th>
+						<th><input type="image" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);" src="<%=request.getContextPath()%>/khd/img/cartClear.gif"></th>
 						<th>
 						<input type="checkbox" name="check" value="<%=cart.getHisSeqno()%>">
 						<input type="hidden" name="tot" value="<%=tot%>">
@@ -121,7 +119,8 @@ td {
 		<br>
 		<input type="hidden" name="user" value="<%=user%>">
 		
-		<button type="button" id="orderBtn">선택목록구매</button>
+		<button type="submit" id="orderBtn"
+ style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;"><img src="<%=request.getContextPath()%>/khd/img/selOrder.gif" alt="선택구매" width="150px" ></button>
 			
 		</form>
 	</div>

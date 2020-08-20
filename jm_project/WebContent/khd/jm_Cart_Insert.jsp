@@ -1,3 +1,4 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="jm_dao.CartHisDAO"%>
 <%@page import="jm_dao.ProductInfoDAO"%>
 <%@page import="jm_dto.CartHisDTO"%>
@@ -5,17 +6,19 @@
     pageEncoding="UTF-8"%>
 
 <%
-	//비정상적인 요청에 대한 응답 처리 - 쇼핑페이지 이동
-	if(request.getMethod().equals("GET")) {
-		out.println("<script type='text/javascript'>");
-		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=jm_Shopping';");
-		out.println("</script>");
-		return;
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+	
+	//비정상적인 요청에 대한 응답 처리
+	if(loginMember==null) {
+   	out.println("<script type='text/javascript'>");
+   	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
+   	out.println("</script>");
+   	return;
 	}
-
+	
 	int select=Integer.parseInt(request.getParameter("select"));
 	String prodCd=request.getParameter("prodCd");
-	String user=request.getParameter("user");
+	String user=loginMember.getFrstRgsrUsrno();
 	
 	ProductInfoDAO product=new ProductInfoDAO();
 	product.selectProductInfo(prodCd);

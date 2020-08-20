@@ -67,7 +67,7 @@ h2{
 
 <form id="shoppingForm">
   <div class="shopping">
-       <h2><%=prodNm%>제품 정보</h2>
+       <h2><%=prodNm%> 제품 정보</h2>
 	<table class="shop">
 
 	<tr>
@@ -99,7 +99,8 @@ h2{
 		<td class="value"><%=price %></td>
 	</tr>
 </table>
-	<button type="button"  id="cartBtn">장바구니</button>	
+<button type="submit" id="cartBtn"
+ style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;"><img src="<%=request.getContextPath()%>/khd/img/cart.gif" alt="장바구니" width="150px" ></button>
 
 </div>
 </form>

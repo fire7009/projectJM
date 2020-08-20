@@ -464,7 +464,7 @@ h4.tit {
 	<%-- 버튼 / 회원가입, 다시입력, 취소 --%>
 	<div id="fs"  style="margin-bottom: 100px;">
 		<button type="submit" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
-			<img src="./img/joinBtn.png" alt="전체주문" width="150px" ></button>
+			<img src="<%=request.getContextPath()%>/khd/img/allOrder.png" alt="전체주문" width="150px" ></button>
 
 		<a	 href="<%=request.getContextPath() %>/index.jsp " class="cancelBtn"> 
 			<img	src="./img/CCBtn.png" alt="취소" width="150px" /></a>
