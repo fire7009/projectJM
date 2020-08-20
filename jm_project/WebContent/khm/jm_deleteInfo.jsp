@@ -49,8 +49,6 @@ fieldset {
 	margin-bottom: 30px;
 	width: 450px;
 	height: 300px;
-	border: 1px solid;
-	border-color: "#87a1c4";
 }
 
 </style>
@@ -81,7 +79,7 @@ fieldset {
 						<!-- .dbox-wrap -->
 						<div class="scede-frm">
 							<fieldset>
-								<div class="btn-foot">
+								<div class="btn-foot" style="margin: -20px; margin-right: 20px;">
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_deleteInfo_confirm"><img
 										src="khm/img/btn_delete.png" alt="회원탈퇴" width="130px" /></a> <a
 										href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_updateInfo">

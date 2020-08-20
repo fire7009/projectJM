@@ -36,7 +36,7 @@
 	font-family: 'Noto Sans KR';
 	font-size: 26px;
 	font-weight: 500;
-	color: #555;
+	color: #87a1c4;
 	text-align: center;
 	margin-top: 100px;
 }
