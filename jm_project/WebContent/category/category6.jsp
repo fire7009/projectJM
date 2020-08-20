@@ -62,27 +62,34 @@ th {
 </div>
 <h1 class="title"><a href="#">실외조명</a></h1>
 <table>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=401">&nbsp;실외벽등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=402">&nbsp;&nbsp;&nbsp;문주등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=403">&nbsp;&nbsp;&nbsp;정원등&nbsp;&nbsp;&nbsp;|</a></th>
-	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category6&category=404">&nbsp;&nbsp;&nbsp;지중등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=20">&nbsp;실외벽등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=30">&nbsp;&nbsp;&nbsp;문주등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=40">&nbsp;&nbsp;&nbsp;정원등&nbsp;&nbsp;&nbsp;|</a></th>
+	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action&category=50">&nbsp;&nbsp;&nbsp;지중등&nbsp;&nbsp;&nbsp;|</a></th>
 	
 </table>
+
+
 <div id="productList">
-	<% for(ProductInfoDTO product:productList) { %>
+
+	
+	
+		<% for(ProductInfoDTO product:productList) { %>
 	<div class="product">
-		<div><%=product.getProdNm() %></div>
-		<div>[<%=product.getProdCd() %>]</div>
 		<div>
-			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khd&work=jm_Shopping&" >
-				<img src="<%=request.getContextPath()%>/image/<%=product.getBasFileNm()%>" width="250">
+			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khd&work=jm_Shopping&prodCd=<%=product.getProdCd() %>" >
+				<img src="img/<%=product.getBasFileNm()%>.jpg" width="250">
 			</a>
 		</div>
+		<div><%=product.getProdNm() %></div>
 		<div>
 			<%=DecimalFormat.getCurrencyInstance().format(product.getProdPrice()) %>
 		</div>
 	</div>
-	<% } %>
+		<% } %>
+
+	
+	
 </div>
 
 <div class="bottom" style="clear: both;"></div>

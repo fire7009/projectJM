@@ -160,41 +160,6 @@ public class ProductInfoDAO extends JdbcDAO {
 		return productList;
 	}
 	
-	public ProductInfoDTO selectCtgr(String category) {
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		ProductInfoDTO product=null;
-		try {
-			con=getConnection();
-			
-			String sql="select * from productinfo where ctgr_cd";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, category);
-			
-			if(rs.next()) {
-				product=new ProductInfoDTO();
-				product.setProdCd(rs.getString("prod_cod"));
-				product.setCtgrCd(rs.getString("ctgr_cd"));
-				product.setProdNm(rs.getString("prod_nm"));
-				product.setProdPrice(rs.getInt("prod_price"));
-				product.setBasFilePath(rs.getString("bas_file_path"));
-				product.setBasFileNm(rs.getString("bas_file_nm"));
-				product.setDetlFilePath(rs.getString("detl_file_path"));
-				product.setDetlFileNm(rs.getString("detl_file_nm"));
-				product.setProdDetl(rs.getString("prod_detl"));
-				product.setViewCnt(rs.getInt("view_cnt"));
-				product.setMainExpYn(rs.getString("main_exp_yn"));
-				product.setDelYn(rs.getString("del_yn"));
-			}
-			
-		} catch (SQLException e) {
-			System.out.println("[에러]selectCtgr() 메소드의 SQL 오류 = " + e.getMessage());
-		} finally {
-			close(con, pstmt, rs);
-		}
-		return product;
-	}
 	
 
 }
