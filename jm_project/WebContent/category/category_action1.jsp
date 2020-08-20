@@ -11,6 +11,8 @@
 	font-size: 3em;
 	margin-top: 50px;
 	margin-bottom: 50px;
+	color: #2e2e2e;
+	
 }	
 
 
@@ -20,7 +22,7 @@ table {
 	text-align: center;
 	margin: 0 auto;
 	margin-bottom: 50px;
-	
+	font: sans-serif;
 }
 
 th {
@@ -45,12 +47,27 @@ List<ProductInfoDTO> productList=ProductInfoDAO.getDAO().selectCategoryProduct(c
 }
 
 .product {
-	padding: 10px 5px;
-	border: 1px solid black;
-	width: 300px;
+	padding: 10px 10px;
+	border: 1px solid lightgray;
+	width: 250x;
 	margin: 10px;
 	text-align: center;
 	float: left;
+	font: sans-serif;
+}
+.productnm{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size:1.4em;
+	color: #2e2e2e;
+	font: sans-serif;
+}
+
+.productprice{
+	color: #110352;
+	font-weight: bold;
+	font-size:1.2em;
 }
 </style>
 <div>
