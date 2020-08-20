@@ -41,7 +41,7 @@ dd{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .head_info>p.txt2{padding-top: 0px; padding-left: 21px; color: #aaaaaa;}
 .head_info>p.txt2>span{color: #532076; font-weight: bold;}
 .head_info>img{width: 65px; height: 58px; margin-top: 11px;}
-#date_wrap{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+#date_wrap{sizwhite-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* 濡�洹몄�� ���� */
 .login_wrap{position: relative; overflow: visible;}

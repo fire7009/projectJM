@@ -14,6 +14,9 @@
 
 	<div id="header">
 		<h1>
+		
+			<a href="#"><img src="img/배너배송.jpg" class="date_wrap" alt="" style="position:absolute;  right:300px; "/></a> 
+
 			<a href="<%=request.getContextPath() %>/index.jsp"><img src="img/JM_02.png" alt="vittz" style="width: 100px;"/></a>
 		</h1>
 		<dl id="util_menu">
@@ -25,19 +28,21 @@
 				
 					<li class="login_wrap"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/join&work=jm_join" >|&nbsp;&nbsp;&nbsp;회원가입</a></li>
 				</ul>
-				<% } else {//로그인 사용자 %>
+				<% } else if(loginMember.getUserDv().equals("1")) {//로그인 사용자 %>
+
+				<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
+				 <li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
+				<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=asd">관리자</a>&nbsp;&nbsp; 
 			
+			<% } else  { //관리자인 경우 %>
 				<ul>	
-			<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
+				<li><%=loginMember.getUserNm() %>님 환영합니다.&nbsp;&nbsp;	</li>
 					<li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
 					
 					<li calss="mypage"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=khm&work=jm_myPage">|&nbsp;&nbsp;&nbsp;내정보</a></li>
 				</ul>
-			<% if(loginMember.getUserDv().equals("1")) { //관리자인 경우 %>
 			
-				 <li class="logout"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=kdy/login&work=jm_logout_action">|&nbsp;&nbsp;&nbsp;로그아웃</a></li>
-				<li class="admin"><a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=adminIndex">|&nbsp;&nbsp;&nbsp;관리자</a>&nbsp;&nbsp; 
-			<% } %>
+			
 			<% } %>	
 			</dd>
 		</dl>
@@ -180,10 +185,7 @@
 				<a href="#"><img src="img/allmenu_close_btn.png" alt="전체메뉴 닫기" /></a>
 			</p>
 		</div>
-		<p id="date_wrap">
-			<span class="year">0000</span> 년 <span class="month">00</span> 월 <span
-				class="date">00</span> 일
-		</p>
+	
 	</div>
 	<!-- id="header" -->
 	<hr />

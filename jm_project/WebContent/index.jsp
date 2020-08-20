@@ -14,7 +14,7 @@
 	
 	String headerPath="/header.jsp";
 	if(workgroup.equals("admin")) {
-		headerPath="/admin/header.jsp";
+		headerPath="/admin/adminHeader.jsp";
 	}
 	
 	String work=request.getParameter("work");
@@ -33,7 +33,7 @@
 <meta name="Author" content="강형동"/>
 <meta name="keywords" content="Market Kurly" />
 <meta name="Description" content="JM 조명 메인 페이지에 오신 것을 환영합니다"/>
-<link rel="shortcut icon" href="favicon/favicon.ico"> <!-- 파비콘 -->
+<link rel="shortcut icon" href="favicon/favicon.png"> <!-- 파비콘 -->
 <link rel="apple-touch-icon-precomposed" href="apple-icon.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-icon-114x114.png">
 <title>JM조명</title>

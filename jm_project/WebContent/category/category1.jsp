@@ -61,34 +61,32 @@ th {
 </div>
 <h1 class="title"><a href="#">거실조명</a></h1>
 
-<div id="productList">
-	<% for(ProductInfoDTO product:productList) { %>
 <table>
 	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=20">&nbsp;20평대&nbsp;&nbsp;&nbsp;|</a></th>
 	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=30">&nbsp;&nbsp;&nbsp;30평대&nbsp;&nbsp;&nbsp;|</a></th>
 	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=40">&nbsp;&nbsp;&nbsp;40평대&nbsp;&nbsp;&nbsp;|</a></th>
 	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=50">&nbsp;&nbsp;&nbsp;50평대&nbsp;&nbsp;&nbsp;|</a></th>
 	<th><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category1&category=51">&nbsp;&nbsp;&nbsp;대형/복층/샹들리에&nbsp;</a></th>
-	
 </table>
 
-	
-	
 
 
+<div id="productList">
+
+	<% for(ProductInfoDTO product:productList) { %>
 	<div class="product">
-		<div><%=product.getProdNm() %></div>
-		<div>[<%=product.getProdCd() %>]</div>
 		<div>
-			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=category" >
-				<img src="<%=request.getContextPath()%>/image/<%=product.getBasFileNm()%>" width="250">
+			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=khd&work=jm_Shopping&prodCd=<%=product.getProdCd() %>>" >
+				<img src="img/<%=product.getBasFileNm()%>.jpg" width="250">
 			</a>
 		</div>
+		<div><%=product.getProdNm() %></div>
 		<div>
 			<%=DecimalFormat.getCurrencyInstance().format(product.getProdPrice()) %>
 		</div>
 	</div>
 	<% } %>
+	
 </div>
 
 

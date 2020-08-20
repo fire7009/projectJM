@@ -129,7 +129,7 @@ public class ProductInfoDAO extends JdbcDAO {
 				String sql = "select * from product_info order by frst_rgst_dttm desc";
 				pstmt = con.prepareStatement(sql);
 			} else {
-				String sql = "select * from product_info where prod_cd like ?||'%' order by prod_cd";
+				String sql = "select * from product_info where ctgr_cd like ?||'%' order by prod_cd";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, category);
 			}
@@ -143,6 +143,7 @@ public class ProductInfoDAO extends JdbcDAO {
 				product.setProdNm(rs.getString("prod_nm"));
 				product.setProdPrice(rs.getInt("prod_price"));
 				product.setBasFilePath(rs.getString("bas_file_path"));
+				product.setBasFileNm(rs.getString("bas_file_nm"));
 				product.setDetlFilePath(rs.getString("detl_file_path"));
 				product.setDetlFileNm(rs.getString("detl_file_nm"));
 				product.setProdDetl(rs.getString("prod_detl"));
