@@ -386,6 +386,7 @@ h4.tit {
 			<td>
 				<div class="tb-l pl-6">
 					<%=tot_price%>
+					<input type="hidden" name="tot_price" id="tot_price" value="<%=tot_price %>"/>
 				</div>
 				
 			</td>
@@ -399,6 +400,7 @@ h4.tit {
 			<td>
 				<div class="tb-l pl-6"  >
 					<%=tot_prod %>
+					<input type="hidden" name="user" id="user" value="<%=user%>"/>
 					</div>
 				</div>
 			</td>

@@ -35,18 +35,16 @@ public class OrderInfoDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into order_info (ord_no,ord_sum_qty,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,"
-					+ "dlvr_detl_addr,ord_cncl_yn,frst_rgsr_usrno) values((SELECT (NVL(MAX(ORD_NO), 0) + 1) FROM ORDER_INFO), ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into order_info (ord_no,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,"
+					+ "dlvr_detl_addr,frst_rgsr_usrno) values((SELECT (NVL(MAX(ORD_NO), 0) + 1) FROM ORDER_INFO), ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, orderInfo.getOrdSumQty());
-			pstmt.setInt(2, orderInfo.getOrdSumAmt());
-			pstmt.setString(3, orderInfo.getRcvrNm());
-			pstmt.setString(4, orderInfo.getDlvrPostCd());
-			pstmt.setString(5, orderInfo.getDlvrBasAddr());
-			pstmt.setString(6, orderInfo.getDlvrDetlAddr());
-			pstmt.setString(7, orderInfo.getOrdCnclYn());
-			pstmt.setString(8, orderInfo.getFrstRgsrUsno());
+			pstmt.setInt(1, orderInfo.getOrdSumAmt());
+			pstmt.setString(2, orderInfo.getRcvrNm());
+			pstmt.setString(3, orderInfo.getDlvrPostCd());
+			pstmt.setString(4, orderInfo.getDlvrBasAddr());
+			pstmt.setString(5, orderInfo.getDlvrDetlAddr());
+			pstmt.setString(6, orderInfo.getFrstRgsrUsno());
 		
 
 			rows = pstmt.executeUpdate();
