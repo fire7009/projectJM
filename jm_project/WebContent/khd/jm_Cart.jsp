@@ -6,21 +6,22 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%--
+
 <%
 UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
 if(loginMember==null) {
    out.println("<script type='text/javascript'>");
-   out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=error&work=error400';");
+   out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
    out.println("</script>");
    return;
 }
 
 %>
---%>
+
 <%
-	String user=request.getParameter("user");
+
+	String user=loginMember.getFrstRgsrUsrno();
 	String prodCd=request.getParameter("prodCd");
 	
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);

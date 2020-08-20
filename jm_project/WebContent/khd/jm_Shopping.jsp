@@ -5,21 +5,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	//UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
-	//String user=loginMember.getFrstRgsrUsrno();
-	//String prodCd=request.getParameter("prodCd");
-	String user="1";
-	String prodCd="1";
+
+	String prodCd=request.getParameter("prodCd");
+	//String user="1";
+	//String prodCd="1";
 	
 	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(prodCd);
 	int price=product.getProdPrice();
 	String prodNm=product.getProdNm();
-	String ctgr=product.getCtgrCd();
 	String basFileNm=product.getBasFileNm();
 	String basFilePath=product.getBasFilePath();
 	String detlFileNm=product.getDetlFileNm();
 	String detlFilePath=product.getDetlFilePath();
 	String prodDetl=product.getProdDetl();
+	
 %>
 
 
@@ -77,7 +76,7 @@ h2{
 	</tr>
 	<tr>
 		<th class="title">제품이미지</td>
-		<td class="value"><img src="img/JM_03.png"alt="" /></td>
+		<td class="value"><img src="<%=request.getContextPath()%>/<%=basFilePath%>" width="250"></td>
 	</tr>
 	<tr>
 		<th class="title">상세설명</td>
@@ -112,7 +111,7 @@ h2{
 $("#cartBtn").click(function(){
 var select=$("select[name=select]").val();
 	$("#shoppingForm").attr("method","post");
-	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=prodCd%>&user=<%=user%>");
+	$("#shoppingForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart_Insert&select="+select+"&prodCd=<%=prodCd%>");
 	$("#shoppingForm").submit();
 });
 </script>

@@ -68,7 +68,7 @@ public class ProductInfoDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 
-			String sql = "SELECT B.PROD_CD" + ", B.PROD_NM" + ", B.PROD_PRICE" + ", B.BAS_FILE_PATH" + ", B.BAS_FILE_NM"
+			String sql = "SELECT B.PROD_NM" + ", B.PROD_PRICE" + ", B.BAS_FILE_PATH" + ", B.BAS_FILE_NM"
 					+ ", B.DETL_FILE_PATH" + ", B.DETL_FILE_NM" + ", B.PROD_DETL" + " FROM PROD_CTGR_INFO A"
 					+ " INNER JOIN" + " PRODUCT_INFO B" + " ON A.CTGR_CD = B.CTGR_CD" + " WHERE B.PROD_CD = ?";
 			pstmt = con.prepareStatement(sql);
@@ -78,13 +78,13 @@ public class ProductInfoDAO extends JdbcDAO {
 
 			if (rs.next()) {
 				product = new ProductInfoDTO();
-				product.setProdCd(rs.getString("prod_cd"));
+		
 				product.setProdNm(rs.getString("prod_nm"));
 				product.setProdPrice(rs.getInt("prod_price"));
+				product.setBasFilePath(rs.getString("bas_file_path"));
 				product.setBasFileNm(rs.getString("bas_file_nm"));
-				product.setBasFileNm(rs.getString("bas_file_path"));
-				product.setBasFileNm(rs.getString("detl_file_nm"));
-				product.setBasFileNm(rs.getString("detl_file_path"));
+				product.setDetlFilePath(rs.getString("detl_file_path"));
+				product.setDetlFileNm(rs.getString("detl_file_nm"));
 				product.setProdDetl(rs.getString("prod_detl"));
 			}
 
