@@ -6,9 +6,8 @@
 <%
 
 	String his=request.getParameter("his");
-	String prodCd=request.getParameter("prodCd");
 	String user=request.getParameter("user");
-
+	String prodCd=request.getParameter("prodCd");
 	int qty=Integer.parseInt(request.getParameter("qty"));
 
 	int rows=CartHisDAO.getDAO().updateQtyCart(qty, his, user);

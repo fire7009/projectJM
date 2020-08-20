@@ -1,27 +1,30 @@
+<%@page import="jm_dao.ProductInfoDAO"%>
+<%@page import="jm_dto.ProductInfoDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="jm_dto.CartHisDTO"%>
 <%@page import="jm_dao.CartHisDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+
 String[] check=request.getParameterValues("check");
-String[] tot=request.getParameterValues("tot");
-String[] prodNm=request.getParameterValues("prodNm");
 String user=request.getParameter("user");
+String hisCode="";
 
 int tot_price=0;
 String tot_prod="";
-for(String price:tot){
-	tot_price=tot_price+Integer.parseInt(price);
-}
-
-for(String name:prodNm){
-	if(name.equals(prodNm[0])){
-		tot_prod=tot_prod+name;
-	}else{
-	tot_prod=tot_prod+", "+name;
-	}
-}
+String prod="";
+int qty=0;
 
 for(String his:check){
+	List<CartHisDTO> cartList=CartHisDAO.getDAO().selectCartListTwo(user,his);
+	for(CartHisDTO cart:cartList){
+		qty=cart.getProdQty();
+		ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(cart.getProdCd());
+		tot_price=tot_price+(product.getProdPrice())*qty;
+		tot_prod=tot_prod+" "+product.getProdNm();
+	
+	}
 	CartHisDAO.getDAO().updateDelCart(user, his);
 }
 %>
@@ -399,7 +402,8 @@ h4.tit {
 			</th>
 			<td>
 				<div class="tb-l pl-6"  >
-					<%=tot_prod %>
+					<%=tot_prod%>
+					
 					<input type="hidden" name="user" id="user" value="<%=user%>"/>
 					</div>
 				</div>
@@ -460,8 +464,7 @@ h4.tit {
 		</table>
 	</div>
 	<br> <br>
-	
-	<%-- 버튼 / 회원가입, 다시입력, 취소 --%>
+
 	<div id="fs"  style="margin-bottom: 100px;">
 		<button type="submit" style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;">
 			<img src="<%=request.getContextPath()%>/khd/img/allOrder.png" alt="전체주문" width="150px" ></button>

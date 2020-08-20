@@ -33,10 +33,15 @@
 
 <style type="text/css">
 .content{
-	width: 1000px;
-	margin: auto;
+	width: auto;
+	margin: 0 auto;
 	padding: 50px 20px;
-	text-align:center;
+}
+.btnArea{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top : 40px;
+	padding: 50px 20px;
 }
 table {
 	border-collapse: collapse;
@@ -78,7 +83,7 @@ td {
 						<th>수량</th>
 						<th>총상품 금액</th>
 						<th>목록삭제</th>
-						<th>주문번호</th>
+						<th>주문선택</th>
 					</tr>
 					<%if(cartList.isEmpty()){ %>
 					<tr>
@@ -87,10 +92,11 @@ td {
 			<% for(CartHisDTO cart:cartList){ %>
 				<% if(cart.getDelYn().equals("N")) {%>
 					<tr>
-						<th></th>
+						<th><img src="<%=request.getContextPath()%>/<%=product.getBasFilePath()%>" width="100"></th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
 						<select class="selected" name="<%=cart.getHisSeqno()%>">
+						<option value="">갯수선택</option>
         				<option value="1" >1</option>
          				<option value="2" >2</option>
          				<option value="3">3</option>
@@ -105,23 +111,24 @@ td {
 						<%tot=qty*price;%>
 						<%=tot%>
 						</th>
-						<th><input type="image" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>);" src="<%=request.getContextPath()%>/khd/img/cartClear.gif"></th>
+						<th><input type="image" value="삭제" onclick="removeCart(<%=cart.getHisSeqno()%>); return false;" src="<%=request.getContextPath()%>/khd/img/cartClear.gif"></th>
 						<th>
 						<input type="checkbox" name="check" value="<%=cart.getHisSeqno()%>">
-						<input type="hidden" name="tot" value="<%=tot%>">
-						<input type="hidden" name="prodNm" value="<%=product.getProdNm()%>">
+					
 						</th>
 					</tr>
 				<%} %>	
 			<%} %>
 		<%} %>
 		</table>
-		<br>
+		<div class="btnArea">
+			<button type="submit" id="orderBtn" style="border: 0; float: right;">
+			<img src="<%=request.getContextPath()%>/khd/img/selOrder.gif" alt="선택구매" width="150px" ></button>
+			<a	 href="<%=request.getContextPath() %>/index.jsp " class="mainBtn"> 
+			<img	src="<%=request.getContextPath()%>/khd/img/go.gif" alt="취소" width="150px" style="float:right;"></a>
 		<input type="hidden" name="user" value="<%=user%>">
+		</div>
 		
-		<button type="submit" id="orderBtn"
- style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;"><img src="<%=request.getContextPath()%>/khd/img/selOrder.gif" alt="선택구매" width="150px" ></button>
-			
 		</form>
 	</div>
 	
@@ -131,7 +138,7 @@ td {
 		//엘리먼트 속성값을 반환받아 저장
 		var his=$(this).attr("name");//고유값
 		var qty=$(this).val();//변경값
-		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&qty="+qty+"&prodCd=<%=prodCd%>";
+		location.href="khd/jm_Cart_Update.jsp?his="+his+"&user=<%=user%>&prodCd=<%=prodCd%>&qty="+qty;
 	});
 	
 	function removeCart(his) {
@@ -144,7 +151,7 @@ td {
 			alert("선택한 상품이 하나도 없습니다.");
 			return;
 		}
-
+		
 		$("#cartForm").attr("method","post");
 		$("#cartForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Order");
 		$("#cartForm").submit();

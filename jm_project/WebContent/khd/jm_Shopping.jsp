@@ -41,8 +41,9 @@ table.shop thead th {
     margin: 20px 10px;
 }
 table.shop tbody th {
-    width: 150px;
+    width: 20px;
     padding: 10px;
+    text-align:center;
 }
 table.shop td {
     width: 350px;
@@ -55,20 +56,22 @@ table.shop .even {
 }
 .shopping{
 	width: 1000px;
-	margin: auto;
+	margin: 0 auto;
+	margin-top : 50px;
+	margin-bottom : 100px;
 	padding: 50px 20px;
 	text-align:center;
 }
 h2{
-	text-align: left;
-    font-size: xxx-large;
+	text-align: center;
+    font-size: xx-large;
 }
 </style>
 
 <form id="shoppingForm">
   <div class="shopping">
-       <h2><%=prodNm%> 제품 정보</h2>
-	<table class="shop">
+       <h2 style="margin-bottom: 10px;"><%=prodNm%></h2>
+	<table class="shop" style="width : 1100px; margin: 0 auto;" >
 
 	<tr>
 		<th class="title">제품명</td>
@@ -100,7 +103,7 @@ h2{
 	</tr>
 </table>
 <button type="submit" id="cartBtn"
- style="border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;border-top-width: 0px;"><img src="<%=request.getContextPath()%>/khd/img/cart.gif" alt="장바구니" width="150px" ></button>
+ style="border: none; margin-top: 20px; float:right;"><img src="<%=request.getContextPath()%>/khd/img/cart.gif" alt="장바구니" width="150px" ></button>
 
 </div>
 </form>

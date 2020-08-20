@@ -12,6 +12,8 @@ if(request.getMethod().equals("GET")) {
 	out.println("</script>");
 	return;
 }
+
+	
 	String recvNm=request.getParameter("recvNm");
 	String totPrice=request.getParameter("tot_price");
 	String postCd=request.getParameter("postCd");
@@ -21,6 +23,8 @@ if(request.getMethod().equals("GET")) {
 	
 	int price=Integer.parseInt(totPrice);
 			
+	
+	
 	OrderInfoDTO order=new OrderInfoDTO();
 	order.setRcvrNm(recvNm);
 	order.setOrdSumAmt(price);
@@ -28,6 +32,7 @@ if(request.getMethod().equals("GET")) {
 	order.setDlvrBasAddr(basAddr);
 	order.setDlvrDetlAddr(detlAddr);
 	order.setFrstRgsrUsno(user);
+	
 	
 	OrderInfoDAO.getDAO().insertOrderInfo(order);
 	
