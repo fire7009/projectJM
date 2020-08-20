@@ -932,7 +932,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 	</div>
 </div>
 
-<div class="cs_title" style="text-align: left;">공지사항</div>
+<div class="cs_title">공지사항</div>
 <!--게시판상단-->
 
 <div id="bbsData">
@@ -975,7 +975,6 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 			</tr>	
 			<% } %>
 		<% } %>
-		<hr>
 	</table>
 	--%>
 
@@ -1169,8 +1168,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 						<td><div class="tb-center">2014/10/23</div></td>
 						<td><div class="tb-center">11441</div></td>
 					</tr>
-					<hr style="color: black;">
-					
+
 					<!--. 공지사항 리스트 끝! -->
 				
 				</tbody>
@@ -1193,6 +1191,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 					src="/design/vittz/img/btn_pageLast.gif" alt="마지막 페이지"></a>
 			</p>
 		</div>
+
 		<!-- .bbs-sch -->
 	</div>
 	<!--  수정, 삭제 / 등록, 목록 -->
