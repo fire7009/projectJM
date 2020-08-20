@@ -23,9 +23,7 @@
 	String prodCd=request.getParameter("prodCd");
 	
 	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(user);
-	ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(prodCd);
 
-	String value;
 	int qty=0;
 	int price=0;
 	int tot=0;
@@ -91,6 +89,9 @@ td {
 		<% } else { %>
 			<% for(CartHisDTO cart:cartList){ %>
 				<% if(cart.getDelYn().equals("N")) {%>
+					<%
+						ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(cart.getProdCd());
+					%>	
 					<tr>
 						<th><img src="<%=request.getContextPath()%>/<%=product.getBasFilePath()%>" width="100"></th>
 						<th><%=product.getProdNm()%></th>
