@@ -394,7 +394,7 @@ h4.tit {
 		<tr>
 			<th>
 				<div class="tb-l pl-30">
-					<span class="red">*</span> 주문 상품
+					<span class="red" >*</span> 주문 상품
 				</div>
 			</th>
 			<td>
