@@ -6,37 +6,42 @@
     pageEncoding="UTF-8"%>
 
 <%
-	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
-	if(loginMember==null) {
+UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+
+if(loginMember==null) {
 	out.println("<script type='text/javascript'>");
 	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
 	out.println("</script>");
 	return;
-	}
+}
 
-	String user=loginMember.getFrstRgsrUsrno();
-	
-	int pageNum=1;
-	if(request.getParameter("pageNum")!=null) {//전달값이 있는 경우.
-		pageNum=Integer.parseInt(request.getParameter("pageNum"));
-	}
-	
-	int pageSize=4;
-	int totalOrd=OrderInfoDAO.getDAO().selectOrdCnt(user);
-	int totalPage=(int)Math.ceil((double)totalOrd/pageSize);
-	if(pageNum<=0 || pageNum>totalPage) {//페이지 번호가 잘못된 경우
-		pageNum=1;
-	}
-	int startRow=(pageNum-1)*pageSize+1;
-	int endRow=pageNum*pageSize;
-	if(endRow>totalOrd) {
-		endRow=totalOrd;
-	}
-	
-	int number=totalOrd-(pageNum-1)*pageSize;
-	
-	List<OrderInfoDTO>ordList=OrderInfoDAO.getDAO().selectOrderInfoTwo(startRow, endRow, user);
+String user=loginMember.getFrstRgsrUsrno();
+
+int pageNum=1;
+if(request.getParameter("pageNum")!=null) {//전달값이 있는 경우.
+	pageNum=Integer.parseInt(request.getParameter("pageNum"));
+}
+
+int pageSize=4;
+
+int totalOrd=OrderInfoDAO.getDAO().selectOrdCnt(user);
+int totalPage=(int)Math.ceil((double)totalOrd/pageSize);
+
+if(pageNum<=0 || pageNum>totalPage) {//페이지 번호가 잘못된 경우
+	pageNum=1;
+}
+int startRow=(pageNum-1)*pageSize+1;
+
+int endRow=pageNum*pageSize;
+
+if(endRow>totalOrd) {
+	endRow=totalOrd;
+}
+
+List<OrderInfoDTO> ordList=OrderInfoDAO.getDAO().selectOrderInfoTwo(startRow, endRow, user);
+
+int number=totalOrd-(pageNum-1)*pageSize;
 %>
 
 <style type="text/css">
@@ -129,21 +134,21 @@ td {
 		%>
 		<div class="paging">
 		<% if(startPage>blockSize) { %>
-	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_OrderList&pageNum=<%=startPage-blockSize%>">[이전]</a>
+	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList&pageNum=<%=startPage-blockSize%>">[이전]</a>
 	<% } else { %>
 	[이전]
 	<% } %>
 	
 	<% for(int i=startPage;i<=endPage;i++) { %>
 		<% if(pageNum!=i) { %>
-		<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_OrderList&pageNum=<%=i%>">[<%=i %>]</a>
+		<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList&pageNum=<%=i%>">[<%=i %>]</a>
 		<% } else { %>
 		<span style="font-size: 18px; font-weight: bold;">[<%=i %>]</span>
 		<% } %>
 	<% } %>
 	
 	<% if(endPage!=totalPage) { %>
-	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_OrderList&pageNum=<%=startPage+blockSize%>">[다음]</a>
+	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList&pageNum=<%=startPage+blockSize%>">[다음]</a>
 	<% } else { %>
 	[다음]
 	<% } %>

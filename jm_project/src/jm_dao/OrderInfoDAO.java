@@ -67,7 +67,7 @@ public class OrderInfoDAO extends JdbcDAO {
 			con = getConnection();
 
 			String sql = "select ord_sum_qty,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,dlvr_detl_addr,"
-					+ "ord_cncl_yn from order_info where ord_no=? order by ord_no";
+					+ "ord_cncl_yn from order_info where ord_no=? order by to_number(ord_no)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ordNo);
 
@@ -104,7 +104,7 @@ public class OrderInfoDAO extends JdbcDAO {
 			
 			String sql = "select ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,dlvr_detl_addr,"
 					+ "ord_cncl_yn from (select rownum rn, temp.* from("
-					+ "select * from order_info order by ord_no"
+					+ "select * from order_info order by to_number(ord_no)"
 					+ " ) temp) where rn between ? and ? and frst_rgsr_usrno=?";
 			
 			pstmt = con.prepareStatement(sql);
@@ -165,7 +165,7 @@ public class OrderInfoDAO extends JdbcDAO {
 		int rows=0;
 		try {
 			con=getConnection();
-			
+		
 			String sql="update order_info set ord_cncl_yn=? where ord_no=? and frst_rgsr_usrno=?";
 			pstmt=con.prepareStatement(sql);
 			

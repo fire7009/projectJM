@@ -53,7 +53,7 @@ public class CartHisDAO extends JdbcDAO{
 	
 	
 	//선택된 사용자 코드에 해당하는 장바구니 목록 출력
-	public List<CartHisDTO> selectCartList(int startRow, int endRow, String frst) {
+	public List<CartHisDTO> selectCartList(String frst) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -61,13 +61,9 @@ public class CartHisDAO extends JdbcDAO{
 		try {
 			con=getConnection();
 			
-			String sql="select * from (select rownum rn, temp.* from("
-					+ "select * from cart_his order by his_seqno "
-					+ ") temp) where rn between ? and ? and frst_rgsr_usrno=?";
+			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
-			pstmt.setString(3,frst);
+			pstmt.setString(1,frst);
 			
 			rs=pstmt.executeQuery();
 			
@@ -99,10 +95,11 @@ public class CartHisDAO extends JdbcDAO{
 		try {
 			con=getConnection();
 			
-			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=? and his_seqno=?";
+			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=? and his_seqno=? and del_yn=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,frst);
 			pstmt.setString(2,his);
+			pstmt.setString(3, "N");
 
 			rs=pstmt.executeQuery();
 			
@@ -178,7 +175,7 @@ public class CartHisDAO extends JdbcDAO{
 		try {
 			con=getConnection();
 			
-				String sql="select count(*) from cart_his where frst_rgsr_usrno=? ";
+				String sql="select count(*) from cart_his where frst_rgsr_usrno=? and del_yn='N'";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setString(1, user);
 			

@@ -5,6 +5,7 @@
 	String user=request.getParameter("user");
 	String ord=request.getParameter("ord");
 	
+	System.out.println(user+".."+ord);
 	int rows=OrderInfoDAO.getDAO().delOrd(user, ord);
 	
 	//비정상적인 요청에 대한 응답 처리

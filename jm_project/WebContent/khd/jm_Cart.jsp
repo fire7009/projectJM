@@ -11,6 +11,7 @@
 <%
 	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
+
 	if(loginMember==null) {
    	out.println("<script type='text/javascript'>");
    	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
@@ -26,27 +27,10 @@
 	int price=0;
 	int tot=0;
 	
-	int pageNum=1;
-	if(request.getParameter("pageNum")!=null) {//전달값이 있는 경우.
-		pageNum=Integer.parseInt(request.getParameter("pageNum"));
-	}
+
+	List<CartHisDTO> cartList=CartHisDAO.getDAO().selectCartList(user);
 	
-	int pageSize=4;
-	int totalCart=CartHisDAO.getDAO().selectCartCnt(user);
-	int totalPage=(int)Math.ceil((double)totalCart/pageSize);
-	if(pageNum<=0 || pageNum>totalPage) {//페이지 번호가 잘못된 경우
-		pageNum=1;
-	}
-	int startRow=(pageNum-1)*pageSize+1;
-	int endRow=pageNum*pageSize;
-	if(endRow>totalCart) {
-		endRow=totalCart;
-	}
-	
-	int number=totalCart-(pageNum-1)*pageSize;
-	
-	List<CartHisDTO>cartList=CartHisDAO.getDAO().selectCartList(startRow,endRow,user);
-	
+
 %>
 
 <style type="text/css">
@@ -97,12 +81,12 @@ td {
 }
 </style>
 	
+		
 		<div class="content">
 
 			<form name="cartForm" id="cartForm">
 				<table>
 					<tr>
-						<th>번호</th>
 						<th>상품사진</th>
 						<th>상품이름</th>
 						<th>수량</th>
@@ -110,7 +94,7 @@ td {
 						<th>목록삭제</th>
 						<th>주문선택</th>
 					</tr>
-					<%if(totalCart==0){ %>
+					<%if(cartList.isEmpty()){ %>
 					<tr>
 				<td colspan="6">등록된 제품이 하나도 없습니다.</td>
 		<% } else { %>
@@ -120,7 +104,6 @@ td {
 						ProductInfoDTO product=ProductInfoDAO.getDAO().selectProductInfo(cart.getProdCd());
 					%>	
 					<tr>
-						<th><%=number %></th>
 						<th><img src="<%=request.getContextPath()%>/<%=product.getBasFilePath()%>" width="100"></th>
 						<th><%=product.getProdNm()%></th>
 						<th><%=cart.getProdQty()%><br>
@@ -146,39 +129,13 @@ td {
 					
 						</th>
 					</tr>
-					<%number--; %>
 				<%} %>	
 			<%} %>
 		<%} %>
 		</table>
-		<%
-			int blockSize=5;
-			int startPage=(pageNum-1)/blockSize*blockSize+1;
-			int endPage=startPage+blockSize-1;
-			if(endPage>totalPage) {
-				endPage=totalPage;
-			}
-		%>
-		<div class="paging">
-		<% if(startPage>blockSize) { %>
-	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&pageNum=<%=startPage-blockSize%>&prodCd=<%=prodCd%>">[이전]</a>
-	<% } else { %>
-	[이전]
-	<% } %>
-	
-	<% for(int i=startPage;i<=endPage;i++) { %>
-		<% if(pageNum!=i) { %>
-		<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&pageNum=<%=i%>&prodCd=<%=prodCd%>">[<%=i %>]</a>
-		<% } else { %>
-		<span style="font-size: 18px; font-weight: bold;">[<%=i %>]</span>
-		<% } %>
-	<% } %>
-	
-	<% if(endPage!=totalPage) { %>
-	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khd&work=jm_Cart&pageNum=<%=startPage+blockSize%>&prodCd=<%=prodCd%>">[다음]</a>
-	<% } else { %>
-	[다음]
-	<% } %>
+
+		
+
 		</div>
 		<div class="btnArea">
 			<button type="submit" id="orderBtn" style="border: 0; float: right;">
