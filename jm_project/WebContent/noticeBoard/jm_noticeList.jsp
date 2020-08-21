@@ -224,6 +224,7 @@
 	font-weight:600;
 	color:#333;
 	margin-bottom:15px;
+	margin-left: 30px;
 }
 #bbsData .bbs-link { position: relative; }
 #bbsData .bbs-link-top { margin-top: 10px; margin-bottom: -40px;margin-right: 400px; text-align: left; margin-left: 18px; }
@@ -259,14 +260,12 @@
 .displaynone {
 	display: none !important;
 }
-html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
 	margin:0;
 	padding:0;
 }
-html {
-	width:100%;
-	height:100%;
-}
+
+
 body, code {
 	font:0.75em "돋움", Dotum, AppleGothic, sans-serif;
 	color:#333;
@@ -301,7 +300,7 @@ table {
 	border-spacing:0;
 	border:0;
 	border-collapse:collapse;
-	width:100%;
+	width:1000px;
 }
 th, td {
 	border:0;
@@ -414,10 +413,7 @@ RESET
 ========================================================================
 */
 /* global rest */
-html, body {
-    height: 100%;
-}
-html, body, pre,
+body, pre,
 h1, h2, h3, h4, h5, h6,
 dl, dt, dd, ul, li, ol,
 th, td, p, blockquote,
@@ -775,67 +771,7 @@ table img { vertical-align: middle; }
 ========================================================================
 공통 - 레아웃
 ========================================================================
-*/
-/* z-index */
-#layerWrap { z-index: 1; }
-/* layout */
-#header,
-#layerWrap,
-#contentWrap,
-#ftLink .link,
-#footer { position: relative; width:1280px; margin-left: auto; margin-right: auto; }
-#contentWrapper { position: relative; }
-#contentWrap { *zoom:1 }
-#contentWrap:after { content: ""; display: block; clear: both; }
-#aside,
-#content { position: relative; float: left; width: 1280px; }
 
-/* 상품 미리보기 레이어 */
-#detailpage { position: absolute; top: 100px; display: block; width: 640px; padding: 10px 10px 40px; border: 1px solid #93a4b3; background-color: #fff; }
-#detailpage .loc { zoom: 1; overflow: hidden; }
-#detailpage .loc span { float: right; width: auto; }
-/*
-#detailpage .loc span { float: right; width: auto; padding-left: 10px; background: url(/images/d3/modern_simple/common/bull_h5_arow_blue.gif) no-repeat 0 6px; }
-*/
-#detailpage .hd {
-    padding: 5px 10px 5px 20px; background: #dbdee0;
-    -moz-border-radius: 1px;
-    -webkit-border-radius: 1px;
-    border-radius: 1px;
-    height:16px;
-}
-#detailpage .hd h2 { font-weight: bold; font-size: 16px; color: #fff; }
-#detailpage .detail { zoom: 1; overflow: hidden; margin-top: 20px; padding-left: 300px; }
-#detailpage .thumb-wrap,
-#detailpage .txt-wrap { position: relative; float: left; }
-#detailpage .close-layer { position: absolute; right: 14px; bottom: 8px; _bottom: -1px;font-weight:bold; }
-#detailpage .close-layer img {margin:0 5px 0 0; }
-/* thumb-wrap */
-#detailpage .thumb-wrap { width: 300px; left: -300px; margin-right: -300px; text-align: center; }
-#detailpage .thumb-wrap .btns { margin-top: 10px; font-size: 0; line-height: 0;}
-#detailpage .thumb-wrap .btns a { margin: 0 8px; }
-#detailpage .thumb-wrap .thumb img { width: 250px; }
-/* txt-wrap */
-#detailpage .txt-wrap { width: 100%; }
-#detailpage .txt-wrap .ptit { font-weight: bold; font-size: 14px; color: #333; margin:0 0 5px;}
-#detailpage .txt-wrap .opt { margin-top: 16px; }
-#detailpage .txt-wrap .opt li { padding: 3px 0; }
-#detailpage .txt-wrap .opt li.txt { font-weight:bold; color:#000;}
-#detailpage .txt-wrap .opt li.txt span.ttl { width:90px;display:inline-block;}
-#detailpage .txt-wrap .opt li.s-price { /*color: #a00000; */}
-#detailpage .txt-wrap .f-btns { padding-top: 10px; font-size: 0; line-height: 0; }
-#detailpage .txt-wrap .f-btns a { margin-right: 5px;display:inline-block;}
-#detailpage .txt-wrap .f-btns a:last-child {margin:0;}
-#detailpage .txt-wrap .f-btns a.btnBuy { background:#110252; color:#fff; height:27px;line-height:29px;width:32%;text-align:center;} 
-#detailpage .txt-wrap .f-btns a.btnWhite {background:#fff; border:1px solid #110252;height:27px;line-height:27px;width:31.8%;text-align:center;color:#110252;}
-/* opt-spin */
-#detailpage .opt-spin { display: inline-block; position: relative; width: 36px; height: 20px; }
-#detailpage .opt-spin .txt-spin { width: 22px; height: 18px; padding-right: 2px padding-top: 2px; border: 1px solid #acacac; font-size: 11px; text-align: right; }
-#detailpage .opt-spin .btns { position:absolute; left: 35px; top:0px; width: 12px; height: 20px; }
-#detailpage .opt-spin .btns img { overflow: hidden; float: left; text-indent: -999px; background: none; }
-#detailpage .thumb-wrap .btns { margin-top: 10px; font-size: 0; line-height: 0;}
-#detailpage .thumb-wrap .btns a { margin-left: 5px; }
-.
 /* 게시판 공통 - 일반, 겔러리, 컨텐츠링크, 자료실, 미니홈피, 방명록, 동영상 */
 /* 상단 */
 .bbs-hd { padding: 0px 0 20px; background: url(/images/d3/modern_simple/common/dot_bbs_hd.gif) repeat-x 0 bottom; }
@@ -971,21 +907,15 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
  
 
 
-
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <body style="width : 1280px; text-align: center; margin: 0 auto;">
 
 <!-- 상단 이미지 -->
 <div style="width: 1280px; margin: 0 0 30px 0;">
-	<div style="padding-top: 20px;">
-		<img src="./img/bbs_topimg_11.jpg">
+	<div style="padding-top: 40px;">
+		<img src="./img/bbs_topimg_11.jpg" style="margin-left: 170px; ">
 	</div>
 </div>
 
-<div class="cs_title">공지사항</div>
 <!--게시판상단-->
 
 <div id="bbsData">
@@ -1107,5 +1037,4 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 <hr/>
 
 </body>
-</head>
-</html>
+
