@@ -164,6 +164,8 @@ public class NoticeDAO extends JdbcDAO {
 			return rows;
 		}
 	
+		
+		
 		public NoticeDTO selectNumNotice(int number) {
 			Connection con=null;
 			PreparedStatement pstmt=null;

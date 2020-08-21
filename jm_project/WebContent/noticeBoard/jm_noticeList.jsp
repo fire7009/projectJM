@@ -1025,7 +1025,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 					 
 				<%-- 제목 --%>
 				<td><div class="tb-left"><img src="../img/neo_notice.gif" />
-				<a href="<%=request.getContextPath()%>/index.jsp?workgroup=board&work=viewnotice&noticeNo=<%=board.getNoticeNo()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>"><%=board.getNoticeTitle() %></a>
+				<a href="<%=request.getContextPath()%>/index.jsp?workgroup=noticeBoard&work=viewnotice&noticeNo=<%=board.getNoticeNo()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>"><%=board.getNoticeTitle() %></a>
 				</div></td>
 			
 				<%-- 작성일 --%>

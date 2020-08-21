@@ -54,7 +54,7 @@
 		<h2 class="hide">메인메뉴</h2>
 		<div id="gnb_wrap">
 			<ul id="gnb">
-				<li class="fir"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeList">공지사항</a></li>
+				<li class="fir"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList">공지사항</a></li>
 				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category1">거실조명</a>
 					<ul class="sub1">
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action1&category=20">20평대</a></li>

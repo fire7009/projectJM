@@ -1,62 +1,129 @@
-<%@page import="jm_dao.NoticeDAO"%>
 <%@page import="jm_dto.NoticeDTO"%>
+<%@page import="jm_dao.NoticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("utf-8");
-	//전달값을 반환받아 저장
-	int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-	String pageNum=request.getParameter("pageNum");
-	String search=request.getParameter("search");
-	String keyword=request.getParameter("keyword");
-
-	//게시글 번호를 전달받아 BOARD 테이블에 저장된 게시글을 검색하여
-	//반환하는 DAO 클래스의 메소드 호출
-	NoticeDTO board=NoticeDAO.getDAO().selectNumBoard(noticeNo);
+	pageEncoding="UTF-8"%>
 	
-	NoticeDAO.getDAO().updateReadCount(noticeNo);
+<%
+	String noticeNo=request.getParameter("noticeNo");
+	
+	int num=Integer.parseInt(noticeNo);
+	
+	NoticeDTO board=NoticeDAO.getDAO().selectNumBoard(num);
+	
 %>
-<link rel="stylesheet" type="text/css" href="./viewnotice/optimizer.php">
-<link rel="stylesheet" type="text/css" href="./viewnotice/optimizer(1).php">
-    <!--allStore_contents-->
-<div id="allStore_contents">
-<div class="allStore_layout">
-            
-<div>
-<div class="xans-element- xans-board xans-board-readpackage-1002 xans-board-readpackage xans-board-1002 "><!--타이틀, 현재위치-->
-<div class="xans-element- xans-board xans-board-title-1002 xans-board-title xans-board-1002 allStore-board-menupackage "><div class="title">
-<h2><font color="#555555">공지사항</font></h2>
-        </div>
-<div class="nav-path">
-            <ol>
-<li><a href="http://coffeechoi.co.kr/">홈</a></li>
-            <li title="현재 위치"><strong>공지사항</strong></li>
-            </ol>
-</div>
-</div>
-<!--타이틀, 현재위치-->
-<div class="ec-base-table typeWrite ">
-            <table border="1" summary="">
-<caption>게시판 상세<%=board.getNoticeReadcount()+1 %></caption>
-            <colgroup>
-<col style="width:130px;">
-<col style="width:auto;">
-</colgroup>
-<tbody>
-<tr>
-<th scope="row">제목</th>
-                    <td><%=board.getNoticeTitle() %></td>
-                </tr>
-<tr>
- <tr class="">
-<td  colspan="2">
-<textarea style="width: 1200px;" rows="15" cols="200" name="contents" readonly="readonly" ><%=board.getNoticeContents() %> </textarea>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="ec-base-button ">
-<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice"><img src="./board/viewnotice/btn_list.gif" alt="목록" style="float:left; margin-left: 40px; "></a>
-</div>
-</div></div></div></div></div>
 
+<style type="text/css">
+.cs_title {
+	font-size:23px;
+	font-weight:600;
+	color:#333;
+	margin-bottom:15px;
+}
+.xans-board-read table {
+	font-size:13px;
+}
+.xans-board-read table input {
+	border:1px solid #ddd;
+	background:#fff;
+	color:#202020;
+	padding:1px 0 2px 4px;
+}
+
+.xans-board-read table th {
+	width:80px;
+	padding:15px;
+	text-align:left;
+	line-height:2em;
+	border-bottom:1px solid #e6e6e6;
+	color:#000;
+	font-weight:600;
+	font-size:14px;
+	background:#f7f7f7;
+}
+
+.xans-board-read table td {
+	padding:15px;
+	border-bottom:1px solid #e6e6e6;
+	line-height:2em;
+	color:#8b8b8c;
+	text-align:left;
+	font-weight:normal;
+	font-size:13px;
+}
+
+.xans-board-read table td img {
+	vertical-align:middle;
+}
+
+.bbs-table-view {
+    margin-top: 10px;
+    border-top: 2px solid #333;
+}
+
+table {
+	margin: 0 auto;
+}
+
+.view-link {
+	margin-left: 450px;
+}
+
+</style>
+<div class="cs_title"> 공지사항</div>	
+<div
+	class="xans-element- xans-board xans-board-read-4 xans-board-read xans-board-4">
+	<div class="boardView">
+		<div id="bbsData">
+			<div class="page-body">
+
+
+				<div class="bbs-table-view">
+					<table summary="게시글 보기">
+						<caption>게시글 보기</caption>
+						<tbody>
+							<tr class="">
+								<th scope="row">제목</th>
+								<td><%=board.getNoticeTitle() %></td>
+							</tr>
+							<tr>
+								<th scope="row">작성자</th>
+								<td>관리자</td>
+							</tr>
+							<tr class="etcArea ">
+								<td colspan="2"><ul>
+										<li class=""><strong class="th">작성일</strong> <span
+											class="td"><%=board.getNoticeDate() %></span></li>
+										<li class=""><strong class="th">조회수</strong> <span
+											class="td"><%=board.getNoticeReadcount() %></span></li>
+									</ul></td>
+							</tr>
+
+							<tr>
+								<td colspan="2" style="padding: 0px;">
+									<div class="data-bd-cont">
+
+											<a><%=board.getNoticeContents() %></a>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr size="1" color="#E5E5E5">
+					<div class="view-link">
+						<dl class="bbs-link con-link">
+							<dt></dt>
+							<dd>
+								<a href="#" class="none"><img src="../img/btn_wModify2.gif" alt="수정"></a> 
+								<a href="#"><img src="../img/btn_delete2.gif" alt="삭제"></a>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<a class="write" href="#"><img src="../img/btn_wWrite2.gif" alt="글쓰기"></a> 
+								<a href="#"><img src="../img/btn_list2.gif" alt="목록"></a>
+							</dd>
+						</dl>
+				</div>
+			</div>
+			<!-- .page-body -->
+		</div>
+		<!-- #bbsData -->
+	</div>
+</div>
