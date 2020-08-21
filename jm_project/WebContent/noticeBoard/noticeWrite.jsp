@@ -238,7 +238,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 
  <div class="cs_title" style="font-size:23px; font-weight:600;	color:#333;">공지사항 작성</div>
 <!--게시판상단-->
-<body>
+
 <div id="bbsData">
     <div class="page-body">
         <div class="bbs-table-write">
@@ -259,7 +259,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                    <th><div>제목</div></th>
                    <td colspan="">
                        <div class="title">
-                     	 <input id='bw_input_subject'  class="MS_input_txt input_style2" type='text' name='subject' value='' 
+                     	 <input id="subject"class="MS_input_txt input_style2" type='text' name='subject' value='' 
                      	 	style="height: 35px;   width: 400px; border-color: lightgray" />                                                    
                      	</div>
                    </td>
@@ -283,8 +283,16 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
        </dd>
    </dl>
 </form>
+             
+</div>
+</div>
+</div>
+<!-- .page-body -->
 
 <script type="text/javascript">
+
+alert("왜안돼");
+
 $("#subject").focus();
 
 $("#form1").submit(function() {
@@ -303,11 +311,5 @@ $("#form1").submit(function() {
 
 </script>
 
-                        
-</div>
-</div>
-<!-- .page-body -->
-</body>
-
-
+           
 

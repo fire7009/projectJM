@@ -79,9 +79,7 @@ public class NoticeDAO extends JdbcDAO {
 	           
 	            pstmt.setString(1, notice.getNoticeTitle());		
 	            pstmt.setString(2, notice.getNoticeContents());
-	            pstmt.setString(3, notice.getNoticeDate());
-	            pstmt.setInt(4, notice.getNoticeReadcount());		
-	            pstmt.setInt(5, notice.getNoticeStatus());
+	            pstmt.setInt(3, notice.getNoticeReadcount());		
 	            
 	            rows=pstmt.executeUpdate();
 	         } catch (SQLException e) {

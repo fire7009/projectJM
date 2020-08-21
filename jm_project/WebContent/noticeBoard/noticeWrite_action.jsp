@@ -13,25 +13,22 @@
 		return;
 	}    
 
-	int num=NoticeDAO.getDAO().selectNextNum();
+	int num=0;
 	int readCount=NoticeDAO.getDAO().updateReadCount(num);
      
 	//전달된 입력값을 반환받아 저장
-	int noticeNo=Integer.parseInt(request.getParameter("NOTICE_NO"));
-	String noticeTitle=request.getParameter("NOTICE_TITLE");
-	String noticeContents=request.getParameter("NOTICE_CONTENTS");
-	String noticeDate=request.getParameter("NOTICE_DATE");
-	int noticeReadcount=Integer.parseInt(request.getParameter("NOTICE_READCOUNT"));
-	int noticeStatus=Integer.parseInt(request.getParameter("NOTICE_STATUS"));
-
+	String noticeTitle=request.getParameter("subject");
+	String noticeContents=request.getParameter("content");
+	
+	System.out.print(noticeTitle);
+	System.out.print(noticeContents);
+	
+	
 	//DTO 인스턴스를 생성하여 입력값으로 필드값 변경
 	NoticeDTO notice=new NoticeDTO();
-	notice.setNoticeNo(num); //번호
 	notice.setNoticeTitle(noticeTitle); //제목
 	notice.setNoticeContents(noticeContents); //내용
-	notice.setNoticeDate(noticeDate);//날짜
 	notice.setNoticeReadcount(readCount);// 조회수
-	notice.setNoticeStatus('2'); // 글상태
 	
 	NoticeDAO.getDAO().insertNotice(notice);
 	
