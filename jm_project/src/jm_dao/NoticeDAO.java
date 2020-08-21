@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jm_dto.NoticeDTO;
+import jm_dto.UserInfoDTO;
 
 
 
@@ -64,6 +65,34 @@ public class NoticeDAO extends JdbcDAO {
 			}
 			return count;
 		}
+	
+		//게시글 저장 DAO
+	public int insertNotice(NoticeDTO notice) {
+	      Connection con=null;
+	      PreparedStatement pstmt=null;
+	      int rows=0;
+	      try {
+	            con=getConnection();
+	            
+	            String sql="insert into notice values((select(nvl(max(notice_no),0)+1)from notice),?,?,sysdate,?,'2')";
+	            pstmt=con.prepareStatement(sql);
+	           
+	            pstmt.setString(1, notice.getNoticeTitle());		
+	            pstmt.setString(2, notice.getNoticeContents());
+	            pstmt.setString(3, notice.getNoticeDate());
+	            pstmt.setInt(4, notice.getNoticeReadcount());		
+	            pstmt.setInt(5, notice.getNoticeStatus());
+	            
+	            rows=pstmt.executeUpdate();
+	         } catch (SQLException e) {
+	            System.out.println("[에러]insertNotice() 메소드의 SQL 오류 = "+e.getMessage());
+	         } finally {
+	            close(con, pstmt);
+	         }
+	         return rows;
+	      }
+	
+	
 	
 	
 		//게시글의 시작 행번호와 종료 행번호를 전달받아 BOARD 테이블에 저장된 
@@ -141,7 +170,32 @@ public class NoticeDAO extends JdbcDAO {
 			return board;
 		}
 	
-	
+		//BOARD_SEQ 시퀸스 객체의 다음값을 검색하여 반환하는 메소드
+		   public int selectNextNum() {
+		      Connection con=null;
+		      PreparedStatement pstmt=null;
+		      ResultSet rs=null;
+		      int nextNum=0;
+		      try {
+		         con=getConnection();
+		         
+		         String sql="select notice_seq.nextval from dual";
+		         pstmt=con.prepareStatement(sql);
+		         
+		         rs=pstmt.executeQuery();
+		         
+		         if(rs.next()) {
+		            nextNum=rs.getInt(1);
+		         }
+		      } catch (SQLException e) {
+		         System.out.println("[에러]selectNextNum() 메소드의 SQL 오류 = "+e.getMessage());
+		      } finally {
+		         close(con, pstmt, rs);
+		      } 
+		      return nextNum;
+		   }
+		
+		
 		//게시글번호를 전달받아 BOARD 테이블에 저장된 해당 게시글의 조회수를
 		//1 증가되도록 변경하고 변경행의 갯수를 반환하는 메소드
 		public int updateReadCount(int num) {

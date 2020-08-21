@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
+
 <style>
 #bbsData .bbs-link { position: relative; }
 #bbsData .bbs-link-top { margin-top: 10px; margin-bottom: -40px;margin-right: 400px; text-align: left; margin-left: 18px; }
@@ -77,6 +79,7 @@ select {
     line-height: 18px;
     height: 18px;
 }
+
 input:focus {
     outline: none;
 }
@@ -239,7 +242,9 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 <div id="bbsData">
     <div class="page-body">
         <div class="bbs-table-write">
-<form name='form1' action="board.html" method='post' enctype="multipart/form-data" style="position:relative;" autocomplete="off">
+        
+        
+<form name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeWrite_action"  method='post' enctype="multipart/form-data" style="position:relative;" autocomplete="off">
 <div id='passimg' name='passimg' style=' position:absolute; visibility:hidden;z-index:999; '></div>
 <fieldset>
        <legend>공지사항 쓰기</legend>
@@ -273,12 +278,36 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
    <dl class="bbs-link bbs-link-btm">
        <dt></dt>
        <dd>
-           <a class="write" href="JavaScript:send();"><img src="../img/btn_wWrite.gif" alt="등록"></a>
-           <a href="목록 경로"><img src="../img/btn_list.gif" alt="목록"></a>
+       	<button type="submit" style="border: none;"><img src="./img/btn_wWrite.gif" alt="등록"></button>
+           <a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list.gif" alt="목록"></a>
        </dd>
    </dl>
-</form>                        
+</form>
+
+<script type="text/javascript">
+$("#subject").focus();
+
+$("#form1").submit(function() {
+	   if($("#subject").val()=="") {
+	      $("#message").text("제목을 입력해 주세요.");
+	      $("#subject").focus();
+	      return false;
+	   }
+	   
+	   if($("#content").val()=="") {
+	      $("#message").text("내용을 입력해 주세요.");
+	      $("#content").focus();
+	      return false;
+	   }
+	});
+
+</script>
+
+                        
 </div>
 </div>
 <!-- .page-body -->
 </body>
+
+
+
