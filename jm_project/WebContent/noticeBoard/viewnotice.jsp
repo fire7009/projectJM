@@ -14,9 +14,11 @@
 
 <style type="text/css">
 .cs_title {
+	text-align: center;
 	font-size:23px;
 	font-weight:600;
 	color:#333;
+	margin-top: 15px;
 	margin-bottom:15px;
 }
 .xans-board-read table {
@@ -34,39 +36,39 @@
 	padding:15px;
 	text-align:left;
 	line-height:2em;
-	border-bottom:1px solid #e6e6e6;
+	border-bottom:1px solid #2e2e2e;
 	color:#000;
 	font-weight:600;
 	font-size:14px;
-	background:#f7f7f7;
+	background: lightgray;
 }
 
 .xans-board-read table td {
 	padding:15px;
-	border-bottom:1px solid #e6e6e6;
+	border-bottom:1px solid #2e2e2e;
 	line-height:2em;
-	color:#8b8b8c;
+	color:#2e2e2e;
 	text-align:left;
 	font-weight:normal;
 	font-size:13px;
 }
 
-.xans-board-read table td img {
-	vertical-align:middle;
-}
-
-.bbs-table-view {
+.bbs-table-hh-view {
     margin-top: 10px;
     border-top: 2px solid #333;
 }
 
 table {
 	margin: 0 auto;
+	width: 1000px;
+	font: sans-serif;
+	
 }
 
 .view-link {
 	margin-left: 450px;
 }
+
 
 </style>
 <div class="cs_title"> 공지사항</div>	
@@ -77,8 +79,11 @@ table {
 			<div class="page-body">
 
 
-				<div class="bbs-table-view">
+				<div class="bbs-table-hh-view">
 					<table summary="게시글 보기">
+						<br>
+						<br>
+						<br>
 						<caption>게시글 보기</caption>
 						<tbody>
 							<tr class="">
@@ -89,35 +94,41 @@ table {
 								<th scope="row">작성자</th>
 								<td>관리자</td>
 							</tr>
-							<tr class="etcArea ">
-								<td colspan="2"><ul>
-										<li class=""><strong class="th">작성일</strong> <span
-											class="td"><%=board.getNoticeDate() %></span></li>
-										<li class=""><strong class="th">조회수</strong> <span
-											class="td"><%=board.getNoticeReadcount() %></span></li>
-									</ul></td>
+							<tr class="etcArea " >
+							<th class="">작성일</th>
+								<td colspan="2">
+										<%=board.getNoticeDate() %>
+									</td>
+									</tr>
+									<tr>
+										<th>조회수 </th>
+									<td>	<%=board.getNoticeReadcount() %></td>
 							</tr>
 
 							<tr>
 								<td colspan="2" style="padding: 0px;">
 									<div class="data-bd-cont">
 
-											<a><%=board.getNoticeContents() %></a>
+											<a><br><%=board.getNoticeContents() %></a>
 									</div>
+									<br>
 								</td>
 							</tr>
 						</tbody>
 					</table>
+					<br>
+					<br>
+					<br>	
 					<hr size="1" color="#E5E5E5">
 					<div class="view-link">
 						<dl class="bbs-link con-link">
 							<dt></dt>
 							<dd>
-								<a href="#" class="none"><img src="../img/btn_wModify2.gif" alt="수정"></a> 
-								<a href="#"><img src="../img/btn_delete2.gif" alt="삭제"></a>
+								<a href="#" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
+								<a href="#"><img src="./img/btn_delete2.gif" alt="삭제"></a>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a class="write" href="#"><img src="../img/btn_wWrite2.gif" alt="글쓰기"></a> 
-								<a href="#"><img src="../img/btn_list2.gif" alt="목록"></a>
+								<a class="write" href="#"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
+								<a href="#"><img src="./img/btn_list2.gif" alt="목록"></a>
 							</dd>
 						</dl>
 				</div>
@@ -126,4 +137,11 @@ table {
 		</div>
 		<!-- #bbsData -->
 	</div>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>

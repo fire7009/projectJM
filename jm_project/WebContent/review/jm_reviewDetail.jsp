@@ -130,7 +130,7 @@
 							</tr>
 
 							<tr>
-								<td colspan="2" style="padding: 0px; height: 600px;" >
+								<td colspan="2" style="padding: 0px; height: 300px;" >
 									<div class="content">
 										<a><%= review.getContent().replace("\n", "<br>") %> </a>
 									</div>

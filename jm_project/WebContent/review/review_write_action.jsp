@@ -27,6 +27,7 @@
 	//String num = request.getParameter("postNo");
 	//ProdReviewDTO review = ProdReviewDAO.getDAO().selectNumBoard(num);
 	//int num = Integer.parseInt(review.getPostNo());
+	//int num = ProdReviewDAO.getDAO().selectNumBoard(to_number(postNo));
 	
 	
 	//클라이언트의 IP 주소를 반환받아 저장

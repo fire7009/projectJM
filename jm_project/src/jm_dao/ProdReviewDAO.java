@@ -65,7 +65,7 @@ public class ProdReviewDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "update prod_review set post_no=post_no+1 where post_no = ? ";
+			String sql = "update prod_review set (to_number(post_no)=(to_number(post_no))+1 where post_no = ? ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			
@@ -81,7 +81,7 @@ public class ProdReviewDAO extends JdbcDAO {
 	}
 	
 	//게시글 번호를 전달받아 BOARD 테이블에 저장된 게시글을 검색하여 반환하는 메소드
-	public ProdReviewDTO selectNumBoard(int postNo) {
+	public ProdReviewDTO selectNumBoard(int num) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -91,7 +91,7 @@ public class ProdReviewDAO extends JdbcDAO {
 			
 			String sql = "select * from prod_review where post_no=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, postNo);
+			pstmt.setInt(1, num);
 			
 			rs = pstmt.executeQuery();
 			
@@ -136,7 +136,7 @@ public class ProdReviewDAO extends JdbcDAO {
 				
 				if(keyword.equals("")) {
 					String sql="select * from (select rownum rn,temp.* from ("
-						+ "select * from prod_review order by post_no desc"
+						+ "select * from prod_review order by (to_number(post_no)) desc"
 						+ ") temp) where rn between ? and ?";
 					pstmt=con.prepareStatement(sql);
 					pstmt.setInt(1, startRow);
