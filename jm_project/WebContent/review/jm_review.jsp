@@ -128,7 +128,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 <body id="page-top">
 	<div id="content" class="container" style="margin-left: 230px; margin-top: 50px; margin-bottom: 100px;">
 
-		<div class="mem_title">내 게시물 관리</div>
+		<div class="mem_title">게시물 관리</div>
 
 		<div id="myHistory">
 			<div class="page-body">
