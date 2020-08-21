@@ -35,7 +35,7 @@ public class ProductInfoDAO extends JdbcDAO {
 			con = getConnection();
 
 			String sql = "insert into product_info(prod_cd,ctgr_cd, prod_nm,prod_price,bas_file_path,bas_file_nm,detl_file_path,detl_file_nm,\r\n"
-					+ "prod_detl,view_cnt,main_exp_yn,del_yn,frst_rgsr_usrno,last_procr_usrno) values((SELECT (NVL(MAX(PROD_CD), 0) + 1) FROM PRODUCT_INFO),?,?,?,?,?,?,?,?,?,?,?,?,?);";
+					+ "prod_detl,view_cnt,main_exp_yn,del_yn,frst_rgsr_usrno,last_procr_usrno) values((select(nvl(max(to_number(prod_cd),0)+1)from product_info),?,?,?,?,?,?,?,?,?,?,?,?,?);";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, product.getCtgrCd());
 			pstmt.setString(2, product.getProdNm());

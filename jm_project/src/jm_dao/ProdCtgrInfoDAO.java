@@ -32,7 +32,7 @@ public class ProdCtgrInfoDAO extends JdbcDAO {
 		try {
 			con=getConnection();
 			
-			String sql="insert into prod_ctgr_info(ctgr_cd, ctgr_nm,frst_rgsr_usrno,last_procr_usrno) values ((select nvl(max(ctgr_cd),0)+1 ctgr_cd from prod_ctgr_info),?,?,?)";
+			String sql="insert into prod_ctgr_info(ctgr_cd, ctgr_nm,frst_rgsr_usrno,last_procr_usrno) values ((select(nvl(max(to_number(ctgr_cd)),0)+1)from prod_ctgr_info),?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, ctgr.getCtgrNm());
 			pstmt.setString(2, ctgr.getFrstRgsrUsrno());

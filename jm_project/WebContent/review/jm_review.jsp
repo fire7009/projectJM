@@ -160,7 +160,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 							<td><%= number %></td>
 							
 							<%-- 상품코드 --%>
-							<td><%=review.getProdCd() %> </td>
+							<td><%=review.getProdCd()%> </td>
 							
 							<%-- 제목 --%>
 							<td class="subject">
@@ -228,7 +228,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 						<a
 							href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_review&pageNum=1&search=<%=search%>&keyword=<%=keyword%>">[◀◀]</a>
 						<a
-							href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_review&pageNum=<%=startPage - blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[◀]</a>
+							href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_review&pageNum=<%=startPage-blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[◀]</a>
 						<%	} else { %>
 						[◀◀][◀]
 						<% }	%>
@@ -260,7 +260,8 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 						<option value="subject">&nbsp;제목&nbsp;</option>
 						<option value="content">&nbsp;내용&nbsp;</option>
 					</select> <input type="text" name="keyword">
-					<button type="submit">검색</button>
+					<button type="submit">검색</button>\
+				<input type="hidden" name="pageNum" value="<%=pageNum%>">
 				</form>
 				<ol class="paging">
 				</ol>

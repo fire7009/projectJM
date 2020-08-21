@@ -36,7 +36,7 @@ public class OrderInfoDAO extends JdbcDAO {
 			con = getConnection();
 			
 			String sql = "insert into order_info (ord_no,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,"
-					+ "dlvr_detl_addr,frst_rgsr_usrno) values((SELECT (NVL(MAX(ORD_NO), 0) + 1) FROM ORDER_INFO), ?, ?, ?, ?, ?, ?)";
+					+ "dlvr_detl_addr,frst_rgsr_usrno) values((select(nvl(max(to_number(ord_no)),0)+1)from order_info), ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, orderInfo.getOrdSumAmt());

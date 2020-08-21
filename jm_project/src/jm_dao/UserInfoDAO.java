@@ -34,7 +34,7 @@ public class UserInfoDAO extends JdbcDAO {
       try {
             con=getConnection();
             //SQL문 한번 확인 해야함!!
-            String sql="insert into user_Info values( (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),?,?,?,?,?,?,?,?,'2','N', (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),"
+            String sql="insert into user_Info values( (select(nvl(max(to_number(user_no)),0)+1)from user_info),?,?,?,?,?,?,?,?,'2','N', (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO),"
             		+ "sysdate, (SELECT (NVL(MAX(User_No), 0) + 1) FROM USER_INFO), sysdate)";
             pstmt=con.prepareStatement(sql);
             pstmt.setString(1, userInfo.getUserId());

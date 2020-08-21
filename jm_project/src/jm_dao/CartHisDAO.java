@@ -35,7 +35,7 @@ public class CartHisDAO extends JdbcDAO{
 			
 			String sql="insert into cart_his(his_seqno,prod_cd,prod_qty,"
 					+ "frst_rgsr_usrno)"
-					+ "values((select(nvl(max(his_seqno),0)+1)from cart_his),?,?,?)";
+					+ "values((select(nvl(max(to_number(his_seqno)),0)+1)from cart_his),?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, cart.getProdCd());
 			pstmt.setInt(2, cart.getProdQty());
@@ -88,6 +88,7 @@ public class CartHisDAO extends JdbcDAO{
 		}
 		return cartList;
 	}
+	
 	
 	//선택된 사용자 코드와 his에 해당하는 장바구니 목록 출력
 	public List<CartHisDTO> selectCartListTwo(String frst, String his) {

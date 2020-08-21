@@ -34,7 +34,7 @@ public class OrdProdHisDAO extends JdbcDAO {
 		try {
 			con = getConnection();
 			
-			String sql = "insert into ord_prod_his(his_seqno,ord_no,prod_cd,ord_qty,frst_rgsr_usrno) values((SELECT (NVL(MAX(HIS_SEQNO), 0) + 1) FROM ORD_PROD_HIS),?, ?, ?, ?)";
+			String sql = "insert into ord_prod_his(his_seqno,ord_no,prod_cd,ord_qty,frst_rgsr_usrno) values((select(nvl(max(to_number(his_seqno)),0)+1)from ord_prod_his),?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, ordProdHis.getOrdNo());
 			pstmt.setString(2, ordProdHis.getProdCd());
