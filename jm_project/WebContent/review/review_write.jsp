@@ -5,20 +5,6 @@
 <%-- => [글저장]을 클릭한 경우 게시글 저장 처리페이지(board_write_action.jsp) 요청 - 입력값 전달--%>
 <%@include file = "/kdy/security/login_check.jspf" %>
 <%
-	/*
-	//부모글의 전달값을 저장하기 위한 변수
-	// => 부모글이 없는 경우 초기값 저장
-	String ref = "0",reStep = "0",reLevel ="0";
-	String pageNum = "1";//부모글의 요청페이지 번호 저장
-	
-	//부모글의 전달값을 반환받아 저장
-	if(request.getParameter("ref")!= null) {//부모글이 있는 경우(답글)
-		ref = request.getParameter("ref");
-		reStep = request.getParameter("reStep");
-		reLevel = request.getParameter("reLevel");
-		pageNum = request.getParameter("pageNum");
-	}
-	*/
 	String pageNum = "1";
 	pageNum = request.getParameter("pageNum");
 %>
@@ -30,6 +16,7 @@ table {
 th {
 	width: 70px;
 	font-weight: normal;
+	font-size: 15px;
 }
 
 td {
@@ -39,11 +26,11 @@ td {
 
 <form action="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_write_action" method="post" id="boardForm">
 	
-	<table>
+	<table style="margin: 30px;">
 		<tr>
 			<th>제목</th>
 			<td>
-				<input type="text" name="subject" id="subject" size="40">
+				<input type="text" name="subject" id="subject" size="60">
 				<input type="checkbox" name="secret" value="1">비밀글 
 			</td> 
 		</tr>

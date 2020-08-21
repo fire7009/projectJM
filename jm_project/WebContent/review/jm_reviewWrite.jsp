@@ -6298,7 +6298,7 @@ scale(
 				<div class="xans-element- xans-board xans-board-writepackage-4 xans-board-writepackage xans-board-4 ">
 					<div
 						class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-						<div class="title">
+						<div class="title" style="margin: 30%;">
 							<h2>
 								<font color="#555555">상품 사용후기</font>
 							</h2>

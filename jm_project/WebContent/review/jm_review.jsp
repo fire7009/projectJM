@@ -87,7 +87,7 @@
 <style type="text/css">
 .mem_title {
     padding: 70px 0 0;
-    font-size: 35px;
+    font-size: 25px;
     font-family: 'Nanum Gothic';
     color: #87a1c4;
     padding-bottom: 5px;
@@ -101,12 +101,12 @@
     font-weight: 600;
     vertical-align: middle;
     background: #f7f7f7;
-    font-size: 14px;
+    font-size: 15px;
     color: #353535;
 }
 
 body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.25;
     color: #777;
 }
@@ -260,7 +260,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 						<option value="subject">&nbsp;제목&nbsp;</option>
 						<option value="content">&nbsp;내용&nbsp;</option>
 					</select> <input type="text" name="keyword">
-					<button type="submit">검색</button>\
+					<button type="submit">검색</button>
 				<input type="hidden" name="pageNum" value="<%=pageNum%>">
 				</form>
 				<ol class="paging">

@@ -105,8 +105,8 @@
 	<div class="boardView">
 		<div id="bbsData">
 			<div class="page-body">
-				<div class="bbs-table-view" style="margin: 50px;">
-					<table summary="게시글 보기" >
+				<div class="bbs-table-view"  style="margin: 50px;">
+					<table summary="게시글 보기">
 						<caption>게시글 보기</caption>
 						<tbody>
 							<tr class="">
