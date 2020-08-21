@@ -1,4 +1,3 @@
-<%@page import="com.sun.scenario.effect.impl.prism.PrDrawable"%>
 <%@page import="jm_dao.ProdReviewDAO"%>
 <%@page import="jm_dto.ProdReviewDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,7 +14,7 @@
 	}
 
 	//전달값을 반환받아 저장
-	int postNo = Integer.parseInt(request.getParameter("postNo"));
+	String postNo = request.getParameter("num");
 	String pageNum = request.getParameter("pageNum");
 	String search = request.getParameter("search");
 	String keyword = request.getParameter("keyword");
@@ -29,7 +28,7 @@
 	
 	//DTO 인스턴스를 생성하고 필드값 변경
 	ProdReviewDTO review = new ProdReviewDTO();
-	
+	review.setPostNo(postNo);
 	review.setSubject(subject);
 	review.setContent(content);
 	review.setStatus(status);
