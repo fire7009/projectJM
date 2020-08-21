@@ -23,15 +23,7 @@ input, select, textarea, button {
     padding: 0;
 }
 
-body {
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 30%;
-    margin-right: 30%;
-}
+
 
 h1, h2, h3, h4, h5, h6, table,
 input, select, textarea, a {
@@ -244,8 +236,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
         <div class="bbs-table-write">
         
         
-<form name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeWrite_action"  method='post' enctype="multipart/form-data" style="position:relative;" autocomplete="off">
-<div id='passimg' name='passimg' style=' position:absolute; visibility:hidden;z-index:999; '></div>
+<form id="form1"  name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeWrite_action"  method='post'  style="position:relative;" autocomplete="off">
 <fieldset>
        <legend>공지사항 쓰기</legend>
        <table summary="">
@@ -268,7 +259,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                    <th><div>내용</div></th>
                    <td colspan="">
                 <div>
-              	 <textarea id='MS_text_content' name='content' wrap="off" onfocus='clear_content()'  class="MS_input_txt"  style="height: 400px;" ></textarea>
+              	 <textarea id="content2" name='content' wrap="off" onfocus='clear_content()'  class="MS_input_txt"  style="height: 400px;" ></textarea>
                 </div>
                 </td>
             </tr>
@@ -279,7 +270,8 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
        <dt></dt>
        <dd>
        	<button type="submit" style="border: none;"><img src="./img/btn_wWrite.gif" alt="등록"></button>
-           <a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list.gif" alt="목록"></a>
+         	<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList">
+         	<img src="./img/btn_list.gif" alt="목록"></a>
        </dd>
    </dl>
 </form>
@@ -291,20 +283,20 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 
 <script type="text/javascript">
 
-alert("왜안돼");
-
 $("#subject").focus();
 
 $("#form1").submit(function() {
-	   if($("#subject").val()=="") {
+	alert($("#subject").val()+"-"+$("#content2").val());
+	   if($("#subject").val()=="" ) {
 	      $("#message").text("제목을 입력해 주세요.");
+	      $("#subject").focus();
 	      $("#subject").focus();
 	      return false;
 	   }
 	   
-	   if($("#content").val()=="") {
+	   if($("#content2").val()=="") {
 	      $("#message").text("내용을 입력해 주세요.");
-	      $("#content").focus();
+	      $("#content2").focus();
 	      return false;
 	   }
 	});
