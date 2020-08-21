@@ -34,7 +34,7 @@ public class ProdReviewDAO extends JdbcDAO {
 			
 			String sql="insert into prod_review(post_no, PROD_CD, content,frst_rgst_dttm,last_proc_dttm,readcount,"
 					+ "id,writer,subject,ip,status)"
-					+ " values((select(nvl(max(to_number(post_no),0)+1)from prod_review), '1001', ?,sysdate"
+					+ " values((select(nvl(max(to_number(post_no)),0)+1)from prod_review), '1001', ?,sysdate"
 					+ ",sysdate,0,?,?,?,?,?)";
 	
 			pstmt=con.prepareStatement(sql);
