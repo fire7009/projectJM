@@ -94,6 +94,9 @@ table {
 .bbs-table-write {
     margin-top: 10px;
     border-top: 2px solid #333;
+    margin-left: 20%;
+    margin-right: 20%;
+    
 }
 .bbs-table-write tbody th {
     width: 60px;
@@ -228,7 +231,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 
 </style>
 
- <div class="cs_title" style="font-size:23px; font-weight:600;	color:#333;">공지사항 작성</div>
+ <div class="cs_title" style="margin-left:20%; margin-top:100px; font-size:23px; font-weight:600;	color:#333;">공지사항 작성</div>
 <!--게시판상단-->
 
 <div id="bbsData">
@@ -268,7 +271,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
    </fieldset>
    <dl class="bbs-link bbs-link-btm">
        <dt></dt>
-       <dd>
+       <dd style="margin-bottom: 100px;">
        	<button type="submit" style="border: none;"><img src="./img/btn_wWrite.gif" alt="등록"></button>
          	<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList">
          	<img src="./img/btn_list.gif" alt="목록"></a>
@@ -286,7 +289,6 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 $("#subject").focus();
 
 $("#form1").submit(function() {
-	alert($("#subject").val()+"-"+$("#content2").val());
 	   if($("#subject").val()=="" ) {
 	      $("#message").text("제목을 입력해 주세요.");
 	      $("#subject").focus();
