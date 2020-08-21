@@ -1023,9 +1023,10 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 
 		<!--  글쓰기 버튼 -->
 		 <div class="view-link" style="text-align: right; margin-right: 20px;">
-            <dl class="bbs-link con-link"><a class="write" href="링크">
+            <dl class="bbs-link con-link"><a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeWrite">
                   	<img src="./img/btn_wWrite.gif" alt="글쓰기"></a></dl>                                                                
          </div>
+         
          
          
      <%--      <% }       --%>    
