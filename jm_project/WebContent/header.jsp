@@ -103,7 +103,7 @@
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=50">지중등</a></li>
 					</ul></li>
 					
-					<li><a href="#">게시판</a></li>
+					<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_review">게시판</a></li>
 			</ul>
 		</div>
 		<p id="total_btn">
