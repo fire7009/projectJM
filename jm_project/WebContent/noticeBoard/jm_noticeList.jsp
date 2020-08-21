@@ -981,7 +981,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 <!-- 상단 이미지 -->
 <div style="width: 1280px; margin: 0 0 30px 0;">
 	<div style="padding-top: 20px;">
-		<img src="../img/bbs_topimg_11.jpg">
+		<img src="./img/bbs_topimg_11.jpg">
 	</div>
 </div>
 
@@ -1024,7 +1024,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 					</div></td>
 					 
 				<%-- 제목 --%>
-				<td><div class="tb-left"><img src="../img/neo_notice.gif" />
+				<td><div class="tb-left"><img src="./img/neo_notice.gif" />
 				<a href="<%=request.getContextPath()%>/index.jsp?workgroup=noticeBoard&work=viewnotice&noticeNo=<%=board.getNoticeNo()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>"><%=board.getNoticeTitle() %></a>
 				</div></td>
 			
@@ -1094,7 +1094,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 		<!--  글쓰기 버튼 -->
 		 <div class="view-link" style="text-align: right; margin-right: 20px;">
             <dl class="bbs-link con-link"><a class="write" href="링크">
-                  	<img src="../img/btn_wWrite.gif" alt="글쓰기"></a></dl>                                                                
+                  	<img src="./img/btn_wWrite.gif" alt="글쓰기"></a></dl>                                                                
          </div>
          
          
