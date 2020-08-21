@@ -10,6 +10,7 @@ import java.util.List;
 import jm_dto.NoticeDTO;
 
 
+
 public class NoticeDAO extends JdbcDAO {
 	
 	private static NoticeDAO _dao;
@@ -163,5 +164,34 @@ public class NoticeDAO extends JdbcDAO {
 			return rows;
 		}
 	
-	
+		public NoticeDTO selectNumNotice(int number) {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			NoticeDTO board=null;
+			try {
+				con=getConnection();
+				
+				String sql="select * from board where notice_no=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, number);
+				
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()) {
+					board=new NoticeDTO();
+					board.setNoticeNo(rs.getInt("notice_no"));
+					board.setNoticeTitle(rs.getString("notice_title"));
+					board.setNoticeContents(rs.getString("notice_contents"));
+					board.setNoticeDate(rs.getString("notice_date"));
+					board.setNoticeReadcount(rs.getInt("notice_readcount"));
+					board.setNoticeStatus(rs.getInt("notice_status"));
+				}
+			} catch (SQLException e) {
+				System.out.println("[에러]selectNumNotice 메소드의 SQL 오류 = "+e.getMessage());
+			} finally {
+				close(con, pstmt, rs);
+			}
+			return board;
+		}
 }

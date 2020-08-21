@@ -54,7 +54,8 @@
 		<h2 class="hide">메인메뉴</h2>
 		<div id="gnb_wrap">
 			<ul id="gnb">
-				<li class="fir"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category1">거실조명</a>
+				<li class="fir"><a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeList">공지사항</a></li>
+				<li><a href="<%=request.getContextPath() %>/index.jsp?workgroup=category&work=category1">거실조명</a>
 					<ul class="sub1">
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action1&category=20">20평대</a></li>
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action1&category=30">30평대</a></li>
@@ -101,12 +102,20 @@
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=40">정원등</a></li>
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=50">지중등</a></li>
 					</ul></li>
+					
+					<li><a href="#">게시판</a></li>
 			</ul>
 		</div>
 		<p id="total_btn">
 			<a href="#"><img src="img/btn_all_menu.png" alt="전체 메뉴" /></a>
 		</p>
 		<div id="total_menu">
+			<dl>
+				<dt>공지사항</dt>
+				<dd>
+			
+				</dd>
+			</dl>
 			<dl>
 				<dt>거실조명</dt>
 				<dd>
@@ -174,6 +183,12 @@
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=40">정원등</a></li>
 						<li><a href="<%=request.getContextPath()%>/index.jsp?workgroup=category&work=category_action6&category=50">지중등</a></li>
 					</ul>
+				</dd>
+			</dl>
+			<dl>
+				<dt>게시판</dt>
+				<dd>
+			
 				</dd>
 			</dl>
 			<!-- 총6개 -->
