@@ -14,14 +14,6 @@
 		return;
 	}
 	
-	//전달값을 반환받아 저장
-	/* 답글 안함
-	int ref = Integer.parseInt(request.getParameter("ref"));
-	int reStep = Integer.parseInt(request.getParameter("reStep"));
-	int reLevel = Integer.parseInt(request.getParameter("reLevel"));
-	*/
-	//String pageNum = request.getParameter("pageNum");
-	
 	//입력값에서 태그 관련 기호를 Escape 문자로 변환하여 저장
 	// => XSS 공격에 대한 방어법
 	String subject = request.getParameter("subject").replace("<", "&lt;").replace("<", "&gt;");
@@ -32,7 +24,7 @@
 	String content = request.getParameter("content").replace("<", "&lt;").replace("<", "&gt;");
 	
 	//글번호 다음값을 검색하여 반환하는 DAO 클래스의 메소드 호출 - 글번호
-	String num = request.getParameter("prodNo");
+	//String num = request.getParameter("postNo");
 	//ProdReviewDTO review = ProdReviewDAO.getDAO().selectNumBoard(num);
 	//int num = Integer.parseInt(review.getPostNo());
 	
@@ -48,7 +40,6 @@
 	
 	//DTO 인스턴스를 생성하고 필드값 변경
 	ProdReviewDTO review = new ProdReviewDTO();
-	review.setPostNo(review.getPostNo());
 	review.setId(loginMember.getUserId());
 	review.setWriter(loginMember.getUserNm());
 	review.setSubject(subject);

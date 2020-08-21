@@ -15,7 +15,7 @@
 	}
 
 	//전달값을 반환받아 저장
-	int num = Integer.parseInt(request.getParameter("num"));
+	int postNo = Integer.parseInt(request.getParameter("postNo"));
 	String pageNum = request.getParameter("pageNum");
 	String search = request.getParameter("search");
 	String keyword = request.getParameter("keyword");
@@ -29,7 +29,7 @@
 	
 	//DTO 인스턴스를 생성하고 필드값 변경
 	ProdReviewDTO review = new ProdReviewDTO();
-	//modify_action 기능 덜 됨(post_no이 안 받아짐)
+	
 	review.setSubject(subject);
 	review.setContent(content);
 	review.setStatus(status);
@@ -40,7 +40,7 @@
 	//게시글 상세 출력페이지 이동
 	out.println("<script type = 'text/javascript'>");
 	out.println("location.href='"+request.getContextPath()
-		+"/index.jsp?workgroup=review&work=jm_reviewDetail&num="+num
+		+"/index.jsp?workgroup=review&work=jm_reviewDetail&num="+postNo
 		+"&pageNum="+pageNum+"&search="+search+"&keyword"+keyword+"';");
 	out.println("</script>");
 	

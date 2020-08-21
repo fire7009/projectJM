@@ -272,7 +272,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
               <!-- Footer-->
 <script type="text/javascript">
 $("#writeBtn").click(function() {
-	location.href = "<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_reviewWrite";
+	location.href = "<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_write";
 });
 </script>
 

@@ -2,7 +2,16 @@
 <%@page import="jm_dao.ProdReviewDAO"%>
 <%@page import="jm_dto.ProdReviewDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+
+
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/css_02.css" rel="stylesheet" type="text/css" />
+<link href="css/header.css" rel="stylesheet" type="text/css" />
+<link href="css/footer.css" rel="stylesheet" type="text/css" />
+<link href="khm/css/new_join.css" rel="stylesheet" type="text/css" />
+<link href="css/nanumsquareround.css" rel="stylesheet" type="text/css" />
 <%
 	//비정상적인 요청에 대한 응답처리
 	if(request.getParameter("num")==null) {
@@ -51,116 +60,85 @@
 	
 %>
 <style type="text/css">
-.cs_title {
-	font-size:23px;
-	font-weight:600;
-	color:#333;
-	margin-bottom:15px;
-}
-.xans-board-read table {
-	font-size:13px;
-}
-.xans-board-read table input {
-	border:1px solid #ddd;
-	background:#fff;
-	color:#202020;
-	padding:1px 0 2px 4px;
+#board_detail {
+	width: 500px;
+	margin: 0 auto;
 }
 
-.xans-board-read table th {
-	width:80px;
-	padding:15px;
-	text-align:left;
-	line-height:2em;
-	border-bottom:1px solid #e6e6e6;
-	color:#000;
-	font-weight:600;
-	font-size:14px;
-	background:#f7f7f7;
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 
-.xans-board-read table td {
-	padding:15px;
-	border-bottom:1px solid #e6e6e6;
-	line-height:2em;
-	color:#8b8b8c;
-	text-align:left;
-	font-weight:normal;
-	font-size:13px;
+th, td {
+	border: 1px solid black;
+	padding: 5px;
 }
 
-.xans-board-read table td img {
-	vertical-align:middle;
+th {
+	width: 100px;
 }
 
-.bbs-table-view {
-    margin-top: 10px;
-    border-top: 2px solid #333;
+td {
+	width: 400px;
 }
 
+.subject, .content { text-align: left; }
+
+.content {
+	height: 100px;
+	vertical-align: middle;
+}
+
+#board_menu {
+	text-align: right;
+	margin: 5px;
+}
 </style>
-<div class="cs_title" style="margin: 50px;">게시글</div>	
-<div
-	class="xans-element- xans-board xans-board-read-4 xans-board-read xans-board-4">
-	<div class="boardView">
-		<div id="bbsData">
-			<div class="page-body">
-				<div class="bbs-table-view" style="margin: 50px;">
-					<table summary="게시글 보기" >
-						<caption>게시글 보기</caption>
-						<tbody>
-							<tr class="">
-								<th scope="row">제목</th>
-								<td class="subject">
-								<% if(review.getStatus()==1) { %>[비밀글]<% } %>
-								<%=review.getSubject() %>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">작성자</th>
-								<td><%=review.getWriter() %></td>
-							</tr>
-							<tr class="etcArea" >
-								<td colspan="2"><ul>
-										<li class=""><strong class="th">작성일</strong> <span
-											class="td"><%=review.getFrstRgstDttm().substring(0,19) %></span></li>
-										<li class=""><strong class="th">조회수</strong> <span
-											class="td"><%=review.getReadcount()+1 %></span></li>
-								</ul></td>
-							</tr>
 
-							<tr>
-								<td colspan="2" style="padding: 0px; height: 600px;" >
-									<div class="content">
-										<a><%= review.getContent().replace("\n", "<br>") %> </a>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<hr size="1" color="#E5E5E5">
-					<div class="view-link">
-							<div id="board_menu" align="right" style="margin-right: 50px;">
-							<%-- 로그인 사용자가 작성자이거나 관리자인 경우 --%>
-							<% if(loginMember != null && (loginMember.getUserId().equals(review.getId()) || Integer.parseInt(loginMember.getUserDv()) == 1)) { %>
-							<button type="button" id="removeBtn" style="border:none;">
-							<img src="img/btn_delete2.gif"" alt="삭제" width="130px" >
-							</button>
-							<button type="button" id="modifyBtn" style="border:none;">
-							<img src="img/btn_wModify2.gif" alt="수정" width="130px" >
-							</button>
-							<% } %>
-							<button type="button" id="listBtn" style="border:none;">
-							<img src="img/btn_list2.gif" alt="목록" width="130px" >
-							</button>
-							</div>
-					</div>
+<div id="board_detail">
+	<h2>게시글</h2>
+	<table>
+		<tr>
+			<th>작성자</th>
+			<td>
+				<%=review.getWriter() %>
+				<%-- 로그인 사용자가 관리자인 경우 
+				<% if(loginMember!= null && Integer.parseInt(loginMember.getUserDv()) == 1)  {%>
+					[<%=review.getIp() %>]
+				<% } %>--%>
+			</td>
+		</tr>
+		<tr>
+			<th>작성일</th>
+			<td><%=review.getFrstRgstDttm().substring(0,19) %></td>
+		</tr>
+		<tr>
+			<th>조회수</th>
+			<td><%=review.getReadcount()+1 %></td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td class="subject">
+				<% if(review.getStatus()==1) { %>[비밀글]<% } %>
+				<%=review.getSubject() %>
+			</td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td class="content">
+				<%= review.getContent().replace("\n", "<br>") %> 
+			</td>
+		</tr>
+	</table>
 
-				</div>
-			</div>
-			<!-- .page-body -->
-		</div>
-		<!-- #bbsData -->
+	<div id="board_menu">
+		<%-- 로그인 사용자가 작성자이거나 관리자인 경우 --%>
+		<% if(loginMember != null && (loginMember.getUserId().equals(review.getId()) || Integer.parseInt(loginMember.getUserDv()) == 1)) { %>
+		<button type="button" id="removeBtn">글삭제</button>
+		<button type="button" id="modifyBtn">글변경</button>
+		<% } %>
+		<button type="button" id="listBtn" >글목록</button>
 	</div>
 </div>
 
@@ -183,6 +161,11 @@ $("#removeBtn").click(function() {
 
 $("#modifyBtn").click(function() {
 	$("#boardForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_modify");
+	$("#boardForm").submit();
+});
+
+$("#replyBtn").click(function() {
+	$("#boardForm").attr("action","<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_write");
 	$("#boardForm").submit();
 });
 

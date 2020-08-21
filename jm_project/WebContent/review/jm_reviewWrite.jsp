@@ -5430,15 +5430,7 @@ keyframes heart { 0%{
 
 5
 %
-{
-transform
-:
-scale(
-1.18
-,
-1.18
-)
-}
+{ transform:scale(1.18,1.18) }
 10
 %
 {
@@ -6298,7 +6290,6 @@ scale(
 </style>
 </head>
 <body>
-
 	<hr class="layout" />
 	<div id="wrap">
 		<div id="container">
@@ -6307,14 +6298,6 @@ scale(
 				<div class="xans-element- xans-board xans-board-writepackage-4 xans-board-writepackage xans-board-4 ">
 					<div
 						class="xans-element- xans-board xans-board-title-4 xans-board-title xans-board-4 ">
-						<div class="path">
-							<span>현재 위치</span>
-							<ol>
-								<li><a href="/">홈</a></li>
-								<li><a href="/board/index.html">게시판</a></li>
-								<li title="현재 위치"><strong>상품 사용후기</strong></li>
-							</ol>
-						</div>
 						<div class="title">
 							<h2>
 								<font color="#555555">상품 사용후기</font>
@@ -6334,13 +6317,7 @@ scale(
 						<input id="is_post_checked" name="is_post_checked" value="" type="hidden" /> 
 						<input id="586" name="586" value="0776c18d8d9cf9daf88b27e2849c8dcd" type="hidden" />
 						<div class="xans-element- xans-board xans-board-write-4 xans-board-write xans-board-4">
-							<!--
-            $write_success_url = /board/product/list.html
-            $product_select_url = /product/search_board_list.html
-            $order_select_url = /order/search_board_list.html
-            $login_page_url = /member/login.html
-            $deny_access_url = /index.html
-        -->
+						
 							<!-- 상품정보선택 -->
 							<div class="ec-base-box typeProduct">
 								<p class="thumbnail">
@@ -6384,9 +6361,9 @@ scale(
 										<tr>
 											<th scope="row">제목</th>
 											<td><input id="subject" name="subject"
-												fw-filter="isFill" fw-label="제목" fw-msg=""
-												class="inputTypeText" placeholder="" maxLength="125"
-												value="" type="text" /></td>
+												fw-filter="isFill" fw-label="제목" 
+												value="" type="text"/>
+												<input type="checkbox" name="secret" value="1">비밀글 </td>
 										</tr>
 										<tr class="displaynone">
 											<th scope="row">작성자</th>
@@ -6418,12 +6395,11 @@ scale(
 										<tr>
 											<td colspan="2" class="clear"><script
 													type="text/javascript"
-													src="//editor.cafe24.com/js/nneditor.js?c=ko"></script> <script
-													type="text/javascript">
+													src="//editor.cafe24.com/js/nneditor.js?c=ko"></script>
+													<script type="text/javascript">
 														NN.Config.instanceID = "content";
 														NN.Config.value = "";
-														NN.Config.toolbarType = "simple";
-
+												
 														//Editor Height
 														NN.Config.height = 400;
 
@@ -6467,77 +6443,29 @@ scale(
 														$Editor.push(
 																oNN_content,
 																"content");
-													</script> <input type="hidden" id="content_hidden"
-												fw-filter="isSimplexEditorFill" fw-label="내용"
+													</script> 
+													<input type="hidden" id="content_hidden" fw-filter="isSimplexEditorFill" fw-label="내용"
 												value="oNN_content" /></td>
-										</tr>
-										<tr class="ucc">
-											<th scope="row">UCC URL</th>
-											<td><input id="ucc" name="ucc" size="35" fw-filter=""
-												fw-label="UCC URL" value="" type="text" /></td>
+											
 										</tr>
 									</tbody>
 									<tbody class="">
 										<tr>
-											<th scope="row">첨부파일1</th>
+											<th scope="row">첨부파일</th>
 											<td><input name="attach_file[]" type="file" /></td>
-										</tr>
-										<tr>
-											<th scope="row">첨부파일2</th>
-											<td><input name="attach_file[]" type="file" /></td>
-										</tr>
-										<tr>
-											<th scope="row">첨부파일3</th>
-											<td><input name="attach_file[]" type="file" /></td>
-										</tr>
-									</tbody>
-									<tbody>
-										<tr class="">
-											<th scope="row">비밀번호</th>
-											<td><input id="password" name="password"
-												fw-filter="isFill" fw-label="비밀번호" fw-msg="" value=""
-												type="password" /></td>
-										</tr>
-										<tr class="displaynone">
-											<th scope="row">비밀글설정</th>
-											<td><input id="secure0" name="secure" fw-filter="isFill"
-												fw-label="비밀글설정" fw-msg="" value="F" type="radio"
-												checked="checked" /><label for="secure0">공개글</label> <input
-												id="secure1" name="secure" fw-filter="isFill"
-												fw-label="비밀글설정" fw-msg="" value="T" type="radio" /><label
-												for="secure1">비밀글</label></td>
-										</tr>
-										<tr class="captcha displaynone">
-											<th scope="row">자동등록방지<br />보안문자
-											</th>
-											<td>
-												<p class="gBlank5">
-													<span class="ec-base-help txtInfo">영문, 숫자 조합을 공백없이
-														입력하세요(대소문자구분)</span>
-												</p>
-											</td>
-										</tr>
-										<tr class="agree displaynone">
-											<th scope="row">개인정보 수집 및 <br />이용 동의
-											</th>
-											<td><br /> 개인정보 수집 및 이용에 동의하십니까?</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
-							<div class="ec-base-button ">
-								<span class="gLeft"> <span class="displaynone"><a
-										href="#none" onclick=""><img
-											src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_reply_admin.gif"
-											alt="관리자답변보기" /></a></span> <a href="/board/상품-사용후기/4/"><img
-										src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_list.gif"
-										alt="목록" /></a>
-								</span> <span class="gRight"> <a href="#none"
-									onclick="BOARD_WRITE.form_submit('boardWriteForm');"><img
-										src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_register.gif"
-										alt="등록" /></a> <a href="/board/상품-사용후기/4/"><img
-										src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_cancel.gif"
-										alt="취소" /></a>
+							<div class="ec-base-button" >
+								<span class="gRight"> 
+								<button type="submit" style="border:none;";>
+								<img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_register.gif" alt="등록">
+								</button>
+								<!-- <a href="#none" onclick="BOARD_WRITE.form_submit('boardWriteForm');" id="rgstBtn">
+									<img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_register.gif" alt="등록" /></a>  -->
+									<a href="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_review" id="cancelBtn">
+									<img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/btn_cancel.gif" alt="취소" /></a>
 								</span>
 							</div>
 						</div>
@@ -6551,3 +6479,25 @@ scale(
 	<hr class="layout" />
 </body>
 </html>
+<div id="message" style="color: red;"></div>
+
+<script type="text/javascript">
+$("#subject").focus();
+
+$("#boardWriteForm").submit(function() {
+	if ($("#subject").val()=="") {
+		$("#message").text("제목을 입력해주세요.");
+		$("#subject").focus();
+		return false;
+	}
+	
+	if ($("#content_hidden").val()=="") {
+		$("#message").text("내용을 입력해주세요.");
+		$("#content_hidden").focus();
+		return false;
+	}
+});
+
+
+</script>
+
