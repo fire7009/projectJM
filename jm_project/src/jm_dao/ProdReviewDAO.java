@@ -36,7 +36,7 @@ public class ProdReviewDAO extends JdbcDAO {
 					+ "id,writer,subject,ip,status)"
 					+ " values((select nvl(max(post_no),0)+1 post_no from prod_review), '1001', ?,sysdate"
 					+ ",sysdate,0,?,?,?,?,?)";
-		
+	
 			pstmt=con.prepareStatement(sql);
 			//pstmt.setString(1, review.getProdCd());
 			pstmt.setString(1, review.getContent());
@@ -81,7 +81,7 @@ public class ProdReviewDAO extends JdbcDAO {
 	}
 	
 	//게시글 번호를 전달받아 BOARD 테이블에 저장된 게시글을 검색하여 반환하는 메소드
-	public ProdReviewDTO selectNumBoard(int num) {
+	public ProdReviewDTO selectNumBoard(int postNo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -91,7 +91,7 @@ public class ProdReviewDAO extends JdbcDAO {
 			
 			String sql = "select * from prod_review where post_no=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
+			pstmt.setInt(1, postNo);
 			
 			rs = pstmt.executeQuery();
 			
@@ -136,7 +136,7 @@ public class ProdReviewDAO extends JdbcDAO {
 				
 				if(keyword.equals("")) {
 					String sql="select * from (select rownum rn,temp.* from ("
-						+ "select * from prod_review order by post_no"
+						+ "select * from prod_review order by post_no desc"
 						+ ") temp) where rn between ? and ?";
 					pstmt=con.prepareStatement(sql);
 					pstmt.setInt(1, startRow);
@@ -144,7 +144,7 @@ public class ProdReviewDAO extends JdbcDAO {
 				} else {
 					String sql="select * from (select rownum rn,temp.* from ("
 							+ "select * from prod_review where "+search
-							+" like '%'||?||'%' and status!=9 order by post_no"
+							+" like '%'||?||'%' and status!=9 order by post_no desc"
 							+ ") temp) where rn between ? and ?";
 					pstmt=con.prepareStatement(sql);
 					pstmt.setString(1, keyword);
@@ -192,6 +192,7 @@ public class ProdReviewDAO extends JdbcDAO {
 		ProdReviewDTO review =null;
 		try {
 			con=getConnection();
+			
 			
 			String sql="select * from prod_review where post_no=?";
 			pstmt=con.prepareStatement(sql);
