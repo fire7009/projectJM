@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import jm_dto.OrderInfoDTO;
-import jm_dto.ProductInfoDTO;
+
 
 public class OrderInfoDAO extends JdbcDAO {
 	private static OrderInfoDAO _dao;
@@ -58,105 +59,41 @@ public class OrderInfoDAO extends JdbcDAO {
 	}
 	
 	//주문정보 선택
-	public List<OrderInfoDTO> selectOrderInfo(String ordNo) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<OrderInfoDTO> orderList=new ArrayList<OrderInfoDTO>();
-		try {
-			con = getConnection();
-
-			String sql = "select ord_sum_qty,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,dlvr_detl_addr,"
-					+ "ord_cncl_yn from order_info where ord_no=? order by to_number(ord_no)";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, ordNo);
-
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				OrderInfoDTO order=new OrderInfoDTO();
-				order.setOrdSumQty(rs.getInt("ord_sum_qty"));
-				order.setOrdSumAmt(rs.getInt("ord_sum_amt"));
-				order.setRcvrNm(rs.getString("rcvr_nm"));
-				order.setDlvrPostCd(rs.getString("dlvr_post_cd"));
-				order.setDlvrBasAddr(rs.getString("dlvr_bas_addr"));
-				order.setDlvrDetlAddr(rs.getString("dlvr_detl_addr"));
-				order.setOrdCnclYn(rs.getString("ord_cncl_yn"));
-				orderList.add(order);
-			}
-			
-		} catch (SQLException e) {
-			System.out.println("[에러]selectOrderInfo()의 SQL오류 = " + e.getMessage());
-		} finally {
-			close(con, pstmt, rs);
-		}
-		return orderList;
-	}
-	
-	//주문정보 선택
-	public List<OrderInfoDTO> selectOrderInfoTwo(int startRow, int endRow, String user) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<OrderInfoDTO> orderList=new ArrayList<OrderInfoDTO>();
-		try {
-			con = getConnection();
-			
-			String sql = "select ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,dlvr_detl_addr,"
-					+ "ord_cncl_yn from (select rownum rn, temp.* from("
-					+ "select * from order_info order by to_number(ord_no)"
-					+ " ) temp) where rn between ? and ? and frst_rgsr_usrno=?";
-			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2,endRow);
-			pstmt.setString(3, user);
-
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				OrderInfoDTO order=new OrderInfoDTO();
-				order.setOrdSumAmt(rs.getInt("ord_sum_amt"));
-				order.setRcvrNm(rs.getString("rcvr_nm"));
-				order.setDlvrPostCd(rs.getString("dlvr_post_cd"));
-				order.setDlvrBasAddr(rs.getString("dlvr_bas_addr"));
-				order.setDlvrDetlAddr(rs.getString("dlvr_detl_addr"));
-				order.setOrdCnclYn(rs.getString("ord_cncl_yn"));
-				orderList.add(order);
-			}
-			
-		} catch (SQLException e) {
-			System.out.println("[에러]selectOrderInfoTwo()의 SQL오류 = " + e.getMessage());
-		} finally {
-			close(con, pstmt, rs);
-		}
-		return orderList;
-	}
-	
-	public int selectOrdCnt(String user) {
+	public List<OrderInfoDTO> selectOrdList(String frst) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		int count=0;
+		List<OrderInfoDTO> ordList=new ArrayList<OrderInfoDTO>();
 		try {
 			con=getConnection();
 			
-				String sql="select count(*) from order_info where frst_rgsr_usrno=? ";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setString(1, user);
+			String sql="select ord_no,ord_sum_amt,rcvr_nm,dlvr_post_cd,dlvr_bas_addr,dlvr_detl_addr,ord_cncl_yn from order_info where frst_rgsr_usrno=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,frst);
 			
 			rs=pstmt.executeQuery();
 			
-			if(rs.next()) {
-				count=rs.getInt(1);
+			while(rs.next()) {
+				OrderInfoDTO ord=new OrderInfoDTO();
+				ord.setOrdNo(rs.getString("ord_no"));
+				ord.setOrdSumAmt(rs.getInt("ord_sum_amt"));
+				ord.setRcvrNm(rs.getString("rcvr_nm"));
+				ord.setDlvrPostCd(rs.getString("dlvr_post_cd"));
+				ord.setDlvrBasAddr(rs.getString("dlvr_bas_addr"));
+				ord.setDlvrDetlAddr(rs.getString("dlvr_detl_addr"));
+				ord.setOrdCnclYn(rs.getString("ord_cncl_yn"));
+				ordList.add(ord);
 			}
+			
 		} catch (SQLException e) {
-			System.out.println("[에러]selectOrdCnt() 메소드의 SQL 오류 = "+e.getMessage());
-		} finally {
-			close(con, pstmt, rs);
+			System.out.println("[에러]selectOrdList 메소드의 sql 오류=" +e.getMessage());
+		}finally {
+			close(con,pstmt,rs);
 		}
-		return count;
+		return ordList;
 	}
+	
+	
 	
 	//주문내역 삭제
 	public int delOrd(String user,String ord) {

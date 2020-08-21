@@ -9,6 +9,7 @@
 
 UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
+
 if(loginMember==null) {
 	out.println("<script type='text/javascript'>");
 	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
@@ -18,30 +19,12 @@ if(loginMember==null) {
 
 String user=loginMember.getFrstRgsrUsrno();
 
-int pageNum=1;
-if(request.getParameter("pageNum")!=null) {//전달값이 있는 경우.
-	pageNum=Integer.parseInt(request.getParameter("pageNum"));
-}
+int qty=0;
+int price=0;
+int tot=0;
 
-int pageSize=4;
 
-int totalOrd=OrderInfoDAO.getDAO().selectOrdCnt(user);
-int totalPage=(int)Math.ceil((double)totalOrd/pageSize);
-
-if(pageNum<=0 || pageNum>totalPage) {//페이지 번호가 잘못된 경우
-	pageNum=1;
-}
-int startRow=(pageNum-1)*pageSize+1;
-
-int endRow=pageNum*pageSize;
-
-if(endRow>totalOrd) {
-	endRow=totalOrd;
-}
-
-List<OrderInfoDTO> ordList=OrderInfoDAO.getDAO().selectOrderInfoTwo(startRow, endRow, user);
-
-int number=totalOrd-(pageNum-1)*pageSize;
+List<OrderInfoDTO> ordList=OrderInfoDAO.getDAO().selectOrdList(user);
 %>
 
 <style type="text/css">
@@ -95,63 +78,33 @@ td {
 
 <div class="content">
 
-			<form name="ordForm" id="ordForm">
+
 				<table>
 					<tr>
-						<th>번호</th>
 						<th>주문총금액</th>
 						<th>수령자명</th>
 						<th>배송지우편번호</th>
 						<th>배송지주소</th>
 						<th>주문취소</th>
 					</tr>
-					<%if(totalOrd==0){ %>
+					<%if(ordList.isEmpty()){ %>
 					<tr>
 				<td colspan="6">주문한 제품이 하나도 없습니다.</td>
 		<% } else { %>
 			<% for(OrderInfoDTO ord:ordList){ %>
 				<% if(ord.getOrdCnclYn().equals("N")) {%>
 					<tr>
-						<th><%=number%></th>
 						<th><%=ord.getOrdSumAmt()%></th>
 						<th><%=ord.getRcvrNm()%></th>
 						<th><%=ord.getDlvrPostCd()%></th>
 						<th><%=ord.getDlvrBasAddr()%><%=ord.getDlvrDetlAddr() %></th>
-						<th><input type="image" value="삭제" onclick="removeOrd(<%=ord.getOrdNo()%>); return false;" src="<%=request.getContextPath()%>/img/CCBtn.png" style="width: 130px;"></th>
+						<th><input type="image" value="삭제" onclick="removeOrd(<%=ord.getOrdNo()%>);" src="<%=request.getContextPath()%>/img/CCBtn.png" style="width: 130px;"></th>
 					</tr>
-					<%number--; %>
 				<%} %>	
 			<%} %>
 		<%} %>
 		</table>
-		<%
-			int blockSize=5;
-			int startPage=(pageNum-1)/blockSize*blockSize+1;
-			int endPage=startPage+blockSize-1;
-			if(endPage>totalPage) {
-				endPage=totalPage;
-			}
-		%>
-		<div class="paging">
-		<% if(startPage>blockSize) { %>
-	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList&pageNum=<%=startPage-blockSize%>">[이전]</a>
-	<% } else { %>
-	[이전]
-	<% } %>
-	
-	<% for(int i=startPage;i<=endPage;i++) { %>
-		<% if(pageNum!=i) { %>
-		<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList&pageNum=<%=i%>">[<%=i %>]</a>
-		<% } else { %>
-		<span style="font-size: 18px; font-weight: bold;">[<%=i %>]</span>
-		<% } %>
-	<% } %>
-	
-	<% if(endPage!=totalPage) { %>
-	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList&pageNum=<%=startPage+blockSize%>">[다음]</a>
-	<% } else { %>
-	[다음]
-	<% } %>
+
 		</div>
 		<div class="btnArea">
 			<a	 href="<%=request.getContextPath() %>/index.jsp " class="mainBtn"> 
@@ -159,12 +112,12 @@ td {
 		<input type="hidden" name="user" value="<%=user%>">
 		</div>
 		
-		</form>
+	
 	</div>
 	
 	<script type="text/javascript">
 	function removeOrd(ord) {
-		location.href="khm/jm_Order_delete.jsp?ord="+ord+"&user=<%=user%>";
+		location.href="khm/jm_Order_delete.jsp?ord="+ord;
 	}
 	</script>
 	  
