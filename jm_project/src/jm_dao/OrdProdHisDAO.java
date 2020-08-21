@@ -14,7 +14,7 @@ public class OrdProdHisDAO extends JdbcDAO {
 	private static OrdProdHisDAO _dao;
 	
 	public OrdProdHisDAO() {
-		// TODO Auto-generated constructor stubs
+		// TODO Auto-generated constructor stubsss
 	}
 	
 	static {
