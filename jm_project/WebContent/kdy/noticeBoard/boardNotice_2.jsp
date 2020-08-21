@@ -98,6 +98,9 @@ tr{
 <div class="boardSort">
 <span class="xans-element- xans-board xans-board-replysort-1002 xans-board-replysort xans-board-1002 "></span>
 </div>
+
+
+
 <div class="ec-base-table typeList gBorder">
 <table border="1" summary="">
 <caption>게시판 목록</caption>
@@ -145,6 +148,7 @@ tr{
 				<td  style="text-align: center;">
 				<%=board.getNoticeReadcount() %></td>
 			</tr>
+			
 			<% number--; %>
 			<% } %>
 		<% } %>
@@ -176,7 +180,10 @@ tr{
 		}
 	%>
 	
+	
+	
 	<div style="padding-left: 840px;">
+	
 	<% if(startPage>blockSize) { %>
 	<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice.jsp&pageNum=1&search=<%=search%>&keyword=<%=keyword%>">[처음]</a>
 	<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice.jsp&pageNum=<%=startPage-blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[이전]</a>
@@ -191,7 +198,7 @@ tr{
 		<span style="font-size: 15px;">[<%=i %>]</span>
 		<% } %>
 	<% } %>
-	
+
 	<% if(endPage!=totalPage) { %>
 	<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice&pageNum=<%=startPage+blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[다음]</a>
 	<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice&pageNum=<%=totalPage%>&search=<%=search%>&keyword=<%=keyword%>">[마지막]</a>
