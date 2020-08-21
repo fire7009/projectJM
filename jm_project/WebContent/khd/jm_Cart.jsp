@@ -27,7 +27,7 @@
 	int tot=0;
 	
 	int pageNum=1;
-	if(request.getParameter("pageNum")!=null) {//전달값이 있는 경우
+	if(request.getParameter("pageNum")!=null) {//전달값이 있는 경우  
 		pageNum=Integer.parseInt(request.getParameter("pageNum"));
 	}
 	
