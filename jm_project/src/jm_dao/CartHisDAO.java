@@ -53,7 +53,7 @@ public class CartHisDAO extends JdbcDAO{
 	
 	
 	//선택된 사용자 코드에 해당하는 장바구니 목록 출력
-	public List<CartHisDTO> selectCartList(String frst) {
+	public List<CartHisDTO> selectCartList(int startRow, int endRow, String frst) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -61,9 +61,13 @@ public class CartHisDAO extends JdbcDAO{
 		try {
 			con=getConnection();
 			
-			String sql="select his_seqno,prod_cd,prod_qty,ord_yn,del_yn from cart_his where frst_rgsr_usrno=? order by his_seqno";
+			String sql="select * from (select rownum rn, temp.* from("
+					+ "select * from cart_his order by his_seqno "
+					+ ") temp) where rn between ? and ? and frst_rgsr_usrno=?";
 			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1,frst);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			pstmt.setString(3,frst);
 			
 			rs=pstmt.executeQuery();
 			
@@ -141,7 +145,7 @@ public class CartHisDAO extends JdbcDAO{
 		return rows;
 	}
 	
-	public int updateDelCart(String user,String his) {
+	public int delCart(String user,String his) {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		int rows=0;
@@ -150,6 +154,7 @@ public class CartHisDAO extends JdbcDAO{
 			
 			String sql="update cart_his set del_yn=? where his_seqno=? and frst_rgsr_usrno=?";
 			pstmt=con.prepareStatement(sql);
+			
 			pstmt.setString(1, "Y");
 			pstmt.setString(2, his);
 			pstmt.setString(3, user);
@@ -162,4 +167,31 @@ public class CartHisDAO extends JdbcDAO{
 		}
 		return rows;
 	}
+	
+	
+	public int selectCartCnt(String user) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int count=0;
+		try {
+			con=getConnection();
+			
+				String sql="select count(*) from cart_his where frst_rgsr_usrno=? ";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, user);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count=rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]selectCartCnt() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return count;
+	}
 }
+

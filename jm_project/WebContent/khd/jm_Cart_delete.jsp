@@ -10,7 +10,7 @@
 	String user=request.getParameter("user");
 
 
-	int rows=CartHisDAO.getDAO().updateDelCart(user,his);
+	int rows=CartHisDAO.getDAO().delCart(user,his);
 
 	//비정상적인 요청에 대한 응답 처리
 	if(rows<=0) {//삭제된 학생정보가 없는 경우
