@@ -403,7 +403,6 @@ h4.tit {
 			<td>
 				<div class="tb-l pl-6"  >
 					<%=tot_prod%>
-					
 					<input type="hidden" name="user" id="user" value="<%=user%>"/>
 					</div>
 				</div>

@@ -1,80 +1,165 @@
+<%@page import="jm_dto.OrderInfoDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="jm_dao.OrderInfoDAO"%>
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>JM 주문 목록</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
 
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/common.css" rel="stylesheet" type="text/css"/>
-		<link href="css/css.css" rel="stylesheet" type="text/css"/>
-		<link href="css/css_02.css" rel="stylesheet" type="text/css"/>
-		<link href="css/header.css" rel="stylesheet" type="text/css"/>
-		<link href="css/footer.css" rel="stylesheet" type="text/css"/>
-		<link href="css/nanumsquareround.css" rel="stylesheet" type="text/css"/>
-		
+<%
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+
+	if(loginMember==null) {
+	out.println("<script type='text/javascript'>");
+	out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=khd&work=error400';");
+	out.println("</script>");
+	return;
+	}
+
+	String user=loginMember.getFrstRgsrUsrno();
+	
+	int pageNum=1;
+	if(request.getParameter("pageNum")!=null) {//전달값이 있는 경우.
+		pageNum=Integer.parseInt(request.getParameter("pageNum"));
+	}
+	
+	int pageSize=4;
+	int totalOrd=OrderInfoDAO.getDAO().selectOrdCnt(user);
+	int totalPage=(int)Math.ceil((double)totalOrd/pageSize);
+	if(pageNum<=0 || pageNum>totalPage) {//페이지 번호가 잘못된 경우
+		pageNum=1;
+	}
+	int startRow=(pageNum-1)*pageSize+1;
+	int endRow=pageNum*pageSize;
+	if(endRow>totalOrd) {
+		endRow=totalOrd;
+	}
+	
+	int number=totalOrd-(pageNum-1)*pageSize;
+	
+	List<OrderInfoDTO>ordList=OrderInfoDAO.getDAO().selectOrderInfoTwo(startRow, endRow, user);
+%>
+
 <style type="text/css">
-#myOrder .table-d2-list {
-  	margin-top: 30px;
-  	margin-left: 30px;
-  	margin-right: 30px;
-}	
-.table-d2-list {
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+.content{
+	width: auto;
+	margin: 0 auto;
+	padding: 50px 20px;
+}
+.btnArea{
+	width: 1000px;
+	margin: 0 auto;
+	margin-top : 40px;
+	padding: 50px 20px;
+}
+.paging{
+	width: auto;
+	margin: 0 auto;
+	padding: 50px 20px;
+	text-align : center;
+}
+table {
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 1.5;
+	border-top: 10px solid #ccc;
+	border-left: 10px solid #4C0B5F;
+	border-bottom: 10px;
+	margin: auto;
+	width: 60%;
+}
+
+th {
+	width: 147px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	color: #153d73;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+td {
+	width: 349px;
+	padding: 10px;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 </style>
-    </head>
-    <body id="page-top">
-	<div class="mem_title"> 주문조회 </div>
-                <div id="myOrder">
-                    <div class="page-body">
-                        <div class="table-d2-list">
-                            <table summary="번호, 주문일자, 상품명, 결제금액, 주문상세" border ="1">
-                                <caption>주문내역</caption>
-                                <colgroup>
-                                    <col width="70">
-                                    <col width="95">
-                                    <col width="*">
-                                    <col width="100">
-                                    <col width="75">
-                                    <col width="75">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th scope="row"><div class="tb-center">번호</div></th>
-                                        <th scope="row"><div class="tb-center">주문일자</div></th>
-                                        <th scope="row"><div class="tb-center">상품명</div></th>
-                                        <th scope="row"><div class="tb-center">결제금액</div></th>
-                                        <th scope="row"><div class="tb-center">주문상세</div></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="6"><div class="tb-center">주문내역이 없습니다.</div></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
 
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
-  
+
+<div class="content">
+
+			<form name="ordForm" id="ordForm">
+				<table>
+					<tr>
+						<th>번호</th>
+						<th>주문총금액</th>
+						<th>수령자명</th>
+						<th>배송지우편번호</th>
+						<th>배송지주소</th>
+						<th>주문취소</th>
+					</tr>
+					<%if(totalOrd==0){ %>
+					<tr>
+				<td colspan="6">주문한 제품이 하나도 없습니다.</td>
+		<% } else { %>
+			<% for(OrderInfoDTO ord:ordList){ %>
+				<% if(ord.getOrdCnclYn().equals("N")) {%>
+					<tr>
+						<th><%=number%></th>
+						<th><%=ord.getOrdSumAmt()%></th>
+						<th><%=ord.getRcvrNm()%></th>
+						<th><%=ord.getDlvrPostCd()%></th>
+						<th><%=ord.getDlvrBasAddr()%><%=ord.getDlvrDetlAddr() %></th>
+						<th><input type="image" value="삭제" onclick="removeOrd(<%=ord.getOrdNo()%>); return false;" src="<%=request.getContextPath()%>/img/CCBtn.png" style="width: 130px;"></th>
+					</tr>
+					<%number--; %>
+				<%} %>	
+			<%} %>
+		<%} %>
+		</table>
+		<%
+			int blockSize=5;
+			int startPage=(pageNum-1)/blockSize*blockSize+1;
+			int endPage=startPage+blockSize-1;
+			if(endPage>totalPage) {
+				endPage=totalPage;
+			}
+		%>
+		<div class="paging">
+		<% if(startPage>blockSize) { %>
+	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_OrderList&pageNum=<%=startPage-blockSize%>">[이전]</a>
+	<% } else { %>
+	[이전]
+	<% } %>
+	
+	<% for(int i=startPage;i<=endPage;i++) { %>
+		<% if(pageNum!=i) { %>
+		<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_OrderList&pageNum=<%=i%>">[<%=i %>]</a>
+		<% } else { %>
+		<span style="font-size: 18px; font-weight: bold;">[<%=i %>]</span>
+		<% } %>
+	<% } %>
+	
+	<% if(endPage!=totalPage) { %>
+	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_OrderList&pageNum=<%=startPage+blockSize%>">[다음]</a>
+	<% } else { %>
+	[다음]
+	<% } %>
+		</div>
+		<div class="btnArea">
+			<a	 href="<%=request.getContextPath() %>/index.jsp " class="mainBtn"> 
+			<img	src="<%=request.getContextPath()%>/khd/img/go.gif" alt="메인버튼" width="150px" style="float:right;"></a>
+		<input type="hidden" name="user" value="<%=user%>">
+		</div>
+		
+		</form>
+	</div>
+	
+	<script type="text/javascript">
+	function removeOrd(ord) {
+		location.href="khm/jm_Order_delete.jsp?ord="+ord+"&user=<%=user%>";
+	}
+	</script>
+	  

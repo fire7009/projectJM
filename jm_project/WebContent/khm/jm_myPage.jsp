@@ -78,7 +78,7 @@ h2 {
   </div>
 	<div id="shopMain">
 		<div class="shopMain" >
-			<a href="#">
+			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=khm&work=jm_orderList">
 				<img class="img-fluid" src="./khm/img/mP/order.png"/>
 				<div class="order">
 					<h3>주문내역 조회</h3>
