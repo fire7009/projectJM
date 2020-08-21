@@ -25,7 +25,7 @@ for(String his:check){
 		tot_prod=tot_prod+" "+product.getProdNm();
 	
 	}
-	CartHisDAO.getDAO().updateDelCart(user, his);
+	CartHisDAO.getDAO().delCart(user, his);
 }
 %>
 

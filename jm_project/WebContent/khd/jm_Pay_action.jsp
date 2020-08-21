@@ -14,7 +14,7 @@
 	
 
 	for(String his:check){
-		CartHisDAO.getDAO().updateDelCart(user, his);
+		CartHisDAO.getDAO().delCart(user, his);
 	}
 	
 	
