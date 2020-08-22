@@ -1,5 +1,5 @@
-<%@page import="jm_dao.NoticeInfoDAO"%>
-<%@page import="jm_dto.NoticeInfoDTO"%>
+<%@page import="jm_dao.UserInfoDAO"%>
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
