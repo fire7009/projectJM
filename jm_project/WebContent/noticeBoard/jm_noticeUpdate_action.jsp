@@ -12,25 +12,21 @@
 		out.println("</script>");
 		return;
 	}    
-
-	int num=0;
-	int readCount=NoticeDAO.getDAO().updateReadCount(num);
-     
+	
 	//전달된 입력값을 반환받아 저장
+	int  noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
 	String noticeTitle=request.getParameter("subject");
 	String noticeContents=request.getParameter("content");
-	
-	System.out.print(noticeTitle);
-	System.out.print(noticeContents);
 	
 	
 	//DTO 인스턴스를 생성하여 입력값으로 필드값 변경
 	NoticeDTO notice=new NoticeDTO();
+	notice.setNoticeNo(noticeNo);
 	notice.setNoticeTitle(noticeTitle); //제목
 	notice.setNoticeContents(noticeContents); //내용
-	notice.setNoticeReadcount(readCount);// 조회수
 	
-	NoticeDAO.getDAO().insertNotice(notice);
+	NoticeDAO.getDAO().updateNotice(notice);
+	
 	
 	//공지사항 목록으로 이동
 	out.println("<script type='text/javascript'>");
