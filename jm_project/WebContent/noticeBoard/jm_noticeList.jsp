@@ -993,13 +993,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 	<dl class="bbs-link bbs-link-btm">	</dl>
 		<div class="xans-element- xans-board xans-board-paging-4 xans-board-paging xans-board-4 crema-hide">
 		
-			<% if(startPage>blockSize) { %>
-				<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice.jsp&pageNum=1&search=<%=search%>&keyword=<%=keyword%>">[처음]</a>
-				<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice.jsp&pageNum=<%=startPage-blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[이전]</a>
-				<% } else { %>
-				<img src="./images/btn_page_first.gif" alt="처음"/><img src="./images/btn_page_prev.gif" alt="이전"/>
-				<% } %>
-			
+
 			<% for(int i=startPage;i<=endPage;i++) { %>
 				<% if(pageNum!=i) { %>
 				<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice&pageNum=<%=i%>&search=<%=search%>&keyword=<%=keyword%>">[<%=i %>]</a>
@@ -1008,12 +1002,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 				<% } %>
 				<% } %>
 		
-			<% if(endPage!=totalPage) { %>
-				<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice&pageNum=<%=startPage+blockSize%>&search=<%=search%>&keyword=<%=keyword%>">[다음]</a>
-				<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice&pageNum=<%=totalPage%>&search=<%=search%>&keyword=<%=keyword%>">[마지막]</a>
-				<% } else { %>
-				<img src="./images/btn_page_next.gif" alt="다음"/><img src="./images/btn_page_last.gif"alt="마지막"/>
-				<% } %>
+	
 		</div>
 		
 	</div>
@@ -1023,7 +1012,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 
 		<!--  글쓰기 버튼 -->
 		 <div class="view-link" style="text-align: right; margin-right: 20px;">
-            <dl class="bbs-link con-link"><a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeWrite">
+            <dl class="bbs-link con-link"><a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite">
                   	<img src="./img/btn_wWrite.gif" alt="글쓰기"></a></dl>                                                                
          </div>
          

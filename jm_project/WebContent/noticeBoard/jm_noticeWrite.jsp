@@ -239,7 +239,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
         <div class="bbs-table-write">
         
         
-<form id="form1"  name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeWrite_action"  method='post'  style="position:relative;" autocomplete="off">
+<form id="form1"  name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite_action"  method='post'  style="position:relative;" autocomplete="off">
 <fieldset>
        <legend>공지사항 쓰기</legend>
        <table summary="">
