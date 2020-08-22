@@ -111,7 +111,7 @@
 							<dt></dt>
 							<dd>
 								<a
-									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;num1=999968&amp;num2=00000&amp;type=q&amp;type2=u"
+									href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate"
 									class="none"><img src="../img/btn_wModify2.gif"
 									alt="수정"></a> <a
 									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;num1=999968&amp;num2=00000&amp;type=q&amp;type2=d"><img
@@ -122,9 +122,9 @@
 							<dt></dt>
 							<dd>
 								<a class="write"
-									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;type=i"><img
+									href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img
 									src="../img/btn_wWrite2.gif" alt="글쓰기"></a> <a
-									href="/board/board.html?code=vittz_board1&amp;page=1&amp;board_cate=&amp;s_id=&amp;stext=&amp;ssubject=&amp;shname=&amp;scontent=&amp;sbrand=&amp;sgid=&amp;datekey=&amp;branduid=">
+									href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList">
 									<img src="../img/btn_list2.gif" alt="목록">
 								</a>
 							</dd>

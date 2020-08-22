@@ -11,19 +11,13 @@
 	String NOTICE_TITLE=request.getParameter("NOTICE_TITLE");
 	String NOTICE_CONTENTS=request.getParameter("NOTICE_CONTENTS");
 	
-	
 	System.out.print(NOTICE_TITLE);
 	System.out.print(NOTICE_CONTENTS);
 	
 	
-	
-	
 	// 게시글번호를 전달하여 BOARD테이블에 저장된 게시글을 검색하여 반환하는 DAO클래스 메소드 호출
 	NoticeDTO notice=NoticeDAO.getDAO().selectNumBoard(NOTICE_NO);
-	
 %>
-
-
 
 
 <style>
