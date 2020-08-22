@@ -248,4 +248,29 @@ public class NoticeDAO extends JdbcDAO {
 			}
 			return board;
 		}
+		
+				//공지사항 수정
+				public int updateNotice(NoticeDTO notice) {
+					Connection con=null;
+					PreparedStatement pstmt=null;
+					int rows=0;
+					try {
+						con=getConnection();
+						
+						String sql="update notice set notice_title=?, notice_contents=? where notice_no=?";
+						pstmt=con.prepareStatement(sql);
+						pstmt.setString(1, notice.getNoticeTitle());
+						pstmt.setString(2, notice.getNoticeContents());
+						pstmt.setInt(3, notice.getNoticeNo());
+						
+						rows=pstmt.executeUpdate();
+					} catch (SQLException e) {
+						System.out.println("[에러]updateReadCount() 메소드의 SQL 오류 = "+e.getMessage());
+					} finally {
+						close(con, pstmt); 
+					}
+					return rows;
+				}
+				
+				
 }

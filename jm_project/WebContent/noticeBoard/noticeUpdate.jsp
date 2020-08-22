@@ -1,5 +1,31 @@
+<%@page import="jm_dao.NoticeDAO"%>
+<%@page import="jm_dto.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%
+
+	//필요한 값 반환받아 저장
+	int NOTICE_NO=Integer.parseInt(request.getParameter("NOTICE_NO"));
+	String NOTICE_TITLE=request.getParameter("NOTICE_TITLE");
+	String NOTICE_CONTENTS=request.getParameter("NOTICE_CONTENTS");
+	
+	
+	System.out.print(NOTICE_TITLE);
+	System.out.print(NOTICE_CONTENTS);
+	
+	
+	
+	
+	// 게시글번호를 전달하여 BOARD테이블에 저장된 게시글을 검색하여 반환하는 DAO클래스 메소드 호출
+	NoticeDTO notice=NoticeDAO.getDAO().selectNumBoard(NOTICE_NO);
+	
+%>
+
+
+
+
 <style>
 #bbsData .bbs-link { position: relative; }
 #bbsData .bbs-link-top { margin-top: 10px; margin-bottom: -40px;margin-right: 400px; text-align: left; margin-left: 18px; }
@@ -252,7 +278,8 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                    <th><div>제목</div></th>
                    <td colspan="">
                        <div class="title">
-                     	 <input id='bw_input_subject'  class="MS_input_txt input_style2" type='text' name='subject' value='' 
+                     	 <input id='bw_input_subject'  class="MS_input_txt input_style2" type='text' name='subject' 
+                     	 	value="<%= notice.getNoticeTitle() %>" 
                      	 	style="height: 35px;   width: 400px; border-color: lightgray" />                                                    
                      	</div>
                    </td>
@@ -261,7 +288,8 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                    <th><div>내용</div></th>
                    <td colspan="">
                        <div>
-               <textarea id='MS_text_content' name='content' wrap="off" onfocus='clear_content()'  class="MS_input_txt"  style="height: 400px;" ></textarea>
+               <textarea id='MS_text_content' name='content'  wrap="off" onfocus='clear_content()'  
+               		class="MS_input_txt"  style="height: 400px;"><%=notice.getNoticeContents()%></textarea>
             	</div>
                 </td>
             </tr>

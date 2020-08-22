@@ -8,7 +8,7 @@
     pageEncoding="UTF-8"%>
     
     <%
-        	//검색 관련 정보를 반환받아 저장
+        			//검색 관련 정보를 반환받아 저장
                 	String search=request.getParameter("search");
                 	if(search==null) search="";
                 	String keyword=request.getParameter("keyword");
