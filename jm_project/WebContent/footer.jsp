@@ -6,7 +6,7 @@
 <div class="address" style="text-align: center;">
 	
 				<div class="ellipsis">
-					법인명(상호): 주식회사 JM조명 | 대표자(성명): 김형동 대표 | 개인정보관리책임자: 이호승(help@jmcorp.com)
+					법인명(상호): 주식회사 JM조명 | 대표자(성명): 강형동 대표 | 개인정보관리책임자: 이호승(help@jmcorp.com)
 				</div>
 				<div class="ellipsis">
 					상표등록번호:192-168-14-31 [사업자 정보확인] 통신판매업: 제2015-서울서초-0954호

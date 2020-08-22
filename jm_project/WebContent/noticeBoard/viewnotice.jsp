@@ -125,7 +125,7 @@ table {
 							<dt></dt>
 							<dd>
 								<a href="#" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
-								<a href="#"><img src="./img/btn_delete2.gif" alt="삭제"></a>
+								<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>"><img src="./img/btn_delete2.gif" alt="삭제"></a>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<a class="write" href="#"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
 								<a href="#"><img src="./img/btn_list2.gif" alt="목록"></a>

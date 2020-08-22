@@ -272,5 +272,23 @@ public class NoticeDAO extends JdbcDAO {
 					return rows;
 				}
 				
-				
+				public int delelteNotice(int noticeNo) {
+					Connection con=null;
+					PreparedStatement pstmt=null;
+					int rows=0;
+					try {
+						con=getConnection();
+						
+						String sql="update notice set notice_status=1 where notice_no=?";
+						pstmt=con.prepareStatement(sql);
+						pstmt.setInt(1, noticeNo);
+						
+						rows=pstmt.executeUpdate();
+					} catch (SQLException e) {
+						System.out.println("[에러]delelteNotice() 메소드의 SQL 오류 = "+e.getMessage());
+					} finally {
+						close(con, pstmt); 
+					}
+					return rows;
+				}
 }
