@@ -159,11 +159,8 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 							<%-- 글번호 --%>
 							<td><%= number %></td>
 							
-							
 							<%-- 상품코드 --%>
 							<td><%=review.getProdCd()%> </td>
-							
-							
 							
 							<%-- 제목 --%>
 							<td class="subject">

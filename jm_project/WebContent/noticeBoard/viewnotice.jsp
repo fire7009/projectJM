@@ -127,7 +127,7 @@ table {
 					<div class="view-link">
 						<dl class="bbs-link con-link">
 							<dt></dt>
-							<dd style="margin-bottom: 100px;">
+							<dd style="margin:0 aute; margin-bottom: 100px;">
 									<%-- 
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>"><img src="./img/btn_delete2.gif" alt="삭제"></a>
@@ -138,7 +138,7 @@ table {
  									
  									
  									<!--  권한별로 버튼 다르게 보이게 하기!  -->
- 									 <% if(loginMember != null && loginMember.getUserDv()!="1") { %> <!--  관리자 일 경우 -->
+ 									 <% if(loginMember != null && loginMember.getUserDv().equals("1")) { %> <!--  관리자 일 경우 -->
 							   			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
 										
 										<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>" style="margin-right: 400px;">
