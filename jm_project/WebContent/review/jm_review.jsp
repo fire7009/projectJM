@@ -260,7 +260,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 						<option value="subject">&nbsp;제목&nbsp;</option>
 						<option value="content">&nbsp;내용&nbsp;</option>
 					</select> <input type="text" name="keyword">
-					<button type="submit">검색</button>\
+					<button type="submit">검색</button>
 				<input type="hidden" name="pageNum" value="<%=pageNum%>">
 				</form>
 				<ol class="paging">
