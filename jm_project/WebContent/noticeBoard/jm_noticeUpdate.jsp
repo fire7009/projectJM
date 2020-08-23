@@ -2,19 +2,14 @@
 <%@page import="jm_dao.NoticeDAO"%>
 <%@page import="jm_dto.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-   
 	
 <%
-
 	String noticeNo=request.getParameter("noticeNo");
 	
 	int num=Integer.parseInt(noticeNo);
 	
 	NoticeDTO board=NoticeDAO.getDAO().selectNumBoard(num);
-	
-
 %>
-
 
 <style>
 #bbsData .bbs-link { position: relative; }

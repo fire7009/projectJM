@@ -8,7 +8,6 @@
 	pageEncoding="UTF-8"%>
 	
 <%
-
 		UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
 		//검색 관련 정보를 반환받아 저장
@@ -64,9 +63,7 @@
      	int countnum=1;
      	
      	//UserInfoDTO loginMember=(MemberDTO)session.getAttribute("loginMember");
-     	
      	//String CurrentDate=new SimpleDateFormat("yyyy-MM-dd").format(new Date() );
-     	
 %>	
 	
 	
@@ -1018,17 +1015,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
         <% } else { %>
        
         <% } %>
-		 
-
-
-<%-- 
-   <% if(loginMember != null && (loginMember.getUserId().equals(review.getId()) || Integer.parseInt(loginMember.getUserDv())==1)) {
-      <a href = "<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_reviewDetail&num=<%=review.getPostNo()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>"><%=review.getSubject() %></a>
-   <% } else { %>
-      작성자 또는 관리자만 확인 가능합니다.
-   <% } %>  --%>
-                           
-                           
+		
          
 	<!-- page-body -->
 </div>

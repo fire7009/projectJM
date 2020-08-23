@@ -243,7 +243,6 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 .total-page .page { float: right; width: auto;}
 
 
-
 </style>
 
  <div class="cs_title" style="margin-left:20%; margin-top:100px; font-size:23px; font-weight:600;	color:#333;">공지사항 작성</div>
