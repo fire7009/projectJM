@@ -17,18 +17,12 @@
 	}
 
 	//입력값을 반환받아 저장
-	//String userNo=request.getParameter("userNo");
 	String userId=request.getParameter("userId");
-	//String userNm=request.getParameter("userNm");
-	//String userDv=request.getParameter("userDv");
 	String password=Utility.encrypt(request.getParameter("password"));
 	
 	//인증처리 - 아이디와 비밀번호 비교
 	
 	//아이디에 대한 인증 처리
-	//아이디를 전달받아 userInfo 테이블에 저장된 회원정보를 검색하여 반환하는 DAO 클래스의 메소드 호출
-	// => null 반환 : 회원정보 미검색 - 아이디에 대한 인증 실패
-	// => 회원정보 반환 : 회원정보 검색 - 아이디에 대한 인증 성공
 	UserInfoDTO userInfo=UserInfoDAO.getDAO().selectIdUserinfo(userId);
 	if(userInfo==null) {
 		session.setAttribute("message", "입력한 아이디가 존재하지 않습니다.");

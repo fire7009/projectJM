@@ -6,28 +6,24 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
-
-String userId=request.getParameter("userId");
-String emailAddr=request.getParameter("email");
-
-System.out.println(userId);
-System.out.println(emailAddr);
-
-UserInfoDTO userInfo=UserInfoDAO.getDAO().selectIdUserinfo(userId);
-if(userInfo==null) {
-	out.println("<script>location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 사용자 아이디가 존재하지 않습니다'); </script>");
-	return;
-}
+	String userId=request.getParameter("userId");
+	String emailAddr=request.getParameter("email");
+	
+	UserInfoDTO userInfo=UserInfoDAO.getDAO().selectIdUserinfo(userId);
+	if(userInfo==null) {
+		out.println("<script>location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 사용자 아이디가 존재하지 않습니다'); </script>");
+		return;
+	}
 
 //이메일에 대한 인증 처리
-if(!userInfo.getEmailAddr().equals(emailAddr)) {//이메일에 대한 인증 실패
+	if(!userInfo.getEmailAddr().equals(emailAddr)) {//이메일에 대한 인증 실패
 	out.println("<script>location.href='" +request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('입력한 사용자의 이메일이 맞지 않습니다.'); </script>");
 	return;
 	}
 
 
 //탈퇴회원 로그인시 false 처리
-if(userInfo.getUserDv()==""){
+	if(userInfo.getUserDv()==""){
 	out.println("<script>location.href='"+request.getContextPath()+"/index.jsp?workgroup=kdy/login&work=jm_findPw';alert('탈퇴한 회원 입니다.'); </script>");
 	return;
 }
@@ -47,7 +43,5 @@ if(userInfo.getUserDv()==""){
 	return;
 	}
 		
-	//out.println("<script type='text/javascript'>");
-	//out.println("location.href='"+request.getContextPath()+"/coffee/index.jsp?workgroup=member&work=login';");
-	//out.println("</script>");
+	 
 %>
