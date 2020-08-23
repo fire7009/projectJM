@@ -136,14 +136,14 @@ table {
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
  									--%>
  									
- 									
+ 								<form id="boardForm" method="post">	
+ 								
  									<!--  권한별로 버튼 다르게 보이게 하기!  -->
  									 <% if(loginMember != null && loginMember.getUserDv().equals("1")) { %> <!--  관리자 일 경우 -->
 							   			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
 										
-										<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>" style="margin-right: 400px;">
-											<img src="./img/btn_delete2.gif" alt="삭제"></a>
-									
+										<button type="button" id="removeBtn" style="border: none; margin-right: 400px;"><img src="./img/btn_delete2.gif" alt="삭제"> </button>
+										
 										<a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
 									
 										<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
@@ -152,7 +152,8 @@ table {
 							        <% } else { %> <!--  관리자가 아닐 경우 -->
 							       		<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
 							        <% } %>
-        
+							        
+                                </form>
         
         
  							</dd>
@@ -164,4 +165,14 @@ table {
 		<!-- #bbsData -->
 	</div>
 </div>
+
+<script type="text/javascript">
+$("#removeBtn").click(function() {
+	if(confirm("정말로 삭제하시겠습니까?")) {
+		$("#boardForm").attr("action","<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>");
+		$("#boardForm").submit();
+	}
+});
+
+</script>
 
