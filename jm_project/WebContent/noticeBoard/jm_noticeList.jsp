@@ -8,6 +8,9 @@
 	pageEncoding="UTF-8"%>
 	
 <%
+
+		UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+
 		//검색 관련 정보를 반환받아 저장
      	String search=request.getParameter("search");
      	if(search==null) search="";
@@ -55,7 +58,6 @@
      	//시작과 종료 범위에 포함된 게시글만 검색하여 반환하는 DAO 클래스의 메소드 호출
      	//List<BoardDTO> boardList=BoardDAO.getDAO().selectBoard(startRow, endRow);
      	List<NoticeDTO> boardList=NoticeDAO.getDAO().selectNoticeBoard(startRow, endRow, search, keyword);
-     	System.out.println(boardList.size());
      	
      	//현재 페이지의 게시글 목록에 출력될 시작 글번호를 계산하여 저장
      	int number=totalBoard-(pageNum-1)*pageSize;
@@ -993,34 +995,26 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 	<dl class="bbs-link bbs-link-btm">	</dl>
 		<div class="xans-element- xans-board xans-board-paging-4 xans-board-paging xans-board-4 crema-hide">
 		
-
-			<% for(int i=startPage;i<=endPage;i++) { %>
-				<% if(pageNum!=i) { %>
-				<a href="<%=request.getContextPath()%>/coffee/index.jsp?workgroup=board&work=boardNotice&pageNum=<%=i%>&search=<%=search%>&keyword=<%=keyword%>">[<%=i %>]</a>
-				<% } else { %>
-				<span style="font-size: 15px;">[<%=i %>]</span>
+			<% for (int i = startPage; i <= endPage; i++) {	%>
+					<% if (pageNum != i) {	%>
+					 <a href="<%=request.getContextPath()%>/index.jsp?workgroup=noticeBoard&work=jm_noticeList&pageNum=<%=i%>">[<%=i%>]
+					 </a>
+					<%	} else { %>
+					<span style="font-size: 18px; font-weight: bold">[<%=i%>]</span>
 				<% } %>
-				<% } %>
-		
+			<% } %>
+						
 	
 		</div>
 		
 	</div>
-	
-	
-	<%-- <% if(loginMember!=null && UserInfoDTO.userDv=="1") {  버튼이 관리자 일때만 보이게 설정해야 함 --%> 
 
 		<!--  글쓰기 버튼 -->
 		 <div class="view-link" style="text-align: right; margin-right: 20px;">
             <dl class="bbs-link con-link"><a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite">
                   	<img src="./img/btn_wWrite.gif" alt="글쓰기"></a></dl>                                                                
          </div>
-         
-         
-         
-     <%--      <% }       --%>    
-         
-         
+
          
 	<!-- page-body -->
 </div>

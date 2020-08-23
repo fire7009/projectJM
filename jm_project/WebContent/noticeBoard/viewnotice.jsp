@@ -1,3 +1,4 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="jm_dto.NoticeDTO"%>
 <%@page import="jm_dao.NoticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,6 +10,9 @@
 	int num=Integer.parseInt(noticeNo);
 	
 	NoticeDTO board=NoticeDAO.getDAO().selectNumBoard(num);
+	
+	//세션 받아오기
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 	
 %>
 
@@ -123,13 +127,15 @@ table {
 					<div class="view-link">
 						<dl class="bbs-link con-link">
 							<dt></dt>
-							<dd>
-								<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
-								<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>"><img src="./img/btn_delete2.gif" alt="삭제"></a>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
-								<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
-							</dd>
+							<dd style="margin-bottom: 100px;">
+							
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>"><img src="./img/btn_delete2.gif" alt="삭제"></a>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
+ 
+ 							</dd>
 						</dl>
 				</div>
 			</div>
@@ -138,10 +144,4 @@ table {
 		<!-- #bbsData -->
 	</div>
 </div>
-<div>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
+
