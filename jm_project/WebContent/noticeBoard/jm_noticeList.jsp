@@ -1010,11 +1010,25 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 	</div>
 
 		<!--  글쓰기 버튼 -->
-		 <div class="view-link" style="text-align: right; margin-right: 20px;">
-            <dl class="bbs-link con-link"><a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite">
+		 <% if(loginMember != null && loginMember.getUserDv()!="1") { %>
+   			<div class="view-link" style="text-align: right; margin-right: 20px;">
+            	<dl class="bbs-link con-link"><a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite">
                   	<img src="./img/btn_wWrite.gif" alt="글쓰기"></a></dl>                                                                
-         </div>
+        	 </div>
+        <% } else { %>
+       
+        <% } %>
+		 
 
+
+<%-- 
+   <% if(loginMember != null && (loginMember.getUserId().equals(review.getId()) || Integer.parseInt(loginMember.getUserDv())==1)) {
+      <a href = "<%=request.getContextPath()%>/index.jsp?workgroup=review&work=jm_reviewDetail&num=<%=review.getPostNo()%>&pageNum=<%=pageNum%>&search=<%=search%>&keyword=<%=keyword%>"><%=review.getSubject() %></a>
+   <% } else { %>
+      작성자 또는 관리자만 확인 가능합니다.
+   <% } %>  --%>
+                           
+                           
          
 	<!-- page-body -->
 </div>

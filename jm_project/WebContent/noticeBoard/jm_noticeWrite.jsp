@@ -1,8 +1,10 @@
 <%@page import="jm_dto.UserInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+
+
 <%
+
 	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 
 	//로그인 사용자가 작성자 또는 관리자가 아닌 경우 >> 목록으로 보내기 
@@ -12,6 +14,7 @@
 		out.println("</script>");
 		return;
 	}
+
 %>
 
 <style>
