@@ -138,10 +138,10 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 						</div>
 					<% } %>
 				<div class="table-d2-list">
-					<table border="1px solid black;" style="font-size: 15px;">
+					<table border="1px solid black;"  style="font-size: 15px; margin: o auto; width: 1280;">
 						<tr>
 							<th width="100">번호</th>
-							<!--  <th width="100">상품코드</th>-->
+							<th width="100">상품코드</th>
 							<th width="500">제목</th>
 							<th width="100">날짜</th>
 							<th width="100">작성자</th>
@@ -160,9 +160,9 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 							<td><%= number %></td>
 							
 							
-							<%-- 상품코드 
+							<%-- 상품코드 --%>
 							<td><%=review.getProdCd()%> </td>
-							--%>
+							
 							
 							
 							<%-- 제목 --%>
