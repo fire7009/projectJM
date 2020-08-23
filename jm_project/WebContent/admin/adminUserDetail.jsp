@@ -506,75 +506,46 @@ h4.tit {
 						<table class="boardView">
 							<tbody>
 								<tr>
+									<th><div class="tb-l pl-30">회원번호</div></th>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getUserNo()%></div></td>
+								</tr>
+								<tr>
 									<th><div class="tb-l pl-30">아이디</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="userId" id="userId"
-												value="<%=userInfoDTO.getUserId()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
-									</td>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getUserId()%></div></td>
 								</tr>
 								<tr>
 									<th><div class="tb-l pl-30">회원명</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="userNm" id="userNm"
-												value="<%=userInfoDTO.getUserNm()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getUserNm()%></div>
 									</td>
 								</tr>
 								<tr>
 									<th><div class="tb-l pl-30">연락처</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="conAddr" id="contAddr"
-												value="<%=userInfoDTO.getContAddr()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getContAddr()%></div>
 									</td>
 								</tr>
 								<tr>
 									<th><div class="tb-l pl-30">이메일주소</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="emailAddr" id="emailAddr"
-												value="<%=userInfoDTO.getEmailAddr()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getEmailAddr()%></div>
 									</td>
 								</tr>
 								<tr>
 									<th><div class="tb-l pl-30">우편번호</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="postCd" id="postCd"
-												value="<%=userInfoDTO.getPostCd()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getPostCd()%></div>
 									</td>
 								</tr>
 								<tr>
 									<th><div class="tb-l pl-30">기본주소</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="basAddr" id="basAddr"
-												value="<%=userInfoDTO.getBasAddr()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getBasAddr()%></div>
 									</td>
 								</tr>
 								<tr>
 									<th><div class="tb-l pl-30">상세주소</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="detlAddr" id="detlAddr"
-												value="<%=userInfoDTO.getDetlAddr()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getDetlAddr()%></div>
 									</td>
 								</tr>
 								<tr>
 									<th><div class="tb-l pl-30">가입일자</div></th>
-									<td><div class="tb-l pl-6">
-											<input type="text" name="frstRgstDttm" id="frstRgstDttm"
-												value="<%=userInfoDTO.getFrstRgstDttm()%>"
-												class="MS_input_txt w137" readonly="readonly">
-										</div>
+									<td><div class="tb-l pl-6"><%=userInfoDTO.getFrstRgstDttm()%></div>
 									</td>
 								</tr>
 							</tbody>

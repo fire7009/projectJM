@@ -5,6 +5,7 @@
    pageEncoding="UTF-8"%>
    
 <%
+
 	List<UserInfoDTO> adminUserList = UserInfoDAO.getDAO().getAdminUserList();
 
 	UserInfoDTO loginMember = (UserInfoDTO)session.getAttribute("loginMember");
@@ -954,22 +955,8 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
             </tbody>
          </table>
       </div>
-      <dl class="bbs-link bbs-link-btm">
-      </dl>
-      <div
-         class="xans-element- xans-board xans-board-paging-4 xans-board-paging xans-board-4 crema-hide">
-         <ol>
-            <li class="xans-record-"><strong title="현재페이지">1</strong></li>
-            <li class="xans-record-"><a
-               href="/board/board.html?code=vittz_board1&page=2&board_cate=#board_list_target"
-               title="2 페이지로 이동">2</a></li>
-         </ol>
-         <p>
-            <a
-               href="/board/board.html?code=vittz_board1&page=2&board_cate=#board_list_target"
-               style="display: none"><img
-               src="/design/vittz/img/btn_pageLast.gif" alt="마지막 페이지"></a>
-         </p>
+      <dl class="bbs-link bbs-link-btm"></dl>
+      <div class="xans-element- xans-board xans-board-paging-4 xans-board-paging xans-board-4 crema-hide">
       </div>
 
       <!-- .bbs-sch -->

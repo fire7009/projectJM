@@ -306,19 +306,19 @@ public class UserInfoDAO extends JdbcDAO {
   			
   			con = getConnection();
   			
-  			String sql =   "SELECT USER_NO    "
-  					     + "     , USER_ID    " 
-  					     + "     , USER_NM    " 
-  					     + "     , EMAIL_ADDR "
-  					     + "     , USER_DV    " 
-  					     + "     , WITHD_YN   " 
-  					     + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM " 
-  					     + "  FROM USER_INFO" 
-  					     + " WHERE USER_DV	= '2'  " 
-  					     + "   AND WITHD_YN = 'N'  " 
-  					     + " ORDER BY USER_NO DESC";
+  			String sql =   "SELECT USER_NO												" 
+  					     + "     , USER_ID												" 
+  					     + "     , USER_NM												" 
+  					     + "     , EMAIL_ADDR											" 
+  					     + "     , USER_DV												" 
+  					     + "     , WITHD_YN												" 
+  					     + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM	"
+  					     + "  FROM USER_INFO											" 
+  					     + " WHERE USER_DV	= '2'										" 
+  					     + "   AND WITHD_YN	= 'N'										" 
+  					     + " ORDER BY USER_NO DESC										";   					    
   			
-  			pstmt	= con.prepareStatement(sql);  			  		  			
+  			pstmt	= con.prepareStatement(sql);			
   			rs		= pstmt.executeQuery();
   			
   			while (rs.next()) {
@@ -364,17 +364,17 @@ public class UserInfoDAO extends JdbcDAO {
         	
            con = getConnection();
            
-           String sql=   "SELECT USER_NO    " 
-           		       + "     , USER_ID    " 
-           		       + "     , USER_NM    " 
-           		       + "     , CONT_ADDR  " 
-           		       + "     , EMAIL_ADDR "
-           		       + "     , POST_CD    " 
-           		       + "     , BAS_ADDR   " 
-           		       + "     , DETL_ADDR  " 
-           		       + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM "
-           		       + "  FROM USER_INFO  "
-           		       + " WHERE USER_NO = ?";
+           String sql=   "SELECT USER_NO												" 
+           		       + "     , USER_ID												" 
+           		       + "     , USER_NM    											" 
+           		       + "     , CONT_ADDR  											" 
+           		       + "     , EMAIL_ADDR 											"
+           		       + "     , POST_CD    											" 
+           		       + "     , BAS_ADDR   											" 
+           		       + "     , DETL_ADDR  											" 
+           		       + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM	"
+           		       + "  FROM USER_INFO  											"
+           		       + " WHERE USER_NO = ?											";
            
            pstmt = con.prepareStatement(sql);
            
@@ -423,10 +423,10 @@ public class UserInfoDAO extends JdbcDAO {
 			
 			con=getConnection();
 			
-			String sql =   "UPDATE USER_INFO " 
-					     + "   SET WITHD_YN			= 'Y'     " 
-					     + "     , LAST_PROC_DTTM	= SYSDATE " 
-					     + " WHERE USER_NO = ? ";
+			String sql =   "UPDATE USER_INFO 					" 
+					     + "   SET WITHD_YN			= 'Y'     	" 
+					     + "     , LAST_PROC_DTTM	= SYSDATE 	"	 
+					     + " WHERE USER_NO 			= ? 		";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userNo);
