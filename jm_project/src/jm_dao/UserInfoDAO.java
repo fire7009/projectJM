@@ -306,11 +306,12 @@ public class UserInfoDAO extends JdbcDAO {
   			
   			con = getConnection();
   			
-  			String sql =   "SELECT USER_NO  "
-  					     + "     , USER_ID  " 
-  					     + "     , USER_NM  " 
-  					     + "     , USER_DV  " 
-  					     + "     , WITHD_YN " 
+  			String sql =   "SELECT USER_NO    "
+  					     + "     , USER_ID    " 
+  					     + "     , USER_NM    " 
+  					     + "     , EMAIL_ADDR "
+  					     + "     , USER_DV    " 
+  					     + "     , WITHD_YN   " 
   					     + "     , TO_CHAR(FRST_RGST_DTTM, 'YYYY.MM.DD') FRST_RGST_DTTM " 
   					     + "  FROM USER_INFO" 
   					     + " WHERE USER_DV	= '2'  " 
@@ -327,9 +328,10 @@ public class UserInfoDAO extends JdbcDAO {
   				userInfoDTO.setUserNo(rs.getString("user_no"));
   				userInfoDTO.setUserId(rs.getString("user_id"));
   				userInfoDTO.setUserNm(rs.getString("user_nm"));
+  				userInfoDTO.setEmailAddr(rs.getString("email_addr"));
   				userInfoDTO.setUserDv(rs.getString("user_dv"));
   				userInfoDTO.setWithdYn(rs.getString("withd_yn"));
-  				userInfoDTO.setFrstRgsrUsrno(rs.getString("frst_rgsr_usrno"));
+  				userInfoDTO.setFrstRgstDttm(rs.getString("frst_rgst_dttm"));
   				  				
   				adminUserList.add(userInfoDTO);
   				
@@ -392,7 +394,7 @@ public class UserInfoDAO extends JdbcDAO {
                 userInfoDTO.setPostCd(rs.getString("post_cd"));
                 userInfoDTO.setBasAddr(rs.getString("bas_addr"));
                 userInfoDTO.setDetlAddr(rs.getString("detl_addr"));                
-                userInfoDTO.setUserDv(rs.getString("frst_rgst_dttm"));
+                userInfoDTO.setFrstRgstDttm(rs.getString("frst_rgst_dttm"));
                 
               }
               
@@ -408,7 +410,41 @@ public class UserInfoDAO extends JdbcDAO {
         
         return userInfoDTO;
         
-     }
+    }
+  	
+  	// 관리자 > 회원관리 > 회원 삭제 쿼리
+  	public int deleteAdminUserInfo(String userNo) {
+  		
+		Connection con			= null;
+		PreparedStatement pstmt = null;
+		int rows				= 0;
+		
+		try {
+			
+			con=getConnection();
+			
+			String sql =   "UPDATE USER_INFO " 
+					     + "   SET WITHD_YN			= 'Y'     " 
+					     + "     , LAST_PROC_DTTM	= SYSDATE " 
+					     + " WHERE USER_NO = ? ";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userNo);
+			
+			rows=pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			System.out.println(e.getMessage());
+			
+		} finally {
+			
+			close(con, pstmt);
+			
+		}
+		
+		return rows;
+	}
    
    
 }

@@ -3,6 +3,12 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   
+<%
+	List<UserInfoDTO> adminUserList = UserInfoDAO.getDAO().getAdminUserList();
+
+	UserInfoDTO loginMember = (UserInfoDTO)session.getAttribute("loginMember");
+%>
 <style>
 /* BASIC css start */
 .xans-board-paging {
@@ -845,8 +851,6 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 .privercy-agree { margin: 10px 0; }
 .privercy-agree label{ margin-right: 10px; }
 
-
-
 /* MS 추가 */
 .w1280{width:1280px;}
 .mlrauto{margin-left:auto; margin-right:auto;}
@@ -854,21 +858,13 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 .img_ty{overflow:hidden; text-indent:-1000px; font-size:0;}
 </style>
 
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <body style="width : 1280px; text-align: center; margin: 0 auto;">
 
-<!-- 상단 이미지 -->
-<div style="width: 1280px; margin: 0 0 30px 0;">
-   <div style="padding-top: 20px;">
-      <img src="../img/bbs_topimg_11.jpg">
-   </div>
-</div>
-
-<div class="cs_title">공지사항</div>
+<div class="cs_title">회원관리</div>
 <!--게시판상단-->
 
 <div id="bbsData">
@@ -903,7 +899,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
          <% for(StudentDTO student:studentList) { %>
          <tr>
                <td><div class="tb-center">   <%=student.getNo() %></div></td>번호
-               <td><div class="tb-left"><img src="../img/neo_notice.gif" /> 제목
+               <td><div class="tb-left"><img src="./img/neo_notice.gif" /> 제목
                <a   href="주소입력"><%=student.getName() %></a></div></td>
                <td><div class="tb-center">관리자</div></td>작성자
                <td><div class="tb-center"><%=student.getName() %></div></td>작성일
@@ -915,198 +911,46 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
    --%>
 
          <table summary="No, content,Name,Data,Hits">
-            <caption>일반게시판 게시글</caption>
+            <caption>회원관리-회원 리스트</caption>
             <colgroup>
                <col width="80" />
-               <col width="*" />
-               <col width="120" />
-               <col width="120" />
-               <col width="120" />
+               <col width="80" />
+               <col width="80" />
+               <col width="80" />
+               <col width="80" />
             </colgroup>
             <thead>
                <tr>
-                  <th scope="col"><div class="tb-center">번호</div></th>
-                  <th scope="col"><div class="tb-center">제목</div></th>
-                  <th scope="col"><div class="tb-center">작성자</div></th>
-                  <th scope="col"><div class="tb-center">작성일</div></th>
-                  <th scope="col"><div class="tb-center">조회</div></th>
+                  <th scope="col"><div class="tb-center">회원번호</div></th>
+                  <th scope="col"><div class="tb-center">아이디</div></th>
+                  <th scope="col"><div class="tb-center">회원명</div></th>
+                  <th scope="col"><div class="tb-center">이메일주소</div></th>
+                  <th scope="col"><div class="tb-center">가입일자</div></th>
                </tr>
             </thead>
             <tbody>
-               <!--  공지사항 리스트 시작 -->
-               <tr>
-                  <td><div class="tb-center">   숫자</div></td>
-                  <td><div class="tb-left"><img src="../img/neo_notice.gif" /> 
-                  <a   href="주소입력">2019   한국브랜드 만족지수 1위 비츠조명</a></div></td>
-                  <td><div class="tb-center">관리자</div></td>
-                  <td><div class="tb-center">2019/02/22</div></td>
-                  <td><div class="tb-center">6668</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">비츠조명의
-                           전국 조명설치 서비스 실시!</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2018/09/19</div></td>
-                  <td><div class="tb-center">1064</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">2018
-                           한국브랜드 만족지수 1위 비츠조명</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2018/06/19</div></td>
-                  <td><div class="tb-center">5296</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">카카오톡
-                           알림톡 서비스</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2017/03/06</div></td>
-                  <td><div class="tb-center">5472</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">2017
-                           한국브랜드 만족지수 1위 비츠조명</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2016/04/06</div></td>
-                  <td><div class="tb-center">241450</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">오후
-                           2시 이전 당일발송 서비스 실시!</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2015/09/10</div></td>
-                  <td><div class="tb-center">232092</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">2015
-                           국가품질만족지수 1위 비츠조명</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2015/09/10</div></td>
-                  <td><div class="tb-center">38313</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">비츠조명
-                           VIP 서비스 실시</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2014/12/05</div></td>
-                  <td><div class="tb-center">32009</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">랭키닷컴
-                           선정 조명/디스플레이 쇼핑몰 1위</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2014/11/26</div></td>
-                  <td><div class="tb-center">19051</div></td>
-               </tr>
-               <tr>
-                  <td><div class="tb-center">
-                        숫자
-                     </div></td>
-                  <td>
-                     <div class="tb-left">
-                        <img src="../img/neo_notice.gif" /> <a
-                           href="주소입력">[모바일]기업회원
-                           특별할인</a>
-
-                     </div>
-                  </td>
-                  <td>
-                     <div class="tb-center">관리자</div>
-                  </td>
-                  <td><div class="tb-center">2014/10/23</div></td>
-                  <td><div class="tb-center">11441</div></td>
-               </tr>
-
-               <!--. 공지사항 리스트 끝! -->
             
+               	<!--  회원 리스트 시작 -->
+               	<% if(adminUserList.isEmpty()) { %>   
+         			<tr align="center">
+            			<td colspan="5">조회된 데이터가 없습니다.</td>            
+         			</tr>
+      		   	<% } else { %>
+				
+				<% for(UserInfoDTO userInfoDTO:adminUserList) { %>
+               	<tr>
+                	<td><div class="tb-center"><%=userInfoDTO.getUserNo() %></div></td>
+                  	<td><div class="tb-center">
+                  	<a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=adminUserDetail&userNo=<%=userInfoDTO.getUserNo() %>">
+                  	<%=userInfoDTO.getUserId() %></a></div></td>
+                  	<td><div class="tb-center"><%=userInfoDTO.getUserNm() %></div></td>
+                  	<td><div class="tb-center"><%=userInfoDTO.getEmailAddr() %></div></td>
+                  	<td><div class="tb-center"><%=userInfoDTO.getFrstRgstDttm() %></div></td>
+               	</tr>
+               	<% } %>
+      			<% } %>            
+               	<!-- 회원 리스트 끝 -->
+                    
             </tbody>
          </table>
       </div>
@@ -1130,13 +974,6 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 
       <!-- .bbs-sch -->
    </div>
-   <!--  수정, 삭제 / 등록, 목록 -->
-       <div class="view-link" style="text-align: right; margin-right: 20px;">
-            <dl class="bbs-link con-link">
-                  <a class="write" href="링크">
-                     <img src="../img/btn_wWrite.gif" alt="글쓰기"></a>                                                                                                                        
-            </dl>                                                                
-         </div>
    <!-- .page-body -->
 </div>
 <!-- #bbsData -->

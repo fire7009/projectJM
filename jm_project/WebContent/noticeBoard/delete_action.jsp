@@ -9,6 +9,14 @@ int num=Integer.parseInt(noticeNo);
 System.out.println(num);
 NoticeDAO.getDAO().delelteNotice(num);
 
+String resultMsg = "";
+
+resultMsg += "<script type='text/javascript'>";
+resultMsg += "alert('삭제가 완료되었습니다.');";	
+resultMsg += "</script>";
+
+out.print(resultMsg);
+
 out.println("<script type='text/javascript'>");
 out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=noticeBoard&work=jm_noticeList';");
 out.println("</script>");

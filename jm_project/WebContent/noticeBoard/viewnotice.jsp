@@ -76,8 +76,7 @@ table {
 
 </style>
 <div class="cs_title"> 공지사항</div>	
-<div
-	class="xans-element- xans-board xans-board-read-4 xans-board-read xans-board-4">
+<div class="xans-element- xans-board xans-board-read-4 xans-board-read xans-board-4">
 	<div class="boardView">
 		<div id="bbsData">
 			<div class="page-body">
