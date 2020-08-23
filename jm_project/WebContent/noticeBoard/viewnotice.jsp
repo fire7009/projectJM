@@ -128,13 +128,33 @@ table {
 						<dl class="bbs-link con-link">
 							<dt></dt>
 							<dd style="margin-bottom: 100px;">
-							
+									<%-- 
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>"><img src="./img/btn_delete2.gif" alt="삭제"></a>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
 									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
- 
+ 									--%>
+ 									
+ 									
+ 									<!--  권한별로 버튼 다르게 보이게 하기!  -->
+ 									 <% if(loginMember != null && loginMember.getUserDv()!="1") { %> <!--  관리자 일 경우 -->
+							   			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
+										
+										<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>" style="margin-right: 400px;">
+											<img src="./img/btn_delete2.gif" alt="삭제"></a>
+									
+										<a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
+									
+										<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
+ 									
+ 									
+							        <% } else { %> <!--  관리자가 아닐 경우 -->
+							       		<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
+							        <% } %>
+        
+        
+        
  							</dd>
 						</dl>
 				</div>

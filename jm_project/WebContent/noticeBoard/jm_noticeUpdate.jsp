@@ -1,3 +1,4 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="jm_dao.NoticeDAO"%>
 <%@page import="jm_dto.NoticeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
@@ -11,7 +12,10 @@
 	
 	NoticeDTO board=NoticeDAO.getDAO().selectNumBoard(num);
 	
+
 %>
+
+
 <style>
 #bbsData .bbs-link { position: relative; }
 #bbsData .bbs-link-top { margin-top: 10px; margin-bottom: -40px;margin-right: 400px; text-align: left; margin-left: 18px; }
