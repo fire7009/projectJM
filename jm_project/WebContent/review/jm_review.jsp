@@ -138,7 +138,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 						</div>
 					<% } %>
 				<div class="table-d2-list">
-					<table border="1px solid black;" style="font-size: 15px;">
+					<table border="1px solid black;"  style="font-size: 15px; margin: o auto; width: 1280;">
 						<tr>
 							<th width="100">번호</th>
 							<th width="100">상품코드</th>

@@ -4,6 +4,7 @@
 <%
 	String user=request.getParameter("user");
 	String ord=request.getParameter("ord");
+	System.out.println("ord="+ord);
 	
 	int rows=OrderInfoDAO.getDAO().delOrd(user, ord);
 	

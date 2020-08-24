@@ -95,7 +95,7 @@ h2 {
 			</a>
 		</div>
 		<div class="adminMain">
-			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=admin&work=niticeList">
+			<a href="<%=request.getContextPath()%>/index.jsp?workgroup=noticeBoard&work=jm_noticeList">
 			<img class="img-fluid" src="./admin/img/mP/review.png"/>
 				<div class="board">
 					<h3>공지사항</h3>					

@@ -16,7 +16,7 @@
 	method="post" onsubmit="return sumbitCheck();" style="text-align: center; font-size: 17px; margin: 200px;">
 	<p style="margin-bottom: 10px;">회원탈퇴를 위한 비밀번호를 입력해주세요. </p>
 	<p>
-		<input type="password" name="password">
+		<input type="password" name="password" style="height: 20px;">
 		<button type="submit">입력완료</button>
 	</p>
 	<p id="message" style="color: red;"><%= message %></p>

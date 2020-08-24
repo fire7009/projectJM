@@ -1,3 +1,4 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@page import="jm_dto.NoticeDTO"%>
 <%@page import="jm_dao.NoticeDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -5,10 +6,13 @@
 	
 <%
 	String noticeNo=request.getParameter("noticeNo");
-	
+
 	int num=Integer.parseInt(noticeNo);
 	
 	NoticeDTO board=NoticeDAO.getDAO().selectNumBoard(num);
+	
+	//세션 받아오기
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
 	
 %>
 
@@ -72,8 +76,7 @@ table {
 
 </style>
 <div class="cs_title"> 공지사항</div>	
-<div
-	class="xans-element- xans-board xans-board-read-4 xans-board-read xans-board-4">
+<div class="xans-element- xans-board xans-board-read-4 xans-board-read xans-board-4">
 	<div class="boardView">
 		<div id="bbsData">
 			<div class="page-body">
@@ -102,7 +105,7 @@ table {
 									</tr>
 									<tr>
 										<th>조회수 </th>
-									<td>	<%=board.getNoticeReadcount() %></td>
+									<td>	<%=NoticeDAO.getDAO().updateReadCount(num) %></td> 
 							</tr>
 
 							<tr>
@@ -123,13 +126,36 @@ table {
 					<div class="view-link">
 						<dl class="bbs-link con-link">
 							<dt></dt>
-							<dd>
-								<a href="#" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
-								<a href="#"><img src="./img/btn_delete2.gif" alt="삭제"></a>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<a class="write" href="#"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
-								<a href="#"><img src="./img/btn_list2.gif" alt="목록"></a>
-							</dd>
+							<dd style="margin:0 aute; margin-bottom: 100px;">
+									<%-- 
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>"><img src="./img/btn_delete2.gif" alt="삭제"></a>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
+									<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
+ 									--%>
+ 									
+ 								<form id="boardForm" method="post">	
+ 								
+ 									<!--  권한별로 버튼 다르게 보이게 하기!  -->
+ 									 <% if(loginMember != null && loginMember.getUserDv().equals("1")) { %> <!--  관리자 일 경우 -->
+							   			<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate&noticeNo=<%=noticeNo %>" class="none"><img src="./img/btn_wModify2.gif" alt="수정"></a> 
+										
+										<button type="button" id="removeBtn" style="border: none; margin-right: 400px;"><img src="./img/btn_delete2.gif" alt="삭제"> </button>
+										
+										<a class="write" href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite"><img src="./img/btn_wWrite2.gif" alt="글쓰기"></a> 
+									
+										<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
+ 									
+ 									
+							        <% } else { %> <!--  관리자가 아닐 경우 -->
+							       		<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList"><img src="./img/btn_list2.gif" alt="목록"></a>
+							        <% } %>
+							        
+                                </form>
+        
+        
+ 							</dd>
 						</dl>
 				</div>
 			</div>
@@ -138,10 +164,14 @@ table {
 		<!-- #bbsData -->
 	</div>
 </div>
-<div>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
+
+<script type="text/javascript">
+$("#removeBtn").click(function() {
+	if(confirm("정말로 삭제하시겠습니까?")) {
+		$("#boardForm").attr("action","<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=delete_action&noticeNo=<%=noticeNo %>");
+		$("#boardForm").submit();
+	}
+});
+
+</script>
+

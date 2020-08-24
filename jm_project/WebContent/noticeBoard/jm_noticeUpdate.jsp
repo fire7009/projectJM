@@ -1,6 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-   
+<%@page import="jm_dto.UserInfoDTO"%>
+<%@page import="jm_dao.NoticeDAO"%>
+<%@page import="jm_dto.NoticeDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+	
+<%
+	String noticeNo=request.getParameter("noticeNo");
+	
+	int num=Integer.parseInt(noticeNo);
+	
+	NoticeDTO board=NoticeDAO.getDAO().selectNumBoard(num);
+%>
 
 <style>
 #bbsData .bbs-link { position: relative; }
@@ -227,11 +236,9 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 .total-page .total { float: left; width: auto; }
 .total-page .page { float: right; width: auto;}
 
-
-
 </style>
 
- <div class="cs_title" style="margin-left:20%; margin-top:100px; font-size:23px; font-weight:600;	color:#333;">공지사항 작성</div>
+ <div class="cs_title" style="margin-left:20%; margin-top:100px; font-size:23px; font-weight:600;	color:#333;">공지사항 수정</div>
 <!--게시판상단-->
 
 <div id="bbsData">
@@ -239,11 +246,11 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
         <div class="bbs-table-write">
         
         
-<form id="form1"  name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=noticeWrite_action"  method='post'  style="position:relative;" autocomplete="off">
+<form id="form1"  name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeUpdate_action&noticeNo=<%=noticeNo %>"  method='post'  style="position:relative;" autocomplete="off">
 <fieldset>
-       <legend>공지사항 쓰기</legend>
+       <legend>공지사항 수정</legend>
        <table summary="">
-           <caption>공지사항 글쓰기</caption>
+           <caption>공지사항 수정</caption>
            <colgroup>
                <col width="160" />
                <col width="*" />
@@ -253,7 +260,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                    <th><div>제목</div></th>
                    <td colspan="">
                        <div class="title">
-                     	 <input id="subject"class="MS_input_txt input_style2" type='text' name='subject' value='' 
+                     	 <input id="subject"class="MS_input_txt input_style2" type='text' name='subject'  value="<%=board.getNoticeTitle() %>"
                      	 	style="height: 35px;   width: 400px; border-color: lightgray" />                                                    
                      	</div>
                    </td>
@@ -262,7 +269,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                    <th><div>내용</div></th>
                    <td colspan="">
                 <div>
-              	 <textarea id="content2" name='content' wrap="off" onfocus='clear_content()'  class="MS_input_txt"  style="height: 400px;" ></textarea>
+              	 <textarea id="content2" name='content'  class="MS_input_txt"  style="height: 400px;" ><%=board.getNoticeContents() %></textarea>
                 </div>
                 </td>
             </tr>

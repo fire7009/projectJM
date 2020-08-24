@@ -1,5 +1,22 @@
+<%@page import="jm_dto.UserInfoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
+<%
+
+	UserInfoDTO loginMember=(UserInfoDTO)session.getAttribute("loginMember");
+
+	//로그인 사용자가 작성자 또는 관리자가 아닌 경우 >> 목록으로 보내기 
+	if(!loginMember.getUserDv().equals("1") ) {
+		out.println("<script type = 'text/javascript'>");
+		out.println("location.href='"+request.getContextPath()+"/index.jsp?workgroup=noticeBoard&work=jm_noticeList';");
+		out.println("</script>");
+		return;
+	}
+
+%>
+
 <style>
 #bbsData .bbs-link { position: relative; }
 #bbsData .bbs-link-top { margin-top: 10px; margin-bottom: -40px;margin-right: 400px; text-align: left; margin-left: 18px; }
@@ -21,15 +38,7 @@ input, select, textarea, button {
     padding: 0;
 }
 
-body {
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 30%;
-    margin-right: 30%;
-}
+
 
 h1, h2, h3, h4, h5, h6, table,
 input, select, textarea, a {
@@ -77,6 +86,7 @@ select {
     line-height: 18px;
     height: 18px;
 }
+
 input:focus {
     outline: none;
 }
@@ -99,6 +109,9 @@ table {
 .bbs-table-write {
     margin-top: 10px;
     border-top: 2px solid #333;
+    margin-left: 20%;
+    margin-right: 20%;
+    
 }
 .bbs-table-write tbody th {
     width: 60px;
@@ -229,20 +242,22 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
 .total-page .total { float: left; width: auto; }
 .total-page .page { float: right; width: auto;}
 
+
 </style>
 
- <div class="cs_title" style="font-size:23px; font-weight:600;	color:#333;">공지사항 수정</div>
+ <div class="cs_title" style="margin-left:20%; margin-top:100px; font-size:23px; font-weight:600;	color:#333;">공지사항 작성</div>
 <!--게시판상단-->
-<body>
+
 <div id="bbsData">
     <div class="page-body">
         <div class="bbs-table-write">
-<form name='form1' action="board.html" method='post' enctype="multipart/form-data" style="position:relative;" autocomplete="off">
-<div id='passimg' name='passimg' style=' position:absolute; visibility:hidden;z-index:999; '></div>
+        
+        
+<form id="form1"  name='form1' action="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeWrite_action"  method='post'  style="position:relative;" autocomplete="off">
 <fieldset>
-       <legend>공지사항 수정</legend>
+       <legend>공지사항 쓰기</legend>
        <table summary="">
-           <caption>공지사항 수정하기</caption>
+           <caption>공지사항 글쓰기</caption>
            <colgroup>
                <col width="160" />
                <col width="*" />
@@ -252,7 +267,7 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                    <th><div>제목</div></th>
                    <td colspan="">
                        <div class="title">
-                     	 <input id='bw_input_subject'  class="MS_input_txt input_style2" type='text' name='subject' value='' 
+                     	 <input id="subject"class="MS_input_txt input_style2" type='text' name='subject' value='' 
                      	 	style="height: 35px;   width: 400px; border-color: lightgray" />                                                    
                      	</div>
                    </td>
@@ -260,9 +275,9 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
                <tr>
                    <th><div>내용</div></th>
                    <td colspan="">
-                       <div>
-               <textarea id='MS_text_content' name='content' wrap="off" onfocus='clear_content()'  class="MS_input_txt"  style="height: 400px;" ></textarea>
-            	</div>
+                <div>
+              	 <textarea id="content2" name='content' wrap="off" onfocus='clear_content()'  class="MS_input_txt"  style="height: 400px;" ></textarea>
+                </div>
                 </td>
             </tr>
            </tbody>
@@ -270,13 +285,39 @@ textarea { width:600px; height:47px; padding:2px; border:1px solid #EDEDED;}
    </fieldset>
    <dl class="bbs-link bbs-link-btm">
        <dt></dt>
-       <dd>
-           <a class="write" href="JavaScript:send();"><img src="../img/btn_wWrite.gif" alt="수정"></a>
-           <a href="목록 경로"><img src="../img/btn_list.gif" alt="취소"></a>
+       <dd style="margin-bottom: 100px;">
+       	<button type="submit" style="border: none;"><img src="./img/btn_wWrite.gif" alt="등록"></button>
+         	<a href="<%=request.getContextPath() %>/index.jsp?workgroup=noticeBoard&work=jm_noticeList">
+         	<img src="./img/btn_list.gif" alt="목록"></a>
        </dd>
    </dl>
-</form>                        
+</form>
+             
+</div>
 </div>
 </div>
 <!-- .page-body -->
-</body>
+
+<script type="text/javascript">
+
+$("#subject").focus();
+
+$("#form1").submit(function() {
+	   if($("#subject").val()=="" ) {
+	      $("#message").text("제목을 입력해 주세요.");
+	      $("#subject").focus();
+	      $("#subject").focus();
+	      return false;
+	   }
+	   
+	   if($("#content2").val()=="") {
+	      $("#message").text("내용을 입력해 주세요.");
+	      $("#content2").focus();
+	      return false;
+	   }
+	});
+
+</script>
+
+           
+

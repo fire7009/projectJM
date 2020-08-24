@@ -33,9 +33,7 @@
 			+"-"+request.getParameter("etcphone2")
 			+"-"+request.getParameter("etcphone3");
 	String emailAddr=request.getParameter("email");
-	System.out.println("address2 = "+detlAddr);
-	System.out.println("postCd = "+postCd);
-	System.out.println("email = "+emailAddr);
+ 
 	
 	//DTO 인스턴스를 생성하여 입력값으로 필드값 변경
 	UserInfoDTO userInfo=new UserInfoDTO();
