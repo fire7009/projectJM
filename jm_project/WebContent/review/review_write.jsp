@@ -9,44 +9,65 @@
 	pageNum = request.getParameter("pageNum");
 %>
 <style type="text/css">
-table {
+	table {
 	margin: 0 auto;
-}
-
-th {
+	margin-top: 20px;
+	margin-bottom: 100px;
+	width: 800px;
+	 border-top: 1px solid gray;
+	 border-collapse: collapse;
+	}
+	
+	th {
 	width: 70px;
-	font-weight: normal;
-	font-size: 15px;
-}
-
-td {
+	font-weight: bold;'
+	font: sans-serif;
+	font-size : 16px;
+	padding: 20px 10px 10px 20px;
+	
+	}
+	
+	td {
 	text-align: left;
-}
+	font: sans-serif;
+	font-size : 16px;
+	padding: 20px 10px 10px 20px;
+	}
+	
+
 </style>
 
+
+<div class="title1" style="margin-left:30%; margin-top:100px; font-size:20px; font-weight:bold; color:#333;">게시글 작성</div>
+
 <form action="<%=request.getContextPath()%>/index.jsp?workgroup=review&work=review_write_action" method="post" id="boardForm">
-	
-	<table style="margin: 30px;">
-		<tr>
-			<th>제목</th>
-			<td>
-				<input type="text" name="subject" id="subject" size="60">
-				<input type="checkbox" name="secret" value="1">비밀글 
-			</td> 
-		</tr>
-		<tr>
-			<th>내용</th>
-			<td>
-				<textarea rows="7" cols="60" name="content" id="board_content"></textarea>
-			</td>
-		</tr>
-		<tr>
-			<th colspan="2">
-				<button type="submit">글저장</button>
-				<button type="reset" id="resetBtn">다시쓰기</button>
-			</th>
-		</tr>
-	</table>	
+
+<table>
+   <tr>
+      <th style="">제목</th>
+      <td>
+         <input type="text" name="subject" id="subject" size="40" style="height: 20px; ">
+         <input type="checkbox" name="secret" value="1" style="height: 15px; width: 15px;">비밀글 
+      </td> 
+   </tr>
+   
+   <tr>
+      <th>내용</th>
+      <td style="margin-bottom: 20px;">
+         <textarea rows="7" cols="60" name="content" id="board_content"></textarea>
+      </td>
+   </tr>
+   
+   <tr>
+   </tr>
+   
+   <tr>
+      <th colspan="2">
+         <button type="submit" style="border: none;"><img src="./img/btn_wWrite.gif" alt="등록"></button>
+         <button type="reset" id="resetBtn" style="border: none;"><img src="./img/btn_Reset.gif" alt="다시입력"></button>
+      </th>
+   </tr>
+</table>   
 </form>
 <div id="message" style="color: red;"></div>
 

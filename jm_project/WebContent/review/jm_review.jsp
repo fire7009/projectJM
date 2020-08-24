@@ -134,7 +134,7 @@ body, h1, h2, h3, h4, h5, h6, table, input, select, textarea, a {
 			<div class="page-body">
 					<% if(loginMember != null) {//로그인 사용자인 경우 %>
 						<div id="btn" align="right" style="margin-right: 610px; margin-bottom: 10px;">
-						<button type="button" id="writeBtn">글쓰기</button>
+						<button type="button" id="writeBtn" style="border: none;"><img src="./img/btn_wWrite.gif" alt="등록"></button>
 						</div>
 					<% } %>
 				<div class="table-d2-list">
